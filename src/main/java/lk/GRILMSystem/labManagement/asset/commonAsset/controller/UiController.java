@@ -50,10 +50,6 @@ public class UiController {
         return "login/login";
     }
 
-    @GetMapping(value = {"/loginNew"})
-    public String getLoginNew() {
-        return "login/loginNew";
-    }
 
     @GetMapping(value = {"/login/error10"})
     public String getLogin10(Model model) {
