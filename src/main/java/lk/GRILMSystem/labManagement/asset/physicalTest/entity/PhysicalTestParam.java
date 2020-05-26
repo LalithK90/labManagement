@@ -28,8 +28,8 @@ public class PhysicalTestParam extends AuditEntity {
     private double eabMax;
     private double tearStMin;
     private double tearStMax;
-    private double abrationMin;
-    private double abrationMax;
+    private double abrasionMin;
+    private double abrasionMax;
     private double cbdMin;
     private double cbdMax;
 
