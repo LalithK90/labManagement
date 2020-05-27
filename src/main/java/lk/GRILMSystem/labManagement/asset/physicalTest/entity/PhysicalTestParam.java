@@ -22,12 +22,15 @@ public class PhysicalTestParam extends AuditEntity {
     private double hardnessMin;
     private double hardnessMax;
     private double tenStMin;
+    private String tenStUnit;
     private double modulusMin;
     private double modulusMax;
+    private String modulusUnit;
     private double eabMin;
     private double eabMax;
     private double tearStMin;
     private double tearStMax;
+    private String tearStUnit;
     private double abrasionMin;
     private double abrasionMax;
     private double cbdMin;
