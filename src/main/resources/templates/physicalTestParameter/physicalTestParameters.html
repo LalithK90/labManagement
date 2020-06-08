@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>GRI</title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<h1>Physical Properties Test Parameters</h1>
+<div class="container">
+    <form>
+        <div class="form-group row" style="margin-bottom: 20px !important;">
+            <label class="col-sm-2 col-form-label-sm lbl_left">Compound Code
+                <span class=required>*</span></label>
+            <div class="col-sm-3">
+                <input type="text" name="compoundCode">
+            </div>
+            <div class="col-sm-7"></div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+
+            <label class="col-sm-2 col-form-label-sm lbl_left">Specific Gravity</label>
+            <label class="col-sm-2 col-form-label-sm lbl_left">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="sgMin">
+            </div>
+
+            <label class="col-sm-2 col-form-label-sm lbl_left">Max</label>
+            <div class="col-sm-3">
+                <input  type="text" name="sgMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2 col-form-label-sm lbl_left">Hardness</label>
+            <label class="col-sm-2 col-form-label-sm lbl_left">Min</label>
+            <div class="col-sm-3">
+                <input  type="text" name="hardnessMin">
+            </div>
+            <label class="col-sm-2 col-form-label-sm lbl_left">Max</label>
+            <div class="col-sm-3">
+                <input  type="text" name="hardnessMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">Tensile Strength</label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="tenStMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="tenStMax" disabled>
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">Modulus </label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="modulusMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="modulusMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">E.A.B </label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="eabMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="eabMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">Tear ST. </label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="tearStMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="tearStMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">Abrasion</label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="abrasionMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="abrasionMax">
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 20px">
+            <label class="col-sm-2">CBD</label>
+            <label class="col-sm-2">Min</label>
+            <div class="col-sm-3">
+                <input type="text" name="cbdMin">
+            </div>
+            <label class="col-sm-2">Max</label>
+            <div class="col-sm-3">
+                <input type="text" name="cbdMax">
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px;">&nbsp;</div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-info" >
+                    Create
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-light" style="margin-left: 5px;">
+                    Reset
+                </button>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
