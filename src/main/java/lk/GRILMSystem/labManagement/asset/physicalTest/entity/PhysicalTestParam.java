@@ -17,6 +17,7 @@ import javax.persistence.Entity;
 public class PhysicalTestParam extends AuditEntity {
 
 
+    private String compoundCode;
     private double sgMin;
     private double sgMax;
     private double hardnessMin;
