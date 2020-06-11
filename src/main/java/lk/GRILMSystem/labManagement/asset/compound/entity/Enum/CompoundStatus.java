@@ -1,5 +1,10 @@
 package lk.GRILMSystem.labManagement.asset.compound.entity.Enum;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum CompoundStatus {
 
     INTEST("In the testing process"),
@@ -9,11 +14,4 @@ public enum CompoundStatus {
 
     private final String compoundStatus;
 
-    CompoundStatus(String compoundStatus){
-        this.compoundStatus = compoundStatus;
-    }
-
-    public String getCompoundStatus() {
-        return compoundStatus;
-    }
 }
