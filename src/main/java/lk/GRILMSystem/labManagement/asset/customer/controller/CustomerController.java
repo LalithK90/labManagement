@@ -67,7 +67,7 @@ public class CustomerController implements AbstractController<Customer, Integer>
             if (customerService.lastCustomer() == null) {
                 System.out.println("last customer null");
                 //need to generate new onecustomer
-                customer.setCode("KMC"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+                customer.setCode("GRI"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
             } else {
                 System.out.println("last customer not null");
                 //if there is customer in db need to get that customer's code and increase its value

@@ -3,6 +3,7 @@ package lk.GRILMSystem.labManagement.asset.customer.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.Title;
+import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.Size;
+import java.lang.reflect.Type;
 
 @Entity
 @Getter
@@ -26,8 +28,14 @@ public class Customer extends AuditEntity {
     @Enumerated(EnumType.STRING)
     private Title title;
 
+    @Enumerated(EnumType.STRING)
+    private CustomerType customerType;
+
     @Size(min = 5, message = "Your name cannot be accepted")
     private String name;
+
+    @Column(unique = true)
+    private String companyName;
 
     @Size(max = 12, min = 10, message = "NIC number is formed by 9 numbers with X/V OR 12 numbers ")
     @Column(unique = true)

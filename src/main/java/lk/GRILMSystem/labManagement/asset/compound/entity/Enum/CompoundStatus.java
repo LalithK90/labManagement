@@ -12,6 +12,6 @@ public enum CompoundStatus {
     APPROVED("Approved"),
     DISPOSED("Disposed");
 
-    private final String compoundStatus;
+    private final String status;
 
 }

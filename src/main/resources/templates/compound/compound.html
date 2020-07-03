@@ -37,8 +37,7 @@
                 <tr>
                     <th> Index</th>
                     <th> Compound Code</th>
-                    <th> Received Date</th>
-                    <th> Release Date</th>
+                    <th> Compound Name</th>
                     <th> Status</th>
                     <th> Modify</th>
                 </tr>
@@ -46,10 +45,11 @@
                 <tbody>
                 <tr th:each="compound, rowCount : ${compounds}">
                     <th th:text="${rowCount.count}"></th>
-                    <th th:text="${compound.compoundCode}"></th>
-                    <th th:text="${compound.receivedDate}"></th>
-                    <th th:text="${compound.releaseDate}"></th>
-                    <th th:text="${compound.compoundStatus.compoundStatus}"></th>
+                    <th th:text="${compound.code}"></th>
+                    <th th:text="${compound.name}"></th>
+                    <th th:text="${compound.status.status}"></th>
+
+
                     <th>
                        <!-- <a id="employeeView" th:href="${'/compound/' + compound.id}" class="btn btn-success btn-sm"><i
                                 class="fa fa-folder-open"></i>&nbsp;View</a>

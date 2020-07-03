@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,6 +22,12 @@ public class CompoundController {
     @Autowired
     public CompoundController(CompoundService compoundService) {
         this.compoundService = compoundService;
+    }
+
+    @GetMapping
+    public String findAll(Model model){
+        model.addAttribute("compounds", compoundService.findAll());
+        return "compound/compound";
     }
 
     @GetMapping("/compoundView")
@@ -54,6 +57,18 @@ public class CompoundController {
         }
         compoundService.persist(compound);
 
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, Model model) {
+        compoundService.delete(id);
+        return "redirect:/compound";
+    }
+
+    @GetMapping("/{id}")
+    public String view(@PathVariable Integer id, Model model){
+        model.addAttribute("compoundDetails", compoundService.findById(id));
+        return "compound/compound-detail";
     }
 
 }
