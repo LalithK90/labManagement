@@ -12,7 +12,7 @@ public enum Title {
     MS("Ms. "),
     DR("Dr. "),
     DRMRS("Dr(Mrs). "),
-    PRO("Prof. "),;
+    PRO("Prof. ");
 
     private final String title;
 }

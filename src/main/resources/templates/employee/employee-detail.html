@@ -45,19 +45,20 @@
                 </div>
                 <div class="form-row text-right">
                     <div class="col-md-4">
-                        <label class="control-label" for="payRoleNumber">Pay Role No :</label>
+                        <label class="control-label" for="employeeId">Employee Id :</label>
                     </div>
                     <div class="col-md-8">
-                        <p id="payRoleNumber" th:text="${employeeDetail.payRoleNumber}" class="display_detail"></p>
+                        <p id="employeeId" th:text="${employeeDetail.employeeId}" class="display_detail"></p>
                     </div>
                 </div>
-                <div class="form-row text-right">
+               <!-- <div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="departmentIdNumber">Depart Id No :</label>
                     </div>
                     <div class="col-md-8">
-                        <p id="departmentIdNumber" th:text="${employeeDetail.departmentIdNumber}" class="display_detail"></p></div>
-                </div>
+                        <p id="departmentIdNumber" th:text="${employeeDetail.departmentIdNumber}" class="display_detail"></p>
+                    </div>
+                </div>-->
                 <div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="name">Name :</label>
@@ -98,7 +99,7 @@
                         <p id="dateOfBirth" th:text="${employeeDetail.dateOfBirth}" class="display_detail">Error Birthday</p>
                     </div>
                 </div>
-                <div class="form-row text-right">
+                <!--<div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="bloodGroup">Blood Group :</label>
                     </div>
@@ -106,7 +107,7 @@
                         <p id="bloodGroup" th:text="${employeeDetail.bloodGroup.bloodGroup}" class="display_detail">
                         </p>
                     </div>
-                </div>
+                </div>-->
                 <div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="designation">Designation :</label>
@@ -167,14 +168,14 @@
                         <p id="land" th:text="${employeeDetail.land}" class="display_detail"></p>
                     </div>
                 </div>
-                <div class="form-row text-right">
+                <!--<div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="email">Email :</label>
                     </div>
                     <div class="col-md-8">
                         <p id="email" th:text="${employeeDetail.email}" class="display_detail"></p>
                     </div>
-                </div>
+                </div>-->
                 <div class="form-row text-right">
                     <div class="col-md-4">
                         <label class="control-label" for="officeEmail">Office Email :</label>
@@ -225,11 +226,11 @@
                 </div>
             </div>
             <!--Current Working Place Details-->
-            <div class="container-fluid bg-dark formBorder">
+            <!--<div class="container-fluid bg-dark formBorder">
                 <h3 class="control-label">Current Working Place Details</h3>
                 <div class="col-sm-12 flex-column">
                     <div class="row">
-                        <!--Left Side-->
+                        &lt;!&ndash;Left Side&ndash;&gt;
                         <div class="form-group col-md-6 col-sm-6 text-left flex-column">
                             <div class="form-row text-right">
                                 <div class="col-md-4">
@@ -292,8 +293,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--Right Side-->
-                        <div class="form-group col-md-6 col-sm-6 text-right flex-column">
+                        &lt;!&ndash;Right Side&ndash;&gt;
+                      &lt;!&ndash;  <div class="form-group col-md-6 col-sm-6 text-right flex-column">
                             <div class="form-row text-right">
                                 <div class="col-md-4">
                                     <label class="control-label" for="employeeWorkingPlaceLandOne">Land No One:</label>
@@ -354,10 +355,10 @@
                                     <p id="employeeWorkingPlaceCreatedAt" class="display_detail" th:text="${#temporals.format(employeeDetail.workingPlace.createdAt, 'dd-MM-yyyy HH:mm')}"></p>
                                 </div>
                             </div>
-                        </div>
+                        </div>&ndash;&gt;
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--images-->
             <div class="form-group col-md-12 col-sm-12 text-left flex-column ">
                 <div class="col" id="photoDetails">

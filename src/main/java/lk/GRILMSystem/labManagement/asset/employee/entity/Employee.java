@@ -34,7 +34,7 @@ import java.util.List;
 public class Employee extends AuditEntity {
 
     @Column( unique = true )
-    private String payRoleNumber;
+    private String employeeId;
 
     @Size( min = 5, message = "Your name cannot be accepted" )
     private String name;
@@ -46,18 +46,14 @@ public class Employee extends AuditEntity {
     @Column( unique = true )
     private String nic;
 
-    @Column( unique = true )
-    private String departmentIdNumber;
-
     @Size( max = 10, message = "Mobile number length should be contained 10 and 9" )
     private String mobileOne;
 
+    @Size( max = 10, message = "Mobile number length should be contained 10 and 9" )
     private String mobileTwo;
 
+    @Size( max = 10, message = "Phone number length should be contained 10 and 9" )
     private String land;
-
-    @Column( unique = true )
-    private String email;
 
     @Column( unique = true )
     private String officeEmail;
@@ -70,9 +66,6 @@ public class Employee extends AuditEntity {
 
     @Enumerated( EnumType.STRING )
     private Gender gender;
-
-    @Enumerated( EnumType.STRING )
-    private BloodGroup bloodGroup;
 
     @Enumerated( EnumType.STRING )
     private Designation designation;
@@ -88,7 +81,6 @@ public class Employee extends AuditEntity {
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfAssignment;
-
 
     @ManyToMany( mappedBy = "employees" )
     private List<EmailMessage> emailMessages;
