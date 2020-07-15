@@ -45,6 +45,18 @@
                             <input id="id" th:field="*{id}" class="form-control" type="text" readonly/>
                         </div>
                     </div>
+                    <!--Payrole number-->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="name">Employee Id :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="employeeId" th:field="*{employeeId}" class="form-control" tabindex="4" type="text" required/>
+                            <span id="employeeIdError" th:errors="*{employeeId}"
+                                  th:if="${#fields.hasErrors('employeeId')}" class="error">Error Employee Id
+                            </span>
+                        </div>
+                    </div>
                     <!--Tittle -->
                     <div class="form-row text-right">
                         <div class="col-md-4">
@@ -127,7 +139,7 @@
                         </div>
                     </div>
                     <!--Blood group-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="bloodGroup">Blood Group :</label>
                         </div>
@@ -140,7 +152,7 @@
                                         th:selected="${bloodGroups==employee.bloodGroup?'selected':'unselected'}">Please select</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Designation-->
                     <div class="form-row text-right">
                         <div class="col-md-4">
@@ -223,7 +235,7 @@
                         </div>
                     </div>
                     <!--Email-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="email">Email :</label>
                         </div>
@@ -232,7 +244,7 @@
                             <span class="error" th:errors="*{email}"
                                   th:if="${#fields.hasErrors('email')}" id="emailError">Error Email</span>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Office email-->
                     <div class="form-row text-right">
                         <div class="col-md-4">
@@ -272,7 +284,7 @@
                         </div>
                     </div>
                     <!--Current Working Place-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="workingPlace">Employee Working Place :</label>
                         </div>
@@ -284,7 +296,7 @@
                                         th:value="${workingPlace.id}"></option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Created by and created at-->
                     <div id="updateStatus" th:if="${addStatus==false}">
                         <div class="form-row text-right">

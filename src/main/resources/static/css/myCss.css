@@ -18,8 +18,8 @@
 /*html Background - start*/
 body {
 
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
 }
 
 /*html Background - end*/
@@ -374,11 +374,11 @@ input {
 /*medical Package show area - end*/
 /* enter filed validation - start*/
 .valid {
-    background-color: #7ae899;
+    background-color: #b0f3c3;
 }
 
 .invalid {
-    background-color: #ff88b3;
+    background-color: #f69b9b;
 }
 
 /*html 5 filed validation - start */

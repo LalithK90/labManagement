@@ -84,7 +84,7 @@ public class EmployeeController {
     public String editEmployeeForm(@PathVariable( "id" ) Integer id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
-        model.addAttribute("newEmployee", employee.getPayRoleNumber());
+        model.addAttribute("newEmployee", employee.getEmployeeId());
         model.addAttribute("addStatus", false);
         model.addAttribute("files", employeeFilesService.employeeFileDownloadLinks(employee));
         return commonThings(model);
