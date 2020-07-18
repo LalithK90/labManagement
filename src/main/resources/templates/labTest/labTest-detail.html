@@ -1,69 +1,77 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/headerSection :: headerSectionFragment}"></head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+
+<div class="container-fluid bg-secondary form-Border">
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-primary" href="/home">
+                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
+            </a>
+        </div>
+        <div class="col">
+            <h4 class="text-light text-center">
+                <strong>
+                    <p th:text="${labTestDetail.name}"></p>
+                </strong>
+            </h4>
+        </div>
+        <div class="col">
+            <a href="/employee" class="btn btn-primary">
+                <i class="fa fa-list"></i>&nbsp; View List
+            </a>
+        </div>
+    </div>
+</div>
 <div class="wrapper"><!-- wrapper start -->
-    <nav data-th-replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav><!-- navbar Section -->
-    <aside data-th-replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside><!-- navbar Section -->
+
     <div class="content-wrapper"><!-- content-wrapper Start -->
-        <section data-th-replace="~{fragments/contentHeader :: contentHeaderSectionFragment}"></section>
-        <!-- Form Header  Path -->
-        <section data-th-replace="~{fragments/smallBoxSection :: smallBoxSectionFragment}"></section><!-- Small Box Set -->
+
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-3">
+
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>First sud Header</h4>
-                                        <form role="form">
-                                            <a href="/subject">
-                                                <button class="btn btn-primary">
 
-                                                    <i class="fa fa-step-backward mr-1"></i>Back
-                                                </button>
-                                            </a>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4>Secondary Header </h4>
-                                        <div class="container-fluid" data-th-fragment="interviewDetail">
+                                        <div class="container-fluid" data-th-fragment="labTestDetail">
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label "> Id </label>
+                                                <label class="col-sm-2 col-form-label "> Id :</label>
                                                 <div class="col-sm-10">
-                                                    <p class="display_detail" data-th-text="${interviewDetail.id}"></p>
+                                                    <p class="display_detail" data-th-text="${labTestDetail.id}"></p>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label "> Name </label>
+                                                <label class="col-sm-2 col-form-label "> Name :</label>
                                                 <div class="col-sm-10">
-                                                    <p class="display_detail" data-th-text="${interviewDetail.name}"></p>
+                                                    <p class="display_detail" data-th-text="${labTestDetail.name}"></p>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label "> Interview Status </label>
+                                                <label class="col-sm-2 col-form-label "> LabTest Status :</label>
+                                                <!--<div class="col-sm-10">
+                                                    <p class="display_detail"
+                                                       data-th-text="${labTestDetail.labTestStatus.labTestStatus}"></p>
+                                                </div>-->
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label "> LabTest Parameter :</label>
                                                 <div class="col-sm-10">
                                                     <p class="display_detail"
-                                                       data-th-text="${interviewDetail.interviewStatus.interviewStatus}"></p>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label "> Interview Parameter </label>
-                                                <div class="col-sm-10">
-                                                    <p class="display_detail"
-                                                       data-th-each="interviewParameter : ${interviewDetail.interviewParameters}"
-                                                       data-th-text="${interviewParameter.name} + ${'  '}+${interviewParameter.max}"></p>
+                                                       data-th-each="labTestParameter : ${labTestDetail.labTestParameters}"
+                                                       data-th-text="${labTestParameter.name} "></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,8 +85,9 @@
                 </div>
             </div>
         </div><!-- content-wrapper end -->
-        <footer data-th-replace="~{fragments/footerSection :: footerSectionFragment}"></footer><!-- footer Section -->
+        <footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
     </div><!-- wrapper end -->
-    <script data-th-replace="~{fragments/scriptSection :: scriptSectionFragment}"></script><!-- script Fragment -->
+    <script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+</div>
 </body>
 </html>

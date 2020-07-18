@@ -256,7 +256,7 @@ label {
     font-max-size: 22px;
     font-min-size: 12px;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 
 input {
@@ -293,6 +293,7 @@ input {
     -o-animation: AnimationName 31s ease infinite;
     animation: AnimationName 31s ease infinite;
 }
+/*
 
 @-webkit-keyframes AnimationName {
     0% {
@@ -341,6 +342,7 @@ input {
         background-position: 88% 0%
     }
 }
+*/
 
 .form-Border {
     border-radius: 15px;

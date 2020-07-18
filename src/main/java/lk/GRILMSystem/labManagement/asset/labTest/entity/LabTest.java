@@ -26,8 +26,8 @@ public class LabTest extends AuditEntity {
     private LabTestStatus LabTestStatus;
 
     @ManyToMany
-    @JoinTable(name = "labTest_labTest_parameter",
-            joinColumns = @JoinColumn(name = "labTest_id"),
-            inverseJoinColumns = @JoinColumn(name = "labTest_parameter_id"))
+    @JoinTable(name = "lab_test_lab_test_parameter",
+            joinColumns = @JoinColumn(name = "lab_test_id"),
+            inverseJoinColumns = @JoinColumn(name = "lab_test_parameter_id"))
     private List<LabTestParameter> labTestParameters;
 }

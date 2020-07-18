@@ -33,8 +33,8 @@ import java.util.List;
 @JsonFilter( "Employee" )
 public class Employee extends AuditEntity {
 
-    @Column( unique = true )
-    private String employeeId;
+    @Column(unique = true)
+    private String code;
 
     @Size( min = 5, message = "Your name cannot be accepted" )
     private String name;

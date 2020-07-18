@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+
+<div class="container-fluid bg-secondary form-Border">
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-success" href="/labTest/add"><i class="fa fa-user-plus"></i>
+                &nbsp; New Lab Test</a>
+        </div>
+        <div class="col">
+            <h4 class="text-info text-center">
+                <strong>
+                    Lab Test Management
+                </strong>
+            </h4>
+        </div>
+        <div class="col">
+            <!--<a href="/employee/workingPlace" id="searchShow" class="btn btn-primary">
+                &nbsp;Add&nbsp;
+                <i class="fas fa-store-alt" style="font-size: 20px"></i>
+                &nbsp;
+            </a>-->
+        </div>
+    </div>
+</div>
 <div class="wrapper"><!-- wrapper start -->
     <!--<nav th:replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav>&lt;!&ndash; navbar Section &ndash;&gt;
     <aside th:replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside>--><!-- navbar Section -->
@@ -21,21 +44,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-3">
+
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>First sud Header</h4>
-                                        <form role="form">
 
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4>Secondary Header </h4>
                                         <!--if not empty list-->
                                         <div class="container-fluid" id="labTestListTable"
                                              data-th-if="${not #lists.isEmpty(labTests)}">
@@ -44,9 +57,7 @@
                                                 <tr>
                                                     <th>S No</th>
                                                     <th> Name</th>
-                                                    <th>Interview Status</th>
                                                     <th>Interview Parameter</th>
-
                                                     <th>Modify</th>
                                                 </tr>
                                                 </thead>
@@ -62,9 +73,8 @@
                                                     </th>
 
 
-                                                    <th><a class="btn btn-success btn-sm"
-                                                           data-th-href="${'/labTest/' + labTest.id}"
-                                                           id="labTestView"><i
+                                                    <th>
+                                                        <a id="labTestView" class="btn btn-success btn-sm" th:href="${'/labTest/' + labTest.id}" ><i
                                                             class="fa fa-folder-open"></i>&nbsp;View</a>
                                                         <a class="btn btn-primary btn-sm" id="labTestEdit"
                                                            data-th-href="${'/labTest/edit/' + labTest.id}"><i
