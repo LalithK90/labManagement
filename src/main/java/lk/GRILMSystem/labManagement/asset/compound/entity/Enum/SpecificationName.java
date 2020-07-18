@@ -21,5 +21,7 @@ public enum SpecificationName {
     ABRASION("Abrasion"),
     CBD("Dispersion") ;
 
-    private final String SpecificationName;
+    private final String specificationName;
+
+
 }

@@ -18,8 +18,9 @@
 /*html Background - start*/
 body {
 
-    /*background-size: cover;*/
-    /*background-repeat: no-repeat;*/
+    background-image: url("../img/28+-Abstract-Images-With-White-Background-on-WallpaperSafari.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /*html Background - end*/
