@@ -5,7 +5,6 @@ import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.CompoundPropertyN
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.SpecificationName;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Specification;
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
-import lk.GRILMSystem.labManagement.asset.mixer.service.MixerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
