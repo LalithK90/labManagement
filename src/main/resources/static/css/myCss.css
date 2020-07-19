@@ -18,6 +18,7 @@
 /*html Background - start*/
 body {
 
+    background-image: url("../img/28+-Abstract-Images-With-White-Background-on-WallpaperSafari.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -255,7 +256,7 @@ label {
     font-max-size: 22px;
     font-min-size: 12px;
     font-weight: bold;
-    color: white;
+    color: black;
 }
 
 input {
@@ -292,6 +293,7 @@ input {
     -o-animation: AnimationName 31s ease infinite;
     animation: AnimationName 31s ease infinite;
 }
+/*
 
 @-webkit-keyframes AnimationName {
     0% {
@@ -340,6 +342,7 @@ input {
         background-position: 88% 0%
     }
 }
+*/
 
 .form-Border {
     border-radius: 15px;
@@ -374,11 +377,11 @@ input {
 /*medical Package show area - end*/
 /* enter filed validation - start*/
 .valid {
-    background-color: #7ae899;
+    background-color: #b0f3c3;
 }
 
 .invalid {
-    background-color: #ff88b3;
+    background-color: #f69b9b;
 }
 
 /*html 5 filed validation - start */

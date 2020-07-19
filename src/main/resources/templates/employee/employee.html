@@ -21,11 +21,11 @@
             </h4>
         </div>
         <div class="col">
-            <a href="/employee/workingPlace" id="searchShow" class="btn btn-primary">
-                <i class="fa fa-user " style="font-size: 20px"></i>&nbsp;Add&nbsp;
+            <!--<a href="/employee/workingPlace" id="searchShow" class="btn btn-primary">
+                &nbsp;Add&nbsp;
                 <i class="fas fa-store-alt" style="font-size: 20px"></i>
                 &nbsp;
-            </a>
+            </a>-->
         </div>
     </div>
 </div>
@@ -36,7 +36,7 @@
                 <thead>
                 <tr>
                     <th> Index</th>
-                    <th> Pay Role Number</th>
+                    <th> Employee Id</th>
                     <th> Name</th>
                     <th> Mobile</th>
                     <th> Designation</th>
@@ -47,7 +47,7 @@
                 <tbody>
                 <tr th:each="employee, rowCount : ${employees}">
                     <th th:text="${rowCount.count}"></th>
-                    <th th:text="${employee.payRoleNumber}"></th>
+                    <th th:text="${employee.employeeId}"></th>
                     <th th:text="${employee.callingName}"></th>
                     <th th:text="${employee.mobileOne}"></th>
                     <th th:text="${employee.designation.designation}"></th>

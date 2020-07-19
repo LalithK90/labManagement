@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+
+<div class="container-fluid bg-secondary form-Border">
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-primary" href="/home">
+                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
+            </a>
+        </div>
+        <div class="col">
+            <h4 class="text-light text-center">
+                <strong>
+                    <p th:text="${labTestDetail.name}"></p>
+                </strong>
+            </h4>
+        </div>
+        <div class="col">
+            <a href="/employee" class="btn btn-primary">
+                <i class="fa fa-list"></i>&nbsp; View List
+            </a>
+        </div>
+    </div>
+</div>
+<div class="wrapper"><!-- wrapper start -->
+
+    <div class="content-wrapper"><!-- content-wrapper Start -->
+
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <div class="container-fluid" data-th-fragment="labTestDetail">
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label "> Id :</label>
+                                                <div class="col-sm-10">
+                                                    <p class="display_detail" data-th-text="${labTestDetail.id}"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label "> Name :</label>
+                                                <div class="col-sm-10">
+                                                    <p class="display_detail" data-th-text="${labTestDetail.name}"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label "> LabTest Status :</label>
+                                                <!--<div class="col-sm-10">
+                                                    <p class="display_detail"
+                                                       data-th-text="${labTestDetail.labTestStatus.labTestStatus}"></p>
+                                                </div>-->
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label "> LabTest Parameter :</label>
+                                                <div class="col-sm-10">
+                                                    <p class="display_detail"
+                                                       data-th-each="labTestParameter : ${labTestDetail.labTestParameters}"
+                                                       data-th-text="${labTestParameter.name} "></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- content-wrapper end -->
+        <footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
+    </div><!-- wrapper end -->
+    <script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+</div>
+</body>
+</html>
