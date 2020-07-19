@@ -17,12 +17,12 @@
         <div class="col">
             <h4 class="text-light text-center">
                 <strong>
-                    <span th:text="${addStatus==true?'New Employee Add':'Update Employee Details'}"></span>
+                    <span th:text="${addStatus==false?'New Mixer Add':'Update Mixer Details'}"></span>
                 </strong>
             </h4>
         </div>
         <div class="col">
-            <a href="/employee" class="btn btn-primary">
+            <a href="/mixer" class="btn btn-primary">
                 <i class="fa fa-list"></i>&nbsp; View List
             </a>
         </div>
@@ -31,13 +31,13 @@
 <!--Form Content - start -->
 <div class="container-fluid  formBorder">
     <div class="col-sm-12 flex-column ">
-        <form id="form" class="form-horizontal" th:action="${addStatus==true?'/employee/add':'/employee/update'}"
-              th:object="${employee}" method="POST" enctype="multipart/form-data">
+        <form id="form" class="form-horizontal" th:action="${addStatus==false?'/mixer/save':'/mixer/update'}"
+              th:object="${mixer}" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <!--Left Side-->
                 <div class="form-group col-md-6 col-sm-6 text-left flex-column">
                     <!--Id-->
-                    <div id="idStatus" th:if="${addStatus==false}" class="form-row text-right">
+                    <div id="idStatus" th:if="${addStatus==true}" class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="id">ID :</label>
                         </div>
@@ -45,22 +45,22 @@
                             <input id="id" th:field="*{id}" class="form-control" type="text" readonly/>
                         </div>
                     </div>
-                    <!--Payrole number-->
+
                     <div class="form-row text-right">
                         <div class="col-md-4">
-                            <label class="control-label" for="name">Employee code :</label>
+                            <label class="control-label" for="name">Mixer Name :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="code" data-th-field="*{code}" class="form-control" tabindex="4"
+                            <input id="name" data-th-field="*{name}" class="form-control" tabindex="4"
                                    type="text" required/>
-                            <span id="code" th:errors="*{code}"
-                                  th:if="${#fields.hasErrors('code')}" class="error">Error Employee code
+                            <span th:errors="*{name}"
+                                  th:if="${#fields.hasErrors('name')}" class="error">Error Mixer code
                             </span>
                         </div>
                     </div>
                     <!--Tittle -->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
+                  <!--  <div class="form-row text-right">
+                        &lt;!&ndash;<div class="col-md-4">
                             <label class="control-label" for="title">Title :</label>
                         </div>
                         <div class="col-md-8">
@@ -69,11 +69,11 @@
                                 <option th:each="titles : ${title}"
                                         th:text="${titles.title}"
                                         th:value="${titles}"
-                                        th:selected="${titles==employee.title?'selected':'unselected'}"></option>
+                                        th:selected="${titles==mixer.title?'selected':'unselected'}"></option>
                             </select>
-                        </div>
+                        </div>&ndash;&gt;
                     </div>
-                    <!--Name-->
+                    &lt;!&ndash;Name&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="name">Name :</label>
@@ -84,7 +84,7 @@
                                   th:if="${#fields.hasErrors('name')}" class="error">Error Name</span>
                         </div>
                     </div>
-                    <!--Calling Name-->
+                    &lt;!&ndash;Calling Name&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="callingName">Calling Name :</label>
@@ -97,7 +97,7 @@
                                                                        Calling                                                                                                                        Name</span>
                         </div>
                     </div>
-                    <!--Nic-->
+                    &lt;!&ndash;Nic&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="nic">NIC No :</label>
@@ -111,7 +111,7 @@
                                                                NIC Number</span>
                         </div>
                     </div>
-                    <!--Gender-->
+                    &lt;!&ndash;Gender&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="gender">Gender :</label>
@@ -122,11 +122,11 @@
                                 <option th:each="genders : ${gender}"
                                         th:text="${genders.gender}"
                                         th:value="${genders}"
-                                        th:selected="${genders==employee.gender?'selected':'unselected'}"></option>
+                                        th:selected="${genders==mixer.gender?'selected':'unselected'}"></option>
                             </select>
                         </div>
                     </div>
-                    <!--Date of birth-->
+                    &lt;!&ndash;Date of birth&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="dateOfBirth">Birth date :</label>
@@ -139,8 +139,8 @@
                                   th:if="${#fields.hasErrors('dateOfBirth')}" class="error">Error Birthday</span>
                         </div>
                     </div>
-                    <!--Blood group-->
-                    <!--<div class="form-row text-right">
+                    &lt;!&ndash;Blood group&ndash;&gt;
+                    &lt;!&ndash;<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="bloodGroup">Blood Group :</label>
                         </div>
@@ -150,11 +150,11 @@
                                 <option th:each="bloodGroups : ${bloodGroup}"
                                         th:text="${bloodGroups.bloodGroup}"
                                         th:value="${bloodGroups}"
-                                        th:selected="${bloodGroups==employee.bloodGroup?'selected':'unselected'}">Please select</option>
+                                        th:selected="${bloodGroups==mixer.bloodGroup?'selected':'unselected'}">Please select</option>
                             </select>
                         </div>
-                    </div>-->
-                    <!--Designation-->
+                    </div>&ndash;&gt;
+                    &lt;!&ndash;Designation&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="designation">Designation :</label>
@@ -166,15 +166,15 @@
                                 <option th:each="designations : ${designation}"
                                         th:text="${designations.designation}"
                                         th:value="${designations}"
-                                        th:selected="${designations==employee.designation?'selected':'unselected'}"></option>
+                                        th:selected="${designations==mixer.designation?'selected':'unselected'}"></option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!--Right Side-->
                 <div class="form-group col-md-6 col-sm-6 text-right flex-column">
                     <!--Civil status-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="civilStatus">Civil State :</label>
                         </div>
@@ -185,12 +185,12 @@
                                 <option th:each="civilStatu : ${civilStatus}"
                                         th:text="${civilStatu.CivilStatus}"
                                         th:value="${civilStatu}"
-                                        th:selected="${civilStatu==employee.civilStatus?'selected':'unselected'}"></option>
+                                        th:selected="${civilStatu==mixer.civilStatus?'selected':'unselected'}"></option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Address-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="address">Address :</label>
                         </div>
@@ -200,9 +200,9 @@
                             <span class="error" th:errors="*{address}"
                                   th:if="${#fields.hasErrors('address')}" id="addressError">Error Address</span>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Mobile Number One-->
-                    <div class="form-row text-right">
+                    <!--<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="mobileOne">Mobile One No :</label>
                         </div>
@@ -216,7 +216,7 @@
                                   id="mobileOneError">Error Mobile Number</span>
                         </div>
                     </div>
-                    <!--Mobile Number Two-->
+                    &lt;!&ndash;Mobile Number Two&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="mobileTwo">Mobile Two No :</label>
@@ -230,7 +230,7 @@
                                   id="mobileTwoError">Error Mobile  Number</span>
                         </div>
                     </div>
-                    <!--Land Number-->
+                    &lt;!&ndash;Land Number&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="land">Land No :</label>
@@ -243,8 +243,8 @@
                                   th:if="${#fields.hasErrors('land')}" id="landError">Error Land Number</span>
                         </div>
                     </div>
-                    <!--Email-->
-                    <!--<div class="form-row text-right">
+                    &lt;!&ndash;Email&ndash;&gt;
+                    &lt;!&ndash;<div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="email">Email :</label>
                         </div>
@@ -253,8 +253,8 @@
                             <span class="error" th:errors="*{email}"
                                   th:if="${#fields.hasErrors('email')}" id="emailError">Error Email</span>
                         </div>
-                    </div>-->
-                    <!--Office email-->
+                    </div>&ndash;&gt;
+                    &lt;!&ndash;Office email&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="officeEmail">Office Email :</label>
@@ -267,7 +267,7 @@
                                   id="officeEmailError">Error Office Email</span>
                         </div>
                     </div>
-                    <!--Date of assignment-->
+                    &lt;!&ndash;Date of assignment&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="dateOfAssignment">Date Of Assignment :</label>
@@ -280,26 +280,26 @@
                                   th:if="${#fields.hasErrors('dateOfAssignment')}" id="dateOfAssignmentError">Error Date Of Assignment</span>
                         </div>
                     </div>
-                    <!--Employee status-->
+                    &lt;!&ndash;Mixer status&ndash;&gt;
                     <div class="form-row text-right">
                         <div class="col-md-4">
-                            <label class="control-label" for="employeeStatus">Employee Status :</label>
+                            <label class="control-label" for="mixerStatus">Mixer Status :</label>
                         </div>
                         <div class="col-md-8">
-                            <select id="employeeStatus" th:field="*{employeeStatus}" class="form-control" tabindex="19"
+                            <select id="mixerStatus" th:field="*{mixerStatus}" class="form-control" tabindex="19"
                                     required>
                                 <option value="">Please select</option>
-                                <option th:each="employeeStatuss : ${employeeStatus}"
-                                        th:text="${employeeStatuss.employeeStatus}"
-                                        th:value="${employeeStatuss}"
-                                        th:selected="${employeeStatuss==employee.employeeStatus?'selected':'unselected'}"></option>
+                                <option th:each="mixerStatuss : ${mixerStatus}"
+                                        th:text="${mixerStatuss.mixerStatus}"
+                                        th:value="${mixerStatuss}"
+                                        th:selected="${mixerStatuss==mixer.mixerStatus?'selected':'unselected'}"></option>
                             </select>
                         </div>
                     </div>
-                    <!--Current Working Place-->
-                    <!--<div class="form-row text-right">
+                    &lt;!&ndash;Current Working Place&ndash;&gt;
+                    &lt;!&ndash;<div class="form-row text-right">
                         <div class="col-md-4">
-                            <label class="control-label" for="workingPlace">Employee Working Place :</label>
+                            <label class="control-label" for="workingPlace">Mixer Working Place :</label>
                         </div>
                         <div class="col-md-8">
                             <select id="workingPlace" th:field="*{workingPlace}" class="form-control" tabindex="20" required>
@@ -309,8 +309,8 @@
                                         th:value="${workingPlace.id}"></option>
                             </select>
                         </div>
-                    </div>-->
-                    <!--Created by and created at-->
+                    </div>&ndash;&gt;
+                    &lt;!&ndash;Created by and created at&ndash;&gt;
                     <div id="updateStatus" th:if="${addStatus==false}">
                         <div class="form-row text-right">
                             <div class="col-md-4">
@@ -330,15 +330,15 @@
                                        readonly/>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="form-group col-md-12 col-sm-12 text-left flex-column ">
-                    <div class="input-field">
+                    <!--<div class="input-field">
                         <label class="active ">Photos :</label>
                         <label>Please remove numbers where included in image number </label>
                         <div class="input-images" style="padding-top: .5rem;"></div>
-                    </div>
-                    <div class="col" id="photoDetails" th:if="${addStatus==false}">
+                    </div>-->
+                    <!--<div class="col" id="photoDetails" th:if="${addStatus==false}">
                         <div>
                             <label class="control-label ">Photo Details : </label>
                         </div>
@@ -372,12 +372,12 @@
                                 </script>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!--Button-->
                     <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
-                        <button class="btn btn-success" type="submit" tabindex="21">
-                            <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span id="submit"
-                                                                                                  th:text="${addStatus==true?'Save': 'Update'}"></span>
+                        <button type="submit" class="btn btn-primary">
+                            <i th:class="${addStatus==false?'fa fa-save mr-1':'fa fa-thumbs-up mr-1'}"></i>
+                            <span id="submit" th:text="${addStatus==false?'Save' : 'Update'}"></span>
                         </button>
                     </div>
                 </div>
@@ -391,6 +391,7 @@
         </form>
     </div>
 </div>
+
 <!--footer include-->
 <footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->

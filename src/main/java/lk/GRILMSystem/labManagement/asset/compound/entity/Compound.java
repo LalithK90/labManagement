@@ -2,6 +2,7 @@ package lk.GRILMSystem.labManagement.asset.compound.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.CompoundStatus;
+import lk.GRILMSystem.labManagement.asset.mixer.entity.Mixer;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,4 +33,7 @@ public class Compound extends AuditEntity {
 
     @OneToMany(mappedBy = "compound",cascade = CascadeType.PERSIST)
     private List<Specification> specifications;
+
+    @ManyToOne
+    private Mixer mixer;
 }
