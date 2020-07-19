@@ -47,7 +47,7 @@
                 <tbody>
                 <tr th:each="employee, rowCount : ${employees}">
                     <th th:text="${rowCount.count}"></th>
-                    <th th:text="${employee.employeeId}"></th>
+                    <th th:text="${employee.code}"></th>
                     <th th:text="${employee.callingName}"></th>
                     <th th:text="${employee.mobileOne}"></th>
                     <th th:text="${employee.designation.designation}"></th>

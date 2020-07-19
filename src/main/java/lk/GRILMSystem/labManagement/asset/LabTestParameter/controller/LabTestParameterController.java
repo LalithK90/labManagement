@@ -3,6 +3,7 @@ package lk.GRILMSystem.labManagement.asset.LabTestParameter.controller;
 
 import lk.GRILMSystem.labManagement.asset.LabTestParameter.entity.LabTestParameter;
 import lk.GRILMSystem.labManagement.asset.LabTestParameter.service.LabTestParameterService;
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.SpecificationName;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,7 @@ public class LabTestParameterController{
     private String commonThing(Model model, Boolean booleanValue, LabTestParameter labTestParameter) {
         model.addAttribute("addStatus", booleanValue);
         model.addAttribute("labTestParameter", labTestParameter);
+        model.addAttribute("specificationNames", SpecificationName.values());
         return "labTestParameter/addLabTestParameter";
     }
 
