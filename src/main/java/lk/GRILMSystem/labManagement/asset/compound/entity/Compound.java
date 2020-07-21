@@ -20,6 +20,7 @@ import java.util.List;
 public class Compound extends AuditEntity {
 
     private String code;
+
     private String name;
 
     @Enumerated(EnumType.STRING)
