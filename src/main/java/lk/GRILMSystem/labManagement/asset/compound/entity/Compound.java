@@ -7,10 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lk.GRILMSystem.labManagement.asset.compound.entity.Specification;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -32,4 +30,7 @@ public class Compound extends AuditEntity {
 
     @OneToMany(mappedBy = "compound",cascade = CascadeType.PERSIST)
     private List<Specification> specifications;
+
+   /* @ManyToOne
+    private Mixer mixer;*/
 }

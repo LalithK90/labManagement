@@ -48,13 +48,13 @@
                     <!--Payrole number-->
                     <div class="form-row text-right">
                         <div class="col-md-4">
-                            <label class="control-label" for="name">Employee Id :</label>
+                            <label class="control-label" for="name">Employee code :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="employeeId" th:field="*{employeeId}" class="form-control" tabindex="4"
+                            <input id="code" data-th-field="*{code}" class="form-control" tabindex="4"
                                    type="text" required/>
-                            <span id="employeeIdError" th:errors="*{employeeId}"
-                                  th:if="${#fields.hasErrors('employeeId')}" class="error">Error Employee Id
+                            <span id="code" th:errors="*{code}"
+                                  th:if="${#fields.hasErrors('code')}" class="error">Error Employee code
                             </span>
                         </div>
                     </div>

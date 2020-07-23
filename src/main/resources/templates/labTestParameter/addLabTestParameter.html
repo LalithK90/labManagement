@@ -76,7 +76,20 @@
                                                                    th:errors="*{name}">Error Name</p>
                                                             </div>
                                                         </div>
-
+                                                        <!--Specification Name -->
+                                                        <div class="form-row text-right">
+                                                            <div class="col-md-4">
+                                                                <label class="control-label" for="title">Specification Name :</label>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select id="title" th:field="*{specificationName}" class="form-control" tabindex="3" required>
+                                                                    <option value="">Please select</option>
+                                                                    <option th:each="specificationName : ${specificationNames}"
+                                                                            th:text="${specificationName.specificationName}"
+                                                                            th:value="${specificationName}"></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                         <!--Max-->
                                                         <!--<div class="form-group row">
                                                             <label th:for="${'max'}" class="col-sm-2 col-form-label ">
@@ -95,8 +108,7 @@
                                                             <div class="offset-sm-2 col-sm-10">
                                                                 <button type="submit" class="btn btn-primary">
                                                                     <i th:class="${addStatus==false?'fa fa-save mr-1':'fa fa-thumbs-up mr-1'}"></i>
-                                                                    <span
-                                                                            th:text="${addStatus==false?'Save' : 'Update'}"></span>
+                                                                    <span id="submit" th:text="${addStatus==false?'Save' : 'Update'}"></span>
                                                                 </button>
                                                             </div>
                                                         </div>

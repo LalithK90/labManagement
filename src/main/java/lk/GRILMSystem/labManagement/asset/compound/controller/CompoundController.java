@@ -25,13 +25,8 @@ public class CompoundController {
     }
 
     @GetMapping
-    public String findAll(Model model){
+    public String findAll(Model model) {
         model.addAttribute("compounds", compoundService.findAll());
-        return "compound/compound";
-    }
-
-    @GetMapping("/compoundView")
-    public String compoundView() {
         return "compound/compound";
     }
 
@@ -41,13 +36,6 @@ public class CompoundController {
         model.addAttribute("compoundPropertyNames", CompoundPropertyName.values());
         model.addAttribute("specificationNames", SpecificationName.values());
         return "compound/addCompound";
-    }
-
-    //Send all employee data
-    @RequestMapping
-    public String compoundPage(Model model) {
-        model.addAttribute("compounds", compoundService.findAll());
-        return "compound/compound";
     }
 
     @PostMapping(value = {"/add", "/update"})
@@ -66,7 +54,7 @@ public class CompoundController {
     }
 
     @GetMapping("/{id}")
-    public String view(@PathVariable Integer id, Model model){
+    public String view(@PathVariable Integer id, Model model) {
         model.addAttribute("compoundDetails", compoundService.findById(id));
         return "compound/compound-detail";
     }

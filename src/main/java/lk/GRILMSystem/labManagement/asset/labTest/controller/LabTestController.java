@@ -2,6 +2,7 @@ package lk.GRILMSystem.labManagement.asset.labTest.controller;
 
 import lk.GRILMSystem.labManagement.asset.LabTestParameter.service.LabTestParameterService;
 
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.CompoundPropertyName;
 import lk.GRILMSystem.labManagement.asset.labTest.entity.Enum.LabTestStatus;
 import lk.GRILMSystem.labManagement.asset.labTest.entity.LabTest;
 import lk.GRILMSystem.labManagement.asset.labTest.service.LabTestService;
@@ -31,6 +32,7 @@ public class LabTestController {
         model.addAttribute("addStatus", booleanValue);
         model.addAttribute("labTest", labTest);
         model.addAttribute("labTestParameters",labTestParameterService.findAll());
+        model.addAttribute("compoundPropertyNames", CompoundPropertyName.values());
         model.addAttribute("labTestStatus", LabTestStatus.values());
         return "labTest/addLabTest";
     }

@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum CompoundPropertyName {
     PHEO("RHEOMETRIC PROPERTIES (MDR02)"),
     PYSIC("PHYSICAL PROPERTIES"),
-    OTH("Other");
+    VIS("VISCOSITY TEST");
 
     private final String compoundPropertyName;
 
