@@ -1,6 +1,7 @@
 package lk.GRILMSystem.labManagement.asset.sampleReceiving.controller;
 
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
+import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
 import lk.GRILMSystem.labManagement.asset.customer.service.CustomerService;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceiving;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.service.SampleReceivingService;
@@ -39,6 +40,7 @@ public class SampleReceivingController {
         model.addAttribute("compounds", compoundService.findAll());
         model.addAttribute("customers", customerService.findAll());
         model.addAttribute("addStatus", true);
+        model.addAttribute("customerType", CustomerType.values());
         return "sampleReceiving/addSampleReceiving";
     }
 

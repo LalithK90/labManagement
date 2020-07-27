@@ -1,7 +1,7 @@
 package lk.GRILMSystem.labManagement.asset.compound.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.CompoundPropertyName;
+import lk.GRILMSystem.labManagement.asset.labTest.entity.Enum.CompoundPropertyName;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.SpecificationName;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -22,6 +22,7 @@ public class Specification extends AuditEntity {
 
     @NotNull
     private String min;
+
     private String max;
 
 
