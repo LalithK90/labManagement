@@ -2,7 +2,7 @@ package lk.GRILMSystem.labManagement.asset.labTest.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.GRILMSystem.labManagement.asset.LabTestParameter.entity.LabTestParameter;
-import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.CompoundPropertyName;
+import lk.GRILMSystem.labManagement.asset.labTest.entity.Enum.CompoundPropertyName;
 import lk.GRILMSystem.labManagement.asset.labTest.entity.Enum.LabTestStatus;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;

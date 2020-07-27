@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum CompoundStatus {
+public enum CompoundLabTestStatus {
 
     INTEST("In the testing process"),
     RELEASED("Released"),

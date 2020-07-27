@@ -1,4 +1,4 @@
-package lk.GRILMSystem.labManagement.asset.compound.entity.Enum;
+package lk.GRILMSystem.labManagement.asset.labTest.entity.Enum;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

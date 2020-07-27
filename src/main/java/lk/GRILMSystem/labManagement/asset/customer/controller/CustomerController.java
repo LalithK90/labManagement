@@ -3,6 +3,7 @@ package lk.GRILMSystem.labManagement.asset.customer.controller;
 
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.Title;
 import lk.GRILMSystem.labManagement.asset.customer.entity.Customer;
+import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
 import lk.GRILMSystem.labManagement.asset.customer.service.CustomerService;
 import lk.GRILMSystem.labManagement.util.interfaces.AbstractController;
 import lk.GRILMSystem.labManagement.util.service.EmailService;
@@ -37,6 +38,7 @@ public class CustomerController implements AbstractController<Customer, Integer>
         model.addAttribute("title", Title.values());
         model.addAttribute("customer", customer);
         model.addAttribute("addStatus", addState);
+        model.addAttribute("customerType", CustomerType.values());
         return "customer/addCustomer";
     }
 
