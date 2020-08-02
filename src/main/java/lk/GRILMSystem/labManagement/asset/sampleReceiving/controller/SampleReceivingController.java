@@ -30,7 +30,7 @@ public class SampleReceivingController {
 
     @GetMapping
     public String findAll(Model model) {
-        model.addAttribute("sampleReceiving", sampleReceivingService.findAll());
+        model.addAttribute("sampleReceivings", sampleReceivingService.findAll());
         return "sampleReceiving/sampleReceiving";
     }
 
@@ -61,6 +61,12 @@ public class SampleReceivingController {
     public String delete(@PathVariable Integer id) {
         sampleReceivingService.delete(id);
         return "redirect:/sampleReceiving";
+    }
+
+    @GetMapping("/{id}")
+    public String view(@PathVariable Integer id, Model model) {
+        model.addAttribute("sampleReceivingDetails", sampleReceivingService.findById(id));
+        return "sampleReceiving/sampleReceiving-detail";
     }
 
 }

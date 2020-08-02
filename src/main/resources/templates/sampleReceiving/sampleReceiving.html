@@ -42,9 +42,8 @@
                 <tr>
                     <th> Index</th>
                     <th> Name</th>
-                    <th> Code</th>
-                    <th> Mobile</th>
-                    <th> Address</th>
+                    <th> Status</th>
+                    <th> Compound</th>
                     <th> Modify</th>
                 </tr>
                 </thead>
@@ -57,14 +56,7 @@
                     <th>
                         <a id="sampleReceivingView" th:href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-primary btn-sm"><i
                                 class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;View</a>
-                        <a id="sampleReceivingEdit" th:href="${'/sampleReceiving/edit/' + sampleReceiving.id}"
-                           class="btn btn-success btn-sm"><i class="fa fa-edit"
-                                                             style="font-size: 15px"></i>&nbsp;Edit</a>
-                        <a id="sampleReceivingRemove" th:href="${'/sampleReceiving/delete/' + sampleReceiving.id}"
-                           class="btn btn-danger btn-sm">
-                            <!--th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" --> <i
-                                class="fa fa-trash" style="font-size: 15px"></i>
-                            Delete</a>
+
                     </th>
                 </tr>
                 </tbody>
