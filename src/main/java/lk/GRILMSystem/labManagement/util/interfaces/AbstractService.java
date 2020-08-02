@@ -1,4 +1,4 @@
-package lk.rupavahini.PPUManagement.util.interfaces;
+package lk.GRILMSystem.labManagement.util.interfaces;
 
 
 import java.util.List;

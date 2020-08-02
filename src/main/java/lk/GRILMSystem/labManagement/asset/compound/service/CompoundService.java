@@ -27,12 +27,12 @@ public class CompoundService implements AbstractService<Compound,Integer> {
         return compoundDao.findAll();
     }
 
-    @Override
+
     public Compound findById(Integer id) {
         return compoundDao.getOne(id);
     }
 
-    @Override
+
     public Compound persist(Compound compound) {
         return compoundDao.save(compound);
     }
