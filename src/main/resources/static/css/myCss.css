@@ -383,6 +383,11 @@ input {
 .invalid {
     background-color: #f69b9b;
 }
+/*all selection tag option tag value size - start*/
+section{
+    font-size: large;
+}
+/*all selection tag option tag value size - end*/
 
 /*html 5 filed validation - start */
 input:required:invalid, input:focus:invalid {

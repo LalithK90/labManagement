@@ -8,6 +8,7 @@ import lk.GRILMSystem.labManagement.asset.employee.service.EmployeeFilesService;
 import lk.GRILMSystem.labManagement.asset.employee.service.EmployeeService;
 import lk.GRILMSystem.labManagement.asset.userManagement.entity.User;
 import lk.GRILMSystem.labManagement.asset.userManagement.service.UserService;
+import lk.GRILMSystem.labManagement.util.interfaces.AbstractController;
 import lk.GRILMSystem.labManagement.util.service.DateTimeAgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,15 +20,16 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping( "/employee" )
 @Controller
-public class EmployeeController {
+@RequestMapping( "/employee" )
+public class EmployeeController implements AbstractController<Employee, Integer> {
     private final EmployeeService employeeService;
     private final EmployeeFilesService employeeFilesService;
     private final DateTimeAgeService dateTimeAgeService;
@@ -64,14 +66,14 @@ public class EmployeeController {
 
     //Send all employee data
     @RequestMapping
-    public String employeePage(Model model) {
+    public String findAll(Model model) {
         model.addAttribute("employees", employeeService.findAll());
         return "employee/employee";
     }
 
     //Send on employee details
     @GetMapping( value = "/{id}" )
-    public String employeeView(@PathVariable( "id" ) Integer id, Model model) {
+    public String view(@PathVariable( "id" ) Integer id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employeeDetail", employee);
         model.addAttribute("addStatus", false);
@@ -81,10 +83,10 @@ public class EmployeeController {
 
     //Send employee data edit
     @GetMapping( value = "/edit/{id}" )
-    public String editEmployeeForm(@PathVariable( "id" ) Integer id, Model model) {
+    public String edit(@PathVariable( "id" ) Integer id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
-        model.addAttribute("newEmployee", employee.getEmployeeId());
+        model.addAttribute("newEmployee", employee.getCode());
         model.addAttribute("addStatus", false);
         model.addAttribute("files", employeeFilesService.employeeFileDownloadLinks(employee));
         return commonThings(model);
@@ -92,7 +94,7 @@ public class EmployeeController {
 
     //Send an employee add form
     @GetMapping( value = {"/add"} )
-    public String employeeAddForm(Model model) {
+    public String addForm(Model model) {
         model.addAttribute("addStatus", true);
         model.addAttribute("employee", new Employee());
         return commonThings(model);
@@ -100,7 +102,7 @@ public class EmployeeController {
 
     //Employee add and update
     @PostMapping( value = {"/add", "/update"} )
-    public String addEmployee(@Valid @ModelAttribute Employee employee, BindingResult result, Model model
+    public String persist(@Valid @ModelAttribute Employee employee, BindingResult result, RedirectAttributes redirectAttributes, Model model
                              ) {
 
         if ( result.hasErrors() ) {
@@ -157,7 +159,7 @@ public class EmployeeController {
 
     //If need to employee {but not applicable for this }
     @GetMapping( value = "/remove/{id}" )
-    public String removeEmployee(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id) {
         employeeService.delete(id);
         return "redirect:/employee";
     }

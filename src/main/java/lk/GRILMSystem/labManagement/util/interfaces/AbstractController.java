@@ -1,28 +1,24 @@
 package lk.GRILMSystem.labManagement.util.interfaces;
 
+import org.springframework.http.ResponseEntity;
 
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import java.util.List;
 
 public interface AbstractController<E, I> {
+// this is most help to create REST API
+    List<E> findAll();
 
-    //1. findAll method create.
-    //2. addForm method create.
-    //3. persist method create.
-    //4. edit method create.
-    //5. delete method create.
-    //6. view details.
+    E findById(I id);
 
-    String findAll(Model model);
+    E persist(E e);
 
-    String addForm(Model model);
+    ResponseEntity<String> delete(I id);
 
-    String persist(E e, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) throws Exception;
+    List<E> search(E e);
 
-    String edit(I id, Model model);
+    E modifyResource(E e);
 
-    String delete(I id, Model model);
+    List<E> modifyResources(List<E> eList);
 
-    String view(I id, Model model);
+
 }
