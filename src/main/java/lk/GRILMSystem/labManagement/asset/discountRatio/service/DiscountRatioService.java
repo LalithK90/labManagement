@@ -1,8 +1,9 @@
+package lk.GRILMSystem.labManagement.asset.discountRatio.service;
 
-import lk.suwasewana.asset.discountRatio.dao.DiscountRatioDao;
-import lk.suwasewana.asset.discountRatio.entity.DiscountRatio;
-import lk.suwasewana.asset.discountRatio.entity.Enum.DiscountRatioStatus;
-import lk.suwasewana.util.interfaces.AbstractService;
+import lk.GRILMSystem.labManagement.asset.discountRatio.dao.DiscountRatioDao;
+import lk.GRILMSystem.labManagement.asset.discountRatio.entity.DiscountRatio;
+import lk.GRILMSystem.labManagement.asset.discountRatio.entity.Enum.DiscountRatioStatus;
+import lk.GRILMSystem.labManagement.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

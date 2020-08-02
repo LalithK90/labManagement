@@ -1,3 +1,4 @@
+package lk.GRILMSystem.labManagement.asset.discountRatio.entity.Enum;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

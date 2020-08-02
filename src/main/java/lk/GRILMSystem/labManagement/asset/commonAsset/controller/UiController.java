@@ -63,14 +63,4 @@ public class UiController {
         model.addAttribute("err", "There is no user according to the user name. \n Please try again !!");
         return "login/login";
     }
-
-    @GetMapping(value = {"/unicodeTamil"})
-    public String getUnicodeTamil() {
-        return "fragments/unicodeTamil";
-    }
-
-    @GetMapping(value = {"/unicodeSinhala"})
-    public String getUnicodeSinhala() {
-        return "fragments/unicodeSinhala";
-    }
 }

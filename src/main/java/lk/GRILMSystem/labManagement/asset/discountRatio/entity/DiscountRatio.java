@@ -1,6 +1,6 @@
+package lk.GRILMSystem.labManagement.asset.discountRatio.entity;
 
-
-import lk.suwasewana.asset.discountRatio.entity.Enum.DiscountRatioStatus;
+import lk.GRILMSystem.labManagement.asset.discountRatio.entity.Enum.DiscountRatioStatus;
 import lombok.*;
 
 import javax.persistence.*;
