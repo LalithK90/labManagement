@@ -1,9 +1,12 @@
 package lk.GRILMSystem.labManagement.asset.sampleReceiving.controller;
 
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
 import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
 import lk.GRILMSystem.labManagement.asset.customer.service.CustomerService;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.Acceptability;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceiving;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceivingLabTest;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.service.SampleReceivingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -30,7 +35,7 @@ public class SampleReceivingController {
 
     @GetMapping
     public String findAll(Model model) {
-        model.addAttribute("sampleReceiving", sampleReceivingService.findAll());
+        model.addAttribute("sampleReceivings", sampleReceivingService.findAll());
         return "sampleReceiving/sampleReceiving";
     }
 
@@ -53,6 +58,16 @@ public class SampleReceivingController {
             model.addAttribute("addStatus", true);
             return "sampleReceiving/addSampleReceiving";
         }
+        // sample receiving lab tests
+        List<SampleReceivingLabTest> sampleReceivingLabTests = new ArrayList<>();
+        for (LabTestName labTest : LabTestName.values()) {
+            SampleReceivingLabTest sampleReceivingLabTest = new SampleReceivingLabTest();
+            sampleReceivingLabTest.setAcceptability(Acceptability.PENDING);
+            sampleReceivingLabTest.setLabTestName(labTest);
+            sampleReceivingLabTest.setSampleReceiving(sampleReceiving);
+            sampleReceivingLabTests.add(sampleReceivingLabTest);
+        }
+        sampleReceiving.setSampleReceivingLabTests(sampleReceivingLabTests);
         sampleReceivingService.persist(sampleReceiving);
         return "redirect:/sampleReceiving/add";
     }
@@ -61,6 +76,12 @@ public class SampleReceivingController {
     public String delete(@PathVariable Integer id) {
         sampleReceivingService.delete(id);
         return "redirect:/sampleReceiving";
+    }
+
+    @GetMapping("/{id}")
+    public String view(@PathVariable Integer id, Model model) {
+        model.addAttribute("sampleReceivingDetails", sampleReceivingService.findById(id));
+        return "sampleReceiving/sampleReceiving-detail";
     }
 
 }

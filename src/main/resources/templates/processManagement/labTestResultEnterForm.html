@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head data-th-replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>sampleReceiving</title>
+</head>
+<body>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<!--heading Area-->
+<div class="container-fluid  form-Border">
+    <div class="row text-center formManagement border-info">
+        <!--New Customer Button-->
+        <div class="col">
+            <a class="btn btn-success" href="/sampleReceiving/add" tabindex="1">
+                <i class="fas fa-plus" style="font-size: 20px"></i>&nbsp;&nbsp;New
+            </a>
+        </div>
+        <!--List Name-->
+        <div class="col">
+            <h2 class="text-white text-center">
+                <strong>
+                    Customer List
+                </strong>
+            </h2>
+        </div>
+        <!--Home Button-->
+        <div class="col">
+            <a href="/home" id="searchShow" class="btn btn-primary" tabindex="2">
+                <!--<i class="fa fa-user " style="font-size: 20px"></i>&nbsp;Add&nbsp;-->
+                <i class="fas fa-home" style="font-size: 20px"></i>&nbsp;&nbsp;Home
+            </a>
+        </div>
+    </div>
+</div>
+<!--todo Customer details sampleReceivingLabTest.sampleReceiving.customer.name-->
+<!--data enter form-->
+<div class="container">
+    <form class="form-horizontal" method="POST" th:action="${'/labTestResultEnter/save'}"
+          data-th-object="${sampleReceivingLabTest}">
+        <div class="form-group col-md-12 col-sm-12 text-left flex-column">
+            <div class="container">
+                <input class="form-control" data-th-field="*{id}" id="id" type="text" hidden/>
+
+                <h3> Enter Result : </h3>
+                <div class="form-row">
+                    <div class="col-3">
+                        Specification Name
+                    </div>
+                    <div class="col-3">
+                        Result
+                    </div>
+                    <div class="col-3">
+                        Min
+                    </div>
+                    <div class="col-3">
+                        Max
+                    </div>
+                </div>
+                <div class="form-row text-right"
+                     data-th-each="sampleReceivingLabTestResult, index : ${sampleReceivingLabTestResults}">
+                    <div class="col-3">
+                        [[${sampleReceivingLabTestResult.specification.min}]]
+                        <input type="number" class="form-control"
+                               data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].id}" hidden>
+                    </div>
+                    <div class="col-3">
+                        <input type="number" step="0.5" class="form-control"
+                               data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].result}">
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" type="text" required/>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" type="text" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12 col-sm-12 text-center flex-column">
+            <button class="btn btn-success" type="submit">
+                <i class="fa fa-save" style="font-size: 20px"></i>&nbsp; &nbsp;<span
+                    id="submit" th:text="${addStatus==true?'Save': 'Update'}">                        </span>
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

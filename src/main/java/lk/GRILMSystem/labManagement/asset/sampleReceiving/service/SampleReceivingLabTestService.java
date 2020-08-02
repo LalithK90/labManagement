@@ -1,7 +1,9 @@
 package lk.GRILMSystem.labManagement.asset.sampleReceiving.service;
 
-import lk.GRILMSystem.labManagement.asset.labTest.entity.LabTest;
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.dao.SampleReceivingLabTestDao;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.Acceptability;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.SampleReceivingLabTestStatus;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceivingLabTest;
 import lk.GRILMSystem.labManagement.util.interfaces.AbstractService;
 import org.springframework.data.domain.Example;
@@ -47,5 +49,13 @@ public class SampleReceivingLabTestService implements AbstractService<SampleRece
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<SampleReceivingLabTest> sampleReceivingLabTestExample = Example.of(sampleReceivingLabTest, matcher);
         return sampleReceivingLabTestDao.findAll(sampleReceivingLabTestExample);
+    }
+
+    public List<SampleReceivingLabTest> findByLabTestNameAndAcceptability(LabTestName labTestName, Acceptability acceptability) {
+       return sampleReceivingLabTestDao.findByLabTestNameAndAcceptability(labTestName, acceptability);
+    }
+
+    public List<SampleReceivingLabTest> findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(LabTestName labTestName, Acceptability acceptability, SampleReceivingLabTestStatus sampleReceivingLabTestStatus) {
+    return sampleReceivingLabTestDao.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(labTestName, acceptability, sampleReceivingLabTestStatus);
     }
 }

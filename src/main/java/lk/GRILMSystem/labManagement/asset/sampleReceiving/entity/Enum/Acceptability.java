@@ -5,10 +5,11 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum AcceptOrNot {
+public enum Acceptability {
 
     ACCEPT("Accept"),
-    REJECT("Reject");
+    REJECT("Reject"),
+    PENDING("Pending");
 
-    private final String acceptOrNot;
+    private final String acceptability;
 }

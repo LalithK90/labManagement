@@ -5,11 +5,11 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum CompoundPropertyName {
+public enum LabTestName {
     PHEO("RHEOMETRIC PROPERTIES (MDR02)"),
     PYSIC("PHYSICAL PROPERTIES"),
     VIS("VISCOSITY TEST");
 
-    private final String compoundPropertyName;
+    private final String labTestName;
 
 }

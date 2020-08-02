@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>sampleReceiving-detail</title>
+</head>
+<body>
+
+<!--heading Area-->
+<div class="container-fluid bg-dark form-Border">
+    <div class="row text-center formManagement border-info">
+        <!--ViewList Button-->
+        <div class="col">
+            <a href="/sampleReceiving" class="btn btn-primary" tabindex="1">
+                <i class="fa fa-list" style="font-size: 20px"></i>&nbsp;&nbsp;View List
+            </a>
+        </div>
+        <!--sampleReceiving Name-->
+        <div class="col">
+            <h2 class="text-light text-center">
+                <strong>
+                    <p th:text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></p>
+                </strong>
+            </h2>
+        </div>
+        <!--Home Button-->
+        <div class="col">
+            <a class="btn btn-primary" href="/home" tabindex="2">
+                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp;&nbsp;Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--details-->
+<div data-th-fragment="sampleReceivingDetailsFragment" class="container-fluid bg-dark formBorder">
+    <div class="col-sm-12 flex-column ">
+        <div class="row">
+            <!--Left Side-->
+            <div class="form-group col-md-6 col-sm-6 text-left flex-column">
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="id">ID :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="id" data-th-text="${sampleReceivingDetails.id}" class="display_detail"></p>
+                    </div>
+                </div>
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="code">Batch No :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="code" data-th-text="${sampleReceivingDetails.batchNo}" class="display_detail"></p>
+                    </div>
+                </div>
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="name">Compound :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="name" data-th-text="${sampleReceivingDetails.compound.getCode()}" class="display_detail"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Back Button-->
+<div class="form-group col-md-12 col-sm-12 text-center flex-column ">
+    <a href="/sampleReceiving">
+        <button class="btn btn-dark" type="button" tabindex="3">
+            <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp; &nbsp;Back
+        </button>
+    </a>
+</div>
+<!--footer include-->
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<!--script include-->
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
+
+</body>
+</html>

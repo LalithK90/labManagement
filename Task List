@@ -52,10 +52,10 @@ To decide the mixer and ok
 
 
 Roles
-Lab Manager
-LAb Technician
-Cashier
-Technical Manager(Approve or reject the lab test)
-Quality Assurance manager
+SQA("Senior Quality Assurance Manager"),
+QA("Quality Assurance Manager"),
+TA("Technical Manager"),
+LA("Lab Assistance"),
+CA("Cashier");
 
 
