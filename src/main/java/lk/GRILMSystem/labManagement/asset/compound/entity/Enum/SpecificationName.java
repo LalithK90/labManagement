@@ -1,5 +1,3 @@
-package lk.GRILMSystem.labManagement.asset.compound.entity.Enum;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -21,7 +19,5 @@ public enum SpecificationName {
     ABRASION("Abrasion"),
     CBD("Dispersion") ;
 
-    private final String specificationName;
-
-
+    private final String SpecificationName;
 }

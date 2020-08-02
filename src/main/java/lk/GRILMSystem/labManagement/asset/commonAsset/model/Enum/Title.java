@@ -10,9 +10,11 @@ public enum Title {
     MRS("Mrs. "),
     MISS("Miss. "),
     MS("Ms. "),
+    REV("Rev. "),
     DR("Dr. "),
     DRMRS("Dr(Mrs). "),
-    PRO("Prof. ");
+    PRO("Prof. "),
+    SISTER("Sister. ");
 
     private final String title;
 }

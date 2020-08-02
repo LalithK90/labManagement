@@ -6,11 +6,11 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Designation {
-
-    LA("Laboratory Assistant"),
     SQA("Senior Quality Assurance Manager"),
     QA("Quality Assurance Manager"),
-    CASH("Cashier");
+    TA("Technical Manager"),
+    LA("Lab Assistance"),
+    CA("Cashier");
 
     private final String designation;
 }
