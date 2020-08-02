@@ -8,7 +8,6 @@ import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.Title;
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.FileInfo;
 import lk.GRILMSystem.labManagement.asset.employee.entity.Enum.Designation;
 import lk.GRILMSystem.labManagement.asset.employee.entity.Enum.EmployeeStatus;
-import lk.GRILMSystem.labManagement.asset.message.entity.EmailMessage;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -81,9 +80,6 @@ public class Employee extends AuditEntity {
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfAssignment;
-
-    @ManyToMany( mappedBy = "employees" )
-    private List<EmailMessage> emailMessages;
 
     @Transient
     private List< MultipartFile > files = new ArrayList<>();
