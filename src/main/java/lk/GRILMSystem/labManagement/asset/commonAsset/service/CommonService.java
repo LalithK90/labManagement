@@ -1,11 +1,13 @@
 package lk.GRILMSystem.labManagement.asset.commonAsset.service;
 
 
-import com.itextpdf.tool.xml.html.head.Title;
+
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.BloodGroup;
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.CivilStatus;
 import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.Gender;
+import lk.GRILMSystem.labManagement.asset.commonAsset.model.Enum.Title;
 import lk.GRILMSystem.labManagement.asset.employee.controller.EmployeeRestController;
+import lk.GRILMSystem.labManagement.asset.employee.entity.Enum.Designation;
 import lk.GRILMSystem.labManagement.asset.employee.entity.Enum.EmployeeStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;

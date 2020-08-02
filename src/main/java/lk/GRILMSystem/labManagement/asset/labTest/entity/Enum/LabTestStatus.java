@@ -9,9 +9,6 @@ public enum LabTestStatus {
     ACT("Active"),
     CL("Close");
 
-private final String labTestStatus;
+    private final String labTestStatus;
 
-    /*LabTestStatus(String labTestStatus) {
-        this.labTestStatus = labTestStatus;
-    }*/
 }
