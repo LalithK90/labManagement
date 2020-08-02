@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -25,7 +24,7 @@ public class SampleReceivingLabTestResult extends AuditEntity {
     @ManyToOne
     private SampleReceivingLabTest sampleReceivingLabTest;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Specification specification;
 
 
