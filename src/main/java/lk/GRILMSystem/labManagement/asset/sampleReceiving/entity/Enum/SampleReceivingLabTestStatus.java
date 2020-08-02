@@ -8,9 +8,7 @@ import lombok.Getter;
 public enum SampleReceivingLabTestStatus {
 
     NOTRESULTENTER("Result not Enter"),
-    RESULTENTER("Result Enter"),
-    EMAILSENT("Email Sent"),
-    REPORTGENERATE("Report Generate");
+    RESULTENTER("Result Enter");
 
     private final String sampleReceivingLabTestStatus;
 }

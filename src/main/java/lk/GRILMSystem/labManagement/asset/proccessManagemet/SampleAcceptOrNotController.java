@@ -63,14 +63,18 @@ public class SampleAcceptOrNotController {
             for (Specification specification : specificationList) {
                 SampleReceivingLabTestResult sampleReceivingLabTestResult = new SampleReceivingLabTestResult();
                 sampleReceivingLabTestResult.setSampleReceivingLabTest(sampleReceivingLabTest);
+                sampleReceivingLabTestResult.setSpecification(specification);
                 sampleReceivingLabTestResults.add(sampleReceivingLabTestResult);
             }
             sampleReceivingLabTest.setSampleReceivingLabTestResults(sampleReceivingLabTestResults);
             sampleReceivingLabTestService.persist(sampleReceivingLabTest);
         }
-        model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
+  /*      model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
         model.addAttribute("showList", true);
         return "processManagement/sampleAcceptOrNot";
+        */
+        return "redirect:/processManagement/sampleAcceptOrNot".concat(sampleReceivingLabTest.getLabTestName().toString());
+
     }
 
     @GetMapping("/acceptability/reject/{id}")
@@ -88,9 +92,12 @@ public class SampleAcceptOrNotController {
 
             sampleReceivingLabTestService.persist(sampleReceivingLabTest);
         }
-
+/*
         model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
         model.addAttribute("showList", true);
-        return "processManagement/sampleAcceptOrNot";
+        return "processManagement/sampleAcceptOrNot";*/
+
+        return "redirect:/processManagement/sampleAcceptOrNot".concat(sampleReceivingLabTest.getLabTestName().toString());
+
     }
 }

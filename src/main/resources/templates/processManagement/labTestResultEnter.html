@@ -51,7 +51,7 @@
     <!--Table view-->
     <div class="col">
         <div class="col" id="sampleReceivingListPresent" data-th-if="${not #lists.isEmpty(sampleReceivingLabTests)}">
-            <table class="table table-hover table-striped" id="myTable">
+            <table class="table table-hover table-striped" >
                 <thead>
                 <tr>
                     <th> Index</th>
@@ -70,15 +70,14 @@
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.compound.name}"></th>
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.compound.code}"></th>
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.customer.name}"></th>
-                    <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th>
-                    <th>
-                        <a data-th-href="${'/sample/form/accept/' + sampleReceivingLabTest.id}"
-                           class="btn btn-success btn-sm"><i
-                                class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;Accept</a>
-                        <a data-th-href="${'/sample/form/reject/' + sampleReceivingLabTest.id}"
-                           class="btn btn-danger btn-sm"><i
-                                class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;Reject</a>
-                    </th>
+                    <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th> <th>
+                    <a data-th-href="${'/labTestResultEnter/form/add/' + sampleReceivingLabTest.id}"
+                       class="btn btn-success btn-sm"><i
+                            class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;Result Enter</a>
+                    <a data-th-href="${'/labTestResultEnter/form/edit/' + sampleReceivingLabTest.id}"
+                       class="btn btn-danger btn-sm"><i
+                            class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;View</a>
+                </th>
                 </tr>
                 </tbody>
             </table>
