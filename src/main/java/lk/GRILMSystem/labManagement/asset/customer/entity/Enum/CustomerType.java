@@ -3,11 +3,12 @@ package lk.GRILMSystem.labManagement.asset.customer.entity.Enum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Getter
 @AllArgsConstructor
-public enum CustomerType{
-    INSIDE("Internal "),
-    OUTSIDE("Out Side");
+@Getter
+public enum CustomerType {
+
+    INTERNAL("Internal"),
+    EXTERNAL("External");
 
     private final String customerType;
 }
