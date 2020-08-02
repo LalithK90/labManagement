@@ -2,6 +2,7 @@ package lk.GRILMSystem.labManagement.asset.sampleReceiving.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Compound;
+import lk.GRILMSystem.labManagement.asset.customer.entity.Customer;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.SampleReceivingStatus;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,9 @@ public class SampleReceiving extends AuditEntity {
 
     @ManyToOne
     private Compound compound;
+
+    @ManyToOne
+    private Customer customer;
 
     @OneToMany
     private List<SampleReceivingLabTest> sampleReceivingLabTests;

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
@@ -31,37 +31,36 @@
 </div>
 <div class="container-fluid bg-dark formBorder text-center">
     <div class="col">
-        <div class="col" id="compoundListPresent" th:if="${not #lists.isEmpty(compounds)}">
+        <div class="col" id="compoundListPresent" data-th-if="${not #lists.isEmpty(compounds)}">
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
                     <th> Index</th>
                     <th> Compound Code</th>
                     <th> Compound Name</th>
-                    <th> Status</th>
                     <th> Modify</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="compound, rowCount : ${compounds}">
-                    <th th:text="${rowCount.count}"></th>
-                    <th th:text="${compound.code}"></th>
-                    <th th:text="${compound.name}"></th>
-                    <!--<th th:text="${compound.status.status}"></th>-->
+                <tr data-th-each="compound, rowCount : ${compounds}">
+                    <th data-th-text="${rowCount.count}"></th>
+                    <th data-th-text="${compound.code}"></th>
+                    <th data-th-text="${compound.name}"></th>
+                    <!--<th data-th-text="${compound.status.status}"></th>-->
                     <th>
-                       <!-- <a id="employeeView" th:href="${'/compound/' + compound.id}" class="btn btn-success btn-sm"><i
+                        <a data-th-href="${'/compound/' + compound.id}" class="btn btn-success btn-sm"><i
                                 class="fa fa-folder-open"></i>&nbsp;View</a>
-                        <a id="employeeEdit" th:href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
-                        <a id="employeeRemove" th:href="${'/compound/remove/' + compound.id}"
-                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                            Delete</a>-->
+                        <a  data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                        <a  data-th-href="${'/compound/remove/' + compound.id}"
+                           data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+                            Delete</a>
                     </th>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row" th:if="${ #lists.isEmpty(compounds)}">
+    <div class="row" data-th-if="${ #lists.isEmpty(compounds)}">
         <div class="col-sm-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -82,9 +81,9 @@
     </div>
 </div>
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>
