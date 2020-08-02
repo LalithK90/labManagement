@@ -49,7 +49,7 @@ public class Customer extends AuditEntity {
     private String address;
 
     @Column(unique = true)
-    private String code; // ex. {yearLastTwo}{less than ten thousand}
+    private String code;
 
     @Column(unique = true)
     private String email;

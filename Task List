@@ -1,0 +1,61 @@
+Physical Test
+
+Production Date	
+Mixer	
+Compound code	
+Batch No	
+Specific Gravity 	
+Hardness		
+Resiliency	
+Qc Decision	
+Abrasion	
+Tensile Strength	
+MODULUS 300%	
+EAB%	
+Tear Strength	
+Dump Temperature	
+Shift Time	
+Order No	
+Lot Weight	
+Reason	
+Shift	
+Defect 
+Description	
+Defect	
+Responsibility			
+Reported Date
+
+Rheological data test
+
+Test Date
+Mixer	
+Compound code
+Batch No.	 
+ML	 
+MH	 
+ts2	 
+tc90
+
+
+Sample Receiving (Many to one)
+
+Compound List<>
+Batch No
+LabTest List<>    Combo box
+Status
+Customer???
+
+To do LabTest
+
+To decide the mixer and ok
+
+
+
+Roles
+Lab Manager
+LAb Technician
+Cashier
+Technical Manager(Approve or reject the lab test)
+Quality Assurance manager
+
+

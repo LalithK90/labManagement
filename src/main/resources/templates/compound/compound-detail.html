@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>customer-detail</title>
+    <title>compound-detail</title>
 </head>
 <body>
 
@@ -11,15 +11,15 @@
     <div class="row text-center formManagement border-info">
         <!--ViewList Button-->
         <div class="col">
-            <a href="/customer" class="btn btn-primary" tabindex="1">
+            <a href="/compound" class="btn btn-primary" tabindex="1">
                 <i class="fa fa-list" style="font-size: 20px"></i>&nbsp;&nbsp;View List
             </a>
         </div>
-        <!--Customer Name-->
+        <!--compound Name-->
         <div class="col">
             <h2 class="text-light text-center">
                 <strong>
-                    <p th:text="${customerDetail.title.title} +${' '} +${customerDetail.name}"></p>
+                    <p th:text="${compoundDetails.code} +${' '} +${compoundDetails.name}"></p>
                 </strong>
             </h2>
         </div>
@@ -32,11 +32,65 @@
     </div>
 </div>
 
-
+<!--details-->
+<div data-th-fragment="employeeDetailsFragment" class="container-fluid bg-dark formBorder">
+    <div class="col-sm-12 flex-column ">
+        <div class="row">
+            <!--Left Side-->
+            <div class="form-group col-md-6 col-sm-6 text-left flex-column">
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="id">ID :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="id" data-th-text="${compoundDetails.id}" class="display_detail"></p>
+                    </div>
+                </div>
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="code">Compound Code :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="code" data-th-text="${compoundDetails.code}" class="display_detail"></p>
+                    </div>
+                </div>
+                <div class="form-row text-right">
+                    <div class="col-md-4">
+                        <label class="control-label" for="name">Compound Name :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p id="name" data-th-text="${compoundDetails.name}" class="display_detail"></p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <table class="table table-striped table-inverse table-responsive">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Index</th>
+                            <th>Test Type</th>
+                            <th>Min</th>
+                            <th>Max</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-th-each="specification, index : ${compoundDetails.specifications}">
+                            <td data-th-text="${index.count}"></td>
+                            <td>
+                                <span data-th-text="${specification.specificationName}"></span>
+                            </td>
+                            <td data-th-text="${specification.min}"></td>
+                            <td data-th-text="${specification.max}"></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--Back Button-->
 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
-    <a href="/customer">
+    <a href="/compound">
         <button class="btn btn-dark" type="button" tabindex="3">
             <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp; &nbsp;Back
         </button>
