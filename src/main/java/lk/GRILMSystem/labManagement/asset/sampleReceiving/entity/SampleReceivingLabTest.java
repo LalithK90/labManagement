@@ -1,8 +1,8 @@
 package lk.GRILMSystem.labManagement.asset.sampleReceiving.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import lk.GRILMSystem.labManagement.asset.labTest.entity.LabTest;
-import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.AcceptOrNot;
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.Acceptability;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.SampleReceivingLabTestStatus;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -10,10 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,11 +27,14 @@ public class SampleReceivingLabTest extends AuditEntity {
     private SampleReceivingLabTestStatus sampleReceivingLabTestStatus;
 
     @Enumerated(EnumType.STRING)
-    private AcceptOrNot acceptOrNot;
+    private Acceptability acceptability;
 
-    @ManyToOne
-    private LabTest labTest;
+    @Enumerated(EnumType.STRING)
+    private LabTestName labTestName;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private SampleReceiving sampleReceiving;
+
+    @OneToMany(mappedBy = "sampleReceivingLabTest" , cascade = CascadeType.ALL)
+    private List<SampleReceivingLabTestResult> sampleReceivingLabTestResults;
 }

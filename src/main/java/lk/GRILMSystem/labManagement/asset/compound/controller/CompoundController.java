@@ -1,7 +1,7 @@
 package lk.GRILMSystem.labManagement.asset.compound.controller;
 
 import lk.GRILMSystem.labManagement.asset.compound.entity.Compound;
-import lk.GRILMSystem.labManagement.asset.labTest.entity.Enum.CompoundPropertyName;
+import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.SpecificationName;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Specification;
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
@@ -33,23 +33,30 @@ public class CompoundController {
     @GetMapping("/add")
     public String form(Model model) {
         model.addAttribute("compound", new Compound());
-        model.addAttribute("compoundPropertyNames", CompoundPropertyName.values());
+        model.addAttribute("labTests", LabTestName.values());
         model.addAttribute("addStatus", true);
         model.addAttribute("specificationNames", SpecificationName.values());
         return "compound/addCompound";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model){
+    public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("compound", compoundService.findById(id));
         model.addAttribute("addStatus", false);
-        model.addAttribute("compoundPropertyNames", CompoundPropertyName.values());
+        model.addAttribute("labTests", LabTestName.values());
         model.addAttribute("specificationNames", SpecificationName.values());
         return "compound/addCompound";
     }
 
     @PostMapping(value = {"/add", "/update"})
     public String addComponent(@Valid @ModelAttribute Compound compound, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("compound", compound);
+            model.addAttribute("labTests", LabTestName.values());
+            model.addAttribute("addStatus", true);
+            model.addAttribute("specificationNames", SpecificationName.values());
+            return "compound/addCompound";
+        }
         for (Specification s : compound.getSpecifications()) {
             s.setCompound(compound);
         }

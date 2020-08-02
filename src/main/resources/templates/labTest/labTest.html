@@ -64,11 +64,11 @@
                                                 <tbody>
                                                 <tr data-th-each="labTest, rowCount : ${labTests}" scope="row">
                                                     <th data-th-text="${rowCount.count}"></th>
-                                                    <th data-th-text="${labTest.name}"></th>
+                                                    <th data-th-text="${labTest.compoundPropertyName.compoundPropertyName}"></th>
                                                     <th>
                                                         <ol>
                                                             <li data-th-each="labTestParameter : ${labTest.labTestParameters}"
-                                                                data-th-text="${labTestParameter.name}"></li>
+                                                                data-th-text="${labTestParameter.specificationName.specificationName}"></li>
                                                         </ol>
                                                     </th>
 

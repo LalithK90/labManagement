@@ -23,8 +23,6 @@ import java.util.List;
 public class LabTestResult extends AuditEntity {
 
 
-    //private List<SpecificationName> specificationNames;
-
     private float value;
 
     @ManyToOne

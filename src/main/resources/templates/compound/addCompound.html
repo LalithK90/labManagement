@@ -160,8 +160,8 @@
                 <thead class="thead-inverse">
                 <tr>
                     <th>Index</th>
+                    <th>Lab Test</th>
                     <th>Specification Name</th>
-                    <!--<th>Test Type</th>-->
                     <th>Min</th>
                     <th>Max</th>
                 </tr>
@@ -170,19 +170,18 @@
                 <tr data-th-each="specification, index : ${specificationNames}">
                     <td data-th-text="${index.count}"></td>
                     <td>
-                        <span data-th-text="${specification.specificationName}"></span>Ncompund
+                        <select data-th-field="*{specifications[__${index.index}__].labTestName}" required>
+                            <option value="" selected >Please Select</option>
+                            <option data-th-each="labTest : ${labTests}"
+                            data-th-text="${labTest.labTestName}"
+                            data-th-value="${labTest}"></option>
+                        </select>
+                    </td>
+                    <td>
+                        <span data-th-text="${specification.specificationName}"></span>
                         <input type="text" data-th-name="${'specifications[__${index.index}__].specificationName'}"
                                data-th-value="${specification}" hidden>
                     </td>
-                    <!--<td>
-                        <select data-th-field="*{specifications[__${index.index}__].compoundPropertyName}">
-                            <option value="">Please Select</option>
-                            <option data-th-each="propertyName : ${compoundPropertyNames}"
-                                    data-th-text="${propertyName.compoundPropertyName}"
-                                    data-th-value="${propertyName}"
-                            ></option>
-                        </select>
-                    </td>-->
                     <td>
                         <input type="text" data-th-field="*{specifications[__${index.index}__].min}">
                     </td>

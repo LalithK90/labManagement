@@ -50,7 +50,7 @@
                                                 <tbody>
                                                 <tr th:each="labTestParameter, rowCount : ${labTestParameters}" scope="row">
                                                     <th th:text="${rowCount.count}"></th>
-                                                    <th th:text="${labTestParameter.name}"></th>
+                                                    <th th:text="${labTestParameter.specificationName.specificationName}"></th>
 
                                                     <th>
                                                         <a class="btn btn-primary btn-sm" id="labTestParameterEdit"

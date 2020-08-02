@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum SampleReceivingLabTestStatus {
+
     NOTRESULTENTER("Result not Enter"),
     RESULTENTER("Result Enter"),
     EMAILSENT("Email Sent"),
