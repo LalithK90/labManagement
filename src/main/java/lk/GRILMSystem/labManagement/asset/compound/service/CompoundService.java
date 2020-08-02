@@ -1,6 +1,7 @@
 package lk.GRILMSystem.labManagement.asset.compound.service;
 
 import lk.GRILMSystem.labManagement.asset.compound.dao.CompoundDao;
+import lk.GRILMSystem.labManagement.asset.compound.dao.SpecificationDao;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Compound;
 import lk.GRILMSystem.labManagement.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;

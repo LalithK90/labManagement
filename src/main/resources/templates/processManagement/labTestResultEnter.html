@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>sampleReceiving</title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 <!--heading Area-->
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
@@ -32,39 +32,59 @@
         </div>
     </div>
 </div>
-<!--Customers List-->
-<div class="container-fluid bg-primary text-center">
+<!--Viewing   List-->
+<div class="container-fluid bg-primary text-center" data-th-if="${not showList}">
+    <div class="container h1 text-center">Select Lab Test To Accept Or Reject</div>
+    <div class="container">
+        <div class="form-row">
+            <div class="col-4" data-th-each="labTestName : ${labTestNames}">
+                <a data-th-href="${'/labTestResultEnter/form/'+labTestName}">
+                    <button class="btn btn-success" type="button" data-th-text="${labTestName.labTestName}"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--labTest  List-->
+<div class="container-fluid bg-primary text-center" data-th-if="${showList}">
     <!--Table view-->
     <div class="col">
-        <div class="col" id="sampleReceivingListPresent" th:if="${not #lists.isEmpty(sampleReceivings)}">
-            <table class="table table-hover table-striped" id="myTable">
+        <div class="col" id="sampleReceivingListPresent" data-th-if="${not #lists.isEmpty(sampleReceivingLabTests)}">
+            <table class="table table-hover table-striped" >
                 <thead>
                 <tr>
                     <th> Index</th>
-                    <th> Name</th>
-                    <th> Status</th>
-                    <th> Compound</th>
+                    <th> Batch Number</th>
+                    <th> Compound Name</th>
+                    <th> Compound Code</th>
+                    <th> Customer Name</th>
+                    <th> Receiving Date</th>
                     <th> Modify</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="sampleReceiving, rowCount : ${sampleReceivings}">
-                    <th th:text="${rowCount.count}"></th>
-                    <th th:text="${sampleReceiving.batchNo}"></th>
-                    <th th:text="${sampleReceiving.sampleReceivingStatus.sampleReceivingStatus}"></th>
-                    <th th:text="${sampleReceiving.compound.name}"></th>
-                    <th>
-                        <a id="sampleReceivingView" th:href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-primary btn-sm"><i
-                                class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;View</a>
-
-                    </th>
+                <tr data-th-each="sampleReceivingLabTest, rowCount : ${sampleReceivingLabTests}">
+                    <th data-th-text="${rowCount.count}"></th>
+                    <th data-th-text="${sampleReceivingLabTest.sampleReceiving.batchNo}"></th>
+                    <th data-th-text="${sampleReceivingLabTest.sampleReceiving.compound.name}"></th>
+                    <th data-th-text="${sampleReceivingLabTest.sampleReceiving.compound.code}"></th>
+                    <th data-th-text="${sampleReceivingLabTest.sampleReceiving.customer.name}"></th>
+                    <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th> <th>
+                    <a data-th-href="${'/labTestResultEnter/form/add/' + sampleReceivingLabTest.id}"
+                       class="btn btn-success btn-sm"><i
+                            class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;Result Enter</a>
+                    <a data-th-href="${'/labTestResultEnter/form/edit/' + sampleReceivingLabTest.id}"
+                       class="btn btn-danger btn-sm"><i
+                            class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;View</a>
+                </th>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <!--Error-->
-    <div class="row" th:if="${ #lists.isEmpty(sampleReceivings)}">
+    <div class="row" data-th-if="${ #lists.isEmpty(sampleReceivingLabTests)}">
         <div class="col-sm-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -84,14 +104,14 @@
         </script>
     </div>
     <!--Save sampleReceiving-->
-    <div class="row" th:if="${sampleReceivingDetail != null}">
+    <div class="row" data-th-if="${sampleReceivingDetail != null}">
         <div class="col-sm-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <!--save sampleReceiving include-->
-                <div th:replace="~{sampleReceiving/sampleReceiving-detail :: sampleReceivingDetailsFragment}"></div>
+                <div data-th-replace="~{sampleReceiving/sampleReceiving-detail :: sampleReceivingDetailsFragment}"></div>
             </div>
         </div>
         <script>
@@ -102,9 +122,9 @@
     </div>
 </div>
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>
