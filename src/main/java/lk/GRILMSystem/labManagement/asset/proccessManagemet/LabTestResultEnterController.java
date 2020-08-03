@@ -66,7 +66,7 @@ public class LabTestResultEnterController {
         List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
 
         model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
-        model.addAttribute("sampleReceivingLabTestResults", sampleReceivingLabTestResults);
+        model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
         model.addAttribute("addStatus", true);
         return "processManagement/labTestResultEnterForm";
     }
@@ -78,7 +78,7 @@ public class LabTestResultEnterController {
             List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
 
             model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
-            model.addAttribute("sampleReceivingLabTestResults", sampleReceivingLabTestResults);
+            model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
             model.addAttribute("addStatus", true);
             return "processManagement/labTestResultEnterForm";
         }
