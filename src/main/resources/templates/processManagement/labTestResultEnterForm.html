@@ -57,9 +57,9 @@
                     </div>
                 </div>
                 <div class="form-row text-right"
-                     data-th-each="sampleReceivingLabTestResult, index : ${sampleReceivingLabTestResults}">
+                     data-th-each="sampleReceivingLabTestResults, index : ${sampleReceivingLabTestResultses}">
                     <div class="col-3">
-                        [[${sampleReceivingLabTestResult.specification.min}]]
+                        [[${sampleReceivingLabTestResults.specification}]]
                         <input type="number" class="form-control"
                                data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].id}" hidden>
                     </div>

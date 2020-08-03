@@ -1,11 +1,11 @@
 package lk.GRILMSystem.labManagement.asset.proccessManagemet;
 
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
-import lk.GRILMSystem.labManagement.asset.compound.entity.Specification;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.Acceptability;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.SampleReceivingLabTestStatus;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceivingLabTest;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceivingLabTestResult;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.service.SampleReceivingLabTestResultService;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.service.SampleReceivingLabTestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +20,12 @@ import java.util.List;
 @RequestMapping("/labTestResultEnter")
 public class LabTestResultEnterController {
     private final SampleReceivingLabTestService sampleReceivingLabTestService;
+    private final SampleReceivingLabTestResultService sampleReceivingLabTestResultService;
 
 
-    public LabTestResultEnterController(SampleReceivingLabTestService sampleReceivingLabTestService) {
+    public LabTestResultEnterController(SampleReceivingLabTestService sampleReceivingLabTestService, SampleReceivingLabTestResultService sampleReceivingLabTestResultService) {
         this.sampleReceivingLabTestService = sampleReceivingLabTestService;
+        this.sampleReceivingLabTestResultService = sampleReceivingLabTestResultService;
     }
 
     @GetMapping("/form")
@@ -43,11 +45,17 @@ public class LabTestResultEnterController {
     @GetMapping("/form/add/{id}")
     public String resultEnterAddForm(@PathVariable Integer id, Model model) {
         SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
-        List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
+        List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = new ArrayList<>();
 
+        for (SampleReceivingLabTestResult sampleReceivingLabTestResult : sampleReceivingLabTest.getSampleReceivingLabTestResults()) {
+            System.out.println(sampleReceivingLabTestResult.getId());
+            SampleReceivingLabTestResult sampleReceivingLabTestResultDB = sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
 
+            System.out.println(sampleReceivingLabTestResultDB.getSpecification().getId());
+            sampleReceivingLabTestResults.add(sampleReceivingLabTestResultDB);
+        }
         model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
-        model.addAttribute("sampleReceivingLabTestResults", sampleReceivingLabTestResults);
+        model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
         model.addAttribute("addStatus", false);
         return "processManagement/labTestResultEnterForm";
     }
