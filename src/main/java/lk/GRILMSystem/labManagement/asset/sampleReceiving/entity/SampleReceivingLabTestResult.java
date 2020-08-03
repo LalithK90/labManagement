@@ -26,7 +26,7 @@ public class SampleReceivingLabTestResult extends AuditEntity {
     @ManyToOne
     private SampleReceivingLabTest sampleReceivingLabTest;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Specification specification;
 
 

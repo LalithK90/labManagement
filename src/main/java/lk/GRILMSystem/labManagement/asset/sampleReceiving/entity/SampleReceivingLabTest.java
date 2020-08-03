@@ -35,6 +35,6 @@ public class SampleReceivingLabTest extends AuditEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     private SampleReceiving sampleReceiving;
 
-    @OneToMany(mappedBy = "sampleReceivingLabTest" , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "sampleReceivingLabTest")
     private List<SampleReceivingLabTestResult> sampleReceivingLabTestResults;
 }
