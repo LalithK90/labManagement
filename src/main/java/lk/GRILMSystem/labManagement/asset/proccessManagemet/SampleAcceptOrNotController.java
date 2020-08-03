@@ -69,13 +69,10 @@ public class SampleAcceptOrNotController {
             sampleReceivingLabTest.setSampleReceivingLabTestResults(sampleReceivingLabTestResults);
             sampleReceivingLabTestService.persist(sampleReceivingLabTest);
         }
-  /*      model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
+        model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
         model.addAttribute("showList", true);
         return "processManagement/sampleAcceptOrNot";
-        */
-        return "redirect:/processManagement/sampleAcceptOrNot".concat(sampleReceivingLabTest.getLabTestName().toString());
-
-    }
+           }
 
     @GetMapping("/acceptability/reject/{id}")
     public String sampleAcceptOrNotReject(@PathVariable Integer id, Model model) {
@@ -92,12 +89,9 @@ public class SampleAcceptOrNotController {
 
             sampleReceivingLabTestService.persist(sampleReceivingLabTest);
         }
-/*
         model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptability(sampleReceivingLabTest.getLabTestName(), Acceptability.PENDING));
         model.addAttribute("showList", true);
-        return "processManagement/sampleAcceptOrNot";*/
-
-        return "redirect:/processManagement/sampleAcceptOrNot".concat(sampleReceivingLabTest.getLabTestName().toString());
+        return "processManagement/sampleAcceptOrNot";
 
     }
 }

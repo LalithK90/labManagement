@@ -66,7 +66,7 @@ public class LabTestResultEnterController {
         List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
 
         model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
-        model.addAttribute("sampleReceivingLabTestResults", sampleReceivingLabTestResults);
+        model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
         model.addAttribute("addStatus", true);
         return "processManagement/labTestResultEnterForm";
     }
@@ -75,7 +75,12 @@ public class LabTestResultEnterController {
     @PostMapping("/save")
     public String labTestResultSave(@ModelAttribute SampleReceivingLabTest sampleReceivingLabTest, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
         if (result.hasErrors()) {
-            return "redirect:/labTestResultEnter/form".concat(sampleReceivingLabTest.getLabTestName().toString());
+            List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
+
+            model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
+            model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
+            model.addAttribute("addStatus", true);
+            return "processManagement/labTestResultEnterForm";
         }
         sampleReceivingLabTest.setSampleReceivingLabTestStatus(SampleReceivingLabTestStatus.RESULTENTER);
         SampleReceivingLabTest sampleReceivingLabTestDB = sampleReceivingLabTestService.persist(sampleReceivingLabTest);
