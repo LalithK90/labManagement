@@ -45,15 +45,21 @@
                     <!--Customer -->
                     <div class="form-row text-right">
                         <div class="col-md-4">
-                            <label class="control-label" id="customerLabel" >Customer :</label>
+                            <label class="control-label" id="customerLabel">Customer :</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <select id="customer" th:field="*{customer}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
                                 <option th:each="customer : ${customers}"
                                         th:text="${customer.name}"
                                         th:value="${customer.id}"></option>
                             </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a data-th-href="${'/customer/add'}">
+                                <button type="button" class="btn btn-outline-success">New
+                                </button>
+                            </a>
                         </div>
                     </div>
                     <!--Id-->
@@ -62,8 +68,8 @@
                         <div class="col-md-4">
                             <label class="control-label" for="code">Batch Number :</label>
                         </div>
-                        <div class="col-md-8">
-                            <input id="code" th:field="*{batchNo}" class="form-control" type="text" />
+                        <div class="col-md-7">
+                            <input id="code" th:field="*{batchNo}" class="form-control" type="text"/>
                         </div>
                     </div>
                     <!--compound -->
@@ -71,13 +77,19 @@
                         <div class="col-md-4">
                             <label class="control-label" for="title">Compound :</label>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <select id="title" th:field="*{compound}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
                                 <option th:each="compound : ${compounds}"
                                         th:text="${compound.name}"
                                         th:value="${compound.id}"></option>
                             </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a data-th-href="${'/compound/add'}">
+                                <button type="button" class="btn btn-outline-success">New
+                                </button>
+                            </a>
                         </div>
                     </div>
 
@@ -139,7 +151,6 @@
 <footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
 <script th:replace="~{fragments/script :: scriptFragment}"></script>
-
 
 
 </body>

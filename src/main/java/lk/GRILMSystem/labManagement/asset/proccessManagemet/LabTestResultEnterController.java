@@ -17,41 +17,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/labTestResultEnter")
+@RequestMapping( "/labTestResultEnter" )
 public class LabTestResultEnterController {
     private final SampleReceivingLabTestService sampleReceivingLabTestService;
     private final SampleReceivingLabTestResultService sampleReceivingLabTestResultService;
 
 
-    public LabTestResultEnterController(SampleReceivingLabTestService sampleReceivingLabTestService, SampleReceivingLabTestResultService sampleReceivingLabTestResultService) {
+    public LabTestResultEnterController(SampleReceivingLabTestService sampleReceivingLabTestService,
+                                        SampleReceivingLabTestResultService sampleReceivingLabTestResultService) {
         this.sampleReceivingLabTestService = sampleReceivingLabTestService;
         this.sampleReceivingLabTestResultService = sampleReceivingLabTestResultService;
     }
 
-    @GetMapping("/form")
+    @GetMapping( "/form" )
     public String sampleAcceptOrNotSelection(Model model) {
         model.addAttribute("labTestNames", LabTestName.values());
         model.addAttribute("showList", false);
         return "processManagement/labTestResultEnter";
     }
 
-    @GetMapping("/form/{labTestName}")
+    @GetMapping( "/form/{labTestName}" )
     public String sampleAcceptOrNotSelection(@PathVariable LabTestName labTestName, Model model) {
-        model.addAttribute("sampleReceivingLabTests", sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
+        model.addAttribute("sampleReceivingLabTests",
+                           sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
         model.addAttribute("showList", true);
         return "processManagement/labTestResultEnter";
     }
 
-    @GetMapping("/form/add/{id}")
+    @GetMapping( "/form/add/{id}" )
     public String resultEnterAddForm(@PathVariable Integer id, Model model) {
         SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
-        List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = new ArrayList<>();
+        List< SampleReceivingLabTestResult > sampleReceivingLabTestResults = new ArrayList<>();
 
-        for (SampleReceivingLabTestResult sampleReceivingLabTestResult : sampleReceivingLabTest.getSampleReceivingLabTestResults()) {
-            System.out.println(sampleReceivingLabTestResult.getId());
-            SampleReceivingLabTestResult sampleReceivingLabTestResultDB = sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
-
-            System.out.println(sampleReceivingLabTestResultDB.getSpecification().getId());
+        for ( SampleReceivingLabTestResult sampleReceivingLabTestResult :
+                sampleReceivingLabTest.getSampleReceivingLabTestResults() ) {
+            SampleReceivingLabTestResult sampleReceivingLabTestResultDB =
+                    sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
             sampleReceivingLabTestResults.add(sampleReceivingLabTestResultDB);
         }
         model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
@@ -60,10 +61,11 @@ public class LabTestResultEnterController {
         return "processManagement/labTestResultEnterForm";
     }
 
-    @GetMapping("/form/edit/{id}")
+    @GetMapping( "/form/edit/{id}" )
     public String resultEnterEditForm(@PathVariable Integer id, Model model) {
         SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
-        List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
+        List< SampleReceivingLabTestResult > sampleReceivingLabTestResults =
+                sampleReceivingLabTest.getSampleReceivingLabTestResults();
 
         model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
         model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
@@ -72,20 +74,24 @@ public class LabTestResultEnterController {
     }
 
 
-    @PostMapping("/save")
-    public String labTestResultSave(@ModelAttribute SampleReceivingLabTest sampleReceivingLabTest, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
-        if (result.hasErrors()) {
-            List<SampleReceivingLabTestResult> sampleReceivingLabTestResults = sampleReceivingLabTest.getSampleReceivingLabTestResults();
+    @PostMapping( "/save" )
+    public String labTestResultSave(@ModelAttribute SampleReceivingLabTest sampleReceivingLabTest,
+                                    BindingResult result, RedirectAttributes redirectAttributes, Model model) {
+        if ( result.hasErrors() ) {
+            List< SampleReceivingLabTestResult > sampleReceivingLabTestResults =
+                    sampleReceivingLabTest.getSampleReceivingLabTestResults();
 
             model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
             model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
             model.addAttribute("addStatus", true);
             return "processManagement/labTestResultEnterForm";
         }
-        sampleReceivingLabTest.setSampleReceivingLabTestStatus(SampleReceivingLabTestStatus.RESULTENTER);
-        SampleReceivingLabTest sampleReceivingLabTestDB = sampleReceivingLabTestService.persist(sampleReceivingLabTest);
+        SampleReceivingLabTest sampleReceivingLabTestBeforeSave = sampleReceivingLabTestService.findById(sampleReceivingLabTest.getId());
+        sampleReceivingLabTestBeforeSave.setSampleReceivingLabTestStatus(SampleReceivingLabTestStatus.RESULTENTER);
+        sampleReceivingLabTestBeforeSave.setSampleReceivingLabTestResults(sampleReceivingLabTest.getSampleReceivingLabTestResults());
+        SampleReceivingLabTest sampleReceivingLabTestDB = sampleReceivingLabTestService.persist(sampleReceivingLabTestBeforeSave);
         //todo-> email and message are need to configure
 
-        return "redirect:/labTestResultEnter/form".concat(sampleReceivingLabTest.getLabTestName().toString());
+        return "redirect:/labTestResultEnter/form/"+ sampleReceivingLabTestDB.getLabTestName();
     }
 }

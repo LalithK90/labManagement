@@ -66,6 +66,16 @@
                                data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].id}"
 
                                hidden>
+                        <input type="number" class="form-control"
+                               data-th-value="${sampleReceivingLabTestResults.sampleReceivingLabTest.id}"
+                               data-th-name="${'sampleReceivingLabTestResults[__${index.index}__].sampleReceivingLabTest.id'}"
+
+                               hidden>
+                        <input type="number" class="form-control"
+                               data-th-value="${sampleReceivingLabTestResults.specification.id}"
+                               data-th-name="${'sampleReceivingLabTestResults[__${index.index}__].specification.id'}"
+
+                               hidden>
                     </div>
                     <div class="col-3">
                         <input type="number" step="0.5" class="form-control"
