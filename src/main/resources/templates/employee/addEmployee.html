@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
-<body >
+<body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<!--
-<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>
--->
+<!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
 
 <div class="container bg-secondary form-Border">
@@ -33,7 +31,7 @@
     </div>
 </div>
 <!--Form Content - start -->
-<div class="container-fluid  formBorder">
+<div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column ">
         <form id="form" class="form-horizontal" th:action="${addStatus==true?'/employee/add':'/employee/update'}"
               th:object="${employee}" method="POST" enctype="multipart/form-data">
