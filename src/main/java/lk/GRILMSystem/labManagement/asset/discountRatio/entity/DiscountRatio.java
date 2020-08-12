@@ -1,11 +1,13 @@
 package lk.GRILMSystem.labManagement.asset.discountRatio.entity;
 
 import lk.GRILMSystem.labManagement.asset.discountRatio.entity.Enum.DiscountRatioStatus;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceiving;
 import lombok.*;
 
 import javax.persistence.*;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
