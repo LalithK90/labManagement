@@ -32,7 +32,7 @@
     </div>
 </div>
 <!--Form Content-->
-<div class="container-fluid bg-dark formBorder">
+<div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column ">
         <form id="form" class="form-horizontal"
               th:action="${addStatus==true?'/sampleReceiving/save':'/sampleReceiving/update'}"
@@ -90,6 +90,21 @@
                                 <button type="button" class="btn btn-outline-success">New
                                 </button>
                             </a>
+                        </div>
+                    </div>
+
+                    <!--DiscountRatio -->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="title">Discount :</label>
+                        </div>
+                        <div class="col-md-7">
+                            <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="3" required>
+                                <option value="">Please select</option>
+                                <option th:each="discountRatio : ${discountRatios}"
+                                        th:text="${discountRatio.name}"
+                                        th:value="${discountRatio.id}"></option>
+                            </select>
                         </div>
                     </div>
 
