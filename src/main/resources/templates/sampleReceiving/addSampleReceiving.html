@@ -101,9 +101,9 @@
                         <div class="col-md-7">
                             <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
-                                <option th:each="compound : ${compounds}"
-                                        th:text="${compound.name}"
-                                        th:value="${compound.id}"></option>
+                                <option th:each="discountRatio : ${discountRatios}"
+                                        th:text="${discountRatio.name}"
+                                        th:value="${discountRatio.id}"></option>
                             </select>
                         </div>
                     </div>
