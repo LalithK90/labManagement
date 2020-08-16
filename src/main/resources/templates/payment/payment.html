@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
+
+<div class="container-fluid bg-secondary form-Border">
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-success" href="/payment/add"><i class="fa fa-user-plus"></i>
+                &nbsp; New Payment</a>
+        </div>
+        <div class="col">
+            <h4 class="text-info text-center">
+                <strong>
+                    Payment Management
+                </strong>
+            </h4>
+        </div>
+        <div class="col">
+            <a href="#" id="searchShow" class="btn btn-primary">
+                <i class="fa fa-user " style="font-size: 20px"></i>&nbsp;Add&nbsp;
+                <i class="fas fa-store-alt" style="font-size: 20px"></i>
+                &nbsp;
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
