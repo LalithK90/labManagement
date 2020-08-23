@@ -1,7 +1,9 @@
 package lk.GRILMSystem.labManagement.asset.payment.controller;
 
+import lk.GRILMSystem.labManagement.asset.payment.entity.Enum.PaymentStatus;
 import lk.GRILMSystem.labManagement.asset.payment.entity.Payment;
 import lk.GRILMSystem.labManagement.asset.payment.service.PaymentService;
+import lk.GRILMSystem.labManagement.asset.sampleReceiving.service.SampleReceivingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +17,12 @@ import javax.validation.Valid;
 public class PaymentController {
 
     private final PaymentService paymentService;
+    private final SampleReceivingService sampleReceivingService;
 
     @Autowired
-    public PaymentController(PaymentService paymentService) {
+    public PaymentController(PaymentService paymentService, SampleReceivingService sampleReceivingService) {
         this.paymentService = paymentService;
+        this.sampleReceivingService = sampleReceivingService;
     }
 
     @GetMapping
@@ -31,6 +35,8 @@ public class PaymentController {
     public String form(Model model) {
         model.addAttribute("payment", new Payment());
         model.addAttribute("addStatus", true);
+        model.addAttribute("sampleReceivingList", sampleReceivingService.findAll());
+        model.addAttribute("paymentStatuses", PaymentStatus.values());
         return "payment/addPayment";
     }
 
@@ -48,7 +54,6 @@ public class PaymentController {
             model.addAttribute("addStatus", true);
             return "payment/addPayment";
         }
-
         paymentService.persist(payment);
         return "redirect:/payment";
     }
