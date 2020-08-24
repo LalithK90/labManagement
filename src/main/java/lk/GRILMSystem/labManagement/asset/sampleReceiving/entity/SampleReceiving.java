@@ -22,6 +22,8 @@ import java.util.List;
 @JsonFilter("SampleReceiving")
 public class SampleReceiving extends AuditEntity {
 
+    private String sampleCode;
+
     private String batchNo;
 
     @Enumerated(EnumType.STRING)

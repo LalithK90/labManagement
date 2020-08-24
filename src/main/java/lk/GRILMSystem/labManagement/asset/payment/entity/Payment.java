@@ -7,11 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -23,7 +23,11 @@ public class Payment extends AuditEntity {
     @ManyToOne
     private SampleReceiving sampleReceiving;
 
-    private double amount;
+    private BigDecimal amount;
 
+    @DateTimeFormat( pattern = "yyyy-MM-dd" )
+    private LocalDate paymentDate;
+
+    @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 }
