@@ -4,6 +4,7 @@ import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
 import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
 import lk.GRILMSystem.labManagement.asset.customer.service.CustomerService;
+import lk.GRILMSystem.labManagement.asset.discountRatio.service.DiscountRatioService;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.Acceptability;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceiving;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.SampleReceivingLabTest;
@@ -25,12 +26,14 @@ public class SampleReceivingController {
     private final SampleReceivingService sampleReceivingService;
     private final CompoundService compoundService;
     private final CustomerService customerService;
+    private final DiscountRatioService discountRatioService;
 
     @Autowired
-    public SampleReceivingController(SampleReceivingService sampleReceivingService, CompoundService compoundService, CustomerService customerService) {
+    public SampleReceivingController(SampleReceivingService sampleReceivingService, CompoundService compoundService, CustomerService customerService, DiscountRatioService discountRatioService) {
         this.sampleReceivingService = sampleReceivingService;
         this.compoundService = compoundService;
         this.customerService = customerService;
+        this.discountRatioService = discountRatioService;
     }
 
     @GetMapping
@@ -44,6 +47,7 @@ public class SampleReceivingController {
         model.addAttribute("sampleReceiving", new SampleReceiving());
         model.addAttribute("compounds", compoundService.findAll());
         model.addAttribute("customers", customerService.findAll());
+        model.addAttribute("discountRatios", discountRatioService.findAll());
         model.addAttribute("addStatus", true);
         model.addAttribute("customerType", CustomerType.values());
         return "sampleReceiving/addSampleReceiving";
@@ -55,6 +59,7 @@ public class SampleReceivingController {
             model.addAttribute("sampleReceiving", sampleReceiving);
             model.addAttribute("compounds", compoundService.findAll());
             model.addAttribute("customers", customerService.findAll());
+            model.addAttribute("discountRatios", discountRatioService.findAll());
             model.addAttribute("addStatus", true);
             return "sampleReceiving/addSampleReceiving";
         }

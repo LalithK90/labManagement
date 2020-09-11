@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
+
+
+<div class="container bg-secondary form-Border">
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-primary" href="/home">
+                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
+            </a>
+        </div>
+        <div class="col">
+            <h4 class="text-light text-center">
+                <strong>
+                    <span th:text="${addStatus==true?'New Payment Add':'Update Payment Details'}"></span>
+                </strong>
+            </h4>
+        </div>
+        <div class="col">
+            <a href="/payment" class="btn btn-primary">
+                <i class="fa fa-list"></i>&nbsp; View List
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-light formBorder">
+    <div class="col-sm-12 flex-column ">
+        <form id="form" class="form-horizontal" th:action="${addStatus==true?'/payment/add':'/payment/update'}"
+              th:object="${payment}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="form-group col-md-6 col-sm-6 text-left flex-column">
+                    <!--Sample Code-->
+                    <!--Option to select which sample's payment is to be done-->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="sampleReceiving">Sample :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <select id="sampleReceiving" th:field="*{sampleReceiving}" class="form-control" tabindex="3" required>
+                                <option value="">Please select</option>
+                                <option th:each="sampleReceiving : ${sampleReceivingList}"
+                                        th:text="${sampleReceiving.sampleCode}"
+                                        th:value="${sampleReceiving}"
+                                        th:selected="${sampleReceiving==sampleReceiving.sampleCode?'selected':'unselected'}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Amount-->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="amount">Amount :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="amount" data-th-field="*{amount}" class="form-control" tabindex="4"
+                                   type="number" required/>
+                            <span id="amountError" th:errors="*{amount}"
+                                  th:if="${#fields.hasErrors('amount')}" class="error">Error Amount
+                            </span>
+                        </div>
+                    </div>
+                    <!--Payment Date-->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="paymentDate">Payment Date :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="paymentDate" data-th-field="*{paymentDate}" class="form-control" tabindex="4"
+                                   type="date" required/>
+                            <span id="paymentDateError" th:errors="*{paymentDate}"
+                                  th:if="${#fields.hasErrors('paymentDate')}" class="error">Error payment date
+                            </span>
+                        </div>
+                    </div>
+                    <!--Payment Status-->
+                    <!--Should set the payment status to PAID-->
+                    <div class="form-row text-right">
+                        <div class="col-md-4">
+                            <label class="control-label" for="paymentStatus">Payment Status :</label>
+                        </div>
+                        <div class="col-md-8">
+                            <select id="paymentStatus" th:field="*{paymentStatus}" class="form-control" tabindex="3"  readonly>
+
+                                <option th:each="paymentStatus : ${paymentStatuses}"
+                                        th:text="${paymentStatus.getPaymentStatus()}"
+                                        th:value="${paymentStatus.PAID}"></option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Button-->
+            <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
+                <button class="btn btn-success" type="submit" tabindex="21">
+                    <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span id="submit" th:text="${addStatus==true?'Save': 'Update'}"></span>
+                </button>
+                <button class="btn btn-warning ml-5" type="reset" tabindex="9">
+                    <i class="far fa-times-circle" style="font-size: 20px"></i>&nbsp;&nbsp;Cancel
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

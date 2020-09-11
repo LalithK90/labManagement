@@ -37,7 +37,7 @@ public class Customer extends AuditEntity {
     @Column(unique = true)
     private String companyName;
 
-    @Size(max = 12, min = 10, message = "NIC number is formed by 9 numbers with X/V OR 12 numbers ")
+    @Size(max = 12, min = 10, message = "NIC number formed by 9 numbers with X/V OR 12 numbers ")
     @Column(unique = true)
     private String nic;
 

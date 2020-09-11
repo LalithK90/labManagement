@@ -6,8 +6,10 @@
 </head>
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
-<div class="container-fluid bg-secondary form-Border">
+
+<div class="container bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
             <a class="btn btn-primary" href="/home">
@@ -29,7 +31,7 @@
     </div>
 </div>
 <!--Form Content - start -->
-<div class="container-fluid  formBorder">
+<div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column ">
         <form id="form" class="form-horizontal" th:action="${addStatus==true?'/employee/add':'/employee/update'}"
               th:object="${employee}" method="POST" enctype="multipart/form-data">
@@ -93,8 +95,7 @@
                             <input id="callingName" th:field="*{callingName}" class="form-control" tabindex="5"
                                    type="text" minlength="5"/>
                             <span class="error" th:errors="*{callingName}"
-                                  th:if="${#fields.hasErrors('callingName')}" id="callingNameError">Error
-                                                                       Calling                                                                                                                        Name</span>
+                                  th:if="${#fields.hasErrors('callingName')}" id="callingNameError">Error Calling Name</span>
                         </div>
                     </div>
                     <!--Nic-->
@@ -107,8 +108,7 @@
                                    maxlength="12"
                                    minlength="10" required/>
                             <span class="error" id="nicError" th:errors="*{nic}"
-                                  th:if="${#fields.hasErrors('nic')}">Error
-                                                               NIC Number</span>
+                                  th:if="${#fields.hasErrors('nic')}">Error NIC Number</span>
                         </div>
                     </div>
                     <!--Gender-->

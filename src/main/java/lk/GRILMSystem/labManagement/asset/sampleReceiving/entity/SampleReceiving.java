@@ -3,6 +3,7 @@ package lk.GRILMSystem.labManagement.asset.sampleReceiving.entity;
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Compound;
 import lk.GRILMSystem.labManagement.asset.customer.entity.Customer;
+import lk.GRILMSystem.labManagement.asset.discountRatio.entity.DiscountRatio;
 import lk.GRILMSystem.labManagement.asset.sampleReceiving.entity.Enum.SampleReceivingStatus;
 import lk.GRILMSystem.labManagement.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,8 @@ import java.util.List;
 @JsonFilter("SampleReceiving")
 public class SampleReceiving extends AuditEntity {
 
+    private String sampleCode;
+
     private String batchNo;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +38,7 @@ public class SampleReceiving extends AuditEntity {
     @OneToMany(mappedBy = "sampleReceiving",cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<SampleReceivingLabTest> sampleReceivingLabTests;
 
-
+    @ManyToOne
+    private DiscountRatio discountRatio;
 
 }
