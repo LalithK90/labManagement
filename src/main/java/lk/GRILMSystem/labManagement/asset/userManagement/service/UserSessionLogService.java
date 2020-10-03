@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static lk.GRILMSystem.labManagement.asset.userManagement.entity.Enum.UserSessionLogStatus.LOGGED;
+
 @Service
 @CacheConfig( cacheNames = {"userSessionLog"} )
 public class UserSessionLogService implements AbstractService<UserSessionLog, Integer > {
@@ -59,5 +61,14 @@ public class UserSessionLogService implements AbstractService<UserSessionLog, In
     @Cacheable
     public UserSessionLog findByUserAndUserSessionLogStatus(User user, UserSessionLogStatus userSessionLogStatus) {
         return userSessionLogDao.findByUserAndUserSessionLogStatus(user, userSessionLogStatus);
+    }
+
+    //find the logged in user
+    public String findByUserSessionLogStatus(){
+        UserSessionLog userSessionLog = userSessionLogDao.findTopByUserSessionLogStatusOrderByIdDesc(LOGGED);
+        User user = userSessionLog.getUser();
+        String userName = user.getUsername();
+        System.out.println(userName);
+        return userName;
     }
 }
