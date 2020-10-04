@@ -7,16 +7,18 @@ import lk.GRILMSystem.labManagement.asset.employee.service.EmployeeService;
 import lk.GRILMSystem.labManagement.asset.userManagement.entity.User;
 import lk.GRILMSystem.labManagement.asset.userManagement.service.RoleService;
 import lk.GRILMSystem.labManagement.asset.userManagement.service.UserService;
+import lk.GRILMSystem.labManagement.asset.userManagement.service.UserSessionLogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,13 +28,15 @@ public class UserController {
     private final UserService userService;
     private final RoleService roleService;
     private final EmployeeService employeeService;
+    private final UserSessionLogService userSessionLogService;
 
     @Autowired
-    public UserController(UserService userService, EmployeeService employeeService, RoleService roleService
-                         ) {
+    public UserController(UserService userService, EmployeeService employeeService, RoleService roleService,
+                          UserSessionLogService userSessionLogService) {
         this.userService = userService;
         this.employeeService = employeeService;
         this.roleService = roleService;
+        this.userSessionLogService = userSessionLogService;
     }
 
     @GetMapping
@@ -157,4 +161,12 @@ public class UserController {
         model.addAttribute("userDetail", userService.search(user));
         return "user/user-detail";
     }
+
+    //// TODO: 10/4/2020 get the logged in user
+    @RequestMapping(value = "/")
+    public String findLoggedUser(@ModelAttribute User loggedUser, ModelMap model){
+        model.addAttribute("loggedUser", userSessionLogService .findByUserSessionLogStatus());
+        return "";
+    }
+
 }

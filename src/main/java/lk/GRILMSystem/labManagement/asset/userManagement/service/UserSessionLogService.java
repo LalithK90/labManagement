@@ -7,6 +7,8 @@ import lk.GRILMSystem.labManagement.asset.userManagement.entity.UserSessionLog;
 import lk.GRILMSystem.labManagement.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,11 +66,12 @@ public class UserSessionLogService implements AbstractService<UserSessionLog, In
     }
 
     //find the logged in user
-    public String findByUserSessionLogStatus(){
+    public User findByUserSessionLogStatus(){
+        User user;
         UserSessionLog userSessionLog = userSessionLogDao.findTopByUserSessionLogStatusOrderByIdDesc(LOGGED);
-        User user = userSessionLog.getUser();
-        String userName = user.getUsername();
-        System.out.println(userName);
-        return userName;
+        user = userSessionLog.getUser();
+
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return user;
     }
 }
