@@ -7,27 +7,28 @@
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
+<!--heading Area-->
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a href="/home" id="btnHome" class="btn btn-facebook">
+                &nbsp;Back To Home&nbsp;
+            </a>
+        </div>
+
+        <div class="col">
+            <a class="btn btn-success" href="/employee/add"><i class="fa fa-plus"></i>
+                &nbsp;Add New</a>
+        </div>
+
+    </div>
+    <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
                 <strong>
                     Employee Management
                 </strong>
             </h4>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col">
-            <a href="/home" id="searchShow" class="btn btn-facebook">
-                <i class="fas fa-store-alt" style="font-size: 20px"></i>
-                &nbsp;
-                &nbsp;Back to home&nbsp;
-            </a>
-        </div>
-        <div class="col">
-            <a class="btn btn-success" href="/employee/add"><i class="fa fa-plus"></i>
-                &nbsp;Add New</a>
         </div>
     </div>
 </div>
