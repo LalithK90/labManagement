@@ -7,9 +7,13 @@ import lk.GRILMSystem.labManagement.asset.userManagement.entity.UserSessionLog;
 import lk.GRILMSystem.labManagement.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static lk.GRILMSystem.labManagement.asset.userManagement.entity.Enum.UserSessionLogStatus.LOGGED;
 
 @Service
 @CacheConfig( cacheNames = {"userSessionLog"} )
@@ -59,5 +63,15 @@ public class UserSessionLogService implements AbstractService<UserSessionLog, In
     @Cacheable
     public UserSessionLog findByUserAndUserSessionLogStatus(User user, UserSessionLogStatus userSessionLogStatus) {
         return userSessionLogDao.findByUserAndUserSessionLogStatus(user, userSessionLogStatus);
+    }
+
+    //find the logged in user
+    public User findByUserSessionLogStatus(){
+        User user;
+        UserSessionLog userSessionLog = userSessionLogDao.findTopByUserSessionLogStatusOrderByIdDesc(LOGGED);
+        user = userSessionLog.getUser();
+
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return user;
     }
 }

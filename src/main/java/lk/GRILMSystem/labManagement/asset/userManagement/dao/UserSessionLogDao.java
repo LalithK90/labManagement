@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserSessionLogDao extends JpaRepository<UserSessionLog, Integer > {
     UserSessionLog findByUserAndUserSessionLogStatus(User user, UserSessionLogStatus userSessionLogStatus);
+    UserSessionLog findTopByUserSessionLogStatusOrderByIdDesc(UserSessionLogStatus userSessionLogStatus);
 }

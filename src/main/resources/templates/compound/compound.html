@@ -7,12 +7,21 @@
 <body>
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container-fluid bg-secondary form-Border">
+<div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
-            <a class="btn btn-success" href="/compound/add"><i class="fa fa-user-plus"></i>
-                &nbsp; New Compound</a>
+            <a href="/home" id="btnHome" class="btn btn-facebook">
+                &nbsp;Back To Home&nbsp;&nbsp;
+            </a>
+
         </div>
+        <div class="col">
+            <a class="btn btn-success" href="/compound/add"><i class="fa fa-plus"></i>
+                &nbsp; Add New
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
                 <strong>
@@ -20,16 +29,9 @@
                 </strong>
             </h4>
         </div>
-        <div class="col">
-            <a href="#" id="searchShow" class="btn btn-primary">
-                <i class="fa fa-user " style="font-size: 20px"></i>&nbsp;Add&nbsp;
-                <i class="fas fa-store-alt" style="font-size: 20px"></i>
-                &nbsp;
-            </a>
-        </div>
     </div>
 </div>
-<div class="container-fluid bg-dark formBorder text-center">
+<div class="container-fluid formBorder text-center">
     <div class="col">
         <div class="col" id="compoundListPresent" data-th-if="${not #lists.isEmpty(compounds)}">
             <table class="table table-hover table-striped" id="myTable">
