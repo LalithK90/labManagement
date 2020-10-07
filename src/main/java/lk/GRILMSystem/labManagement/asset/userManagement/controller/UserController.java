@@ -163,10 +163,18 @@ public class UserController {
     }
 
     //// TODO: 10/4/2020 get the logged in user
+    // what is the purpose of creating this method
+    //if u want show current login user on nav bar -> thymeleaf do that job for us
+    // if need to show current logging user image need to other method to get image
+    // -> there is on method EmployeeFileService, able to get FileInfo providing Employee
+    // Current Logged user is one of employee on company so using Spring Default Authentication Method U can find current loging user and get Employee and provide that employee to EmployeeFileService
+    // and using js load onload method call that url value to img tag ->  src attribute
     @RequestMapping(value = "/")
     public String findLoggedUser(@ModelAttribute User loggedUser, ModelMap model){
+        // no need to use ModelMap -> to see deference  https://www.baeldung.com/spring-mvc-model-model-map-model-view
+        // use RestController or .....
         model.addAttribute("loggedUser", userSessionLogService .findByUserSessionLogStatus());
         return "";
     }
-
+// to need to change employee add form, follow any inventory management project
 }
