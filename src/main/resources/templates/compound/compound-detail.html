@@ -5,60 +5,62 @@
     <title>compound-detail</title>
 </head>
 <body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <!--heading Area-->
-<div class="container-fluid bg-dark form-Border">
+<div class="container-fluid form-Border">
     <div class="row text-center formManagement border-info">
-        <!--ViewList Button-->
         <div class="col">
-            <a href="/compound" class="btn btn-primary" tabindex="1">
-                <i class="fa fa-list" style="font-size: 20px"></i>&nbsp;&nbsp;View List
+            <a class="btn btn-outline-info" href="/home" tabindex="2">
+                &nbsp;&nbsp;Back To Home
             </a>
         </div>
+
+        <div class="col">
+            <a href="/compound" class="btn btn-info" tabindex="1">
+                &nbsp;&nbsp;View Compounds
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
         <!--compound Name-->
         <div class="col">
-            <h2 class="text-light text-center">
+            <h2 class="text-info text-center">
                 <strong>
                     <p th:text="${compoundDetails.code} +${' '} +${compoundDetails.name}"></p>
                 </strong>
             </h2>
         </div>
-        <!--Home Button-->
-        <div class="col">
-            <a class="btn btn-primary" href="/home" tabindex="2">
-                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp;&nbsp;Home
-            </a>
-        </div>
     </div>
 </div>
 
 <!--details-->
-<div data-th-fragment="employeeDetailsFragment" class="container-fluid bg-dark formBorder">
-    <div class="col-sm-12 flex-column ">
+<div data-th-fragment="employeeDetailsFragment" class="container formBorder">
+    <div class=" col-xl-12 col-sm-12 ">
         <div class="row">
-            <!--Left Side-->
+            <div class="col-xl-4 "></div>
             <div class="form-group col-md-6 col-sm-6 text-left flex-column">
-                <div class="form-row text-right">
+                <div class="form-row text-left">
                     <div class="col-md-4">
                         <label class="control-label" for="id">ID :</label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 text-left">
                         <p id="id" data-th-text="${compoundDetails.id}" class="display_detail"></p>
                     </div>
                 </div>
-                <div class="form-row text-right">
+                <div class="form-row text-left">
                     <div class="col-md-4">
                         <label class="control-label" for="code">Compound Code :</label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 text-left">
                         <p id="code" data-th-text="${compoundDetails.code}" class="display_detail"></p>
                     </div>
                 </div>
-                <div class="form-row text-right">
+                <div class="form-row text-left">
                     <div class="col-md-4">
                         <label class="control-label" for="name">Compound Name :</label>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 text-left">
                         <p id="name" data-th-text="${compoundDetails.name}" class="display_detail"></p>
                     </div>
                 </div>
@@ -84,6 +86,7 @@
                     </table>
                 </div>
             </div>
+            <div class="col-xl-2 "></div>
         </div>
     </div>
 </div>
@@ -91,7 +94,7 @@
 <!--Back Button-->
 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
     <a href="/compound">
-        <button class="btn btn-dark" type="button" tabindex="3">
+        <button class="btn btn-outline-secondary" type="button" tabindex="3">
             <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp; &nbsp;Back
         </button>
     </a>

@@ -10,13 +10,13 @@
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-facebook">
+            <a href="/home" id="btnHome" class="btn btn-outline-info">
                 &nbsp;Back To Home&nbsp;&nbsp;
             </a>
 
         </div>
         <div class="col">
-            <a class="btn btn-success" href="/compound/add"><i class="fa fa-plus"></i>
+            <a class="btn btn-info" href="/compound/add"><i class="fa fa-plus"></i>
                 &nbsp; Add New
             </a>
         </div>
@@ -50,8 +50,7 @@
                     <th data-th-text="${compound.name}"></th>
                     <!--<th data-th-text="${compound.status.status}"></th>-->
                     <th>
-                        <a data-th-href="${'/compound/' + compound.id}" class="btn btn-success btn-sm"><i
-                                class="fa fa-folder-open"></i>&nbsp;View</a>
+                        <a data-th-href="${'/compound/' + compound.id}" class="btn btn-outline-secondary btn-sm">View</a>
                         <a  data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         <a  data-th-href="${'/compound/remove/' + compound.id}"
                            data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
