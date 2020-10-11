@@ -149,15 +149,20 @@
         </div>
     </form>-->
         <form data-th-action="${addStatus==false?'/compound/add' :'/compound/update'}" method="post" data-th-object="${compound}">
-            <input type="text"hidden data-th-if="${addStatus==false}" data-th-field="*{id}" >
-            <div class="form-group">
-                <label data-th-for="${name}">Compound Name</label>
-                <input type="text" data-th-field="*{name}" class="form-control" placeholder="" aria-describedby="nameId">
+            <div class="row ">
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <input type="text"hidden data-th-if="${addStatus==false}" data-th-field="*{id}" >
+                    <div class="form-group">
+                        <label data-th-for="${name}"><strong>Compound Name</strong></label>
+                        <input type="text" data-th-field="*{name}" class="form-control" placeholder="Enter Compound Name" aria-describedby="nameId">
+                    </div>
+                    <div class="form-group">
+                        <label data-th-for="${code}"><strong>Compound Code</strong></label>
+                        <input type="text" data-th-field="*{code}" class="form-control" placeholder="Enter Compound Code" aria-describedby="codeId">
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label data-th-for="${code}">Compound Code</label>
-                <input type="text" data-th-field="*{code}" class="form-control" placeholder="" aria-describedby="codeId">
-            </div>
+
 
             <table class="table table-striped table-inverse table-responsive">
                 <thead class="thead-inverse">
@@ -197,7 +202,11 @@
             <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
                 <button class="btn btn-success" type="submit" tabindex="21">
                     <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;
-                    <span id="submit" data-th-text="${addStatus==true?'Save': 'Add'}"></span>
+                    <span id="submit" data-th-text="${addStatus==true?'Save': 'Update'}"></span>
+                </button>
+                <button class="btn btn-danger" type="reset" tabindex="21">
+                    <i class="fa fa-redo " style="font-size: 20px"></i>&nbsp; &nbsp;
+                    <span id="reset" th:text="Reset"></span>
                 </button>
             </div>
             <div class="form-row">
