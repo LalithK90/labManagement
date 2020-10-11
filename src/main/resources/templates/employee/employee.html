@@ -17,7 +17,7 @@
         </div>
 
         <div class="col">
-            <a class="btn btn-success" href="/employee/add"><i class="fa fa-plus"></i>
+            <a class="btn btn-info" href="/employee/add"><i class="fa fa-plus"></i>
                 &nbsp;Add New</a>
         </div>
 
@@ -56,8 +56,7 @@
                     <th th:text="${employee.designation.designation}"></th>
                     <th th:text="${employee.employeeStatus.employeeStatus}"></th>
                     <th>
-                        <a id="employeeView" th:href="${'/employee/' + employee.id}" class="btn btn-success btn-sm"><i
-                                class="fa fa-folder-open"></i>&nbsp;View</a>
+                        <a id="employeeView" th:href="${'/employee/' + employee.id}" class="btn btn-outline-secondary btn-sm">&nbsp;View</a>
                         <a id="employeeEdit" th:href="${'/employee/edit/' + employee.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
                         <a id="employeeRemove" th:href="${'/employee/remove/' + employee.id}"
                            th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
