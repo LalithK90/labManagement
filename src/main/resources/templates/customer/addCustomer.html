@@ -6,28 +6,27 @@
 </head>
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<!--Heading Area-->
-<div class="container-fluid bg-dark form-Border">
+
+<div class="container form-Border">
     <div class="row text-center formManagement border-info">
-        <!--ViewList Button-->
         <div class="col">
-            <a href="/customer" class="btn btn-primary" tabindex="1">
-                <i class="fa fa-list" style="font-size: 20px"></i>&nbsp;&nbsp;View List
+            <a class="btn btn-outline-info" href="/home" tabindex="2">
+                Back To Home
             </a>
         </div>
-        <!--Form Name-->
         <div class="col">
-            <h2 class="text-light text-center">
+            <a href="/customer" class="btn btn-info" tabindex="1">
+                &nbsp;&nbsp;View Customers
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <h4 class="text-info text-center">
                 <strong>
-                    <span th:text="${addStatus==true?'Add New Customer':'Update Customer Details'}"></span>
+                    <span th:text="${addStatus==true?'New Customer':'Update Customer Details'}"></span>
                 </strong>
-            </h2>
-        </div>
-        <!--Home Button-->
-        <div class="col">
-            <a class="btn btn-primary" href="/home" tabindex="2">
-                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp;&nbsp;Home
-            </a>
+            </h4>
         </div>
     </div>
 </div>
@@ -185,18 +184,15 @@
                 </div>
                 <!--Button-->
                 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
-                    <!--Back Button-->
-                    <a class="btn btn-dark" tabindex="10" href="/customer">
-                        <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp;&nbsp;Back
-                    </a>
+
                     <!--Save Button-->
                     <button class="btn btn-success ml-5" type="submit" tabindex="8">
                         <i class="fa fa-save " style="font-size: 20px"></i>&nbsp;&nbsp;<span id="submit"
                                                                                              th:text="${addStatus==true?'Save': 'Update'}"></span>
                     </button>
                     <!--Cancel Button-->
-                    <button class="btn btn-warning ml-5" type="reset" tabindex="9">
-                        <i class="far fa-times-circle" style="font-size: 20px"></i>&nbsp;&nbsp;Cancel
+                    <button class="btn btn-danger ml-5" type="reset" tabindex="9">
+                        <i class="fa fa-redo" style="font-size: 20px"></i>&nbsp;&nbsp;Reset
                     </button>
                 </div>
                 <!--Error-->
