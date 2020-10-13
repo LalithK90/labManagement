@@ -10,13 +10,19 @@
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-facebook">
+            <a href="/home" id="btnHome" class="btn btn-outline-info">
                 &nbsp;Back To Home&nbsp;
             </a>
         </div>
 
         <div class="col">
-            <a class="btn btn-success" href="/sampleReceiving/add"><i class="fa fa-plus"></i>
+            <a href="/sample/acceptability" id="btnSampleAccept" class="btn btn-facebook">
+                &nbspSample Accept&nbsp;
+            </a>
+        </div>
+
+        <div class="col">
+            <a class="btn btn-info" href="/sampleReceiving/add"><i class="fa fa-plus"></i>
                 &nbsp;Add New</a>
         </div>
 
@@ -41,7 +47,7 @@
                 <thead>
                 <tr>
                     <th> Index</th>
-                    <th> Name</th>
+                    <th> Batch No</th>
                     <th> Status</th>
                     <th> Compound</th>
                     <th> Modify</th>
@@ -54,8 +60,7 @@
                     <th th:text="${sampleReceiving.sampleReceivingStatus.sampleReceivingStatus}"></th>
                     <th th:text="${sampleReceiving.compound.name}"></th>
                     <th>
-                        <a id="sampleReceivingView" th:href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-primary btn-sm"><i
-                                class="fa fa-folder-open" style="font-size: 15px"></i>&nbsp;View</a>
+                        <a id="sampleReceivingView" th:href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-outline-secondary btn-sm">View</a>
 
                     </th>
                 </tr>

@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum LabTestName {
-    PHEO("RHEOMETRIC PROPERTIES (MDR02)"),
-    PYSIC("PHYSICAL PROPERTIES"),
+    RHEO("RHEOMETER TEST"),
+    PYSIC("PHYSICAL PROPERTIES TEST"),
     VIS("VISCOSITY TEST");
 
     private final String labTestName;
