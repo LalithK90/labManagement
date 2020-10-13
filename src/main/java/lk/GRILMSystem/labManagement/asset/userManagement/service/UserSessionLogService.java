@@ -70,7 +70,7 @@ public class UserSessionLogService implements AbstractService<UserSessionLog, In
         User user;
         UserSessionLog userSessionLog = userSessionLogDao.findTopByUserSessionLogStatusOrderByIdDesc(LOGGED);
         user = userSessionLog.getUser();
-
+// if want to use Authentication before go to SecurityConfig and  enable JDBC authentication
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return user;
     }

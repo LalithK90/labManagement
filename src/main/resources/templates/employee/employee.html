@@ -39,6 +39,7 @@
                 <thead>
                 <tr>
                     <th> Index</th>
+                    <th> Image</th>
                     <th> Employee Id</th>
                     <th> Name</th>
                     <th> Mobile</th>
@@ -50,6 +51,14 @@
                 <tbody>
                 <tr th:each="employee, rowCount : ${employees}">
                     <th th:text="${rowCount.count}"></th>
+                    <th>
+                        <div class="image" data-th-if="${employee.fileInfo !=null}" >
+                            <img id="img" class="rounded"
+                                 style="height:50px; width:50px;border-radius: 1px"
+                                 alt="Employee images"
+                                 data-th-src="${employee.fileInfo.url}" />
+                        </div >
+                    </th>
                     <th th:text="${employee.code}"></th>
                     <th th:text="${employee.callingName}"></th>
                     <th th:text="${employee.mobileOne}"></th>

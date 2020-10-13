@@ -1,5 +1,3 @@
-TODO: bug in labTestResultEnter (URL:http://localhost:8080/labTestResultEnter/form/PHEO always shows an error message),
-TODO: UI - images and icons doesn't appear in view pages
 TODO: UI - changes in UI of home, processManagement, sampleReceiving, labTest, LabTestResult
 TODO: Have to check validations in each data entering form
 TODO: Report module
