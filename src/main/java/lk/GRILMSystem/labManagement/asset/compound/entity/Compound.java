@@ -22,6 +22,7 @@ public class Compound extends AuditEntity {
 
     private String name;
 
+    private double price;
 
     @OneToMany(mappedBy = "compound",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Specification> specifications;
