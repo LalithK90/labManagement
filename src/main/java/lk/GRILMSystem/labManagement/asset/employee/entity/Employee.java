@@ -86,12 +86,12 @@ public class Employee extends AuditEntity {
     private List<EmailMessage> emailMessages;
 
     @Transient
-    private List< MultipartFile > files = new ArrayList<>();
+    private MultipartFile file;
 
     @Transient
     private List< String > removeImages = new ArrayList<>();
 
     @Transient
-    private List<FileInfo> fileInfos = new ArrayList<>();
+    private FileInfo fileInfo;
 
 }

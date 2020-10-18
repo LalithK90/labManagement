@@ -9,17 +9,18 @@ public enum SpecificationName {
 
     SG("Specific Gravity"),
     HARDNESS("Hardness"),
-    VISCOSITY("Viscosity"),
-    ML("ML"),
-    MH("MH"),
-    TS2("Ts2"),
-    T90("T90"),
+    RES("Resilience"),
     TENST("Tensile Strength"),
     MODULUS("Modulus"),
     EAB("E.A.B"),
     TEARST("Tear Strength"),
     ABRASION("Abrasion"),
-    CBD("Dispersion") ;
+    CBD("Dispersion"),
+    ML("ML"),
+    MH("MH"),
+    TS2("TS2"),
+    T90("T90"),
+    VISCOSITY("Viscosity");
 
     private final String specificationName;
 
