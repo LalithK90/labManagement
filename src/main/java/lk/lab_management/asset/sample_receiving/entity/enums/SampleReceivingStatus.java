@@ -1,4 +1,4 @@
-package lk.lab_management.asset.sample_receiving.entity.Enum;
+package lk.lab_management.asset.sample_receiving.entity.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +7,9 @@ import lombok.Getter;
 @Getter
 public enum SampleReceivingStatus {
     ACTIVE("Active"),
-    DISABLED("Disabled");
+    DISABLED("Disabled"),
+    PAID("Paid"),
+    PPAID("Partially Paid");
 
     private final String sampleReceivingStatus;
 }
