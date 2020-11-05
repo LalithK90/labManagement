@@ -1,5 +1,6 @@
 package lk.GRILMSystem.labManagement.asset.sampleReceiving.controller;
 
+import lk.GRILMSystem.labManagement.asset.compound.controller.CompoundRestController;
 import lk.GRILMSystem.labManagement.asset.compound.entity.Enum.LabTestName;
 import lk.GRILMSystem.labManagement.asset.compound.service.CompoundService;
 import lk.GRILMSystem.labManagement.asset.customer.entity.Enum.CustomerType;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -50,6 +52,10 @@ public class SampleReceivingController {
         model.addAttribute("discountRatios", discountRatioService.findAll());
         model.addAttribute("addStatus", true);
         model.addAttribute("customerType", CustomerType.values());
+        model.addAttribute("compoundPriceURI", MvcUriComponentsBuilder
+                .fromMethodName(CompoundRestController.class, "getPrice", "")
+                .build()
+                .toString());
         return "sampleReceiving/addSampleReceiving";
     }
 
