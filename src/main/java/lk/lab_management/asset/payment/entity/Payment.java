@@ -1,6 +1,6 @@
 package lk.lab_management.asset.payment.entity;
 
-import lk.lab_management.asset.payment.entity.Enum.PaymentStatus;
+import lk.lab_management.asset.payment.entity.enums.PaymentStatus;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -20,10 +20,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Payment extends AuditEntity {
 
+    @Column( nullable = false, precision = 10, scale = 2 )
+    private BigDecimal amount;
+
     @ManyToOne
     private SampleReceiving sampleReceiving;
-
-    private BigDecimal amount;
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate paymentDate;

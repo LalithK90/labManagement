@@ -1,12 +1,12 @@
 package lk.lab_management.asset.employee.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import lk.lab_management.asset.common_asset.model.Enum.CivilStatus;
-import lk.lab_management.asset.common_asset.model.Enum.Gender;
-import lk.lab_management.asset.common_asset.model.Enum.Title;
+import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
+import lk.lab_management.asset.common_asset.model.enums.Gender;
+import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.common_asset.model.FileInfo;
-import lk.lab_management.asset.employee.entity.Enum.Designation;
-import lk.lab_management.asset.employee.entity.Enum.EmployeeStatus;
+import lk.lab_management.asset.employee.entity.enums.Designation;
+import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
 import lk.lab_management.asset.message.entity.EmailMessage;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;

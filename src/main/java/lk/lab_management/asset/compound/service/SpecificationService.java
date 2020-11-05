@@ -3,7 +3,7 @@ package lk.lab_management.asset.compound.service;
 import lk.lab_management.asset.compound.dao.SpecificationDao;
 import lk.lab_management.asset.compound.entity.Compound;
 import lk.lab_management.asset.compound.entity.Specification;
-import lk.lab_management.asset.compound.entity.Enum.LabTestName;
+import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;

@@ -1,9 +1,9 @@
 package lk.lab_management.asset.sample_receiving.controller;
 
 import lk.lab_management.asset.compound.controller.CompoundRestController;
-import lk.lab_management.asset.compound.entity.Enum.LabTestName;
+import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.compound.service.CompoundService;
-import lk.lab_management.asset.customer.entity.Enum.CustomerType;
+import lk.lab_management.asset.customer.entity.enums.CustomerType;
 import lk.lab_management.asset.customer.service.CustomerService;
 import lk.lab_management.asset.discount_ratio.service.DiscountRatioService;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;

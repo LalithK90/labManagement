@@ -2,13 +2,13 @@ package lk.lab_management.asset.common_asset.service;
 
 
 
-import lk.lab_management.asset.common_asset.model.Enum.BloodGroup;
-import lk.lab_management.asset.common_asset.model.Enum.CivilStatus;
-import lk.lab_management.asset.common_asset.model.Enum.Gender;
-import lk.lab_management.asset.common_asset.model.Enum.Title;
+import lk.lab_management.asset.common_asset.model.enums.BloodGroup;
+import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
+import lk.lab_management.asset.common_asset.model.enums.Gender;
+import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.employee.controller.EmployeeRestController;
-import lk.lab_management.asset.employee.entity.Enum.Designation;
-import lk.lab_management.asset.employee.entity.Enum.EmployeeStatus;
+import lk.lab_management.asset.employee.entity.enums.Designation;
+import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;

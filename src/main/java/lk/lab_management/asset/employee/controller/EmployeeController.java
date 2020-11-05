@@ -1,14 +1,14 @@
 package lk.lab_management.asset.employee.controller;
 
-import lk.lab_management.asset.common_asset.model.Enum.BloodGroup;
-import lk.lab_management.asset.common_asset.model.Enum.CivilStatus;
-import lk.lab_management.asset.common_asset.model.Enum.Gender;
-import lk.lab_management.asset.common_asset.model.Enum.Title;
+import lk.lab_management.asset.common_asset.model.enums.BloodGroup;
+import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
+import lk.lab_management.asset.common_asset.model.enums.Gender;
+import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.common_asset.service.CommonService;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.employee.entity.EmployeeFiles;
-import lk.lab_management.asset.employee.entity.Enum.Designation;
-import lk.lab_management.asset.employee.entity.Enum.EmployeeStatus;
+import lk.lab_management.asset.employee.entity.enums.Designation;
+import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
 import lk.lab_management.asset.employee.service.EmployeeFilesService;
 import lk.lab_management.asset.employee.service.EmployeeService;
 import lk.lab_management.asset.user_management.entity.User;

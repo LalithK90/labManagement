@@ -1,6 +1,6 @@
 package lk.lab_management.asset.proccess_managemet;
 
-import lk.lab_management.asset.compound.entity.Enum.LabTestName;
+import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.compound.entity.Specification;
 import lk.lab_management.asset.compound.service.SpecificationService;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;

@@ -1,6 +1,6 @@
 package lk.lab_management.asset.payment.controller;
 
-import lk.lab_management.asset.payment.entity.Enum.PaymentStatus;
+import lk.lab_management.asset.payment.entity.enums.PaymentStatus;
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.service.PaymentService;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingService;

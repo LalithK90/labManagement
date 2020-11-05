@@ -1,7 +1,7 @@
 package lk.lab_management.configuration;
 
 
-import lk.lab_management.asset.user_management.entity.Enum.UserSessionLogStatus;
+import lk.lab_management.asset.user_management.entity.enums.UserSessionLogStatus;
 import lk.lab_management.asset.user_management.entity.User;
 import lk.lab_management.asset.user_management.entity.UserSessionLog;
 import lk.lab_management.asset.user_management.service.UserService;

@@ -2,8 +2,8 @@ package lk.lab_management.asset.customer.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import lk.lab_management.asset.common_asset.model.Enum.Title;
-import lk.lab_management.asset.customer.entity.Enum.CustomerType;
+import lk.lab_management.asset.common_asset.model.enums.Title;
+import lk.lab_management.asset.customer.entity.enums.CustomerType;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

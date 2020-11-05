@@ -1,8 +1,8 @@
 package lk.lab_management.asset.user_management.controller;
 
 import lk.lab_management.asset.employee.entity.Employee;
-import lk.lab_management.asset.employee.entity.Enum.Designation;
-import lk.lab_management.asset.employee.entity.Enum.EmployeeStatus;
+import lk.lab_management.asset.employee.entity.enums.Designation;
+import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
 import lk.lab_management.asset.employee.service.EmployeeService;
 import lk.lab_management.asset.user_management.entity.User;
 import lk.lab_management.asset.user_management.service.RoleService;

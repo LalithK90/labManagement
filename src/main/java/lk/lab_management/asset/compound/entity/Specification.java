@@ -1,8 +1,8 @@
 package lk.lab_management.asset.compound.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import lk.lab_management.asset.compound.entity.Enum.LabTestName;
-import lk.lab_management.asset.compound.entity.Enum.SpecificationName;
+import lk.lab_management.asset.compound.entity.enums.LabTestName;
+import lk.lab_management.asset.compound.entity.enums.SpecificationName;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTestResult;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;

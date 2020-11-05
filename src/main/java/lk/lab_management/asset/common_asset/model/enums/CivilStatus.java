@@ -1,4 +1,4 @@
-package lk.lab_management.asset.common_asset.model.Enum;
+package lk.lab_management.asset.common_asset.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

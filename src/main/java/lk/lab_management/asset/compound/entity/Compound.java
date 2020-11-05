@@ -19,9 +19,7 @@ import java.util.List;
 @JsonFilter("Compound")
 public class Compound extends AuditEntity {
 
-    private String code;
-
-    private String name;
+    private String code, name;
 
     @Column( nullable = false, precision = 10, scale = 2 )
     private BigDecimal price;

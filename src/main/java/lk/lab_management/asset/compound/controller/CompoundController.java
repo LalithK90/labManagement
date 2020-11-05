@@ -1,8 +1,8 @@
 package lk.lab_management.asset.compound.controller;
 
 import lk.lab_management.asset.compound.entity.Compound;
-import lk.lab_management.asset.compound.entity.Enum.LabTestName;
-import lk.lab_management.asset.compound.entity.Enum.SpecificationName;
+import lk.lab_management.asset.compound.entity.enums.LabTestName;
+import lk.lab_management.asset.compound.entity.enums.SpecificationName;
 import lk.lab_management.asset.compound.entity.Specification;
 import lk.lab_management.asset.compound.service.CompoundService;
 import org.springframework.beans.factory.annotation.Autowired;

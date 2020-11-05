@@ -2,7 +2,7 @@ package lk.lab_management.asset.discount_ratio.service;
 
 import lk.lab_management.asset.discount_ratio.dao.DiscountRatioDao;
 import lk.lab_management.asset.discount_ratio.entity.DiscountRatio;
-import lk.lab_management.asset.discount_ratio.entity.Enum.DiscountRatioStatus;
+import lk.lab_management.asset.discount_ratio.entity.enums.DiscountRatioStatus;
 import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package lk.lab_management.asset.customer.entity.Enum;
+package lk.lab_management.asset.customer.entity.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

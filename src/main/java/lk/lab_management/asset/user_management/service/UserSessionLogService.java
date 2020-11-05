@@ -1,7 +1,7 @@
 package lk.lab_management.asset.user_management.service;
 
 import lk.lab_management.asset.user_management.dao.UserSessionLogDao;
-import lk.lab_management.asset.user_management.entity.Enum.UserSessionLogStatus;
+import lk.lab_management.asset.user_management.entity.enums.UserSessionLogStatus;
 import lk.lab_management.asset.user_management.entity.User;
 import lk.lab_management.asset.user_management.entity.UserSessionLog;
 import lk.lab_management.util.interfaces.AbstractService;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static lk.lab_management.asset.user_management.entity.Enum.UserSessionLogStatus.LOGGED;
+import static lk.lab_management.asset.user_management.entity.enums.UserSessionLogStatus.LOGGED;
 
 @Service
 @CacheConfig( cacheNames = {"userSessionLog"} )

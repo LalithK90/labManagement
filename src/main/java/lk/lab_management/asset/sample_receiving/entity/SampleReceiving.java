@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.lab_management.asset.compound.entity.Compound;
 import lk.lab_management.asset.customer.entity.Customer;
 import lk.lab_management.asset.discount_ratio.entity.DiscountRatio;
-import lk.lab_management.asset.sample_receiving.entity.Enum.SampleReceivingStatus;
+import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingStatus;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

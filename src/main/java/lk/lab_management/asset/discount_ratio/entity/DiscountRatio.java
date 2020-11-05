@@ -1,6 +1,6 @@
 package lk.lab_management.asset.discount_ratio.entity;
 
-import lk.lab_management.asset.discount_ratio.entity.Enum.DiscountRatioStatus;
+import lk.lab_management.asset.discount_ratio.entity.enums.DiscountRatioStatus;
 import lombok.*;
 
 import javax.persistence.*;

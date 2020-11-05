@@ -1,9 +1,9 @@
 package lk.lab_management.asset.customer.controller;
 
 
-import lk.lab_management.asset.common_asset.model.Enum.Title;
+import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.customer.entity.Customer;
-import lk.lab_management.asset.customer.entity.Enum.CustomerType;
+import lk.lab_management.asset.customer.entity.enums.CustomerType;
 import lk.lab_management.asset.customer.service.CustomerService;
 import lk.lab_management.util.interfaces.AbstractController;
 import lk.lab_management.util.service.EmailService;
