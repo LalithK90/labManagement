@@ -1,7 +1,8 @@
 TODO: UI - changes in UI of home, processManagement, sampleReceiving, labTest, LabTestResult
 TODO: Have to check validations in each data entering form
 TODO: Report module
-
+TODO //->  11/5/2020 if sample accepts need to add update sample receiving table update -> SampleReceivingStatus to Active
+                     if do a payment relevant to sample receiving ->  SampleReceivingStatus to Paid Or Not Paid
 Production Date	
 Mixer	
 Compound code	
