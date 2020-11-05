@@ -2,8 +2,8 @@ package lk.lab_management.asset.sample_receiving.service;
 
 import lk.lab_management.asset.compound.entity.Enum.LabTestName;
 import lk.lab_management.asset.sample_receiving.dao.SampleReceivingLabTestDao;
-import lk.lab_management.asset.sample_receiving.entity.Enum.Acceptability;
-import lk.lab_management.asset.sample_receiving.entity.Enum.SampleReceivingLabTestStatus;
+import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
+import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingLabTestStatus;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTest;
 import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.data.domain.Example;

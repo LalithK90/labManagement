@@ -6,7 +6,7 @@ import lk.lab_management.asset.compound.service.CompoundService;
 import lk.lab_management.asset.customer.entity.Enum.CustomerType;
 import lk.lab_management.asset.customer.service.CustomerService;
 import lk.lab_management.asset.discount_ratio.service.DiscountRatioService;
-import lk.lab_management.asset.sample_receiving.entity.Enum.Acceptability;
+import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTest;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingService;
