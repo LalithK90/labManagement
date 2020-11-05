@@ -1,178 +1,218 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
-    <meta charset="UTF-8">
-    <title>addCustomer</title>
-</head>
-<body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="~{fragments/header :: headerFragment}" >
+  <meta charset="UTF-8" >
+  <title >addCustomer</title >
+</head >
+<body >
+<nav th:replace="~{fragments/navBar :: navBarFragment}" ></nav >
 <!--Heading Area-->
-<div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home" tabindex="2">
-                &nbsp;&nbsp;Back To Home
-            </a>
-        </div>
-        <div class="col">
-            <a href="/sampleReceiving" class="btn btn-info" tabindex="1">
-                &nbsp;&nbsp;View Samples
-            </a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h2 class="text-info text-center">
-                <strong>
-                    <span th:text="${addStatus==true?'Add New Sample':'Update Sample Details'}"></span>
-                </strong>
-            </h2>
-        </div>
-    </div>
-</div>
+<div class="container-fluid  form-Border" >
+  <div class="row text-center formManagement border-info" >
+    <div class="col" >
+      <a class="btn btn-outline-info" href="/home" tabindex="2" >
+        &nbsp;&nbsp;Back To Home
+      </a >
+    </div >
+    <div class="col" >
+      <a href="/sampleReceiving" class="btn btn-info" tabindex="1" >
+        &nbsp;&nbsp;View Samples
+      </a >
+    </div >
+  </div >
+  <div class="row" >
+    <div class="col" >
+      <h2 class="text-info text-center" >
+        <strong >
+          <span th:text="${addStatus==true?'Add New Sample':'Update Sample Details'}" ></span >
+        </strong >
+      </h2 >
+    </div >
+  </div >
+</div >
 <!--Form Content-->
-<div class="container-fluid bg-light formBorder">
-    <div class="col-sm-12 flex-column ">
-        <form id="form" class="form-horizontal"
-              th:action="${addStatus==true?'/sampleReceiving/save':'/sampleReceiving/update'}"
-              th:object="${sampleReceiving}" method="POST" enctype="multipart/form-data">
+<div class="container-fluid bg-light formBorder" >
+  <div class="col-sm-12 flex-column " >
+    <form id="form" class="form-horizontal"
+          th:action="${addStatus==true?'/sampleReceiving/save':'/sampleReceiving/update'}"
+          th:object="${sampleReceiving}" method="POST" >
 
-            <div class="row">
-                <!--Left Side-->
-                <div class="form-group col-md-6 col-sm-6 text-left flex-column">
+      <div class="row" >
+        <!--Left Side-->
+        <div class="container ml-5 mr-5 pl-5 pr-5" >
+          <!--Customer -->
+          <div class="form-row text-right" >
+            <div class="col-md-4" >
+              <label class="control-label" id="customerLabel" >Customer :</label >
+            </div >
+            <div class="col-md-7" >
+              <select id="customer" th:field="*{customer}" class="form-control" tabindex="3" required >
+                <option value="" >Please select</option >
+                <option th:each="customer : ${customers}"
+                        th:text="${customer.name}"
+                        th:value="${customer.id}" ></option >
+              </select >
+            </div >
+            <div class="col-md-1" >
+              <a data-th-href="${'/customer/add'}" >
+                <button type="button" class="btn btn-outline-success" style="margin-top: 20px" >New
+                </button >
+              </a >
+            </div >
+          </div >
+          <div id="idStatus" class="form-row text-right" >
 
-                    <!--Customer -->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" id="customerLabel">Customer :</label>
-                        </div>
-                        <div class="col-md-7">
-                            <select id="customer" th:field="*{customer}" class="form-control" tabindex="3" required>
-                                <option value="">Please select</option>
-                                <option th:each="customer : ${customers}"
-                                        th:text="${customer.name}"
-                                        th:value="${customer.id}"></option>
-                            </select>
-                        </div>
-                        <div class="col-md-1">
-                            <a data-th-href="${'/customer/add'}">
-                                <button type="button" class="btn btn-outline-success" style="margin-top: 20px">New
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+            <div class="col-md-4" >
+              <label class="control-label" for="code" >Batch Number :</label >
+            </div >
+            <div class="col-md-7" >
+              <input id="code" th:field="*{batchNo}" class="form-control" type="text" />
+            </div >
+          </div >
+          <!--compound -->
+          <div class="form-row text-right" >
+            <div class="col-md-4" >
+              <label class="control-label" for="compound" >Compound :</label >
+            </div >
+            <div class="col-md-7" >
+              <select id="compound" th:field="*{compound}" class="form-control" tabindex="3" required >
+                <option value="" >Please select</option >
+                <option th:each="compound : ${compounds}"
+                        th:text="${compound.name}"
+                        th:value="${compound.id}" ></option >
+              </select >
+            </div >
+            <div class="col-md-1" >
+              <a data-th-href="${'/compound/add'}" >
+                <button type="button" class="btn btn-outline-success" style="margin-top: 20px" >New
+                </button >
+              </a >
+            </div >
+          </div >
+          <!--Price-->
+          <div class="form-row text-right" >
+            <div class="col-md-4" >
+              <label class="control-label" for="price" >Price :</label >
+            </div >
+            <div class="col-md-7" >
+              <input id="price" class="form-control" type="text" readonly />
+            </div >
+          </div >
+          <!--DiscountRatio -->
+          <div class="form-row text-right" >
+            <div class="col-md-4" >
+              <label class="control-label" for="discount" >Discount :</label >
+            </div >
+            <div class="col-md-7" >
+              <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="3" required >
+                <option value="" >Please select</option >
+                <option th:each="discountRatio : ${discountRatios}"
+                        th:text="${discountRatio.name}"
+                        th:value="${discountRatio.id}" ></option >
+              </select >
+            </div >
+          </div >
+          <!--Amount-->
+          <div class="form-row text-right" >
 
-                    <div id="idStatus" class="form-row text-right">
+            <div class="col-md-4" >
+              <label class="control-label" for="price" >Amount :</label >
+            </div >
+            <div class="col-md-7" >
+              <input id="amount" class="form-control" type="text" th:field="*{amount}" readonly />
+            </div >
+          </div >
+          <!--Created by and created at-->
+          <div id="updateStatus" th:if="${addStatus==false}" >
+            <!--Created By-->
+            <div class="form-row text-right" >
+              <div class="col-md-4" >
+                <label class="control-label" for="createdBy" >Created By :</label >
+              </div >
+              <div class="col-md-8" >
+                <input id="createdBy" th:field="*{createdBy}" class="form-control" type="text"
+                       readonly />
+              </div >
+            </div >
+            <!--Created At-->
+            <div class="form-row text-right" >
+              <div class="col-md-4" >
+                <label class="control-label" for="createdAt" >Created At :</label >
+              </div >
+              <div class="col-md-8" >
+                <input id="createdAt" th:field="*{createdAt}" class="form-control" type="text"
+                       readonly />
+              </div >
+            </div >
+          </div >
+        </div >
+      </div >
+      <!--Button-->
+      <div class="form-group col-md-12 col-sm-12 text-center flex-column " >
+        <button class="btn btn-success ml-5" type="submit" tabindex="8" >
+          <i class="fa fa-save " style="font-size: 20px" ></i >&nbsp;&nbsp;<span id="submit"
+                                                                                 th:text="${addStatus==true?'Save': 'Update'}" ></span >
+        </button >
 
-                        <div class="col-md-4">
-                            <label class="control-label" for="code">Batch Number :</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input id="code" th:field="*{batchNo}" class="form-control" type="text"/>
-                        </div>
-                    </div>
-                    <!--compound -->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="title">Compound :</label>
-                        </div>
-                        <div class="col-md-7">
-                            <select id="title" th:field="*{compound}" class="form-control" tabindex="3" required>
-                                <option value="">Please select</option>
-                                <option th:each="compound : ${compounds}"
-                                        th:text="${compound.name}"
-                                        th:value="${compound.id}"></option>
-                            </select>
-                        </div>
-                        <div class="col-md-1">
-                            <a data-th-href="${'/compound/add'}">
-                                <button type="button" class="btn btn-outline-success" style="margin-top: 20px">New
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!--DiscountRatio -->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="title">Discount :</label>
-                        </div>
-                        <div class="col-md-7">
-                            <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="3" required>
-                                <option value="">Please select</option>
-                                <option th:each="discountRatio : ${discountRatios}"
-                                        th:text="${discountRatio.name}"
-                                        th:value="${discountRatio.id}"></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div  class="form-row text-right">
-
-                        <div class="col-md-4">
-                            <label class="control-label" for="price">Price :</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input id="price"  class="form-control" type="text" th:field="*{compound.price}" readonly/>
-                        </div>
-                    </div>
-
-                </div>
-                <!--Right Side-->
-                <div class="form-group col-md-6 col-sm-6 text-right flex-column">
-                    <!--Created by and created at-->
-                    <div id="updateStatus" th:if="${addStatus==false}">
-                        <!--Created By-->
-                        <div class="form-row text-right">
-                            <div class="col-md-4">
-                                <label class="control-label" for="createdBy">Created By :</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input id="createdBy" th:field="*{createdBy}" class="form-control" type="text"
-                                       readonly/>
-                            </div>
-                        </div>
-                        <!--Created At-->
-                        <div class="form-row text-right">
-                            <div class="col-md-4">
-                                <label class="control-label" for="createdAt">Created At :</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input id="createdAt" th:field="*{createdAt}" class="form-control" type="text"
-                                       readonly/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Button-->
-                <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
-
-
-                    <button class="btn btn-success ml-5" type="submit" tabindex="8">
-                        <i class="fa fa-save " style="font-size: 20px"></i>&nbsp;&nbsp;<span id="submit" th:text="${addStatus==true?'Save': 'Update'}"></span>
-                    </button>
-
-                    <button class="btn btn-danger" type="reset" tabindex="21">
-                        <i class="fa fa-redo " style="font-size: 20px"></i>&nbsp; &nbsp;
-                        <span id="reset" th:text="Reset"></span>
-                    </button>
-                </div>
-                <!--Error-->
-                <div class="form-row">
-                    <label id="errorLabel" th:if="${#fields.hasErrors('*')}" th:text="'Errors: '">Errors: </label>
-                    <ul>
-                        <li id="error" th:each="err: ${#fields.errors('*')}" th:text="${err}" class="error"></li>
-                    </ul>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+        <button class="btn btn-danger" type="reset" tabindex="21" >
+          <i class="fa fa-redo " style="font-size: 20px" ></i >&nbsp; &nbsp;
+          <span id="reset" th:text="Reset" ></span >
+        </button >
+      </div >
+      <!--Error-->
+      <div class="form-row" >
+        <label id="errorLabel" th:if="${#fields.hasErrors('*')}" th:text="'Errors: '" >Errors: </label >
+        <ul >
+          <li id="error" th:each="err: ${#fields.errors('*')}" th:text="${err}" class="error" ></li >
+        </ul >
+      </div >
+    </form >
+  </div >
+</div >
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<div th:replace="~{fragments/footer :: footerFragment}" ></div >
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<div th:replace="~{fragments/script :: scriptFragment}" ></div >
+<script >
+    $(document).ready(function () {
+        let compoundPriceURI = "[[${compoundPriceURI}]]";
 
+        $("#compound").bind("change", function () {
+            let finalUrl = compoundPriceURI + $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: finalUrl,
+                success: function (resp) {
+                    priceSet(resp);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
 
-</body>
-</html>
+    });
+    $("#discount").bind("change", function () {
+        let compoundValue = $("#compound").val();
+        if (compoundValue != null) {
+            let price = parseInt($("#price").val());
+            let discount = parseInt($("#discount").text());
+            $("#amount").val(price - (price * discount / 100));
+        } else {
+            swal({
+                title: "Re-check",
+                icon: "warning",
+                text: "Need to select compound before select the discount.",
+            });
+        }
+    });
+
+    function priceSet(compound) {
+        $("#price").val(compound.price);
+        $("#discount").val("");
+        $("#amount").val(0.00);
+    }
+</script >
+
+</body >
+</html >
