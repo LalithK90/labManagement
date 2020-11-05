@@ -16,7 +16,7 @@
         </div>
 
         <div class="col">
-            <a href="/compound" class="btn btn-primary">
+            <a href="/compound" class="btn btn-info">
                  View Compounds
             </a>
         </div>
@@ -159,6 +159,10 @@
                     <div class="form-group">
                         <label data-th-for="${code}"><strong>Compound Code</strong></label>
                         <input type="text" data-th-field="*{code}" class="form-control" placeholder="Enter Compound Code" aria-describedby="codeId">
+                    </div>
+                    <div class="form-group">
+                        <label data-th-for="${price}"><strong>Price</strong></label>
+                        <input type="number" data-th-field="*{price}" class="form-control" placeholder="Enter Price of a Sample" aria-describedby="price">
                     </div>
                 </div>
             </div>
