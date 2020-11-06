@@ -1,13 +1,12 @@
 package lk.lab_management.asset.employee.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.lab_management.asset.common_asset.model.FileInfo;
 import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
 import lk.lab_management.asset.common_asset.model.enums.Gender;
 import lk.lab_management.asset.common_asset.model.enums.Title;
-import lk.lab_management.asset.common_asset.model.FileInfo;
 import lk.lab_management.asset.employee.entity.enums.Designation;
 import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
-import lk.lab_management.asset.message.entity.EmailMessage;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Getter
@@ -77,9 +75,6 @@ public class Employee extends AuditEntity {
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfAssignment;
-
-    @ManyToMany( mappedBy = "employees" )
-    private List<EmailMessage> emailMessages;
 
     @Transient
     private MultipartFile file;
