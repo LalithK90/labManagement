@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>addCustomer</title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container form-Border">
     <div class="row text-center formManagement border-info">
@@ -24,7 +24,7 @@
         <div class="col">
             <h4 class="text-info text-center">
                 <strong>
-                    <span th:text="${addStatus==true?'New Customer':'Update Customer Details'}"></span>
+                    <span data-th-text="${addStatus==true?'New Customer':'Update Customer Details'}"></span>
                 </strong>
             </h4>
         </div>
@@ -33,24 +33,24 @@
 <!--Form Content-->
 <div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column ">
-        <form id="form" class="form-horizontal" th:action="${addStatus==true?'/customer/save':'/customer/update'}"
-              th:object="${customer}" method="POST" enctype="multipart/form-data">
+        <form id="form" class="form-horizontal" data-th-action="${addStatus==true?'/customer/save':'/customer/update'}"
+              data-th-object="${customer}" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <!--Left Side-->
                 <div class="form-group col-md-6 col-sm-6 text-left flex-column">
                     <!--Id-->
-                    <div id="idStatus" th:if="${addStatus==false}" class="form-row text-right">
+                    <div id="idStatus" data-th-if="${addStatus==false}" class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="id">ID :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="id" th:field="*{id}" class="form-control" type="text" readonly/>
+                            <input id="id" data-th-field="*{id}" class="form-control" type="text" readonly/>
                         </div>
                         <div class="col-md-4">
                             <label class="control-label" for="code">Customer Code :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="code" th:field="*{code}" class="form-control" type="text" readonly/>
+                            <input id="code" data-th-field="*{code}" class="form-control" type="text" readonly/>
                         </div>
                     </div>
 
@@ -60,12 +60,12 @@
                             <label class="control-label" for="type">Customer Type :</label>
                         </div>
                         <div class="col-md-8">
-                            <select id="type" th:field="*{customerType}" class="form-control" tabindex="3" required>
+                            <select id="type" data-th-field="*{customerType}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
-                                <option th:each="customerTypes : ${customerType}"
-                                        th:text="${customerTypes.customerType}"
-                                        th:value="${customerTypes}"
-                                        th:selected="${customerTypes==customer.customerType?'selected':'unselected'}"></option>
+                                <option data-th-each="customerTypes : ${customerType}"
+                                        data-th-text="${customerTypes.customerType}"
+                                        data-th-value="${customerTypes}"
+                                        data-th-selected="${customerTypes==customer.customerType?'selected':'unselected'}"></option>
                             </select>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                             <label class="control-label" id="companyNameLabel" for="name">Company Name :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="companyName" th:field="*{companyName}" class="form-control" tabindex="4"
+                            <input id="companyName" data-th-field="*{companyName}" class="form-control" tabindex="4"
                                    type="text" required/>
-                            <span id="companyNameError" th:errors="*{companyName}"
-                                  th:if="${#fields.hasErrors('companyName')}" class="error">Error Name</span>
+                            <span id="companyNameError" data-th-errors="*{companyName}"
+                                  data-th-if="${#fields.hasErrors('companyName')}" class="error">Error Name</span>
                         </div>
                     </div>
                     <!--Tittle -->
@@ -87,12 +87,12 @@
                             <label class="control-label" for="title">Title :</label>
                         </div>
                         <div class="col-md-8">
-                            <select id="title" th:field="*{title}" class="form-control" tabindex="3" required>
+                            <select id="title" data-th-field="*{title}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
-                                <option th:each="titles : ${title}"
-                                        th:text="${titles.title}"
-                                        th:value="${titles}"
-                                        th:selected="${titles==customer.title?'selected':'unselected'}"></option>
+                                <option data-th-each="titles : ${title}"
+                                        data-th-text="${titles.title}"
+                                        data-th-value="${titles}"
+                                        data-th-selected="${titles==customer.title?'selected':'unselected'}"></option>
                             </select>
                         </div>
                     </div>
@@ -102,9 +102,9 @@
                             <label class="control-label" for="name">Technical Manager :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="name" th:field="*{name}" class="form-control" tabindex="4" type="text" required/>
-                            <span id="nameError" th:errors="*{name}"
-                                  th:if="${#fields.hasErrors('name')}" class="error">Error Name</span>
+                            <input id="name" data-th-field="*{name}" class="form-control" tabindex="4" type="text" required/>
+                            <span id="nameError" data-th-errors="*{name}"
+                                  data-th-if="${#fields.hasErrors('name')}" class="error">Error Name</span>
                         </div>
                     </div>
                     <!--Nic-->
@@ -113,10 +113,10 @@
                             <label class="control-label" for="nic">NIC No :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="nic" th:field="*{nic}" class="form-control" tabindex="5" type="text"
+                            <input id="nic" data-th-field="*{nic}" class="form-control" tabindex="5" type="text"
                                    minlength="10" maxlength="12"/>
-                            <span class="error" id="nicError" th:errors="*{nic}"
-                                  th:if="${#fields.hasErrors('nic')}">Error
+                            <span class="error" id="nicError" data-th-errors="*{nic}"
+                                  data-th-if="${#fields.hasErrors('nic')}">Error
                                                                NIC Number</span>
                         </div>
                     </div>
@@ -129,10 +129,10 @@
                             <label class="control-label" for="mobile">Mobile :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="mobile" th:field="*{mobile}" class="form-control mobile" tabindex="6" type="text"
+                            <input id="mobile" data-th-field="*{mobile}" class="form-control mobile" tabindex="6" type="text"
                                    minlength="9" maxlength="10" required/>
-                            <span class="error" th:errors="*{mobile}"
-                                  th:if="${#fields.hasErrors('mobile')}" id="mobileError">Error Mobile Number</span>
+                            <span class="error" data-th-errors="*{mobile}"
+                                  data-th-if="${#fields.hasErrors('mobile')}" id="mobileError">Error Mobile Number</span>
                         </div>
                     </div>
                     <!--Email-->
@@ -141,9 +141,9 @@
                             <label class="control-label" for="email">Email :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="email" th:field="*{email}" class="form-control" tabindex="6" type="email"/>
-                            <span class="error" th:errors="*{email}"
-                                  th:if="${#fields.hasErrors('email')}" id="emailError">Error Mobile Number</span>
+                            <input id="email" data-th-field="*{email}" class="form-control" tabindex="6" type="email"/>
+                            <span class="error" data-th-errors="*{email}"
+                                  data-th-if="${#fields.hasErrors('email')}" id="emailError">Error Mobile Number</span>
                         </div>
                     </div>
                     <!--Address-->
@@ -152,21 +152,21 @@
                             <label class="control-label" for="address">Address :</label>
                         </div>
                         <div class="col-md-8">
-                            <textarea id="address" th:field="*{address}" class="form-control" tabindex="7" rows="3"
+                            <textarea id="address" data-th-field="*{address}" class="form-control" tabindex="7" rows="3"
                                       style="font-size: medium"></textarea>
-                            <span class="error" th:errors="*{address}"
-                                  th:if="${#fields.hasErrors('address')}" id="addressError">Error Address</span>
+                            <span class="error" data-th-errors="*{address}"
+                                  data-th-if="${#fields.hasErrors('address')}" id="addressError">Error Address</span>
                         </div>
                     </div>
                     <!--Created by and created at-->
-                    <div id="updateStatus" th:if="${addStatus==false}">
+                    <div id="updateStatus" data-th-if="${addStatus==false}">
                         <!--Created By-->
                         <div class="form-row text-right">
                             <div class="col-md-4">
                                 <label class="control-label" for="createdBy">Created By :</label>
                             </div>
                             <div class="col-md-8">
-                                <input id="createdBy" th:field="*{createdBy}" class="form-control" type="text"
+                                <input id="createdBy" data-th-field="*{createdBy}" class="form-control" type="text"
                                        readonly/>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                                 <label class="control-label" for="createdAt">Created At :</label>
                             </div>
                             <div class="col-md-8">
-                                <input id="createdAt" th:field="*{createdAt}" class="form-control" type="text"
+                                <input id="createdAt" data-th-field="*{createdAt}" class="form-control" type="text"
                                        readonly/>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                     <!--Save Button-->
                     <button class="btn btn-success ml-5" type="submit" tabindex="8">
                         <i class="fa fa-save " style="font-size: 20px"></i>&nbsp;&nbsp;<span id="submit"
-                                                                                             th:text="${addStatus==true?'Save': 'Update'}"></span>
+                                                                                             data-th-text="${addStatus==true?'Save': 'Update'}"></span>
                     </button>
                     <!--Cancel Button-->
                     <button class="btn btn-danger ml-5" type="reset" tabindex="9">
@@ -197,9 +197,9 @@
                 </div>
                 <!--Error-->
                 <div class="form-row">
-                    <label id="errorLabel" th:if="${#fields.hasErrors('*')}" th:text="'Errors: '">Errors: </label>
+                    <label id="errorLabel" data-th-if="${#fields.hasErrors('*')}" data-th-text="'Errors: '">Errors: </label>
                     <ul>
-                        <li id="error" th:each="err: ${#fields.errors('*')}" th:text="${err}" class="error"></li>
+                        <li id="error" data-th-each="err: ${#fields.errors('*')}" data-th-text="${err}" class="error"></li>
                     </ul>
                 </div>
             </div>
@@ -207,9 +207,9 @@
     </div>
 </div>
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 
 </body>

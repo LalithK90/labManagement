@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>compound-detail</title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <!--heading Area-->
 <div class="container-fluid form-Border">
@@ -27,7 +27,7 @@
         <div class="col">
             <h2 class="text-info text-center">
                 <strong>
-                    <p th:text="${compoundDetails.code} +${' '} +${compoundDetails.name}"></p>
+                    <p data-th-text="${compoundDetails.code} +${' '} +${compoundDetails.name}"></p>
                 </strong>
             </h2>
         </div>
@@ -108,9 +108,9 @@
     </a>
 </div>
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<!--<nav data-th-replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
 
 <div class="container-fluid bg-dark form-Border">
@@ -21,7 +21,7 @@
         <div class="col">
             <h2 class="text-light text-center">
                 <strong>
-                    <!--<p th:text="${paymentDetails.code} +${' '} +${paymentDetails.name}"></p>-->
+                    <!--<p data-th-text="${paymentDetails.code} +${' '} +${paymentDetails.name}"></p>-->
                 </strong>
             </h2>
         </div>

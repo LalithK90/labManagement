@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>sampleReceiving</title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
@@ -42,7 +42,7 @@
 <div class="container-fluid  text-center">
     <!--Table view-->
     <div class="col">
-        <div class="col" id="sampleReceivingListPresent" th:if="${not #lists.isEmpty(sampleReceivings)}">
+        <div class="col" id="sampleReceivingListPresent" data-th-if="${not #lists.isEmpty(sampleReceivings)}">
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
@@ -54,13 +54,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="sampleReceiving, rowCount : ${sampleReceivings}">
-                    <th th:text="${rowCount.count}"></th>
-                    <th th:text="${sampleReceiving.batchNo}"></th>
-                    <th th:text="${sampleReceiving.sampleReceivingStatus.sampleReceivingStatus}"></th>
-                    <th th:text="${sampleReceiving.compound.name}"></th>
+                <tr data-th-each="sampleReceiving, rowCount : ${sampleReceivings}">
+                    <th data-th-text="${rowCount.count}"></th>
+                    <th data-th-text="${sampleReceiving.batchNo}"></th>
+                    <th data-th-text="${sampleReceiving.sampleReceivingStatus.sampleReceivingStatus}"></th>
+                    <th data-th-text="${sampleReceiving.compound.name}"></th>
                     <th>
-                        <a id="sampleReceivingView" th:href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-outline-secondary btn-sm">View</a>
+                        <a id="sampleReceivingView" data-th-href="${'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-outline-secondary btn-sm">View</a>
 
                     </th>
                 </tr>
@@ -69,7 +69,7 @@
         </div>
     </div>
     <!--Error-->
-    <div class="row" th:if="${ #lists.isEmpty(sampleReceivings)}">
+    <div class="row" data-th-if="${ #lists.isEmpty(sampleReceivings)}">
         <div class="col-sm-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -89,14 +89,14 @@
         </script>
     </div>
     <!--Save sampleReceiving-->
-    <div class="row" th:if="${sampleReceivingDetail != null}">
+    <div class="row" data-th-if="${sampleReceivingDetail != null}">
         <div class="col-sm-12">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <!--save sampleReceiving include-->
-                <div th:replace="~{sampleReceiving/sampleReceiving-detail :: sampleReceivingDetailsFragment}"></div>
+                <div data-th-replace="~{sampleReceiving/sampleReceiving-detail :: sampleReceivingDetailsFragment}"></div>
             </div>
         </div>
         <script>
@@ -107,9 +107,9 @@
     </div>
 </div>
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>

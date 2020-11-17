@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
@@ -17,7 +17,7 @@
         <div class="col">
             <h4 class="text-light text-center">
                 <strong>
-                    <span th:text="${addStatus==true?'New Lab Test Add':'Update Lab Test Details'}"></span>
+                    <span data-th-text="${addStatus==true?'New Lab Test Add':'Update Lab Test Details'}"></span>
                 </strong>
             </h4>
         </div>
@@ -73,11 +73,11 @@
                                                             <label class="control-label" for="title">Specification Name :</label>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <select id="title" th:field="*{compoundPropertyName}" class="form-control" tabindex="3" required>
+                                                            <select id="title" data-th-field="*{compoundPropertyName}" class="form-control" tabindex="3" required>
                                                                 <option value="">Please select</option>
-                                                                <option th:each="compoundPropertyName : ${compoundPropertyNames}"
-                                                                        th:text="${compoundPropertyName.compoundPropertyName}"
-                                                                        th:value="${compoundPropertyName}"></option>
+                                                                <option data-th-each="compoundPropertyName : ${compoundPropertyNames}"
+                                                                        data-th-text="${compoundPropertyName.compoundPropertyName}"
+                                                                        data-th-value="${compoundPropertyName}"></option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -122,8 +122,8 @@
             </div>
     </div></div>
 </div><!-- content-wrapper end -->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
 </div><!-- wrapper end -->
-<script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
 </body>
 </html>

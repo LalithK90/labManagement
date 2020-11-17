@@ -95,7 +95,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "rgb(255,255,255)",
       bodyFontColor: "#858796",
       borderColor: '#dddfeb',
-      borderWidth: 1,
+      borderWiddata-th- 1,
       xPadding: 15,
       yPadding: 15,
       displayColors: false,

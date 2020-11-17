@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 
 <!--heading Area-->
@@ -41,7 +41,7 @@
                         <label class="control-label" for="subject">Subject :</label>
                     </div>
                     <div class="col-md-8">
-                        <p th:text="${emailMessageDetail.subject}" id="subject" class="display_detail"></p>
+                        <p data-th-text="${emailMessageDetail.subject}" id="subject" class="display_detail"></p>
                     </div>
                 </div>
                 <div class="form-row text-right">
@@ -49,7 +49,7 @@
                         <label class="control-label" for="message">Message :</label>
                     </div>
                     <div class="col-md-8">
-                        <p th:text="${emailMessageDetail.message}" id="message" class="display_detail"></p>
+                        <p data-th-text="${emailMessageDetail.message}" id="message" class="display_detail"></p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         <label class="control-label" for="createdAt">Send At :</label>
                     </div>
                     <div class="col-md-8 text-left">
-                        <p th:text="${#temporals.format(emailMessageDetail.createdAt, 'dd-MM-yyyy HH:mm')}" id="createdAt" class="display_detail "></p>
+                        <p data-th-text="${#temporals.format(emailMessageDetail.createdAt, 'dd-MM-yyyy HH:mm')}" id="createdAt" class="display_detail "></p>
                     </div>
                 </div>
                 <div class="form-row text-right">
@@ -68,7 +68,7 @@
                         <label class="control-label" for="createdBy">Send By :</label>
                     </div>
                     <div class="col-md-8 text-left">
-                        <p th:text="${emailMessageDetail.createdBy}" id="createdBy" class="display_detail "></p>
+                        <p data-th-text="${emailMessageDetail.createdBy}" id="createdBy" class="display_detail "></p>
                     </div>
                 </div>
             </div>
@@ -92,12 +92,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="employee, rowCount : ${emailMessageDetail.employees}">
-                        <td th:text="${rowCount.count}"></td>
-                        <td th:text="${employee.title.title} + ${employee.name}"></td>
-                        <td th:text="${employee.mobileOne}"></td>
-                        <td th:text="${employee.officeEmail}"></td>
-                        <td><a th:href="${'/employee/' + employee.id}" class="btn btn-primary btn-sm"><i
+                    <tr data-th-each="employee, rowCount : ${emailMessageDetail.employees}">
+                        <td data-th-text="${rowCount.count}"></td>
+                        <td data-th-text="${employee.title.title} + ${employee.name}"></td>
+                        <td data-th-text="${employee.mobileOne}"></td>
+                        <td data-th-text="${employee.officeEmail}"></td>
+                        <td><a data-th-href="${'/employee/' + employee.id}" class="btn btn-primary btn-sm"><i
                                 class="fa fa-folder-open"></i>&nbsp;View</a>
                         </td>
                     </tr>
@@ -120,9 +120,9 @@
 
 
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>

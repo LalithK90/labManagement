@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
+<head data-th-replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
@@ -19,7 +19,7 @@
             </h4>
         </div>
         <div class="col">
-        <!--    <a class="btn btn-danger btn-outline-warning btn-sm" th:href="${'/message'}" id="emailMessagesList">
+        <!--    <a class="btn btn-danger btn-outline-warning btn-sm" data-th-href="${'/message'}" id="emailMessagesList">
                 <i aria-hidden="true" class="fa fa-gavel"></i>
                 &nbsp; Message List
             </a>-->
@@ -29,7 +29,7 @@
 
 <div class="container-fluid bg-dark formBorder">
     <div class="col-sm-12 flex-column ">
-        <div class="row" th:if="${not #lists.isEmpty(emailMessages)}" id="emailMessageListTable">
+        <div class="row" data-th-if="${not #lists.isEmpty(emailMessages)}" id="emailMessageListTable">
             <div class="col-sm-12">
                 <table class="table table-hover table-striped" id="myTable">
                     <thead class="thead-inverse">
@@ -42,12 +42,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="emailMessage, rowCount : ${emailMessages}" scope="row">
-                        <th th:text="${rowCount.count}"></th>
-                        <th th:text="${emailMessage.subject}"></th>
-                        <th th:text="${emailMessage.createdBy}"></th>
-                        <th th:text="${#temporals.format(emailMessage.createdAt, 'dd-MM-yyyy HH:mm')}"></th>
-                        <th><a class="btn btn-success btn-sm" th:href="${'/emailMessage/' + emailMessage.id}"><i
+                    <tr data-th-each="emailMessage, rowCount : ${emailMessages}" scope="row">
+                        <th data-th-text="${rowCount.count}"></th>
+                        <th data-th-text="${emailMessage.subject}"></th>
+                        <th data-th-text="${emailMessage.createdBy}"></th>
+                        <th data-th-text="${#temporals.format(emailMessage.createdAt, 'dd-MM-yyyy HH:mm')}"></th>
+                        <th><a class="btn btn-success btn-sm" data-th-href="${'/emailMessage/' + emailMessage.id}"><i
                                 class="fa fa-folder-open"></i>&nbsp;View</a>
                         </th>
                     </tr>
@@ -55,7 +55,7 @@
                 </table>
             </div>
         </div>
-        <div class="row" id="emailMessagesNotList" th:if="${ #lists.isEmpty(emailMessages)}">
+        <div class="row" id="emailMessagesNotList" data-th-if="${ #lists.isEmpty(emailMessages)}">
             <div class="col-sm-12">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -79,9 +79,9 @@
 
 
 <!--footer include-->
-<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>
