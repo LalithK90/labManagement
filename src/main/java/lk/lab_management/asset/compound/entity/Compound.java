@@ -24,7 +24,7 @@ public class Compound extends AuditEntity {
     @Column( nullable = false, precision = 10, scale = 2 )
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "compound",cascade = {CascadeType.PERSIST,CascadeType.MERGE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "compound",cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Specification> specifications;
 
 }
