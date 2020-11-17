@@ -39,7 +39,7 @@ public class SampleReceiving extends AuditEntity {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany(mappedBy = "sampleReceiving",cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @OneToMany(mappedBy = "sampleReceiving",cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     private List<SampleReceivingLabTest> sampleReceivingLabTests;
 
     @ManyToOne

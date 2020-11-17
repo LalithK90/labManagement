@@ -41,7 +41,7 @@ public class User extends AuditEntity {
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<UserSessionLog> userSessionLogs;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @Fetch( FetchMode.SUBSELECT)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
