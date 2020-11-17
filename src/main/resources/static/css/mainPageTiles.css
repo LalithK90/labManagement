@@ -12,12 +12,12 @@ body {
 
 
 .container {
-    max-widdata-th- 100%;
+    max-width: 100%;
     margin: 50px 0 0 50px;
 }
 .main-section{
     border-radius:4px;
-    widdata-th- 100%;
+    width: 100%;
     background: linear-gradient(90deg, rgba(85,209,204,0.78529410055037643) 0%, rgba(25,134,199,0.8738095067128414) 19%, rgba(32,185,127,0.77128849830948) 93%);
 }
 .welcome-Notes{
@@ -33,7 +33,7 @@ body {
     padding: 20px 20px 20px 20px;
 }
 .tile {
-    /*widdata-th-160px;*/
+    /*width:160px;*/
     height:180px;
     border-radius:4px;
     box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.15);
@@ -43,7 +43,7 @@ body {
 }
 
 .tile.wide {
-    widdata-th- 180px;
+    width: 180px;
 }
 
 .tile a {
@@ -59,7 +59,7 @@ body {
 }
 
 .tile.wide .header .left, .tile.wide .header .right {
-    widdata-th-160px;
+    width:160px;
     float:left;
 }
 

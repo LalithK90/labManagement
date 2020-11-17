@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/header :: headerFragment}">
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
@@ -31,7 +31,7 @@
 <!--Form Content - start -->
 <div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column ">
-        <form id="form" data-th-action="${'/emailMessage/add'}" data-th-object="${emailMessage}" class="form-horizontal" method="POST">
+        <form id="form" th:action="${'/emailMessage/add'}" th:object="${emailMessage}" class="form-horizontal" method="POST">
             <div class="container-fluid">
                 <!--Left Side-->
                 <div class="form-group text-left flex-column">
@@ -40,7 +40,7 @@
                             <label class="control-label" for="subject">Subject :</label>
                         </div>
                         <div class="col-md-8">
-                            <input id="subject" data-th-field="*{subject}" class="form-control" tabindex="" type="text" required/>
+                            <input id="subject" th:field="*{subject}" class="form-control" tabindex="" type="text" required/>
                         </div>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                             <div class="col-md-12">
                                 <select class="form-control" tabindex="" id="provinces">
                                     <option value="">Please select</option>
-                                    <option data-th-each="province : ${provinces}"
-                                            data-th-text="${province.province}"
-                                            data-th-value="${province}"></option>
+                                    <option th:each="province : ${provinces}"
+                                            th:text="${province.province}"
+                                            th:value="${province}"></option>
                                 </select>
                             </div>
                         </div>
@@ -73,9 +73,9 @@
                             </div>
                             <div class="col-md-12">
                                 <select class="form-control" name="district" id="districts" tabindex="">
-                                    <option data-th-each="designation : ${designations}"
-                                            data-th-text="${designation.designation}"
-                                            data-th-value="${designation}">Please select</option>
+                                    <option th:each="designation : ${designations}"
+                                            th:text="${designation.designation}"
+                                            th:value="${designation}">Please select</option>
                                 </select>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                 <label class="control-label" for="messageOne">Message:</label>
                 <div class="container-fluid">
                     <div>
-                            <textarea class="form-control" id="messageOne" data-th-field="*{message}"
+                            <textarea class="form-control" id="messageOne" th:field="*{message}"
                                       placeholder="Enter Description"></textarea>
                         <div id="the-count">
                             <span id="current">0</span>
@@ -186,24 +186,24 @@
                 <div class="input-field">
                     <button class="btn btn-success" type="submit" tabindex="10">
                         <i class="fas fa-paper-plane" style="font-size: 20px"></i>&nbsp; &nbsp;<span
-                            id="submit" data-th-text="${'Send'}"></span>
+                            id="submit" th:text="${'Send'}"></span>
                     </button>
                 </div>
             </div>
             <!--Hide content from visual-->
             <div class="form-row">
-                <input type="hidden" data-th-value="${districtUrl}" id="districtUrl" class="hide"/>
-                <input type="hidden" data-th-value="${stationUrl}" id="stationUrl" class="hide"/>
-                <input type="hidden" data-th-value="${employeeUrl}" id="employeeUrl" class="hide"/>
+                <input type="hidden" th:value="${districtUrl}" id="districtUrl" class="hide"/>
+                <input type="hidden" th:value="${stationUrl}" id="stationUrl" class="hide"/>
+                <input type="hidden" th:value="${employeeUrl}" id="employeeUrl" class="hide"/>
             </div>
         </form>
     </div>
 </div>
 
 <!--footer include-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 
 
 <script>
@@ -253,11 +253,11 @@
         });
     });
 </script>
-<script data-th-src="@{/js/employeeFindUsingWorkingPlace.js}"></script>
+<script th:src="@{/js/employeeFindUsingWorkingPlace.js}"></script>
 <!--Singlish to sinhala Translator-->
-<div data-th-replace="~{fragments/unicodeSinhala :: unicodeSinhalaFragment}"></div>
+<div th:replace="~{fragments/unicodeSinhala :: unicodeSinhalaFragment}"></div>
 <!--Tamish to Tamil Translator-->
-<div data-th-replace="~{fragments/unicodeTamil :: unicodeTamilFragment}"></div>
+<div th:replace="~{fragments/unicodeTamil :: unicodeTamilFragment}"></div>
 
 </body>
 </html>

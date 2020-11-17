@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/header :: headerFragment}">
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid bg-secondary form-Border">
     <div class="row text-center formManagement border-info">
@@ -17,7 +17,7 @@
         <div class="col">
             <h4 class="text-light text-center">
                 <strong>
-                    <span data-th-text="${addStatus==true?'Test data Add':'Update Lab Test Details'}"></span>
+                    <span th:text="${addStatus==true?'Test data Add':'Update Lab Test Details'}"></span>
                 </strong>
             </h4>
         </div>
@@ -82,8 +82,8 @@
         </div>
     </div></div>
 </div><!-- content-wrapper end -->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
 </div><!-- wrapper end -->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+<script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
 </body>
 </html>

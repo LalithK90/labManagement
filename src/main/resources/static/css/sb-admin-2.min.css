@@ -274,7 +274,7 @@ textarea {
 }
 
 fieldset {
-    min-widdata-th- 0;
+    min-width: 0;
     padding: 0;
     margin: 0;
     border: 0
@@ -282,8 +282,8 @@ fieldset {
 
 legend {
     display: block;
-    widdata-th- 100%;
-    max-widdata-th- 100%;
+    width: 100%;
+    max-width: 100%;
     padding: 0;
     margin-bottom: .5rem;
     font-size: 1.5rem;
@@ -446,7 +446,7 @@ hr {
 }
 
 .img-fluid {
-    max-widdata-th- 100%;
+    max-width: 100%;
     height: auto
 }
 
@@ -455,7 +455,7 @@ hr {
     background-color: #fff;
     border: 1px solid #dddfeb;
     border-radius: .35rem;
-    max-widdata-th- 100%;
+    max-width: 100%;
     height: auto
 }
 
@@ -515,7 +515,7 @@ pre code {
 }
 
 .container {
-    widdata-th- 100%;
+    width: 100%;
     padding-right: .75rem;
     padding-left: .75rem;
     margin-right: auto;
@@ -523,32 +523,32 @@ pre code {
     margin-top: 0px;
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .container {
-        max-widdata-th- 540px
+        max-width: 540px
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .container {
-        max-widdata-th- 720px
+        max-width: 720px
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .container {
-        max-widdata-th- 960px
+        max-width: 960px
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .container {
-        max-widdata-th- 1140px
+        max-width: 1140px
     }
 }
 
 .container-fluid {
-    widdata-th- 100%;
+    width: 100%;
     padding-right: .75rem;
     padding-left: .75rem;
     margin-right: auto;
@@ -574,7 +574,7 @@ pre code {
 
 .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
     position: relative;
-    widdata-th- 100%;
+    width: 100%;
     padding-right: .75rem;
     padding-left: .75rem
 }
@@ -582,73 +582,73 @@ pre code {
 .col {
     flex-basis: 0;
     flex-grow: 1;
-    max-widdata-th- 100%
+    max-width: 100%
 }
 
 .col-auto {
     flex: 0 0 auto;
-    widdata-th- auto;
-    max-widdata-th- 100%
+    width: auto;
+    max-width: 100%
 }
 
 .col-1 {
     flex: 0 0 8.33333%;
-    max-widdata-th- 8.33333%
+    max-width: 8.33333%
 }
 
 .col-2 {
     flex: 0 0 16.66667%;
-    max-widdata-th- 16.66667%
+    max-width: 16.66667%
 }
 
 .col-3 {
     flex: 0 0 25%;
-    max-widdata-th- 25%
+    max-width: 25%
 }
 
 .col-4 {
     flex: 0 0 33.33333%;
-    max-widdata-th- 33.33333%
+    max-width: 33.33333%
 }
 
 .col-5 {
     flex: 0 0 41.66667%;
-    max-widdata-th- 41.66667%
+    max-width: 41.66667%
 }
 
 .col-6 {
     flex: 0 0 50%;
-    max-widdata-th- 50%
+    max-width: 50%
 }
 
 .col-7 {
     flex: 0 0 58.33333%;
-    max-widdata-th- 58.33333%
+    max-width: 58.33333%
 }
 
 .col-8 {
     flex: 0 0 66.66667%;
-    max-widdata-th- 66.66667%
+    max-width: 66.66667%
 }
 
 .col-9 {
     flex: 0 0 75%;
-    max-widdata-th- 75%
+    max-width: 75%
 }
 
 .col-10 {
     flex: 0 0 83.33333%;
-    max-widdata-th- 83.33333%
+    max-width: 83.33333%
 }
 
 .col-11 {
     flex: 0 0 91.66667%;
-    max-widdata-th- 91.66667%
+    max-width: 91.66667%
 }
 
 .col-12 {
     flex: 0 0 100%;
-    max-widdata-th- 100%
+    max-width: 100%
 }
 
 .order-first {
@@ -755,77 +755,77 @@ pre code {
     margin-left: 91.66667%
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .col-sm {
         flex-basis: 0;
         flex-grow: 1;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .col-sm-auto {
         flex: 0 0 auto;
-        widdata-th- auto;
-        max-widdata-th- 100%
+        width: auto;
+        max-width: 100%
     }
 
     .col-sm-1 {
         flex: 0 0 8.33333%;
-        max-widdata-th- 8.33333%
+        max-width: 8.33333%
     }
 
     .col-sm-2 {
         flex: 0 0 16.66667%;
-        max-widdata-th- 16.66667%
+        max-width: 16.66667%
     }
 
     .col-sm-3 {
         flex: 0 0 25%;
-        max-widdata-th- 25%
+        max-width: 25%
     }
 
     .col-sm-4 {
         flex: 0 0 33.33333%;
-        max-widdata-th- 33.33333%
+        max-width: 33.33333%
     }
 
     .col-sm-5 {
         flex: 0 0 41.66667%;
-        max-widdata-th- 41.66667%
+        max-width: 41.66667%
     }
 
     .col-sm-6 {
         flex: 0 0 50%;
-        max-widdata-th- 50%
+        max-width: 50%
     }
 
     .col-sm-7 {
         flex: 0 0 58.33333%;
-        max-widdata-th- 58.33333%
+        max-width: 58.33333%
     }
 
     .col-sm-8 {
         flex: 0 0 66.66667%;
-        max-widdata-th- 66.66667%
+        max-width: 66.66667%
     }
 
     .col-sm-9 {
         flex: 0 0 75%;
-        max-widdata-th- 75%
+        max-width: 75%
     }
 
     .col-sm-10 {
         flex: 0 0 83.33333%;
-        max-widdata-th- 83.33333%
+        max-width: 83.33333%
     }
 
     .col-sm-11 {
         flex: 0 0 91.66667%;
-        max-widdata-th- 91.66667%
+        max-width: 91.66667%
     }
 
     .col-sm-12 {
         flex: 0 0 100%;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .order-sm-first {
@@ -937,77 +937,77 @@ pre code {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .col-md {
         flex-basis: 0;
         flex-grow: 1;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .col-md-auto {
         flex: 0 0 auto;
-        widdata-th- auto;
-        max-widdata-th- 100%
+        width: auto;
+        max-width: 100%
     }
 
     .col-md-1 {
         flex: 0 0 8.33333%;
-        max-widdata-th- 8.33333%
+        max-width: 8.33333%
     }
 
     .col-md-2 {
         flex: 0 0 16.66667%;
-        max-widdata-th- 16.66667%
+        max-width: 16.66667%
     }
 
     .col-md-3 {
         flex: 0 0 25%;
-        max-widdata-th- 25%
+        max-width: 25%
     }
 
     .col-md-4 {
         flex: 0 0 33.33333%;
-        max-widdata-th- 33.33333%
+        max-width: 33.33333%
     }
 
     .col-md-5 {
         flex: 0 0 41.66667%;
-        max-widdata-th- 41.66667%
+        max-width: 41.66667%
     }
 
     .col-md-6 {
         flex: 0 0 50%;
-        max-widdata-th- 50%
+        max-width: 50%
     }
 
     .col-md-7 {
         flex: 0 0 58.33333%;
-        max-widdata-th- 58.33333%
+        max-width: 58.33333%
     }
 
     .col-md-8 {
         flex: 0 0 66.66667%;
-        max-widdata-th- 66.66667%
+        max-width: 66.66667%
     }
 
     .col-md-9 {
         flex: 0 0 75%;
-        max-widdata-th- 75%
+        max-width: 75%
     }
 
     .col-md-10 {
         flex: 0 0 83.33333%;
-        max-widdata-th- 83.33333%
+        max-width: 83.33333%
     }
 
     .col-md-11 {
         flex: 0 0 91.66667%;
-        max-widdata-th- 91.66667%
+        max-width: 91.66667%
     }
 
     .col-md-12 {
         flex: 0 0 100%;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .order-md-first {
@@ -1119,77 +1119,77 @@ pre code {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .col-lg {
         flex-basis: 0;
         flex-grow: 1;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .col-lg-auto {
         flex: 0 0 auto;
-        widdata-th- auto;
-        max-widdata-th- 100%
+        width: auto;
+        max-width: 100%
     }
 
     .col-lg-1 {
         flex: 0 0 8.33333%;
-        max-widdata-th- 8.33333%
+        max-width: 8.33333%
     }
 
     .col-lg-2 {
         flex: 0 0 16.66667%;
-        max-widdata-th- 16.66667%
+        max-width: 16.66667%
     }
 
     .col-lg-3 {
         flex: 0 0 25%;
-        max-widdata-th- 25%
+        max-width: 25%
     }
 
     .col-lg-4 {
         flex: 0 0 33.33333%;
-        max-widdata-th- 33.33333%
+        max-width: 33.33333%
     }
 
     .col-lg-5 {
         flex: 0 0 41.66667%;
-        max-widdata-th- 41.66667%
+        max-width: 41.66667%
     }
 
     .col-lg-6 {
         flex: 0 0 50%;
-        max-widdata-th- 50%
+        max-width: 50%
     }
 
     .col-lg-7 {
         flex: 0 0 58.33333%;
-        max-widdata-th- 58.33333%
+        max-width: 58.33333%
     }
 
     .col-lg-8 {
         flex: 0 0 66.66667%;
-        max-widdata-th- 66.66667%
+        max-width: 66.66667%
     }
 
     .col-lg-9 {
         flex: 0 0 75%;
-        max-widdata-th- 75%
+        max-width: 75%
     }
 
     .col-lg-10 {
         flex: 0 0 83.33333%;
-        max-widdata-th- 83.33333%
+        max-width: 83.33333%
     }
 
     .col-lg-11 {
         flex: 0 0 91.66667%;
-        max-widdata-th- 91.66667%
+        max-width: 91.66667%
     }
 
     .col-lg-12 {
         flex: 0 0 100%;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .order-lg-first {
@@ -1301,77 +1301,77 @@ pre code {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .col-xl {
         flex-basis: 0;
         flex-grow: 1;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .col-xl-auto {
         flex: 0 0 auto;
-        widdata-th- auto;
-        max-widdata-th- 100%
+        width: auto;
+        max-width: 100%
     }
 
     .col-xl-1 {
         flex: 0 0 8.33333%;
-        max-widdata-th- 8.33333%
+        max-width: 8.33333%
     }
 
     .col-xl-2 {
         flex: 0 0 16.66667%;
-        max-widdata-th- 16.66667%
+        max-width: 16.66667%
     }
 
     .col-xl-3 {
         flex: 0 0 25%;
-        max-widdata-th- 25%
+        max-width: 25%
     }
 
     .col-xl-4 {
         flex: 0 0 33.33333%;
-        max-widdata-th- 33.33333%
+        max-width: 33.33333%
     }
 
     .col-xl-5 {
         flex: 0 0 41.66667%;
-        max-widdata-th- 41.66667%
+        max-width: 41.66667%
     }
 
     .col-xl-6 {
         flex: 0 0 50%;
-        max-widdata-th- 50%
+        max-width: 50%
     }
 
     .col-xl-7 {
         flex: 0 0 58.33333%;
-        max-widdata-th- 58.33333%
+        max-width: 58.33333%
     }
 
     .col-xl-8 {
         flex: 0 0 66.66667%;
-        max-widdata-th- 66.66667%
+        max-width: 66.66667%
     }
 
     .col-xl-9 {
         flex: 0 0 75%;
-        max-widdata-th- 75%
+        max-width: 75%
     }
 
     .col-xl-10 {
         flex: 0 0 83.33333%;
-        max-widdata-th- 83.33333%
+        max-width: 83.33333%
     }
 
     .col-xl-11 {
         flex: 0 0 91.66667%;
-        max-widdata-th- 91.66667%
+        max-width: 91.66667%
     }
 
     .col-xl-12 {
         flex: 0 0 100%;
-        max-widdata-th- 100%
+        max-width: 100%
     }
 
     .order-xl-first {
@@ -1484,7 +1484,7 @@ pre code {
 }
 
 .table {
-    widdata-th- 100%;
+    width: 100%;
     margin-bottom: 1rem;
     color: #000000
 }
@@ -1517,7 +1517,7 @@ pre code {
 }
 
 .table-bordered thead td, .table-bordered thead th {
-    border-bottom-widdata-th- 2px
+    border-bottom-width: 2px
 }
 
 .table-borderless tbody + tbody, .table-borderless td, .table-borderless th, .table-borderless thead th {
@@ -1707,10 +1707,10 @@ pre code {
     background-color: rgba(255, 255, 255, .075)
 }
 
-@media (max-widdata-th- 575.98px) {
+@media (max-width: 575.98px) {
     .table-responsive-sm {
         display: block;
-        widdata-th- 100%;
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
@@ -1720,10 +1720,10 @@ pre code {
     }
 }
 
-@media (max-widdata-th- 767.98px) {
+@media (max-width: 767.98px) {
     .table-responsive-md {
         display: block;
-        widdata-th- 100%;
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
@@ -1733,10 +1733,10 @@ pre code {
     }
 }
 
-@media (max-widdata-th- 991.98px) {
+@media (max-width: 991.98px) {
     .table-responsive-lg {
         display: block;
-        widdata-th- 100%;
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
@@ -1746,10 +1746,10 @@ pre code {
     }
 }
 
-@media (max-widdata-th- 1199.98px) {
+@media (max-width: 1199.98px) {
     .table-responsive-xl {
         display: block;
-        widdata-th- 100%;
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch
     }
@@ -1761,7 +1761,7 @@ pre code {
 
 .table-responsive {
     display: block;
-    widdata-th- 100%;
+    width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch
 }
@@ -1772,7 +1772,7 @@ pre code {
 
 .form-control {
     display: block;
-    widdata-th- 100%;
+    width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -1844,7 +1844,7 @@ select.form-control:focus::-ms-value {
 
 .form-control-file, .form-control-range {
     display: block;
-    widdata-th- 100%
+    width: 100%
 }
 
 .col-form-label {
@@ -1871,7 +1871,7 @@ select.form-control:focus::-ms-value {
 
 .form-control-plaintext {
     display: block;
-    widdata-th- 100%;
+    width: 100%;
     padding-top: .375rem;
     padding-bottom: .375rem;
     margin-bottom: 0;
@@ -1879,7 +1879,7 @@ select.form-control:focus::-ms-value {
     color: #858796;
     background-color: transparent;
     border: solid transparent;
-    border-widdata-th- 1px 0
+    border-width: 1px 0
 }
 
 .form-control-plaintext.form-control-lg, .form-control-plaintext.form-control-sm {
@@ -1968,7 +1968,7 @@ textarea.form-control {
 
 .valid-feedback {
     display: none;
-    widdata-th- 100%;
+    width: 100%;
     margin-top: .25rem;
     font-size: 80%;
     color: #1cc88a
@@ -1979,7 +1979,7 @@ textarea.form-control {
     top: 100%;
     z-index: 5;
     display: none;
-    max-widdata-th- 100%;
+    max-width: 100%;
     padding: .25rem .5rem;
     margin-top: .1rem;
     font-size: .875rem;
@@ -2079,7 +2079,7 @@ textarea.form-control {
 
 .invalid-feedback {
     display: none;
-    widdata-th- 100%;
+    width: 100%;
     margin-top: .25rem;
     font-size: 80%;
     color: #e74a3b
@@ -2090,7 +2090,7 @@ textarea.form-control {
     top: 100%;
     z-index: 5;
     display: none;
-    max-widdata-th- 100%;
+    max-width: 100%;
     padding: .25rem .5rem;
     margin-top: .1rem;
     font-size: .875rem;
@@ -2195,10 +2195,10 @@ textarea.form-control {
 }
 
 .form-inline .form-check {
-    widdata-th- 100%
+    width: 100%
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .form-inline label {
         display: flex;
         align-items: center;
@@ -2216,7 +2216,7 @@ textarea.form-control {
 
     .form-inline .form-control {
         display: inline-block;
-        widdata-th- auto;
+        width: auto;
         vertical-align: middle
     }
 
@@ -2225,14 +2225,14 @@ textarea.form-control {
     }
 
     .form-inline .custom-select, .form-inline .input-group {
-        widdata-th- auto
+        width: auto
     }
 
     .form-inline .form-check {
         display: flex;
         align-items: center;
         justify-content: center;
-        widdata-th- auto;
+        width: auto;
         padding-left: 0
     }
 
@@ -2830,7 +2830,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-block {
     display: block;
-    widdata-th- 100%
+    width: 100%
 }
 
 .btn-block + .btn-block {
@@ -2838,7 +2838,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
-    widdata-th- 100%
+    width: 100%
 }
 
 .fade {
@@ -2902,7 +2902,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     z-index: 1000;
     display: none;
     float: left;
-    min-widdata-th- 10rem;
+    min-width: 10rem;
     padding: .5rem 0;
     margin: .125rem 0 0;
     font-size: .85rem;
@@ -2925,7 +2925,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     left: auto
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .dropdown-menu-sm-left {
         right: auto;
         left: 0
@@ -2937,7 +2937,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .dropdown-menu-md-left {
         right: auto;
         left: 0
@@ -2949,7 +2949,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .dropdown-menu-lg-left {
         right: auto;
         left: 0
@@ -2961,7 +2961,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .dropdown-menu-xl-left {
         right: auto;
         left: 0
@@ -3073,7 +3073,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .dropdown-item {
     display: block;
-    widdata-th- 100%;
+    width: 100%;
     padding: .25rem 1.5rem;
     clear: both;
     font-weight: 400;
@@ -3147,7 +3147,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .btn-toolbar .input-group {
-    widdata-th- auto
+    width: auto
 }
 
 .btn-group > .btn-group:not(:first-child), .btn-group > .btn:not(:first-child) {
@@ -3194,7 +3194,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .btn-group-vertical > .btn, .btn-group-vertical > .btn-group {
-    widdata-th- 100%
+    width: 100%
 }
 
 .btn-group-vertical > .btn-group:not(:first-child), .btn-group-vertical > .btn:not(:first-child) {
@@ -3226,13 +3226,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    widdata-th- 100%
+    width: 100%
 }
 
 .input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control, .input-group > .form-control-plaintext {
     position: relative;
     flex: 1 1 auto;
-    widdata-th- 1%;
+    width: 1%;
     margin-bottom: 0
 }
 
@@ -3411,7 +3411,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     top: .25rem;
     left: -1.5rem;
     display: block;
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
     pointer-events: none;
     content: "";
@@ -3424,7 +3424,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     top: .25rem;
     left: -1.5rem;
     display: block;
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
     content: "";
     background: no-repeat 50%/50% 50%
@@ -3473,7 +3473,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .custom-switch .custom-control-label::before {
     left: -2.25rem;
-    widdata-th- 1.75rem;
+    width: 1.75rem;
     pointer-events: all;
     border-radius: .5rem
 }
@@ -3481,7 +3481,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .custom-switch .custom-control-label::after {
     top: calc(.25rem + 2px);
     left: calc(-2.25rem + 2px);
-    widdata-th- calc(1rem - 4px);
+    width: calc(1rem - 4px);
     height: calc(1rem - 4px);
     background-color: #b7b9cc;
     border-radius: .5rem;
@@ -3505,7 +3505,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .custom-select {
     display: inline-block;
-    widdata-th- 100%;
+    width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem 1.75rem .375rem .75rem;
     font-size: 1rem;
@@ -3567,7 +3567,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .custom-file {
     position: relative;
     display: inline-block;
-    widdata-th- 100%;
+    width: 100%;
     height: calc(1.5em + .75rem + 2px);
     margin-bottom: 0
 }
@@ -3575,7 +3575,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .custom-file-input {
     position: relative;
     z-index: 2;
-    widdata-th- 100%;
+    width: 100%;
     height: calc(1.5em + .75rem + 2px);
     margin: 0;
     opacity: 0
@@ -3632,7 +3632,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range {
-    widdata-th- 100%;
+    width: 100%;
     height: calc(1rem + .4rem);
     padding: 0;
     background-color: transparent;
@@ -3662,7 +3662,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-webkit-slider-thumb {
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
     margin-top: -.25rem;
     background-color: #4e73df;
@@ -3684,7 +3684,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-webkit-slider-runnable-track {
-    widdata-th- 100%;
+    width: 100%;
     height: .5rem;
     color: transparent;
     cursor: pointer;
@@ -3694,7 +3694,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-moz-range-thumb {
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
     background-color: #4e73df;
     border: 0;
@@ -3715,7 +3715,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-moz-range-track {
-    widdata-th- 100%;
+    width: 100%;
     height: .5rem;
     color: transparent;
     cursor: pointer;
@@ -3725,7 +3725,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-ms-thumb {
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
     margin-top: 0;
     margin-right: .2rem;
@@ -3748,13 +3748,13 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-range::-ms-track {
-    widdata-th- 100%;
+    width: 100%;
     height: .5rem;
     color: transparent;
     cursor: pointer;
     background-color: transparent;
     border-color: transparent;
-    border-widdata-th- .5rem
+    border-width: .5rem
 }
 
 .custom-range::-ms-fill-lower {
@@ -3960,7 +3960,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .navbar-toggler-icon {
     display: inline-block;
-    widdata-th- 1.5em;
+    width: 1.5em;
     height: 1.5em;
     vertical-align: middle;
     content: "";
@@ -3968,14 +3968,14 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     background-size: 100% 100%
 }
 
-@media (max-widdata-th- 575.98px) {
+@media (max-width: 575.98px) {
     .navbar-expand-sm > .container, .navbar-expand-sm > .container-fluid {
         padding-right: 0;
         padding-left: 0
     }
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .navbar-expand-sm {
         flex-flow: row nowrap;
         justify-content: flex-start
@@ -4008,14 +4008,14 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (max-widdata-th- 767.98px) {
+@media (max-width: 767.98px) {
     .navbar-expand-md > .container, .navbar-expand-md > .container-fluid {
         padding-right: 0;
         padding-left: 0
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .navbar-expand-md {
         flex-flow: row nowrap;
         justify-content: flex-start
@@ -4048,14 +4048,14 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (max-widdata-th- 991.98px) {
+@media (max-width: 991.98px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding-right: 0;
         padding-left: 0
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .navbar-expand-lg {
         flex-flow: row nowrap;
         justify-content: flex-start
@@ -4088,14 +4088,14 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 }
 
-@media (max-widdata-th- 1199.98px) {
+@media (max-width: 1199.98px) {
     .navbar-expand-xl > .container, .navbar-expand-xl > .container-fluid {
         padding-right: 0;
         padding-left: 0
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .navbar-expand-xl {
         flex-flow: row nowrap;
         justify-content: flex-start
@@ -4258,7 +4258,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     position: relative;
     display: flex;
     flex-direction: column;
-    min-widdata-th- 0;
+    min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
@@ -4354,18 +4354,18 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .card-img {
-    widdata-th- 100%;
+    width: 100%;
     border-radius: calc(.35rem - 1px)
 }
 
 .card-img-top {
-    widdata-th- 100%;
+    width: 100%;
     border-top-left-radius: calc(.35rem - 1px);
     border-top-right-radius: calc(.35rem - 1px)
 }
 
 .card-img-bottom {
-    widdata-th- 100%;
+    width: 100%;
     border-bottom-right-radius: calc(.35rem - 1px);
     border-bottom-left-radius: calc(.35rem - 1px)
 }
@@ -4379,7 +4379,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-bottom: .75rem
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .card-deck {
         flex-flow: row wrap;
         margin-right: -.75rem;
@@ -4405,7 +4405,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-bottom: .75rem
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .card-group {
         flex-flow: row wrap
     }
@@ -4451,7 +4451,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-bottom: .75rem
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .card-columns {
         -moz-column-count: 3;
         column-count: 3;
@@ -4463,7 +4463,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
     .card-columns .card {
         display: inline-block;
-        widdata-th- 100%
+        width: 100%
     }
 }
 
@@ -4783,7 +4783,7 @@ a.badge-dark.focus, a.badge-dark:focus {
     border-radius: .3rem
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .jumbotron {
         padding: 4rem 2rem
     }
@@ -5013,7 +5013,7 @@ a.badge-dark.focus, a.badge-dark:focus {
 }
 
 .list-group-item-action {
-    widdata-th- 100%;
+    width: 100%;
     color: #6e707e;
     text-align: inherit
 }
@@ -5085,7 +5085,7 @@ a.badge-dark.focus, a.badge-dark:focus {
     border-bottom-left-radius: 0
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .list-group-horizontal-sm {
         flex-direction: row
     }
@@ -5109,7 +5109,7 @@ a.badge-dark.focus, a.badge-dark:focus {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .list-group-horizontal-md {
         flex-direction: row
     }
@@ -5133,7 +5133,7 @@ a.badge-dark.focus, a.badge-dark:focus {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .list-group-horizontal-lg {
         flex-direction: row
     }
@@ -5157,7 +5157,7 @@ a.badge-dark.focus, a.badge-dark:focus {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .list-group-horizontal-xl {
         flex-direction: row
     }
@@ -5361,7 +5361,7 @@ a.close.disabled {
 }
 
 .toast {
-    max-widdata-th- 350px;
+    max-width: 350px;
     overflow: hidden;
     font-size: .875rem;
     background-color: rgba(255, 255, 255, .85);
@@ -5420,7 +5420,7 @@ a.close.disabled {
     left: 0;
     z-index: 1050;
     display: none;
-    widdata-th- 100%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     outline: 0
@@ -5428,7 +5428,7 @@ a.close.disabled {
 
 .modal-dialog {
     position: relative;
-    widdata-th- auto;
+    width: auto;
     margin: .5rem;
     pointer-events: none
 }
@@ -5496,7 +5496,7 @@ a.close.disabled {
     position: relative;
     display: flex;
     flex-direction: column;
-    widdata-th- 100%;
+    width: 100%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
@@ -5510,7 +5510,7 @@ a.close.disabled {
     top: 0;
     left: 0;
     z-index: 1040;
-    widdata-th- 100vw;
+    width: 100vw;
     height: 100vh;
     background-color: #000
 }
@@ -5570,14 +5570,14 @@ a.close.disabled {
 .modal-scrollbar-measure {
     position: absolute;
     top: -9999px;
-    widdata-th- 50px;
+    width: 50px;
     height: 50px;
     overflow: scroll
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .modal-dialog {
-        max-widdata-th- 500px;
+        max-width: 500px;
         margin: 1.75rem auto
     }
 
@@ -5598,19 +5598,19 @@ a.close.disabled {
     }
 
     .modal-sm {
-        max-widdata-th- 300px
+        max-width: 300px
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .modal-lg, .modal-xl {
-        max-widdata-th- 800px
+        max-width: 800px
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .modal-xl {
-        max-widdata-th- 1140px
+        max-width: 1140px
     }
 }
 
@@ -5645,7 +5645,7 @@ a.close.disabled {
 .tooltip .arrow {
     position: absolute;
     display: block;
-    widdata-th- .8rem;
+    width: .8rem;
     height: .4rem
 }
 
@@ -5666,7 +5666,7 @@ a.close.disabled {
 
 .bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before {
     top: 0;
-    border-widdata-th- .4rem .4rem 0;
+    border-width: .4rem .4rem 0;
     border-top-color: #000
 }
 
@@ -5676,13 +5676,13 @@ a.close.disabled {
 
 .bs-tooltip-auto[x-placement^=right] .arrow, .bs-tooltip-right .arrow {
     left: 0;
-    widdata-th- .4rem;
+    width: .4rem;
     height: .8rem
 }
 
 .bs-tooltip-auto[x-placement^=right] .arrow::before, .bs-tooltip-right .arrow::before {
     right: 0;
-    border-widdata-th- .4rem .4rem .4rem 0;
+    border-width: .4rem .4rem .4rem 0;
     border-right-color: #000
 }
 
@@ -5696,7 +5696,7 @@ a.close.disabled {
 
 .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
     bottom: 0;
-    border-widdata-th- 0 .4rem .4rem;
+    border-width: 0 .4rem .4rem;
     border-bottom-color: #000
 }
 
@@ -5706,18 +5706,18 @@ a.close.disabled {
 
 .bs-tooltip-auto[x-placement^=left] .arrow, .bs-tooltip-left .arrow {
     right: 0;
-    widdata-th- .4rem;
+    width: .4rem;
     height: .8rem
 }
 
 .bs-tooltip-auto[x-placement^=left] .arrow::before, .bs-tooltip-left .arrow::before {
     left: 0;
-    border-widdata-th- .4rem 0 .4rem .4rem;
+    border-width: .4rem 0 .4rem .4rem;
     border-left-color: #000
 }
 
 .tooltip-inner {
-    max-widdata-th- 200px;
+    max-width: 200px;
     padding: .25rem .5rem;
     color: #fff;
     text-align: center;
@@ -5731,7 +5731,7 @@ a.close.disabled {
     left: 0;
     z-index: 1060;
     display: block;
-    max-widdata-th- 276px;
+    max-width: 276px;
     font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
@@ -5757,7 +5757,7 @@ a.close.disabled {
 .popover .arrow {
     position: absolute;
     display: block;
-    widdata-th- 1rem;
+    width: 1rem;
     height: .5rem;
     margin: 0 .3rem
 }
@@ -5780,13 +5780,13 @@ a.close.disabled {
 
 .bs-popover-auto[x-placement^=top] > .arrow::before, .bs-popover-top > .arrow::before {
     bottom: 0;
-    border-widdata-th- .5rem .5rem 0;
+    border-width: .5rem .5rem 0;
     border-top-color: rgba(0, 0, 0, .25)
 }
 
 .bs-popover-auto[x-placement^=top] > .arrow::after, .bs-popover-top > .arrow::after {
     bottom: 1px;
-    border-widdata-th- .5rem .5rem 0;
+    border-width: .5rem .5rem 0;
     border-top-color: #fff
 }
 
@@ -5796,20 +5796,20 @@ a.close.disabled {
 
 .bs-popover-auto[x-placement^=right] > .arrow, .bs-popover-right > .arrow {
     left: calc((.5rem + 1px) * -1);
-    widdata-th- .5rem;
+    width: .5rem;
     height: 1rem;
     margin: .3rem 0
 }
 
 .bs-popover-auto[x-placement^=right] > .arrow::before, .bs-popover-right > .arrow::before {
     left: 0;
-    border-widdata-th- .5rem .5rem .5rem 0;
+    border-width: .5rem .5rem .5rem 0;
     border-right-color: rgba(0, 0, 0, .25)
 }
 
 .bs-popover-auto[x-placement^=right] > .arrow::after, .bs-popover-right > .arrow::after {
     left: 1px;
-    border-widdata-th- .5rem .5rem .5rem 0;
+    border-width: .5rem .5rem .5rem 0;
     border-right-color: #fff
 }
 
@@ -5823,13 +5823,13 @@ a.close.disabled {
 
 .bs-popover-auto[x-placement^=bottom] > .arrow::before, .bs-popover-bottom > .arrow::before {
     top: 0;
-    border-widdata-th- 0 .5rem .5rem .5rem;
+    border-width: 0 .5rem .5rem .5rem;
     border-bottom-color: rgba(0, 0, 0, .25)
 }
 
 .bs-popover-auto[x-placement^=bottom] > .arrow::after, .bs-popover-bottom > .arrow::after {
     top: 1px;
-    border-widdata-th- 0 .5rem .5rem .5rem;
+    border-width: 0 .5rem .5rem .5rem;
     border-bottom-color: #fff
 }
 
@@ -5838,7 +5838,7 @@ a.close.disabled {
     top: 0;
     left: 50%;
     display: block;
-    widdata-th- 1rem;
+    width: 1rem;
     margin-left: -.5rem;
     content: "";
     border-bottom: 1px solid #f7f7f7
@@ -5850,20 +5850,20 @@ a.close.disabled {
 
 .bs-popover-auto[x-placement^=left] > .arrow, .bs-popover-left > .arrow {
     right: calc((.5rem + 1px) * -1);
-    widdata-th- .5rem;
+    width: .5rem;
     height: 1rem;
     margin: .3rem 0
 }
 
 .bs-popover-auto[x-placement^=left] > .arrow::before, .bs-popover-left > .arrow::before {
     right: 0;
-    border-widdata-th- .5rem 0 .5rem .5rem;
+    border-width: .5rem 0 .5rem .5rem;
     border-left-color: rgba(0, 0, 0, .25)
 }
 
 .bs-popover-auto[x-placement^=left] > .arrow::after, .bs-popover-left > .arrow::after {
     right: 1px;
-    border-widdata-th- .5rem 0 .5rem .5rem;
+    border-width: .5rem 0 .5rem .5rem;
     border-left-color: #fff
 }
 
@@ -5896,7 +5896,7 @@ a.close.disabled {
 
 .carousel-inner {
     position: relative;
-    widdata-th- 100%;
+    width: 100%;
     overflow: hidden
 }
 
@@ -5910,7 +5910,7 @@ a.close.disabled {
     position: relative;
     display: none;
     float: left;
-    widdata-th- 100%;
+    width: 100%;
     margin-right: -100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -5966,7 +5966,7 @@ a.close.disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    widdata-th- 15%;
+    width: 15%;
     color: #fff;
     text-align: center;
     opacity: .5;
@@ -5996,7 +5996,7 @@ a.close.disabled {
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
     display: inline-block;
-    widdata-th- 20px;
+    width: 20px;
     height: 20px;
     background: no-repeat 50%/100% 100%
 }
@@ -6026,7 +6026,7 @@ a.close.disabled {
 .carousel-indicators li {
     box-sizing: content-box;
     flex: 0 1 auto;
-    widdata-th- 30px;
+    width: 30px;
     height: 3px;
     margin-right: 3px;
     margin-left: 3px;
@@ -6076,7 +6076,7 @@ a.close.disabled {
 
 .spinner-border {
     display: inline-block;
-    widdata-th- 2rem;
+    width: 2rem;
     height: 2rem;
     vertical-align: text-bottom;
     border: .25em solid currentColor;
@@ -6087,9 +6087,9 @@ a.close.disabled {
 }
 
 .spinner-border-sm {
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem;
-    border-widdata-th- .2em
+    border-width: .2em
 }
 
 @-webkit-keyframes spinner-grow {
@@ -6112,7 +6112,7 @@ a.close.disabled {
 
 .spinner-grow {
     display: inline-block;
-    widdata-th- 2rem;
+    width: 2rem;
     height: 2rem;
     vertical-align: text-bottom;
     background-color: currentColor;
@@ -6123,7 +6123,7 @@ a.close.disabled {
 }
 
 .spinner-grow-sm {
-    widdata-th- 1rem;
+    width: 1rem;
     height: 1rem
 }
 
@@ -6385,7 +6385,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     display: inline-flex !important
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .d-sm-none {
         display: none !important
     }
@@ -6423,7 +6423,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .d-md-none {
         display: none !important
     }
@@ -6461,7 +6461,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .d-lg-none {
         display: none !important
     }
@@ -6499,7 +6499,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .d-xl-none {
         display: none !important
     }
@@ -6578,7 +6578,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 .embed-responsive {
     position: relative;
     display: block;
-    widdata-th- 100%;
+    width: 100%;
     padding: 0;
     overflow: hidden
 }
@@ -6593,7 +6593,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     top: 0;
     bottom: 0;
     left: 0;
-    widdata-th- 100%;
+    width: 100%;
     height: 100%;
     border: 0
 }
@@ -6750,7 +6750,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     align-self: stretch !important
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .flex-sm-row {
         flex-direction: row !important
     }
@@ -6888,7 +6888,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .flex-md-row {
         flex-direction: row !important
     }
@@ -7026,7 +7026,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .flex-lg-row {
         flex-direction: row !important
     }
@@ -7164,7 +7164,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .flex-xl-row {
         flex-direction: row !important
     }
@@ -7314,7 +7314,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     float: none !important
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .float-sm-left {
         float: left !important
     }
@@ -7328,7 +7328,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .float-md-left {
         float: left !important
     }
@@ -7342,7 +7342,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .float-lg-left {
         float: left !important
     }
@@ -7356,7 +7356,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .float-xl-left {
         float: left !important
     }
@@ -7426,7 +7426,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 
 .sr-only {
     position: absolute;
-    widdata-th- 1px;
+    width: 1px;
     height: 1px;
     padding: 0;
     overflow: hidden;
@@ -7437,7 +7437,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 
 .sr-only-focusable:active, .sr-only-focusable:focus {
     position: static;
-    widdata-th- auto;
+    width: auto;
     height: auto;
     overflow: visible;
     clip: auto;
@@ -7461,23 +7461,23 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .w-25 {
-    widdata-th- 25% !important
+    width: 25% !important
 }
 
 .w-50 {
-    widdata-th- 50% !important
+    width: 50% !important
 }
 
 .w-75 {
-    widdata-th- 75% !important
+    width: 75% !important
 }
 
 .w-100 {
-    widdata-th- 100% !important
+    width: 100% !important
 }
 
 .w-auto {
-    widdata-th- auto !important
+    width: auto !important
 }
 
 .h-25 {
@@ -7501,7 +7501,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .mw-100 {
-    max-widdata-th- 100% !important
+    max-width: 100% !important
 }
 
 .mh-100 {
@@ -7509,7 +7509,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .min-vw-100 {
-    min-widdata-th- 100vw !important
+    min-width: 100vw !important
 }
 
 .min-vh-100 {
@@ -7517,7 +7517,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 }
 
 .vw-100 {
-    widdata-th- 100vw !important
+    width: 100vw !important
 }
 
 .vh-100 {
@@ -7896,7 +7896,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     margin-left: auto !important
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .m-sm-0 {
         margin: 0 !important
     }
@@ -8258,7 +8258,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .m-md-0 {
         margin: 0 !important
     }
@@ -8620,7 +8620,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .m-lg-0 {
         margin: 0 !important
     }
@@ -8982,7 +8982,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .m-xl-0 {
         margin: 0 !important
     }
@@ -9378,7 +9378,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     text-align: center !important
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .text-sm-left {
         text-align: left !important
     }
@@ -9392,7 +9392,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .text-md-left {
         text-align: left !important
     }
@@ -9406,7 +9406,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 992px) {
+@media (min-width: 992px) {
     .text-lg-left {
         text-align: left !important
     }
@@ -9420,7 +9420,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
     }
 }
 
-@media (min-widdata-th- 1200px) {
+@media (min-width: 1200px) {
     .text-xl-left {
         text-align: left !important
     }
@@ -9628,11 +9628,11 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     body {
-        min-widdata-th- 992px !important
+        min-width: 992px !important
     }
 
     .container {
-        min-widdata-th- 992px !important
+        min-width: 992px !important
     }
 
     .navbar {
@@ -9688,7 +9688,7 @@ a:focus {
 
 #wrapper #content-wrapper {
     background-color: #f8f9fc;
-    widdata-th- 100%;
+    width: 100%;
     overflow-x: hidden
 }
 
@@ -9706,7 +9706,7 @@ a:focus {
     right: 1rem;
     bottom: 1rem;
     display: none;
-    widdata-th- 2.75rem;
+    width: 2.75rem;
     height: 2.75rem;
     text-align: center;
     color: #fff;
@@ -9918,7 +9918,7 @@ a:focus {
 
 .icon-circle {
     height: 2.5rem;
-    widdata-th- 2.5rem;
+    width: 2.5rem;
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -10016,7 +10016,7 @@ a:focus {
 }
 
 .sidebar .nav-item.dropdown .dropdown-toggle::after, .topbar .nav-item.dropdown .dropdown-toggle::after {
-    widdata-th- 1rem;
+    width: 1rem;
     text-align: center;
     float: right;
     vertical-align: 0;
@@ -10044,7 +10044,7 @@ a:focus {
 
 .sidebar .nav-item .nav-link .img-profile, .topbar .nav-item .nav-link .img-profile {
     height: 2rem;
-    widdata-th- 2rem
+    width: 2rem
 }
 
 .topbar {
@@ -10053,7 +10053,7 @@ a:focus {
 
 .topbar #sidebarToggleTop {
     height: 2.5rem;
-    widdata-th- 2.5rem
+    width: 2.5rem
 }
 
 .topbar #sidebarToggleTop:hover {
@@ -10065,7 +10065,7 @@ a:focus {
 }
 
 .topbar .navbar-search {
-    widdata-th- 25rem
+    width: 25rem
 }
 
 .topbar .navbar-search input {
@@ -10074,7 +10074,7 @@ a:focus {
 }
 
 .topbar .topbar-divider {
-    widdata-th- 0;
+    width: 0;
     border-right: 1px solid #e3e6f0;
     height: calc(4.375rem - 2rem);
     margin: auto 1rem
@@ -10100,7 +10100,7 @@ a:focus {
 }
 
 .topbar .dropdown .dropdown-menu {
-    widdata-th- calc(100% - 1.5rem);
+    width: calc(100% - 1.5rem);
     right: .75rem
 }
 
@@ -10131,18 +10131,18 @@ a:focus {
 .topbar .dropdown-list .dropdown-item .dropdown-list-image {
     position: relative;
     height: 2.5rem;
-    widdata-th- 2.5rem
+    width: 2.5rem
 }
 
 .topbar .dropdown-list .dropdown-item .dropdown-list-image img {
     height: 2.5rem;
-    widdata-th- 2.5rem
+    width: 2.5rem
 }
 
 .topbar .dropdown-list .dropdown-item .dropdown-list-image .status-indicator {
     background-color: #eaecf4;
     height: .75rem;
-    widdata-th- .75rem;
+    width: .75rem;
     border-radius: 100%;
     position: absolute;
     bottom: 0;
@@ -10151,7 +10151,7 @@ a:focus {
 }
 
 .topbar .dropdown-list .dropdown-item .text-truncate {
-    max-widdata-th- 10rem
+    max-width: 10rem
 }
 
 .topbar .dropdown-list .dropdown-item:active {
@@ -10159,22 +10159,22 @@ a:focus {
     color: #3a3b45
 }
 
-@media (min-widdata-th- 576px) {
+@media (min-width: 576px) {
     .topbar .dropdown {
         position: relative
     }
 
     .topbar .dropdown .dropdown-menu {
-        widdata-th- auto;
+        width: auto;
         right: 0
     }
 
     .topbar .dropdown-list {
-        widdata-th- 20rem !important
+        width: 20rem !important
     }
 
     .topbar .dropdown-list .dropdown-item .text-truncate {
-        max-widdata-th- 13.375rem
+        max-width: 13.375rem
     }
 }
 
@@ -10191,7 +10191,7 @@ a:focus {
 }
 
 .sidebar {
-    widdata-th- 6.5rem;
+    width: 6.5rem;
     min-height: 100vh
 }
 
@@ -10206,7 +10206,7 @@ a:focus {
 .sidebar .nav-item .nav-link {
     text-align: center;
     padding: .75rem 1rem;
-    widdata-th- 6.5rem
+    width: 6.5rem
 }
 
 .sidebar .nav-item .nav-link span {
@@ -10237,7 +10237,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner, .sidebar .nav-item .collapsing .collapse-inner {
     padding: .5rem 0;
-    min-widdata-th- 10rem;
+    min-width: 10rem;
     font-size: .85rem;
     margin: 0 0 1rem 0
 }
@@ -10276,7 +10276,7 @@ a:focus {
 }
 
 .sidebar #sidebarToggle {
-    widdata-th- 2.5rem;
+    width: 2.5rem;
     height: 2.5rem;
     text-align: center;
     margin-bottom: 1rem;
@@ -10299,7 +10299,7 @@ a:focus {
 }
 
 .sidebar.toggled {
-    widdata-th- 0 !important;
+    width: 0 !important;
     overflow: hidden
 }
 
@@ -10340,9 +10340,9 @@ a:focus {
     font-size: .65rem
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .sidebar {
-        widdata-th- 14rem !important
+        width: 14rem !important
     }
 
     .sidebar .nav-item .collapse {
@@ -10370,10 +10370,10 @@ a:focus {
 
     .sidebar .nav-item .nav-link {
         display: block;
-        widdata-th- 100%;
+        width: 100%;
         text-align: left;
         padding: 1rem;
-        widdata-th- 14rem
+        width: 14rem
     }
 
     .sidebar .nav-item .nav-link i {
@@ -10387,7 +10387,7 @@ a:focus {
     }
 
     .sidebar .nav-item .nav-link[data-toggle=collapse]::after {
-        widdata-th- 1rem;
+        width: 1rem;
         text-align: center;
         float: right;
         vertical-align: 0;
@@ -10415,7 +10415,7 @@ a:focus {
 
     .sidebar.toggled {
         overflow: visible;
-        widdata-th- 6.5rem !important
+        width: 6.5rem !important
     }
 
     .sidebar.toggled .nav-item .collapse {
@@ -10452,7 +10452,7 @@ a:focus {
     .sidebar.toggled .nav-item .nav-link {
         text-align: center;
         padding: .75rem 1rem;
-        widdata-th- 6.5rem
+        width: 6.5rem
     }
 
     .sidebar.toggled .nav-item .nav-link span {
@@ -10592,7 +10592,7 @@ a:focus {
 .btn-circle {
     border-radius: 100%;
     height: 2.5rem;
-    widdata-th- 2.5rem;
+    width: 2.5rem;
     font-size: 1rem;
     display: inline-flex;
     align-items: center;
@@ -10601,13 +10601,13 @@ a:focus {
 
 .btn-circle.btn-sm, .btn-group-sm > .btn-circle.btn {
     height: 1.8rem;
-    widdata-th- 1.8rem;
+    width: 1.8rem;
     font-size: .75rem
 }
 
 .btn-circle.btn-lg, .btn-group-lg > .btn-circle.btn {
     height: 3.5rem;
-    widdata-th- 3.5rem;
+    width: 3.5rem;
     font-size: 1.35rem
 }
 
@@ -10683,10 +10683,10 @@ a:focus {
 .chart-area {
     position: relative;
     height: 10rem;
-    widdata-th- 100%
+    width: 100%
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .chart-area {
         height: 20rem
     }
@@ -10695,10 +10695,10 @@ a:focus {
 .chart-bar {
     position: relative;
     height: 10rem;
-    widdata-th- 100%
+    width: 100%
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .chart-bar {
         height: 20rem
     }
@@ -10707,10 +10707,10 @@ a:focus {
 .chart-pie {
     position: relative;
     height: 15rem;
-    widdata-th- 100%
+    width: 100%
 }
 
-@media (min-widdata-th- 768px) {
+@media (min-width: 768px) {
     .chart-pie {
         height: calc(20rem - 43px) !important
     }
@@ -10819,7 +10819,7 @@ form.user .btn-user {
     font-size: 7rem;
     position: relative;
     line-height: 1;
-    widdata-th- 12.5rem
+    width: 12.5rem
 }
 
 @-webkit-keyframes noise-anim {
@@ -11123,5 +11123,5 @@ footer.sticky-footer .copyright {
 }
 
 body.sidebar-toggled footer.sticky-footer {
-    widdata-th- 100%
+    width: 100%
 }

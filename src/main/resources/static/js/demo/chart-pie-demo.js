@@ -21,7 +21,7 @@ var myPieChart = new Chart(ctx, {
       backgroundColor: "rgb(255,255,255)",
       bodyFontColor: "#858796",
       borderColor: '#dddfeb',
-      borderWiddata-th- 1,
+      borderWidth: 1,
       xPadding: 15,
       yPadding: 15,
       displayColors: false,

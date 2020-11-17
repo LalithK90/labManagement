@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/header :: headerFragment}">
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>sampleReceiving-detail</title>
 </head>
 <body>
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 <!--heading Area-->
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
@@ -25,7 +25,7 @@
         <div class="col">
             <h2 class="text-info text-center">
                 <strong>
-                    <p data-th-text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></p>
+                    <p th:text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></p>
                 </strong>
             </h2>
         </div>
@@ -93,9 +93,9 @@
     </a>
 </div>
 <!--footer include-->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 
 </body>
 </html>

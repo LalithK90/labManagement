@@ -27,7 +27,7 @@ body {
 
 /*radio button style -start*/
 .checkbox-round {
-    widdata-th- 1.3em;
+    width: 1.3em;
     height: 1.3em;
     background-color: #fff;
     border-radius: 50%;
@@ -185,7 +185,7 @@ nav {
 
 #icon {
     height: 250px;
-    widdata-th- 250px;
+    width: 250px;
     box-shadow: 8px 8px 8px 8px white;
 
     border-radius: 50%;
@@ -408,7 +408,7 @@ hr{
     height: 30px;
     border-style: solid;
     border-color: black;
-    border-widdata-th- 1px 0 0 0;
+    border-width: 1px 0 0 0;
     border-radius: 20px;
 }
 hr:before {
@@ -418,7 +418,7 @@ hr:before {
     margin-top: -31px;
     border-style: solid;
     border-color: black;
-    border-widdata-th- 0 0 1px 0;
+    border-width: 0 0 1px 0;
     border-radius: 20px;
 }
 /*<hr/> tag style - end */

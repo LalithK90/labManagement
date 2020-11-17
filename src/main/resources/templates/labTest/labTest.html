@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/header :: headerFragment}">
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
@@ -33,12 +33,12 @@
 </div>
 
 <div class="wrapper"><!-- wrapper start -->
-    <!--<nav data-th-replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav>&lt;!&ndash; navbar Section &ndash;&gt;
-    <aside data-th-replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside>--><!-- navbar Section -->
+    <!--<nav th:replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav>&lt;!&ndash; navbar Section &ndash;&gt;
+    <aside th:replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside>--><!-- navbar Section -->
     <div class="content-wrapper"><!-- content-wrapper Start -->
-        <!--<section data-th-replace="~{fragments/contentHeader :: contentHeaderSectionFragment}"></section>
+        <!--<section th:replace="~{fragments/contentHeader :: contentHeaderSectionFragment}"></section>
         &lt;!&ndash; Form Header  Path &ndash;&gt;
-        <section data-th-replace="~{fragments/smallBoxSection :: smallBoxSectionFragment}"></section>-->
+        <section th:replace="~{fragments/smallBoxSection :: smallBoxSectionFragment}"></section>-->
         <!-- Small Box Set -->
 
 
@@ -77,7 +77,7 @@
 
 
                                                     <th>
-                                                        <a id="labTestView" class="btn btn-success btn-sm" data-th-href="${'/labTest/' + labTest.id}" ><i
+                                                        <a id="labTestView" class="btn btn-success btn-sm" th:href="${'/labTest/' + labTest.id}" ><i
                                                             class="fa fa-folder-open"></i>&nbsp;View</a>
                                                         <a class="btn btn-primary btn-sm" id="labTestEdit"
                                                            data-th-href="${'/labTest/edit/' + labTest.id}"><i
@@ -135,8 +135,8 @@
     </div>
 </div>
 </div><!-- content-wrapper end -->
-<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
+<footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
 </div><!-- wrapper end -->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+<script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
 </body>
 </html>

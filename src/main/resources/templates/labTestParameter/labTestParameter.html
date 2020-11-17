@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head data-th-replace="~{fragments/header :: headerFragment}">
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 <div class="wrapper"><!-- wrapper start -->
-    <!--<nav data-th-replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav>&lt;!&ndash; navbar Section &ndash;&gt;
-    <aside data-th-replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside>--><!-- navbar Section -->
+    <!--<nav th:replace="~{fragments/navbarSection :: navbarSectionFragment}"></nav>&lt;!&ndash; navbar Section &ndash;&gt;
+    <aside th:replace="~{fragments/sidebarSection :: sidebarSectionFragment}"></aside>--><!-- navbar Section -->
     <div class="content-wrapper"><!-- content-wrapper Start -->
-        <!--<section data-th-replace="~{fragments/contentHeader :: contentHeaderSectionFragment}"></section>
+        <!--<section th:replace="~{fragments/contentHeader :: contentHeaderSectionFragment}"></section>
         &lt;!&ndash; Form Header  Path &ndash;&gt;
-        <section data-th-replace="~{fragments/smallBoxSection :: smallBoxSectionFragment}"></section>--><!-- Small Box Set -->
+        <section th:replace="~{fragments/smallBoxSection :: smallBoxSectionFragment}"></section>--><!-- Small Box Set -->
 
 
 
@@ -38,7 +38,7 @@
                                     <div class="card-body">
                                         <h4>Secondary Header </h4>
                                         <!--if not empty list-->
-                                        <div class="container-fluid" id="labTestParameterListTable" data-th-if="${not #lists.isEmpty(labTestParameters)}">
+                                        <div class="container-fluid" id="labTestParameterListTable" th:if="${not #lists.isEmpty(labTestParameters)}">
                                             <table class="table table-hover table-striped" id="myTable">
                                                 <thead class="thead-inverse">
                                                 <tr>
@@ -48,18 +48,18 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr data-th-each="labTestParameter, rowCount : ${labTestParameters}" scope="row">
-                                                    <th data-th-text="${rowCount.count}"></th>
-                                                    <th data-th-text="${labTestParameter.specificationName.specificationName}"></th>
+                                                <tr th:each="labTestParameter, rowCount : ${labTestParameters}" scope="row">
+                                                    <th th:text="${rowCount.count}"></th>
+                                                    <th th:text="${labTestParameter.specificationName.specificationName}"></th>
 
                                                     <th>
                                                         <a class="btn btn-primary btn-sm" id="labTestParameterEdit"
-                                                           data-th-href="${'/labTestParameter/edit/' + labTestParameter.id}"><i
+                                                           th:href="${'/labTestParameter/edit/' + labTestParameter.id}"><i
                                                                 class="fa fa-edit"></i>&nbsp;Edit</a>
                                                         <a class="btn btn-danger btn-sm" id="labTestParameterRemove"
-                                                           data-th-href="${'/labTestParameter/delete/' + labTestParameter.id}"
-                                                           data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
-                                                           data-th-onclick="if(!(confirm('Are you want to delete this civilStatus ?'))) return false"
+                                                           th:href="${'/labTestParameter/delete/' + labTestParameter.id}"
+                                                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
+                                                           th:onclick="if(!(confirm('Are you want to delete this civilStatus ?'))) return false"
                                                         ><i
                                                                 aria-hidden="true" class="fa fa-trash"></i>
                                                             Delete</a>
@@ -70,7 +70,7 @@
                                             </table>
                                         </div>
                                         <!--if empty list-->
-                                        <div class="row" id="labTestParameterNotList" data-th-if="${ #lists.isEmpty(labTestParameters)}">
+                                        <div class="row" id="labTestParameterNotList" th:if="${ #lists.isEmpty(labTestParameters)}">
                                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -83,14 +83,14 @@
                                             </div>
                                         </div>
                                         <!--Show saved labTestParameter-->
-                                        <div class="row" data-th-if="${labTestParameterDetail!=null}">
+                                        <div class="row" th:if="${labTestParameterDetail!=null}">
                                             <div class="col-sm-12">
                                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                     <div class="container">
-                                                        <div data-th-replace="~{labTestParameter/labTestParameter-detail :: labTestParameterDetail}"></div>
+                                                        <div th:replace="~{labTestParameter/labTestParameter-detail :: labTestParameterDetail}"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,8 +110,8 @@
                 </div>
             </div></div>
     </div><!-- content-wrapper end -->
-    <footer data-th-replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
+    <footer th:replace="~{fragments/footer :: footerFragment}"></footer><!-- footer Section -->
 </div><!-- wrapper end -->
-<script data-th-replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
+<script th:replace="~{fragments/script :: scriptFragment}"></script><!-- script Fragment -->
 </body>
 </html>

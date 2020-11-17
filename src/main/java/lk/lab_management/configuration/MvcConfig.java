@@ -43,11 +43,11 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**")
-                .addResourceLocations("classpadata-th-/static/img/");
+                .addResourceLocations("classpath:/static/img/");
         registry.addResourceHandler("/css/**")
-                .addResourceLocations("classpadata-th-/static/css/");
+                .addResourceLocations("classpath:/static/css/");
         registry.addResourceHandler("/js/**")
-                .addResourceLocations("classpadata-th-/static/js/");
+                .addResourceLocations("classpath:/static/js/");
 
     }
 
