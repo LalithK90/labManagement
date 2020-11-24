@@ -36,7 +36,7 @@
 <!--Form Content - start -->
 <div class="container-fluid bg-light formBorder" >
   <div class="col-sm-12 flex-column " >
-    <form id="form" class="form-horizontal" data-th-action="${addStatus==true?'/employee/add':'/employee/update'}"
+    <form id="form" class="form-horizontal" data-th-action="${addStatus==true?'/employee/save':'/employee/update'}"
           data-th-object="${employee}" method="POST" enctype="multipart/form-data" >
       <div class="row" >
         <!--Left Side-->
@@ -58,7 +58,7 @@
             <div class="col-md-8" >
               <input id="code" data-th-field="*{code}" class="form-control" tabindex="4"
                      type="text" required />
-              <span id="code" data-th-errors="*{code}"
+              <span id="codeE" data-th-errors="*{code}"
                     data-th-if="${#fields.hasErrors('code')}" class="error" >Error Employee code
                             </span >
             </div >

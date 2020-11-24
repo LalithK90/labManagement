@@ -126,24 +126,25 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return commonThings(model);
         }
-        try {
-            employee.setMobileOne(commonService.commonMobileNumberLengthValidator(employee.getMobileOne()));
-            employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
-            employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
-            // System.out.println("dependent length " + employee.getDependents().size());
+
+        employee.setMobileOne(commonService.commonMobileNumberLengthValidator(employee.getMobileOne()));
+        employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
+        employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
 
 
-            //after save employee files and save employee
-            Employee employeeSaved = employeeService.persist(employee);
-            //if employee state is not working he or she cannot access to the system
-            if (!employee.getEmployeeStatus().equals(EmployeeStatus.WORKING)) {
-                User user = userService.findUserByEmployee(employeeService.findByNic(employee.getNic()));
-                //if employee not a user
-                if (user != null) {
-                    user.setEnabled(false);
-                    userService.persist(user);
-                }
+        //after save employee files and save employee
+        Employee employeeSaved = employeeService.persist(employee);
+        //if employee state is not working he or she cannot access to the system
+        if (!employee.getEmployeeStatus().equals(EmployeeStatus.WORKING)) {
+            User user = userService.findUserByEmployee(employeeService.findByNic(employee.getNic()));
+            //if employee not a user
+            if (user != null) {
+                user.setEnabled(false);
+                userService.persist(user);
             }
+        }
+
+        try {
             //save employee images file
             if (employee.getFile().getOriginalFilename() != null) {
                 EmployeeFiles employeeFiles = employeeFilesService.findByName(employee.getFile().getOriginalFilename());
