@@ -14,6 +14,7 @@ import lk.lab_management.asset.employee.service.EmployeeService;
 import lk.lab_management.asset.user_management.entity.User;
 import lk.lab_management.asset.user_management.service.UserService;
 import lk.lab_management.util.service.DateTimeAgeService;
+import lk.lab_management.util.service.MakeAutoGenerateNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -34,19 +35,22 @@ import java.util.UUID;
 public class EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeFilesService employeeFilesService;
-    private final DateTimeAgeService dateTimeAgeService;    private final CommonService commonService;
-
+    private final DateTimeAgeService dateTimeAgeService;
+    private final CommonService commonService;
     private final UserService userService;
 
+    private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
     @Autowired
     public EmployeeController(EmployeeService employeeService, EmployeeFilesService employeeFilesService,
                               DateTimeAgeService dateTimeAgeService,
-                              CommonService commonService, UserService userService) {
+                              CommonService commonService, UserService userService,
+                              MakeAutoGenerateNumberService makeAutoGenerateNumberService) {
         this.employeeService = employeeService;
         this.employeeFilesService = employeeFilesService;
         this.dateTimeAgeService = dateTimeAgeService;
         this.commonService = commonService;
         this.userService = userService;
+        this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
     }
 //----> Employee details management - start <----//
 
@@ -130,6 +134,15 @@ public class EmployeeController {
         employee.setMobileOne(commonService.commonMobileNumberLengthValidator(employee.getMobileOne()));
         employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
         employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
+
+        if ( employee.getId()==null ){
+            Employee lastEmployee = employeeService.lastEmployee();
+            if ( lastEmployee.getCode() ==null ){
+                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+            }else{
+                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(lastEmployee.getCode().substring(4)).toString());
+            }
+        }
 
 
         //after save employee files and save employee

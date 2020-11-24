@@ -51,7 +51,7 @@
             </div >
           </div >
           <!--Payrole number-->
-          <div class="form-row text-right" >
+          <div class="form-row text-right" data-th-if="${addStatus==false}">
             <div class="col-md-4" >
               <label class="control-label" for="name" >Employee code :</label >
             </div >
@@ -368,6 +368,10 @@
 <div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
 
 <script >
+    $(document).ready(function () {
+        imageSrcAttributeCheck();
+    });
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader();
@@ -382,8 +386,18 @@
 
     //display selected image
     $("#imgUpload").change(function () {
+        $("#image").toggle('show');
         readURL(this);
+
     });
+
+    //image is not -> showing area hide
+    function imageSrcAttributeCheck() {
+        let attribute = $("#image").attr("src");
+        if (attribute === '') {
+            $("#image").toggle('hide');
+        }
+    }
 </script >
 </body >
 </html >
