@@ -101,13 +101,13 @@
           <!--DiscountRatio -->
           <div class="form-row text-right" >
             <div class="col-md-4" >
-              <label class="control-label" for="discount" >Discount :</label >
+              <label class="control-label" for="discount" >Discount (%) :</label >
             </div >
             <div class="col-md-7" >
               <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="3" required >
                 <option value="" >Please select</option >
                 <option th:each="discountRatio : ${discountRatios}"
-                        th:text="${discountRatio.name}"
+                        th:text="${discountRatio.amount}"
                         th:value="${discountRatio.id}" ></option >
               </select >
             </div >
@@ -174,30 +174,29 @@
 <!--script include-->
 <div th:replace="~{fragments/script :: scriptFragment}" ></div >
 <script >
-    $(document).ready(function () {
-        let compoundPriceURI = "[[${compoundPriceURI}]]";
 
-        $("#compound").bind("change", function () {
-            let finalUrl = compoundPriceURI + $(this).val();
-            $.ajax({
-                type: 'GET',
-                url: finalUrl,
-                success: function (resp) {
-                    priceSet(resp);
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
+    let compoundPriceURI = "[[${compoundPriceURI}]]";
+
+    $("#compound").bind("change", function () {
+        let finalUrl = compoundPriceURI + $(this).val();
+        $.ajax({
+            type: 'GET',
+            url: finalUrl,
+            success: function (resp) {
+                priceSet(resp);
+            },
+            error: function (err) {
+                console.log(err);
+            }
         });
-
     });
+
     $("#discount").bind("change", function () {
         let compoundValue = $("#compound").val();
-        if (compoundValue != null) {
-            let price = parseInt($("#price").val());
-            let discount = parseInt($("#discount").text());
-            $("#amount").val(price - (price * discount / 100));
+        if (compoundValue !== '') {
+            let price = $("#price").val();
+            let discount = parseInt($(`#discount option:selected`).text());
+            $(`#amount`).val(price - (price * discount / 100));
         } else {
             swal({
                 title: "Re-check",
@@ -205,7 +204,7 @@
                 text: "Need to select compound before select the discount.",
             });
         }
-    });
+    })
 
     function priceSet(compound) {
         $("#price").val(compound.price);
