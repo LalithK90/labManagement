@@ -14,6 +14,7 @@ import lk.lab_management.asset.employee.service.EmployeeService;
 import lk.lab_management.asset.user_management.entity.User;
 import lk.lab_management.asset.user_management.service.UserService;
 import lk.lab_management.util.service.DateTimeAgeService;
+import lk.lab_management.util.service.MakeAutoGenerateNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -34,19 +35,22 @@ import java.util.UUID;
 public class EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeFilesService employeeFilesService;
-    private final DateTimeAgeService dateTimeAgeService;    private final CommonService commonService;
-
+    private final DateTimeAgeService dateTimeAgeService;
+    private final CommonService commonService;
     private final UserService userService;
 
+    private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
     @Autowired
     public EmployeeController(EmployeeService employeeService, EmployeeFilesService employeeFilesService,
                               DateTimeAgeService dateTimeAgeService,
-                              CommonService commonService, UserService userService) {
+                              CommonService commonService, UserService userService,
+                              MakeAutoGenerateNumberService makeAutoGenerateNumberService) {
         this.employeeService = employeeService;
         this.employeeFilesService = employeeFilesService;
         this.dateTimeAgeService = dateTimeAgeService;
         this.commonService = commonService;
         this.userService = userService;
+        this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
     }
 //----> Employee details management - start <----//
 
@@ -126,24 +130,34 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return commonThings(model);
         }
-        try {
-            employee.setMobileOne(commonService.commonMobileNumberLengthValidator(employee.getMobileOne()));
-            employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
-            employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
-            // System.out.println("dependent length " + employee.getDependents().size());
 
+        employee.setMobileOne(commonService.commonMobileNumberLengthValidator(employee.getMobileOne()));
+        employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
+        employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
 
-            //after save employee files and save employee
-            Employee employeeSaved = employeeService.persist(employee);
-            //if employee state is not working he or she cannot access to the system
-            if (!employee.getEmployeeStatus().equals(EmployeeStatus.WORKING)) {
-                User user = userService.findUserByEmployee(employeeService.findByNic(employee.getNic()));
-                //if employee not a user
-                if (user != null) {
-                    user.setEnabled(false);
-                    userService.persist(user);
-                }
+        if ( employee.getId()==null ){
+            Employee lastEmployee = employeeService.lastEmployee();
+            if ( lastEmployee.getCode() ==null ){
+                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+            }else{
+                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(lastEmployee.getCode().substring(4)).toString());
             }
+        }
+
+
+        //after save employee files and save employee
+        Employee employeeSaved = employeeService.persist(employee);
+        //if employee state is not working he or she cannot access to the system
+        if (!employee.getEmployeeStatus().equals(EmployeeStatus.WORKING)) {
+            User user = userService.findUserByEmployee(employeeService.findByNic(employee.getNic()));
+            //if employee not a user
+            if (user != null) {
+                user.setEnabled(false);
+                userService.persist(user);
+            }
+        }
+
+        try {
             //save employee images file
             if (employee.getFile().getOriginalFilename() != null) {
                 EmployeeFiles employeeFiles = employeeFilesService.findByName(employee.getFile().getOriginalFilename());
