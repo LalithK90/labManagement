@@ -9,24 +9,27 @@
 <!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
 
-<div class="container bg-secondary form-Border">
+<div class="container  form-Border">
     <div class="row text-center formManagement border-info">
+        <div class="col" >
+            <a class="btn btn-outline-info" href="/home" >
+                Back To Home
+            </a >
+        </div >
         <div class="col">
-            <a class="btn btn-primary" href="/home">
-                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
+            <a href="/payment" class="btn btn-info">
+                 View Payments
             </a>
         </div>
+
+    </div>
+    <div class="row text-center">
         <div class="col">
-            <h4 class="text-light text-center">
+            <h4 class="text-info text-center">
                 <strong>
-                    <span th:text="${addStatus==true?'New Payment Add':'Update Payment Details'}"></span>
+                    <span th:text="${addStatus==true?'New Payment ':'Update Payment Details'}"></span>
                 </strong>
             </h4>
-        </div>
-        <div class="col">
-            <a href="/payment" class="btn btn-primary">
-                <i class="fa fa-list"></i>&nbsp; View List
-            </a>
         </div>
     </div>
 </div>

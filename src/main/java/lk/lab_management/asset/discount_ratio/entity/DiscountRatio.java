@@ -21,8 +21,8 @@ public class DiscountRatio {
     private String name;
 
 
-    @Column( nullable = false, precision = 10, scale = 2 )
-    private BigDecimal amount;
+    @Column( nullable = false)
+    private int amount;
 
 
     private DiscountRatioStatus discountRatioStatus;
