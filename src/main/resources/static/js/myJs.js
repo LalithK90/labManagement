@@ -631,3 +631,17 @@ $(".reveal").on('click', function () {
         $pwd.attr('type', 'password');
     }
 });
+
+//todo
+//test result validation : check whether the entered value is within the given range
+function testResultValidation() {
+    var min = document.getElementById("").value;
+    var max = document.getElementById("").value;
+    var testResult = document.getElementById("").value;
+    if(!(testResult > min && testResult < max)){
+        testResult.target.style.backgroundColor = "#ffe6ff";
+    }
+    else {
+        testResult.target.style.backgroundColor = "#ccffcc";
+    }
+}
