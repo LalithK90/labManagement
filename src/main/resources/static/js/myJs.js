@@ -631,3 +631,13 @@ $(".reveal").on('click', function () {
         $pwd.attr('type', 'password');
     }
 });
+
+//test result validation : check whether the entered value is within the given range
+function testResultValidation() {
+    var min = document.getElementById("").value;
+    var max = document.getElementById("").value;
+    var testResult = document.getElementById("").value;
+    if((testResult > min) && (testResult < max)){
+
+    }
+}
