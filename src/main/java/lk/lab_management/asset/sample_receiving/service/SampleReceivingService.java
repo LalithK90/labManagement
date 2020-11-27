@@ -51,4 +51,8 @@ public class SampleReceivingService implements AbstractService<SampleReceiving, 
         Example<SampleReceiving> sampleReceivingExample = Example.of(sampleReceiving, matcher);
         return sampleReceivingDao.findAll(sampleReceivingExample);
     }
+
+  public SampleReceiving findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus) {
+        return sampleReceivingDao.findBySampleReceivingStatus(sampleReceivingStatus);
+    }
 }

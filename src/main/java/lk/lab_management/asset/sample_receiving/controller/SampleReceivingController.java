@@ -40,6 +40,7 @@ public class SampleReceivingController {
 
     @GetMapping
     public String findAll(Model model) {
+        model.addAttribute("addStatus", false);
         model.addAttribute("sampleReceivings", sampleReceivingService.findAll());
         return "sampleReceiving/sampleReceiving";
     }
