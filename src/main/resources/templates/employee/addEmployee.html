@@ -118,13 +118,18 @@
               <label class="control-label" for="gender" >Gender :</label >
             </div >
             <div class="col-md-8" >
-              <select id="gender" data-th-field="*{gender}" class="form-control" tabindex="7" required >
-                <option value="" >Please select</option >
-                <option data-th-each="genders : ${gender}"
-                        data-th-text="${genders.gender}"
-                        data-th-value="${genders}"
-                        data-th-selected="${genders==employee.gender?'selected':'unselected'}" ></option >
-              </select >
+              <div class="custom-control custom-checkbox custom-control-inline "
+                   data-th-each="genders,index : ${gender}">
+                <input class="custom-control-input gender" required
+                       data-th-name="${'gender'}"
+                       data-th-value="${genders}"
+                       data-th-id="${index.index}+${genders}" type="radio"
+                       data-th-checked="${genders==gender}"/>
+                <label class="custom-control-label"
+                       data-th-for="${index.index}+${genders}"
+                       data-th-text="${genders.gender}"> radio
+                </label>
+              </div>
             </div >
           </div >
           <!--Date of birth-->
