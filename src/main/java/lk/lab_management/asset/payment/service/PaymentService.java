@@ -2,6 +2,7 @@ package lk.lab_management.asset.payment.service;
 
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.dao.PaymentDao;
+import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -51,5 +52,9 @@ public class PaymentService implements AbstractService<Payment, Integer> {
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<Payment> paymentExample = Example.of(payment,matcher);
         return paymentDao.findAll(paymentExample);
+    }
+
+  public List< Payment> findBySampleReceiving(SampleReceiving sampleReceiving) {
+  return paymentDao.findBySampleReceiving(sampleReceiving);
     }
 }

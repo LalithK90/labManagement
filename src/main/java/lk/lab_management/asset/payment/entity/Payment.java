@@ -23,7 +23,7 @@ public class Payment extends AuditEntity {
     @Column( nullable = false, precision = 10, scale = 2 )
     private BigDecimal amount;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private SampleReceiving sampleReceiving;
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )

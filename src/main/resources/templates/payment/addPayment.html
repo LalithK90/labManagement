@@ -34,9 +34,10 @@
     </div>
 </div>
 
+<div th:replace="~{payment/payment :: paymentFragment}" ></div>
 
 
-<div class="container-fluid bg-light formBorder">
+<div class="container-fluid bg-light ">
     <div class="col-sm-12 flex-column ">
         <form id="form" class="form-horizontal" th:action="${addStatus==true?'/payment/add':'/payment/update'}"
               th:object="${payment}" method="POST" enctype="multipart/form-data">

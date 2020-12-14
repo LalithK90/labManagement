@@ -5,7 +5,9 @@ import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingStat
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface SampleReceivingDao extends JpaRepository< SampleReceiving, Integer > {
-  SampleReceiving findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus);
+  List<SampleReceiving> findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus);
 }

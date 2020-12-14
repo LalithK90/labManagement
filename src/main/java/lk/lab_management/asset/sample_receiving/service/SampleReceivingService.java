@@ -52,7 +52,7 @@ public class SampleReceivingService implements AbstractService<SampleReceiving, 
         return sampleReceivingDao.findAll(sampleReceivingExample);
     }
 
-  public SampleReceiving findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus) {
+  public List<SampleReceiving> findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus) {
         return sampleReceivingDao.findBySampleReceivingStatus(sampleReceivingStatus);
     }
 }
