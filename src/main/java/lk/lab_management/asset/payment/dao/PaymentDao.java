@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PaymentDao extends JpaRepository<Payment, Integer> {
+  Payment findFirstByOrderByIdDesc();
   List< Payment> findBySampleReceiving(SampleReceiving sampleReceiving);
 }

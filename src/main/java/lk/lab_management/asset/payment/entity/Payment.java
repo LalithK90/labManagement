@@ -20,15 +20,17 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Payment extends AuditEntity {
 
-    @Column( nullable = false, precision = 10, scale = 2 )
-    private BigDecimal amount;
+  private String number;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private SampleReceiving sampleReceiving;
+  @Column( nullable = false, precision = 10, scale = 2 )
+  private BigDecimal amount;
 
-    @DateTimeFormat( pattern = "yyyy-MM-dd" )
-    private LocalDate paymentDate;
+  @ManyToOne( cascade = CascadeType.MERGE )
+  private SampleReceiving sampleReceiving;
 
-    @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus;
+  @DateTimeFormat( pattern = "yyyy-MM-dd" )
+  private LocalDate paymentDate;
+
+  @Enumerated( EnumType.STRING )
+  private PaymentStatus paymentStatus;
 }
