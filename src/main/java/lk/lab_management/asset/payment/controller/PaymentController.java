@@ -104,7 +104,9 @@ public class PaymentController {
 
   @GetMapping( "/{id}" )
   public String view(@PathVariable Integer id, Model model) {
-    model.addAttribute("paymentDetails", paymentService.findById(id));
+    Payment payment = paymentService.findById(id);
+    model.addAttribute("paymentDetails",payment );
+    model.addAttribute("sampleReceivingDetails", payment.getSampleReceiving());
     return "payment/payment-detail";
   }
 }
