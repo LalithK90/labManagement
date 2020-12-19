@@ -25,7 +25,7 @@
         <div class="col">
             <h2 class="text-info text-center">
                 <strong>
-                    <p th:text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></p>
+                    <span th:text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></span>
                 </strong>
             </h2>
         </div>
@@ -48,18 +48,18 @@
                 </div>
                 <div class="form-row text-right">
                     <div class="col-md-4">
-                        <label class="control-label" for="id">Sample Code :</label>
+                        <label class="control-label" for="code">Sample Code :</label>
                     </div>
                     <div class="col-md-8">
-                        <p id="id" data-th-text="${sampleReceivingDetails.sampleCode}" class="display_detail"></p>
+                        <p id="code" data-th-text="${sampleReceivingDetails.sampleCode}" class="display_detail"></p>
                     </div>
                 </div>
                 <div class="form-row text-right">
                     <div class="col-md-4">
-                        <label class="control-label" for="code">Batch No :</label>
+                        <label class="control-label" for="number">Batch No :</label>
                     </div>
                     <div class="col-md-8">
-                        <p id="code" data-th-text="${sampleReceivingDetails.batchNo}" class="display_detail"></p>
+                        <p id="number" data-th-text="${sampleReceivingDetails.batchNo}" class="display_detail"></p>
                     </div>
                 </div>
                 <div class="form-row text-right">

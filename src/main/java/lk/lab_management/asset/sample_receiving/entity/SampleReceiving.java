@@ -23,6 +23,8 @@ import java.util.List;
 @JsonFilter("SampleReceiving")
 public class SampleReceiving extends AuditEntity {
 
+    private String number;
+
     private String sampleCode;
 
     private String batchNo;
