@@ -2,7 +2,9 @@ package lk.lab_management.asset.payment.service;
 
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.dao.PaymentDao;
+import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.interfaces.AbstractService;
+import lk.lab_management.util.service.MakeAutoGenerateNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -16,10 +18,12 @@ import java.util.List;
 public class PaymentService implements AbstractService<Payment, Integer> {
 
     private final PaymentDao paymentDao;
+    private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
 
     @Autowired
-    public PaymentService(PaymentDao paymentDao){
+    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService){
         this.paymentDao = paymentDao;
+        this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
     }
 
     @Cacheable
@@ -34,6 +38,19 @@ public class PaymentService implements AbstractService<Payment, Integer> {
 
 
     public Payment persist(Payment payment) {
+        if(payment.getId()==null){
+            //if there is not customer in db
+            if (paymentDao.findFirstByOrderByIdDesc() == null) {
+                System.out.println("last customer null");
+                //need to generate new onecustomer
+                payment.setNumber("GRIP"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+            } else {
+                System.out.println("last customer not null");
+                //if there is customer in db need to get that customer's code and increase its value
+                String previousCode = paymentDao.findFirstByOrderByIdDesc().getNumber().substring(4);
+                payment.setNumber("GRIP"+makeAutoGenerateNumberService.numberAutoGen(previousCode).toString());
+            }
+        }
         return paymentDao.save(payment);
     }
 
@@ -51,5 +68,9 @@ public class PaymentService implements AbstractService<Payment, Integer> {
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<Payment> paymentExample = Example.of(payment,matcher);
         return paymentDao.findAll(paymentExample);
+    }
+
+  public List< Payment> findBySampleReceiving(SampleReceiving sampleReceiving) {
+  return paymentDao.findBySampleReceiving(sampleReceiving);
     }
 }
