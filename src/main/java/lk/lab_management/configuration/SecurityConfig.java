@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
             "/login", "/select/**", "/", "/index"};
+    private final String[] HR_URL = {"/employee/**"};/*// TODO: 12/22/2020  */
 
     @Bean
     public UserDetailsServiceImpl userDetailsService() {

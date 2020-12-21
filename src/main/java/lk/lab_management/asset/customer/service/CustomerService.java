@@ -3,6 +3,7 @@ package lk.lab_management.asset.customer.service;
 import lk.lab_management.asset.customer.dao.CustomerDao;
 import lk.lab_management.asset.customer.entity.Customer;
 import lk.lab_management.util.interfaces.AbstractService;
+import lk.lab_management.util.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.data.domain.Example;
@@ -15,10 +16,12 @@ import java.util.List;
 @CacheConfig( cacheNames = "customer" )
 public class CustomerService implements AbstractService<Customer, Integer> {
     private final CustomerDao customerDao;
+    private final EmailService emailService;
 
     @Autowired
-    public CustomerService(CustomerDao customerDao) {
+    public CustomerService(CustomerDao customerDao, EmailService emailService) {
         this.customerDao = customerDao;
+        this.emailService = emailService;
     }
 
     public List<Customer> findAll() {
@@ -30,7 +33,18 @@ public class CustomerService implements AbstractService<Customer, Integer> {
     }
 
     public Customer persist(Customer customer) {
-        return customerDao.save(customer);
+        Customer customer1 = customerDao.save(customer);
+        if(customer1.getEmail()!=null){
+            String message = "Dear "+customer.getName()+
+                    "\n Code"+customer.getCode()+
+                    "\n Customer name"+customer.getName()+
+                    "\n Mobile"+customer.getMobile()+
+                    "\n Address"+customer.getAddress()+
+                    "\n Company"+customer.getCompanyName()+
+                    "\n NIC"+customer.getNic();
+            emailService.sendEmail(customer1.getEmail(), "Welcome to GRI", message);
+        }
+        return customer1;
     }
 
     public boolean delete(Integer id) {

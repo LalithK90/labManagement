@@ -2,53 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<!--<nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #2f7efd;" th:fragment="navBarFragment">
-    <a class="navbar-brand" href="/mainWindow">Dashboard</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Lab Test</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Compound Test</a>
-                    <a class="dropdown-item" href="#">Viscosity Test</a>
-                    <a class="dropdown-item" href="#">Rheological Test</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">System</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Employee</a>
-                    <a class="dropdown-item" href="#">Customer</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Statistics/Reports</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Daily Test Reports</a>
-                    <a class="dropdown-item" href="#">Monthly Test Reports</a>
-                    <a class="dropdown-item" href="#">Ca Cp Reports</a>
-                </div>
-            </li>
-        </ul>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-            </li>
-            <li class="nav-item active">
-            <a data-th-href="@{'/employee'}" class="nav-link"> </a>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>-->
+
 <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" th:fragment="navBarFragment">
 
@@ -58,23 +12,57 @@
         </a>
     </div>
 
-    <!-- Sidebar Toggle (Topbar) -->
-<!--    <button id="sidebarToggleTop" class="btn btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
-    </button>-->
+    <div class="col">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    General
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="dropdown-item" href="	/compound	"> Compound management </a>
+                    <a class="dropdown-item" href="	/customer	"> Customer management </a>
+                    <a class="dropdown-item" href="	/discountRatio	"> Discount details management </a>
+                    <a class="dropdown-item" href="	/employee	"> Employee management </a>
+                    <a class="dropdown-item" href="	/labTestResultEnter/form	"> Lab Test Results management </a>
+                    <a class="dropdown-item" href="	/payment	"> Payment management </a>
+                    <a class="dropdown-item" href="	/role	"> Role management </a>
+                    <a class="dropdown-item" href="	/sample/acceptability	"> Sample acceptance </a>
+                    <a class="dropdown-item" href="	/sampleReceiving	"> Sample Receiving </a>
+                    <a class="dropdown-item" href="	/user	"> User management </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Transaction
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                    <a class="dropdown-item" href="	/compound/add	">	New Compound	</a>
+                    <a class="dropdown-item" href="	/customer/add	">	New Customer 	</a>
+                    <a class="dropdown-item" href="	/discountRatio/add	">	New Discount	</a>
+                    <a class="dropdown-item" href="	/employee/add	">	New Employee	</a>
+                    <a class="dropdown-item" href="	/payment/add	">	New Payment 	</a>
+                    <a class="dropdown-item" href="	/role/add	">	New Role	</a>
+                    <a class="dropdown-item" href="	/user/add	">	New User 	</a>
 
-    <!-- Topbar Search -->
-<!--    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                   aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
-        </div>
-    </form>-->
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Report
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -103,41 +91,39 @@
         </li>
 
 
-
-
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
 
             <!--login /logout /profil /password-change link according to sec confi-->
-            <div >
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-end" >
-                    <li class="nav-item dropdown" data-sec-authorize="isAuthenticated()" >
+            <div>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-end">
+                    <li class="nav-item dropdown" data-sec-authorize="isAuthenticated()">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
                            data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false" >
-                            <i class="fas fa-user-tie fa-lg" ></i >&nbsp;&nbsp;
-                            <span data-th-text="${#authentication.name}" ></span >
-                            <span class="caret" ></span >
-                        </a >
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1" >
-                            <a class="dropdown-item dropdown-item btn btn-group-sm" href="/profile" >
-                                <i class="fas fa-user-cog" ></i > &nbsp;Profile
-                            </a >
-                            <a class="dropdown-item dropdown-item btn btn-group-sm" href="/passwordChange" >
-                                <i class="fas fa-key " ></i >&nbsp;Change Password</a >
-                        </div >
-                    </li >
-                    <li class="nav-item dropdown " data-sec-authorize="isAuthenticated()" >
-                        <a href="/logout" class="nav-link" > <i class="fas fa-sign-out-alt" ></i >&nbsp;&nbsp; Log
-                                                                                                  out</a >
-                    </li >
-                    <li class="nav-item dropdown " data-sec-authorize="!isAuthenticated()" >
-                        <a href="/login" class="nav-link" ><i class="fas fa-sign-in-alt" ></i >&nbsp;&nbsp;Login</a >
-                    </li >
-                </ul >
-            </div >
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-tie fa-lg"></i>&nbsp;&nbsp;
+                            <span data-th-text="${#authentication.name}"></span>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item dropdown-item btn btn-group-sm" href="/profile">
+                                <i class="fas fa-user-cog"></i> &nbsp;Profile
+                            </a>
+                            <a class="dropdown-item dropdown-item btn btn-group-sm" href="/passwordChange">
+                                <i class="fas fa-key "></i>&nbsp;Change Password</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown " data-sec-authorize="isAuthenticated()">
+                        <a href="/logout" class="nav-link"> <i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Log
+                            out</a>
+                    </li>
+                    <li class="nav-item dropdown " data-sec-authorize="!isAuthenticated()">
+                        <a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Login</a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
     </ul>

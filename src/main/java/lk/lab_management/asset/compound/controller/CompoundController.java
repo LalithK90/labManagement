@@ -5,11 +5,13 @@ import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.compound.entity.enums.SpecificationName;
 import lk.lab_management.asset.compound.entity.Specification;
 import lk.lab_management.asset.compound.service.CompoundService;
+import lk.lab_management.asset.compound.service.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.validation.Valid;
 
@@ -18,10 +20,12 @@ import javax.validation.Valid;
 public class CompoundController {
 
     private final CompoundService compoundService;
+    private final SpecificationService specificationService;
 
     @Autowired
-    public CompoundController(CompoundService compoundService) {
+    public CompoundController(CompoundService compoundService, SpecificationService specificationService) {
         this.compoundService = compoundService;
+        this.specificationService = specificationService;
     }
 
     @GetMapping
@@ -57,10 +61,11 @@ public class CompoundController {
             model.addAttribute("specificationNames", SpecificationName.values());
             return "compound/addCompound";
         }
+        Compound compoundDB=   compoundService.persist(compound);
         for (Specification s : compound.getSpecifications()) {
-            s.setCompound(compound);
+            s.setCompound(compoundDB);
+            specificationService.persist(s);
         }
-        compoundService.persist(compound);
         return "redirect:/compound";
     }
 

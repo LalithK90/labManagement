@@ -54,10 +54,11 @@ public class LabTestResultEnterController {
           sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
       sampleReceivingLabTestResults.add(sampleReceivingLabTestResultDB);
     }
+    //todo:
     model.addAttribute("customerDetail", sampleReceivingLabTest.getSampleReceiving().getCustomer());
     model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
     model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
-    model.addAttribute("addStatus", false);
+    model.addAttribute("addStatus", true);
     return "processManagement/labTestResultEnterForm";
   }
 
@@ -65,7 +66,7 @@ public class LabTestResultEnterController {
   public String resultEnterEditForm(@PathVariable Integer id, Model model) {
     SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
     commonMethod(model, sampleReceivingLabTest);
-    model.addAttribute("addStatus", true);
+    model.addAttribute("addStatus", false);
     return "processManagement/labTestResultEnterForm";
   }
 
