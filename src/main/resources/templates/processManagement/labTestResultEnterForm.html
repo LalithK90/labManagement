@@ -18,7 +18,7 @@
     <div class="col" >
       <h2 class="text-info text-center" >
         <strong >
-          Laboratory Test
+          Laboratory Test Name [[${sampleReceivingLabTest.labTestName.labTestName}]]
         </strong >
       </h2 >
     </div >
@@ -59,17 +59,14 @@
                    readonly >
             <input type="number" class="form-control"
                    data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].id}"
-
                    hidden >
             <input type="number" class="form-control"
                    data-th-value="${sampleReceivingLabTestResults.sampleReceivingLabTest.id}"
                    data-th-name="${'sampleReceivingLabTestResults[__${index.index}__].sampleReceivingLabTest.id'}"
-
                    hidden >
             <input type="number" class="form-control"
                    data-th-value="${sampleReceivingLabTestResults.specification.id}"
                    data-th-name="${'sampleReceivingLabTestResults[__${index.index}__].specification.id'}"
-
                    hidden >
           </div >
           <div class="col-3" >
