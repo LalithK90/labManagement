@@ -36,12 +36,12 @@ public class CustomerService implements AbstractService<Customer, Integer> {
         Customer customer1 = customerDao.save(customer);
         if(customer1.getEmail()!=null){
             String message = "Dear "+customer.getName()+
-                    "\n Code"+customer.getCode()+
-                    "\n Customer name"+customer.getName()+
-                    "\n Mobile"+customer.getMobile()+
-                    "\n Address"+customer.getAddress()+
-                    "\n Company"+customer.getCompanyName()+
-                    "\n NIC"+customer.getNic();
+                    "\n Code    :"+customer.getCode()+
+                    "\n Customer name   :"+customer.getName()+
+                    "\n Mobile  :"+customer.getMobile()+
+                    "\n Address :"+customer.getAddress()+
+                    "\n Company :"+customer.getCompanyName()+
+                    "\n NIC     :"+customer.getNic();
             emailService.sendEmail(customer1.getEmail(), "Welcome to GRI", message);
         }
         return customer1;
