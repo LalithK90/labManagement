@@ -23,7 +23,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
             "/login", "/select/**", "/", "/index"};
-    private final String[] HR_URL = {"/employee/**"};/*// TODO: 12/22/2020  */
+    private final String[] SQA_URL = {"/compound/{id}", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
+    private final String[] QA_URL = {"/compound/{id}", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
+    private final String[] TM_URL = {"/compound/**", "/discountRatio/**", "/employee/search", "/employee/{id}",
+            "/employee/getEmployee", "/labTestResultEnter/**", "/role/**", "/sample/acceptability/**", "/user/**"};
+    private final String[] LA_URL = {"/compound/**", "/discountRatio/**", "/employee/search", "/employee/{id}",
+            "/employee/getEmployee", "/labTestResultEnter/**", "/sample/acceptability/**"};
+    private final String[] CA_URL = {"/customer/**", "/discountRatio/**", "/employee/search", "/employee/{id}", "/employee/getEmployee",
+            "/payment/**", "/sampleReceiving/**"};
+    private final String[] HR_URL = {"/employee/**", "/role/**"};
+    private final String[] ACC_URL = {"/discountRatio/**", "/payment/**"};
+
 
     @Bean
     public UserDetailsServiceImpl userDetailsService() {
