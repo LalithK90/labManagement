@@ -57,7 +57,7 @@ public class PaymentController {
     SampleReceiving sampleReceiving = sampleReceivingService.findById(id);
     List< Payment > payments = paymentService.findBySampleReceiving(sampleReceiving);
     model.addAttribute("payments", payments);
-    model.addAttribute("sampleReceiving", sampleReceiving);
+    model.addAttribute("sampleReceivingList", sampleReceiving);
     model.addAttribute("paymentStatuses", PaymentStatus.values());
     return "payment/addPayment";
   }

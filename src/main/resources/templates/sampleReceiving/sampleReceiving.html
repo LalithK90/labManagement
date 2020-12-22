@@ -60,7 +60,7 @@
                     <th data-th-text="${sampleReceiving.sampleReceivingStatus.sampleReceivingStatus}"></th>
                     <th data-th-text="${sampleReceiving.compound.name}"></th>
                     <th>
-                        <a id="sampleReceivingView" data-th-href="${addStatus==true?'/payment/add/':'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-outline-secondary btn-sm">
+                        <a id="sampleReceivingView" data-th-href="${addStatus==true?'/payment/add/'+ sampleReceiving.id:'/sampleReceiving/' + sampleReceiving.id}" class="btn btn-outline-secondary btn-sm">
                             <span data-th-text="${addStatus==true?'Pay':'View'}"></span>
                         </a>
 

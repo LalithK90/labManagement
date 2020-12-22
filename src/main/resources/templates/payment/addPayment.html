@@ -53,9 +53,8 @@
                             <select id="sampleReceiving" th:field="*{sampleReceiving}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
                                 <option th:each="sampleReceiving : ${sampleReceivingList}"
-                                        th:text="${sampleReceiving.sampleCode}"
-                                        th:value="${sampleReceiving}"
-                                        th:selected="${sampleReceiving==sampleReceiving.sampleCode?'selected':'unselected'}"></option>
+                                        th:text="${sampleReceiving.number+' '+sampleReceiving.amount}"
+                                        th:value="${sampleReceiving}"></option>
                             </select>
                         </div>
                     </div>
