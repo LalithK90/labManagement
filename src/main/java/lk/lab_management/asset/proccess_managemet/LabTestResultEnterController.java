@@ -54,6 +54,7 @@ public class LabTestResultEnterController {
           sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
       sampleReceivingLabTestResults.add(sampleReceivingLabTestResultDB);
     }
+    //todo:
     model.addAttribute("customerDetail", sampleReceivingLabTest.getSampleReceiving().getCustomer());
     model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
     model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);

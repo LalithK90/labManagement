@@ -48,13 +48,15 @@
                     <div class="form-row text-right">
                         <div class="col-md-4">
                             <label class="control-label" for="sampleReceiving">Sample :</label>
+                   <!-- todo: -->
                         </div>
                         <div class="col-md-8">
                             <select id="sampleReceiving" th:field="*{sampleReceiving}" class="form-control" tabindex="3" required>
                                 <option value="">Please select</option>
                                 <option th:each="sampleReceiving : ${sampleReceivingList}"
-                                        th:text="${sampleReceiving.number+' '+sampleReceiving.amount}"
-                                        th:value="${sampleReceiving}"></option>
+                                        th:text="${sampleReceiving.number+' Amount:'+sampleReceiving.amount}"
+                                        th:value="${sampleReceiving}"
+                                        th:selected="${sampleReceiving==sampleReceiving.sampleCode?'selected':'unselected'}"></option>
                             </select>
                         </div>
                     </div>

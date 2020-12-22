@@ -12,20 +12,21 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping( "/compound" )
 public class CompoundController {
 
-  private final CompoundService compoundService;
-  private final SpecificationService specificationService;
+    private final CompoundService compoundService;
+    private final SpecificationService specificationService;
 
-  @Autowired
-  public CompoundController(CompoundService compoundService, SpecificationService specificationService) {
-    this.compoundService = compoundService;
-    this.specificationService = specificationService;
-  }
+    @Autowired
+    public CompoundController(CompoundService compoundService, SpecificationService specificationService) {
+        this.compoundService = compoundService;
+        this.specificationService = specificationService;
+    }
 
   @GetMapping
   public String findAll(Model model) {
@@ -51,14 +52,21 @@ public class CompoundController {
     return "compound/addCompound";
   }
 
-  @PostMapping( value = {"/add", "/update"} )
-  public String addComponent(@Valid @ModelAttribute Compound compound, BindingResult result, Model model) {
-    if ( result.hasErrors() ) {
-      model.addAttribute("compound", compound);
-      model.addAttribute("labTests", LabTestName.values());
-      model.addAttribute("addStatus", true);
-      model.addAttribute("specificationNames", SpecificationName.values());
-      return "compound/addCompound";
+    @PostMapping(value = {"/add", "/update"})
+    public String addComponent(@Valid @ModelAttribute Compound compound, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("compound", compound);
+            model.addAttribute("labTests", LabTestName.values());
+            model.addAttribute("addStatus", true);
+            model.addAttribute("specificationNames", SpecificationName.values());
+            return "compound/addCompound";
+        }
+        Compound compoundDB=   compoundService.persist(compound);
+        for (Specification s : compound.getSpecifications()) {
+            s.setCompound(compoundDB);
+            specificationService.persist(s);
+        }
+        return "redirect:/compound";
     }
     Compound compoundDB = compoundService.persist(compound);
 

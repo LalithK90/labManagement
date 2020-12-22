@@ -1,9 +1,11 @@
 package lk.lab_management.asset.payment.service;
 
+import lk.lab_management.asset.customer.entity.Customer;
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.dao.PaymentDao;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.interfaces.AbstractService;
+import lk.lab_management.util.service.EmailService;
 import lk.lab_management.util.service.MakeAutoGenerateNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -19,11 +21,13 @@ public class PaymentService implements AbstractService<Payment, Integer> {
 
     private final PaymentDao paymentDao;
     private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
+    private final EmailService emailService;
 
     @Autowired
-    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService){
+    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService, EmailService emailService){
         this.paymentDao = paymentDao;
         this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
+        this.emailService = emailService;
     }
 
     @Cacheable
@@ -51,7 +55,17 @@ public class PaymentService implements AbstractService<Payment, Integer> {
                 payment.setNumber("GRIP"+makeAutoGenerateNumberService.numberAutoGen(previousCode).toString());
             }
         }
-        return paymentDao.save(payment);
+        Payment payment1 = paymentDao.save(payment);
+        Customer customer = payment.getSampleReceiving().getCustomer();
+        if(customer.getEmail() != null){
+            String message = "Dear"+customer.getName()+
+                    "\n Payment Code:"+payment.getNumber()+
+                    "\n Sample Code :"+payment.getSampleReceiving().getSampleCode()+
+                    "\n Amount      :"+payment.getAmount()+
+                    "\n Status      :"+payment.getPaymentStatus();
+            emailService.sendEmail(customer.getEmail(), "Payment Successful", message);
+        }
+        return payment1;
     }
 
     @CacheEvict( allEntries = true )

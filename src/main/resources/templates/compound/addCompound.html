@@ -82,6 +82,7 @@
                                data-th-value="${specification}" hidden>
                     </td>
                     <td>
+                        <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
                         <input class="form-control" type="text" data-th-field="*{specifications[__${index.index}__].min}">
                         <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
                     </td>
@@ -110,6 +111,11 @@
     </div>
 
 </div>
+
+    <!--footer include-->
+    <div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
+    <!--script include-->
+    <div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
 
 </body>
 </html>

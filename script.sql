@@ -46,9 +46,9 @@ create table discount_ratio
 (
     id                    int auto_increment
         primary key,
-    amount                decimal(10, 2) not null,
-    discount_ratio_status int            null,
-    name                  varchar(255)   null
+    amount                int          not null,
+    discount_ratio_status int          null,
+    name                  varchar(255) null
 )
     engine = InnoDB;
 
@@ -130,6 +130,7 @@ create table sample_receiving
     updated_by              varchar(255)   not null,
     amount                  decimal(10, 2) not null,
     batch_no                varchar(255)   null,
+    number                  varchar(255)   null,
     sample_code             varchar(255)   null,
     sample_receiving_status varchar(255)   null,
     compound_id             int            null,
@@ -153,6 +154,7 @@ create table payment
     updated_at          datetime(6)    not null,
     updated_by          varchar(255)   not null,
     amount              decimal(10, 2) not null,
+    number              varchar(255)   null,
     payment_date        date           null,
     payment_status      varchar(255)   null,
     sample_receiving_id int            null,
