@@ -34,120 +34,6 @@
 <!--Form Content - start -->
 <div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column">
-        <!-- <form id="form">
-        <div class="form-group row" style="margin-bottom: 20px !important;">
-            <label class="col-sm-2 col-form-label-sm lbl_left">Compound Code
-                <span class=required>*</span></label>
-            <div class="col-sm-3">
-                <input type="text" name="compoundCode">
-            </div>
-            <div class="col-sm-7"></div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-
-            <label class="col-sm-2 col-form-label-sm lbl_left">Specific Gravity</label>
-            <label class="col-sm-2 col-form-label-sm lbl_left">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="sgMin">
-            </div>
-
-            <label class="col-sm-2 col-form-label-sm lbl_left">Max</label>
-            <div class="col-sm-3">
-                <input  type="text" name="sgMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2 col-form-label-sm lbl_left">Hardness</label>
-            <label class="col-sm-2 col-form-label-sm lbl_left">Min</label>
-            <div class="col-sm-3">
-                <input  type="text" name="hardnessMin">
-            </div>
-            <label class="col-sm-2 col-form-label-sm lbl_left">Max</label>
-            <div class="col-sm-3">
-                <input  type="text" name="hardnessMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">Tensile Strength</label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="tenStMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="tenStMax" disabled>
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">Modulus </label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="modulusMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="modulusMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">E.A.B </label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="eabMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="eabMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">Tear ST. </label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="tearStMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="tearStMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">Abrasion</label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="abrasionMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="abrasionMax">
-            </div>
-        </div>
-        <div class="form-group row" style="margin-bottom: 20px">
-            <label class="col-sm-2">CBD</label>
-            <label class="col-sm-2">Min</label>
-            <div class="col-sm-3">
-                <input type="text" name="cbdMin">
-            </div>
-            <label class="col-sm-2">Max</label>
-            <div class="col-sm-3">
-                <input type="text" name="cbdMax">
-            </div>
-        </div>
-        <div class="row" style="margin-bottom: 10px;">&nbsp;</div>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-5">
-                <button type="button" class="btn btn-info" >
-                    Create
-                </button>
-                &nbsp;
-                <button type="button" class="btn btn-light" style="margin-left: 5px;">
-                    Reset
-                </button>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-    </form>-->
         <form data-th-action="${addStatus==false?'/compound/add' :'/compound/update'}" method="post" data-th-object="${compound}">
             <div class="row ">
                 <div class="col-xl-4 col-md-6 col-sm-12">
@@ -180,7 +66,7 @@
                 </thead>
                 <tbody>
                 <tr data-th-each="specification, index : ${specificationNames}">
-                    <td data-th-text="${index.count}"></td>
+                    <td data-th-text="${index.count}">                             </td>
                     <td>
                         <select class="form-control" data-th-field="*{specifications[__${index.index}__].labTestName}"
                                 required>
@@ -198,6 +84,7 @@
                     <td>
                         <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
                         <input class="form-control" type="text" data-th-field="*{specifications[__${index.index}__].min}">
+                        <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
                     </td>
                     <td>
                         <input class="form-control" type="text" data-th-field="*{specifications[__${index.index}__].max}">
