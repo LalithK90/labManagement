@@ -16,9 +16,9 @@
   </div >
   <div class="row" >
     <div class="col" >
-      <h2 class="text-info text-center" >
+      <h2 class="text-info text-center text-capitalize" >
         <strong >
-          Laboratory Test
+          Laboratory Test  [[${sampleReceivingLabTest.labTestName.labTestName}]]
         </strong >
       </h2 >
     </div >
@@ -74,7 +74,7 @@
           </div >
           <div class="col-3" >
             <input type="number" step="0.5" class="form-control" data-th-id="${'rs'+index.index}"
-                   onclick="testResultValidation(this)"
+                   onkeyup="testResultValidation(this)"
                    data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].result}" required >
           </div >
           <div class="col-3" >
@@ -105,17 +105,17 @@
     function testResultValidation(obj) {
         let selectedFiledId = obj.getAttribute('id').slice(2);
         let resultEnterFiled = $(`#rs${selectedFiledId}`);
-        let min = $(`#min${selectedFiledId}`).val();
-        let max = $(`#max${selectedFiledId}`).val();
-        let testResult = resultEnterFiled.val();
+        let min = parseInt($(`#min${selectedFiledId}`).val());
+        let max = parseInt($(`#max${selectedFiledId}`).val());
+        let testResult = parseInt(resultEnterFiled.val());
 
         if (testResult >= min && testResult <= max) {
-            resultEnterFiled.attr("class","bg-success");
+            resultEnterFiled.attr("class","bg-success form-control");
         } else {
-            resultEnterFiled.attr("class","bg-danger");
+            resultEnterFiled.attr("class","bg-danger form-control");
         }
         if (testResult ===0 || testResult ===''){
-            resultEnterFiled.attr("class","bg-warning");
+            resultEnterFiled.attr("class","bg-warning form-control");
         }
     }
 
