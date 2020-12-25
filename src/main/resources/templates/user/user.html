@@ -10,16 +10,16 @@
 <div class="container-fluid  form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-facebook">
-                &nbsp;Back To Home&nbsp;
+            <a href="/home" id="btnHome" class="btn btn-outline-info">
+                &nbsp;Back To Home&nbsp;&nbsp;
+            </a>
+
+        </div>
+        <div class="col">
+            <a class="btn btn-info" href="/user/add"><i class="fa fa-plus"></i>
+                &nbsp; Add New
             </a>
         </div>
-
-        <div class="col">
-            <a class="btn btn-success" href="/user/add"><i class="fa fa-plus"></i>
-                &nbsp;Add New</a>
-        </div>
-
     </div>
     <div class="row text-center">
         <div class="col">
@@ -32,12 +32,12 @@
     </div>
 </div>
 
-<div class="container-fluid bg-dark formBorder">
-    <div class="col-sm-12 flex-column ">
-        <div class="row" id="userListTable" th:if="${not #lists.isEmpty(users)}">
-            <div class="col-sm-12">
+<div class="container-fluid bg-light formBorder text-center">
+    <div class="col">
+        <div class="col" id="userListTable" th:if="${not #lists.isEmpty(users)}">
+
                 <table class="table table-hover table-striped" id="myTable">
-                    <thead class="thead-inverse">
+                    <thead >
                     <tr>
                         <th>Index</th>
                         <th>User Name</th>
@@ -52,12 +52,11 @@
                         <th th:text="${user.username}"></th>
                         <th th:text="${user.enabled==true?'Active':'Blocked'}"></th>
                         <th th:text="${{user.createdAt}}"></th>
-                        <th><a class="btn btn-success btn-sm" id="userView"><i
-                                class="fa fa-folder-open" th:href="${'/user/' + user.id}"></i>&nbsp;View</a>
+                        <th><a class="btn btn-outline-secondary btn-sm" id="userView" th:href="${'/user/' + user.id}">View</a>
                             <a class="btn btn-primary btn-sm" id="userEdit" th:href="${'/user/edit/' + user.id}"><i
                                     class="fa fa-edit"></i>&nbsp;Edit</a>
                             <a class="btn btn-danger btn-sm" id="userRemove" th:href="${'/user/remove/' + user.id}"
-                               th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"
+                               th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" hidden="true"
                             ><i
                                     aria-hidden="true" class="fa fa-trash"></i>
                                 Delete</a>
@@ -65,7 +64,7 @@
                     </tr>
                     </tbody>
                 </table>
-            </div>
+
         </div>
         <div class="row" id="userNotList" th:if="${ #lists.isEmpty(users)}">
             <div class="col-sm-12">
