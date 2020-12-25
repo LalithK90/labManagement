@@ -7,30 +7,32 @@
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<!--Page header -->
-<div class="container-fluid bg-secondary form-Border">
+<div class="container form-Border">
     <div class="row text-center formManagement border-info">
         <div class="col">
-            <a class="btn btn-primary" href="/home">
-                <i class="fa fa-home" style="font-size: 20px"></i> &nbsp; Home
+            <a class="btn btn-outline-info" href="/home">
+                Back To Home
             </a>
         </div>
+
         <div class="col">
-            <h4 class="text-light text-center">
+            <a href="/user" class="btn btn-info">
+                View Users
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            <h4 class="text-info text-center">
                 <strong>
-                    <span id="formHeader" th:text="${addStatus==true?'New User':'Update User'}"></span>
+                    <span data-th-text="${addStatus==true?'New User':'Update User Details'}"></span>
                 </strong>
             </h4>
-        </div>
-        <div class="col">
-            <a href="/user" class="btn btn-primary">
-                <i class="fa fa-list"></i>&nbsp; View List
-            </a>
         </div>
     </div>
 </div>
 <!--Employee find-->
-<div class="container-fluid bg-dark formBorder" id="employeeFindForm" th:if="${employeeDetailShow==false}">
+<div class="container-fluid  formBorder" id="employeeFindForm" th:if="${employeeDetailShow==false}">
     <div class="col-sm-12 flex-column ">
         <form id="form" method="POST" th:action="${'/user/workingPlace'}" th:object="${employee}"
               enctype="multipart/form-data">
@@ -93,7 +95,7 @@
 </div>
 
 <!--User add from-->
-<div class="container-fluid bg-dark formBorder" th:if="${employeeDetailShow==true}" id="userFormShow">
+<div class="container-fluid  formBorder" th:if="${employeeDetailShow==true}" id="userFormShow">
     <form id="formUser" th:action="${addStatus==true?'/user/add':'/user/update'}" th:object="${user}"
           class="form-horizontal" method="POST" autocomplete="false">
         <div class="row">
