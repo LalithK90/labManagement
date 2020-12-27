@@ -93,7 +93,6 @@ public class LabTestResultEnterController {
     sampleReceivingLabTestBeforeSave.setSampleReceivingLabTestResults(sampleReceivingLabTest.getSampleReceivingLabTestResults());
     SampleReceivingLabTest sampleReceivingLabTestDB =
         sampleReceivingLabTestService.persist(sampleReceivingLabTestBeforeSave);
-    //todo-> email and message are need to configure
 
     return "redirect:/labTestResultEnter/form/" + sampleReceivingLabTestDB.getLabTestName();
   }
