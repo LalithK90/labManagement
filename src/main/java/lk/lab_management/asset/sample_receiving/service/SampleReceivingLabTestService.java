@@ -41,7 +41,8 @@ public class SampleReceivingLabTestService implements AbstractService<SampleRece
         Customer customer = sampleReceivingLabTest1.getSampleReceiving().getCustomer();
         if(customer.getEmail()!=null){
             List<SampleReceivingLabTestResult> sampleReceivingLabTestResultList = sampleReceivingLabTest1.getSampleReceivingLabTestResults();
-            // TODO: 12/28/2020 display the results list 
+            // TODO: 12/28/2020 display the results list
+            //if(status = RESULTENTER) else if(status = NOTRESULTENTER)
             String message = "Dear "+customer.getName()+
                     "\n Results have been entered for the test"+sampleReceivingLabTest1.getLabTestName().toString();
             emailService.sendEmail(customer.getEmail(), "Test Results", message);

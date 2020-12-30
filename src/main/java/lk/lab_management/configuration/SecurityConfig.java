@@ -23,7 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
             "/login", "/select/**", "/", "/index"};
-    private final String[] SQA_URL = {"/compound/{id}", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
+    //add URLs specific for the role
+    private final String[] SQA_URL = {"/compound/**", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
     private final String[] QA_URL = {"/compound/{id}", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
     private final String[] TM_URL = {"/compound/**", "/discountRatio/**", "/employee/search", "/employee/{id}",
             "/employee/getEmployee", "/labTestResultEnter/**", "/role/**", "/sample/acceptability/**", "/user/**"};
