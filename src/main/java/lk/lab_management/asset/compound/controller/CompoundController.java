@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/compound")
+@RequestMapping( "/compound" )
 public class CompoundController {
 
     private final CompoundService compoundService;
@@ -28,29 +28,29 @@ public class CompoundController {
         this.specificationService = specificationService;
     }
 
-    @GetMapping
-    public String findAll(Model model) {
-        model.addAttribute("compounds", compoundService.findAll());
-        return "compound/compound";
-    }
+  @GetMapping
+  public String findAll(Model model) {
+    model.addAttribute("compounds", compoundService.findAll());
+    return "compound/compound";
+  }
 
-    @GetMapping("/add")
-    public String form(Model model) {
-        model.addAttribute("compound", new Compound());
-        model.addAttribute("labTests", LabTestName.values());
-        model.addAttribute("addStatus", true);
-        model.addAttribute("specificationNames", SpecificationName.values());
-        return "compound/addCompound";
-    }
+  @GetMapping( "/add" )
+  public String form(Model model) {
+    model.addAttribute("compound", new Compound());
+    model.addAttribute("labTests", LabTestName.values());
+    model.addAttribute("addStatus", true);
+    model.addAttribute("specificationNames", SpecificationName.values());
+    return "compound/addCompound";
+  }
 
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("compound", compoundService.findById(id));
-        model.addAttribute("addStatus", false);
-        model.addAttribute("labTests", LabTestName.values());
-        model.addAttribute("specificationNames", SpecificationName.values());
-        return "compound/addCompound";
-    }
+  @GetMapping( "/edit/{id}" )
+  public String edit(@PathVariable Integer id, Model model) {
+    model.addAttribute("compound", compoundService.findById(id));
+    model.addAttribute("addStatus", false);
+    model.addAttribute("labTests", LabTestName.values());
+    model.addAttribute("specificationNames", SpecificationName.values());
+    return "compound/addCompound";
+  }
 
     @PostMapping(value = {"/add", "/update"})
     public String addComponent(@Valid @ModelAttribute Compound compound, BindingResult result, Model model) {
@@ -69,16 +69,16 @@ public class CompoundController {
         return "redirect:/compound";
     }
 
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id, Model model) {
-        compoundService.delete(id);
-        return "redirect:/compound";
-    }
+  @GetMapping( "/delete/{id}" )
+  public String delete(@PathVariable Integer id, Model model) {
+    compoundService.delete(id);
+    return "redirect:/compound";
+  }
 
-    @GetMapping("/{id}")
-    public String view(@PathVariable Integer id, Model model) {
-        model.addAttribute("compoundDetails", compoundService.findById(id));
-        return "compound/compound-detail";
-    }
+  @GetMapping( "/{id}" )
+  public String view(@PathVariable Integer id, Model model) {
+    model.addAttribute("compoundDetails", compoundService.findById(id));
+    return "compound/compound-detail";
+  }
 
 }
