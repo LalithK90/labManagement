@@ -2,13 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
+    <title>GRI </title>
 </head>
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<h1>Index page</h1>
-
+<div class="row" >
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6" >
+        <h5>WELCOME TO GRI</h5>
+        <h1 style="color: #1f6abb; "><strong>Laboratory Information<br> Management System</strong></h1>
+        <br>
+        <button class="btn btn-outline-secondary btn-sm"><a href="\home">Go to project</a></button>
+        <button class="btn btn-outline-secondary btn-sm"><a href="https://gritires.com/">About Us</a></button>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
 <!--footer include-->
 <footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->

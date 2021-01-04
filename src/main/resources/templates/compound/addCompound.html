@@ -17,7 +17,7 @@
 
         <div class="col">
             <a href="/compound" class="btn btn-info">
-                 View Compounds
+                View Compounds
             </a>
         </div>
     </div>
@@ -34,21 +34,25 @@
 <!--Form Content - start -->
 <div class="container-fluid bg-light formBorder">
     <div class="col-sm-12 flex-column">
-        <form data-th-action="${addStatus==false?'/compound/add' :'/compound/update'}" method="post" data-th-object="${compound}">
+        <form data-th-action="${addStatus==false?'/compound/add' :'/compound/update'}" method="post"
+              data-th-object="${compound}">
             <div class="row ">
                 <div class="col-xl-4 col-md-6 col-sm-12">
-                    <input type="text"hidden data-th-if="${addStatus==false}" data-th-field="*{id}" >
+                    <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{id}">
                     <div class="form-group">
                         <label data-th-for="${name}"><strong>Compound Name</strong></label>
-                        <input type="text" data-th-field="*{name}" class="form-control" placeholder="Enter Compound Name" aria-describedby="nameId">
+                        <input type="text" data-th-field="*{name}" class="form-control"
+                               placeholder="Enter Compound Name" aria-describedby="nameId">
                     </div>
                     <div class="form-group">
                         <label data-th-for="${code}"><strong>Compound Code</strong></label>
-                        <input type="text" data-th-field="*{code}" class="form-control" placeholder="Enter Compound Code" aria-describedby="codeId">
+                        <input type="text" data-th-field="*{code}" class="form-control"
+                               placeholder="Enter Compound Code" aria-describedby="codeId">
                     </div>
                     <div class="form-group">
                         <label data-th-for="${price}"><strong>Price</strong></label>
-                        <input type="number" data-th-field="*{price}" class="form-control" placeholder="Enter Price of a Sample" aria-describedby="price">
+                        <input type="number" data-th-field="*{price}" class="form-control"
+                               placeholder="Enter Price of a Sample" aria-describedby="price">
                     </div>
                 </div>
             </div>
@@ -66,28 +70,34 @@
                 </thead>
                 <tbody>
                 <tr data-th-each="specification, index : ${specificationNames}">
-                    <td data-th-text="${index.count}">                             </td>
+                    <td data-th-text="${index.count}"></td>
                     <td>
                         <select class="form-control" data-th-field="*{specifications[__${index.index}__].labTestName}"
                                 required>
-                            <option value="" selected >Please Select</option>
+                            <option value="" selected>Please Select</option>
                             <option data-th-each="labTest : ${labTests}"
-                            data-th-text="${labTest.labTestName}"
-                            data-th-value="${labTest}"></option>
+                                    data-th-text="${labTest.labTestName}"
+                                    data-th-value="${labTest}"></option>
                         </select>
                     </td>
                     <td>
                         <span data-th-text="${specification.specificationName}"></span>
-                        <input class="form-control" type="text" data-th-name="${'specifications[__${index.index}__].specificationName'}"
+                        <input class="form-control" type="text"
+                               data-th-name="${'specifications[__${index.index}__].specificationName'}"
                                data-th-value="${specification}" hidden>
                     </td>
                     <td>
-                        <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
-                        <input class="form-control" type="text" data-th-field="*{specifications[__${index.index}__].min}">
-                        <input class="form-control" type="hidden" data-th-field="*{specifications[__${index.index}__].id}">
+                        <input class="form-control" type="hidden"
+                               data-th-field="*{specifications[__${index.index}__].id}">
+                        <input class="form-control" type="text" data-th-id="${'min'+index.index}"
+                               data-th-field="*{specifications[__${index.index}__].min}"
+                               onkeyup="minMaxValidation(this)">
+                        <input class="form-control" type="hidden"
+                               data-th-field="*{specifications[__${index.index}__].id}">
                     </td>
                     <td>
-                        <input class="form-control" type="text" data-th-field="*{specifications[__${index.index}__].max}">
+                        <input class="form-control" type="text" data-th-id="${'max'+index.index}"
+                               onkeyup="minMaxValidation(this)" data-th-field="*{specifications[__${index.index}__].max}">
                     </td>
                 </tbody>
             </table>
@@ -112,11 +122,37 @@
 
 </div>
 
-    <!--footer include-->
-    <div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
-    <!--script include-->
-    <div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
+<!--footer include-->
+<div data-th-replace="~{fragments/footer :: footerFragment}"></div>
+<!--script include-->
+<div data-th-replace="~{fragments/script :: scriptFragment}"></div>
+
+<script>
+
+    //test result validation : check whether the entered value is within the given range
+    function minMaxValidation(obj) {
+        let selectedFiledId = obj.getAttribute('id').slice(3);
+        let min = parseInt($(`#min${selectedFiledId}`).val());
+        let minId = $(`#min${selectedFiledId}`);
+        let max = parseInt($(`#max${selectedFiledId}`).val());
+        let maxId = $(`#max${selectedFiledId}`);
+
+        if (max >= min) {
+            minId.attr("class", "bg-success form-control");
+            maxId.attr("class", "bg-success form-control")
+        } else {
+            minId.attr("class", "bg-danger form-control");
+            maxId.attr("class", "bg-danger form-control");
+        }
+        if (min === 0 || min === '') {
+            minId.attr("class", "bg-warning form-control");
+            maxId.attr("class", "bg-warning form-control");
+        }
+
+
+    }
+
+</script>
 
 </body>
-<!--todo min<max javascript -->
 </html>
