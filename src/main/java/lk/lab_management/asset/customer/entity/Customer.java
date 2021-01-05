@@ -33,7 +33,7 @@ public class Customer extends AuditEntity {
     @Size(min = 5, message = "Your name cannot be accepted")
     private String name;
 
-    @Column(unique = true)
+    @Column
     private String companyName;
 
     @Size(max = 12, min = 10, message = "NIC number formed by 9 numbers with X/V OR 12 numbers ")

@@ -122,51 +122,13 @@
                         </div>
                     </div>
                 </div>
-                <!--To day petition list-->
                 <div class="col-5 bg-light formBorder">
-                    <!--Petition Lists -->
                     <div class="container-fluid text-center" id="petitionListPresent">
-                        <table class="table table-hover table-striped" id="myTable">
-                            <thead>
-                            <tr>
-                                <th> Processing</th>
-                                <th> Approved</th>
-                                <th> Rejected</th>
-                                <th> State</th>
-                                <th> Modify</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr id="petitionList">
-                                <th id="petitionNumber"></th>
-                                <th id="petitionPriority"></th>
-                                <th id="workingPlace"></th>
-                                <th id="petitionState"></th>
-                                <th>
-                                    <a id="petitionView" class="btn btn-success btn-sm"><i
-                                            class="fa fa-folder-open"></i>&nbsp;View</a>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <canvas id="myChart">
+
+                        </canvas>
                     </div>
-                    <div class="row" id="petitionListNotPresent">
-                        <div class="col-sm-12">
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <p class="text-center text-danger">
-                                    <strong>There is no Test Details upto know please add data to the system
-                                            using add button.
-                                    </strong>
-                                </p>
-                            </div>
-                        </div>
-                        <script>
-                            $(".alert").alert();
-                        </script>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -177,6 +139,40 @@
 <footer th:replace="~{fragments/footer :: footerFragment}"></footer>
 <!--script include-->
 <script th:replace="~{fragments/script :: scriptFragment}"></script>
+
+<script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Rejected', 'Accepted', 'In Queue'],
+            datasets: [{
+                label: 'Lab Tests',
+                data: [12, 19, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
 
 </body>
 </html>

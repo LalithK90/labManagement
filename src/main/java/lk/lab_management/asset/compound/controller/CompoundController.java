@@ -68,14 +68,6 @@ public class CompoundController {
         }
         return "redirect:/compound";
     }
-    Compound compoundDB = compoundService.persist(compound);
-
-    for ( Specification s : compound.getSpecifications() ) {
-      s.setCompound(compoundDB);
-      specificationService.persist(s);
-    }
-    return "redirect:/compound";
-  }
 
   @GetMapping( "/delete/{id}" )
   public String delete(@PathVariable Integer id, Model model) {
