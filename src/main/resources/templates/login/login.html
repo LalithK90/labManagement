@@ -6,13 +6,13 @@
 </head>
 <body id="loginBack">
 
-<div class="container" id="loginPage" >
+<div class="container" id="loginPage">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-group shadow" style="margin-left: 10px; margin-right: 10px">
-                <div class="card bg-light p-4" >
+                <div class="card bg-light p-4">
                     <form th:action="${'/login'}" method="post">
-                        <div class="card-body" align="center" style="margin-top: 25px" >
+                        <div class="card-body" align="center" style="margin-top: 25px">
                             <h1>Login</h1>
                             <p class="text-muted">Log on to your account</p><br>
                             <div class="input-group mb-3">
@@ -21,7 +21,8 @@
                                       <i class="fas fa-user"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" type="text" placeholder="Username"  id="username" th:name="${'username'}">
+                                <input class="form-control" type="text" placeholder="Username" id="username"
+                                       th:name="${'username'}">
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
@@ -29,11 +30,13 @@
                                       <i class="fas fa-lock"></i>
                                     </span>
                                 </div>
-                                <input class="form-control" type="password" placeholder="Password" id="inputPassword" th:name="${'password'}">
+                                <input class="form-control" type="password" placeholder="Password" id="inputPassword"
+                                       th:name="${'password'}">
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <br> <button class="btn btn-primary px-4" type="submit">LOGIN</button>
+                                    <br>
+                                    <button class="btn btn-primary px-4" type="submit">LOGIN</button>
                                 </div>
 
                             </div>
@@ -44,7 +47,7 @@
                 <div class="card text-black-50 py-5 d-md-down-none" style="width:44%">
                     <div class="card-body text-center">
                         <div>
-                            <img class="card-img" src="img/GRI-Logo_Tag_RGB.jpg" alt="Card image cap" >
+                            <img class="card-img" src="img/GRI-Logo_Tag_RGB.jpg" alt="Card image cap">
                             <h2><br>Global Rubber Industries (pvt) ltd.</h2>
                             <p>Laboratory Information Management System</p>
                         </div>
