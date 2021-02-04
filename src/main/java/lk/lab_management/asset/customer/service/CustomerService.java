@@ -1,7 +1,9 @@
 package lk.lab_management.asset.customer.service;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.customer.dao.CustomerDao;
 import lk.lab_management.asset.customer.entity.Customer;
+import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.util.interfaces.AbstractService;
 import lk.lab_management.util.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ public class CustomerService implements AbstractService<Customer, Integer> {
     }
 
     public Customer persist(Customer customer) {
+        //email service
         Customer customer1 = customerDao.save(customer);
         if(customer1.getEmail()!=null){
             String message = "Dear "+customer.getName()+
@@ -44,11 +47,16 @@ public class CustomerService implements AbstractService<Customer, Integer> {
                     "\n NIC     :"+customer.getNic();
             emailService.sendEmail(customer1.getEmail(), "Welcome to GRI", message);
         }
+        //check LiveDead
+        if(customer.getId()==null){
+            customer.setLiveDead(LiveDead.ACTIVE);}
         return customer1;
     }
 
     public boolean delete(Integer id) {
-        customerDao.deleteById(id);
+        Customer customer = customerDao.getOne(id);
+        customer.setLiveDead(LiveDead.STOP);
+        customerDao.save(customer);
         return false;
     }
 

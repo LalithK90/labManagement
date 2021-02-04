@@ -35,6 +35,7 @@ public class SampleReceivingService implements AbstractService<SampleReceiving, 
 
     public SampleReceiving persist(SampleReceiving sampleReceiving) {
         if (sampleReceiving.getId() == null) {
+
             sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.ACTIVE);
             if (sampleReceivingDao.findFirstByOrderByIdDesc() == null) {
                 sampleReceiving.setNumber("GRIR"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
@@ -65,4 +66,9 @@ public class SampleReceivingService implements AbstractService<SampleReceiving, 
   public List<SampleReceiving> findBySampleReceivingStatus(SampleReceivingStatus sampleReceivingStatus) {
         return sampleReceivingDao.findBySampleReceivingStatus(sampleReceivingStatus);
     }
+
+    public SampleReceiving lastSample(){
+        return sampleReceivingDao.findFirstByOrderByIdDesc();
+    }
+
 }

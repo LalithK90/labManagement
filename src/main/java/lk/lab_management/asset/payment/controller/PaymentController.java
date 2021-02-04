@@ -56,8 +56,15 @@ public class PaymentController {
     model.addAttribute("addStatus", true);
     SampleReceiving sampleReceiving = sampleReceivingService.findById(id);
     List< Payment > payments = paymentService.findBySampleReceiving(sampleReceiving);
+    if ( payments != null ) {
+      BigDecimal paidAmount = BigDecimal.ZERO;
+      for ( Payment paymentOne : payments ) {
+        paidAmount = operatorService.addition(paidAmount, paymentOne.getAmount());
+      }
+      model.addAttribute("paidAmount", paidAmount);
+    }
     model.addAttribute("payments", payments);
-    model.addAttribute("sampleReceivingList", sampleReceiving);
+    model.addAttribute("sampleReceiving", sampleReceiving);
     model.addAttribute("paymentStatuses", PaymentStatus.values());
     return "payment/addPayment";
   }
@@ -72,6 +79,7 @@ public class PaymentController {
   @PostMapping( value = {"/add", "/update"} )
   public String addComponent(@Valid @ModelAttribute Payment payment, BindingResult result, Model model) {
     if ( result.hasErrors() ) {
+      System.out.println(result.toString());
       model.addAttribute("payment", payment);
       model.addAttribute("addStatus", true);
       return "payment/addPayment";
