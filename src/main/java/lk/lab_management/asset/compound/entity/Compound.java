@@ -1,6 +1,7 @@
 package lk.lab_management.asset.compound.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +27,8 @@ public class Compound extends AuditEntity {
 
     @OneToMany(mappedBy = "compound")
     private List<Specification> specifications;
+
+    @Enumerated( EnumType.STRING )
+    private LiveDead liveDead;
 
 }

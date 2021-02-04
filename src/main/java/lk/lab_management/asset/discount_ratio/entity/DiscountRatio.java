@@ -1,5 +1,6 @@
 package lk.lab_management.asset.discount_ratio.entity;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.discount_ratio.entity.enums.DiscountRatioStatus;
 import lombok.*;
 
@@ -26,6 +27,9 @@ public class DiscountRatio {
 
 
     private DiscountRatioStatus discountRatioStatus;
+
+    @Enumerated( EnumType.STRING )
+    private LiveDead liveDead;
 
 /*    @OneToMany
     @JoinColumn(name = "discount_ratio_id")

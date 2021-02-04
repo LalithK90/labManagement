@@ -1,7 +1,9 @@
 package lk.lab_management.asset.sample_receiving.service;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.customer.entity.Customer;
+import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.sample_receiving.dao.SampleReceivingLabTestDao;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTestResult;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
@@ -47,12 +49,16 @@ public class SampleReceivingLabTestService implements AbstractService<SampleRece
                     "\n Results have been entered for the test"+sampleReceivingLabTest1.getLabTestName().toString();
             emailService.sendEmail(customer.getEmail(), "Test Results", message);
         }
+        if(sampleReceivingLabTest.getId()==null){
+            sampleReceivingLabTest.setLiveDead(LiveDead.ACTIVE);}
         return sampleReceivingLabTest1;
     }
 
     @Override
     public boolean delete(Integer id) {
-        sampleReceivingLabTestDao.deleteById(id);
+        SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestDao.getOne(id);
+        sampleReceivingLabTest.setLiveDead(LiveDead.STOP);
+        sampleReceivingLabTestDao.save(sampleReceivingLabTest);
         return false;
     }
 

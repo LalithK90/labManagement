@@ -1,9 +1,6 @@
 package lk.lab_management.asset.employee.controller;
 
-import lk.lab_management.asset.common_asset.model.enums.BloodGroup;
-import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
-import lk.lab_management.asset.common_asset.model.enums.Gender;
-import lk.lab_management.asset.common_asset.model.enums.Title;
+import lk.lab_management.asset.common_asset.model.enums.*;
 import lk.lab_management.asset.common_asset.service.CommonService;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.employee.entity.EmployeeFiles;
@@ -28,10 +25,12 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping( "/employee" )
 public class EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeFilesService employeeFilesService;
@@ -40,6 +39,7 @@ public class EmployeeController {
     private final UserService userService;
 
     private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
+
     @Autowired
     public EmployeeController(EmployeeService employeeService, EmployeeFilesService employeeFilesService,
                               DateTimeAgeService dateTimeAgeService,
@@ -52,7 +52,6 @@ public class EmployeeController {
         this.userService = userService;
         this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
     }
-//----> Employee details management - start <----//
 
     // Common things for an employee add and update
     private String commonThings(Model model) {
@@ -66,32 +65,36 @@ public class EmployeeController {
     }
 
     //When scr called file will send to
-    @GetMapping("/file/{filename}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable("filename") String filename) {
+    @GetMapping( "/file/{filename}" )
+    public ResponseEntity< byte[] > downloadFile(@PathVariable( "filename" ) String filename) {
         EmployeeFiles file = employeeFilesService.findByNewID(filename);
         return ResponseEntity.ok()
-            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
-            .body(file.getPic());
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
+                .body(file.getPic());
     }
 
     //Send all employee data
     @RequestMapping
     public String employeePage(Model model) {
+        System.out.println(" im in");
         List< Employee > employees = new ArrayList<>();
-        for (Employee employee : employeeService.findAll()) {
+        for ( Employee employee : employeeService.findAll()
+                .stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList())
+        ) {
             employee.setFileInfo(employeeFilesService.employeeFileDownloadLinks(employee));
             employees.add(employee);
         }
-        /*  Employee employee = employeeService.findById(id);*/
+        System.out.println("dfsdfs "+employees.size());
         model.addAttribute("employees", employees);
         model.addAttribute("contendHeader", "Employee");
-//        /* model.addAttribute("files", employeeFilesService.employeeFileDownloadLinks(employee));*/
         return "employee/employee";
     }
 
     //Send on employee details
-    @GetMapping(value = "/{id}")
-    public String employeeView(@PathVariable("id") Integer id, Model model) {
+    @GetMapping( value = "/{id}" )
+    public String employeeView(@PathVariable( "id" ) Integer id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employeeDetail", employee);
         model.addAttribute("addStatus", false);
@@ -101,8 +104,8 @@ public class EmployeeController {
     }
 
     //Send employee data edit
-    @GetMapping(value = "/edit/{id}")
-    public String editEmployeeForm(@PathVariable("id") Integer id, Model model) {
+    @GetMapping( value = "/edit/{id}" )
+    public String editEmployeeForm(@PathVariable( "id" ) Integer id, Model model) {
         Employee employee = employeeService.findById(id);
         model.addAttribute("employee", employee);
         model.addAttribute("addStatus", false);
@@ -112,7 +115,7 @@ public class EmployeeController {
     }
 
     //Send an employee add form
-    @GetMapping(value = {"/add"})
+    @GetMapping( value = {"/add"} )
     public String employeeAddForm(Model model) {
         model.addAttribute("addStatus", true);
         model.addAttribute("employee", new Employee());
@@ -121,11 +124,10 @@ public class EmployeeController {
     }
 
     //Employee add and update
-    @PostMapping(value = {"/save", "/update"})
+    @PostMapping( value = {"/save", "/update"} )
     public String addEmployee(@Valid @ModelAttribute Employee employee, BindingResult result, Model model
-                             ) {
-        System.out.println("came employee" + employee.toString());
-        if (result.hasErrors()) {
+    ) {
+        if ( result.hasErrors() ) {
             model.addAttribute("addStatus", true);
             model.addAttribute("employee", employee);
             return commonThings(model);
@@ -135,54 +137,52 @@ public class EmployeeController {
         employee.setMobileTwo(commonService.commonMobileNumberLengthValidator(employee.getMobileTwo()));
         employee.setLand(commonService.commonMobileNumberLengthValidator(employee.getLand()));
 
-        if ( employee.getId()==null ){
+        if ( employee.getId() == null ) {
             Employee lastEmployee = employeeService.lastEmployee();
-            if ( lastEmployee.getCode() ==null ){
-                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
-            }else{
-                employee.setCode("GRIE"+makeAutoGenerateNumberService.numberAutoGen(lastEmployee.getCode().substring(4)).toString());
+            if ( lastEmployee.getCode() == null ) {
+                employee.setCode("JNSE" + makeAutoGenerateNumberService.numberAutoGen(null).toString());
+            } else {
+                employee.setCode("JNSE" + makeAutoGenerateNumberService.numberAutoGen(lastEmployee.getCode().substring(4)).toString());
             }
         }
 
-
-        //after save employee files and save employee
+//after save employee files and save employee
         Employee employeeSaved = employeeService.persist(employee);
-        //if employee state is not working he or she cannot access to the system
-        if (!employee.getEmployeeStatus().equals(EmployeeStatus.WORKING)) {
+//if employee state is not working he or she cannot access to the system
+        if ( !employee.getEmployeeStatus().equals(EmployeeStatus.WORKING) ) {
             User user = userService.findUserByEmployee(employeeService.findByNic(employee.getNic()));
-            //if employee not a user
-            if (user != null) {
+//if employee not a user
+            if ( user != null ) {
                 user.setEnabled(false);
                 userService.persist(user);
             }
         }
 
         try {
-            //save employee images file
-            if (employee.getFile().getOriginalFilename() != null) {
-                EmployeeFiles employeeFiles = employeeFilesService.findByName(employee.getFile().getOriginalFilename());
-                if (employeeFiles != null) {
-                    // update new contents
+//save employee images file
+            if ( employee.getFile().getOriginalFilename() != null && !Objects.requireNonNull(employee.getFile().getContentType()).equals("application/octet-stream")) {
+                EmployeeFiles employeeFiles = employeeFilesService.findByEmployee(employeeSaved);
+                if ( employeeFiles != null ) {
+// update new contents
                     employeeFiles.setPic(employee.getFile().getBytes());
-                    // Save all to database
+// Save all to database
                 } else {
                     employeeFiles = new EmployeeFiles(employee.getFile().getOriginalFilename(),
-                                                      employee.getFile().getContentType(),
-                                                      employee.getFile().getBytes(),
-                                                      employee.getNic().concat("-" + LocalDateTime.now()),
-                                                      UUID.randomUUID().toString().concat("employee"));
+                            employee.getFile().getContentType(),
+                            employee.getFile().getBytes(),
+                            employee.getNic().concat("-" + LocalDateTime.now()),
+                            UUID.randomUUID().toString().concat("employee"));
                     employeeFiles.setEmployee(employee);
                 }
                 employeeFilesService.persist(employeeFiles);
             }
-            employee = employeeSaved;
             return "redirect:/employee";
 
-        } catch (Exception e) {
+        } catch ( Exception e ) {
             ObjectError error = new ObjectError("employee",
-                                                "There is already in the system. <br>System message -->" + e.toString());
+                    "There is already in the system. <br>System message -->" + e.toString());
             result.addError(error);
-            if (employee.getId() != null) {
+            if ( employee.getId() != null ) {
                 model.addAttribute("addStatus", true);
                 System.out.println("id is null");
             } else {
@@ -193,19 +193,17 @@ public class EmployeeController {
         }
     }
 
-
-    @GetMapping(value = "/remove/{id}")
+    @GetMapping( value = "/remove/{id}" )
     public String removeEmployee(@PathVariable Integer id) {
         employeeService.delete(id);
         return "redirect:/employee";
     }
 
     //To search employee any giving employee parameter
-    @GetMapping(value = "/search")
+    @GetMapping( value = "/search" )
     public String search(Model model, Employee employee) {
         model.addAttribute("employeeDetail", employeeService.search(employee));
         return "employee/employee-detail";
     }
-
 
 }

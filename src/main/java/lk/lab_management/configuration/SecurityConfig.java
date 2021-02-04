@@ -24,16 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final String[] ALL_PERMIT_URL = {"/favicon.ico", "/img/**", "/css/**", "/js/**", "/webjars/**",
             "/login", "/select/**", "/", "/index"};
     //add URLs specific for the role
-    private final String[] SQA_URL = {"/compound/**", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
-    private final String[] QA_URL = {"/compound/{id}", "/employee/search", "/employee/{id}", "/employee/getEmployee"};
-    private final String[] TM_URL = {"/compound/**", "/discountRatio/**", "/employee/search", "/employee/{id}",
-            "/employee/getEmployee", "/labTestResultEnter/**", "/role/**", "/sample/acceptability/**", "/user/**"};
-    private final String[] LA_URL = {"/compound/**", "/discountRatio/**", "/employee/search", "/employee/{id}",
-            "/employee/getEmployee", "/labTestResultEnter/**", "/sample/acceptability/**"};
-    private final String[] CA_URL = {"/customer/**", "/discountRatio/**", "/employee/search", "/employee/{id}", "/employee/getEmployee",
-            "/payment/**", "/sampleReceiving/**"};
-    private final String[] HR_URL = {"/employee/**", "/role/**"};
-    private final String[] ACC_URL = {"/discountRatio/**", "/payment/**"};
+
 
 
     @Bean
@@ -83,11 +74,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-          /*  http.csrf().disable();
-            http.authorizeRequests().antMatchers("/").permitAll();*/
+            http.csrf().disable();
+            http.authorizeRequests().antMatchers("/").permitAll();
         // For developing easy to give permission all lin
 
-        http
+        /*http
                 .authorizeRequests(
                         authorizeRequests ->
                                 authorizeRequests
@@ -97,12 +88,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         //this is used the normal admin to give access every url mapping
                                         .antMatchers("/employee").hasRole("ADMIN")
                                         //Need to login for access those are
-                                           .antMatchers("/employee/**").hasRole("ADMIN")
-                                           .antMatchers("/employee1/**").hasRole("MANAGER")
-                                           .antMatchers("/user/**").hasRole("ADMIN")
-                                           .antMatchers("/petition/**").hasRole("ADMIN")
-                                           .antMatchers("/minutePetition/**").hasRole("MANAGER")
-                                           .antMatchers("/invoiceProcess/add").hasRole("CASHIER")
+                                        .antMatchers("/employee/**").hasAnyRole("HR","ADMIN")
+                                        .antMatchers("/compound/**").hasAnyRole("SQA","TM","LA")
+                                        .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
+                                        .antMatchers("/labTestResultEnter/**").hasAnyRole("TM","LA")
+                                        .antMatchers("/discountRatio/**").hasAnyRole("TM","LA","CA","ACC")
+                                        .antMatchers("/sample/acceptability/**").hasAnyRole("TM","LA")
+                                        .antMatchers("/payment/**").hasAnyRole("CA","ACC")
+                                        .antMatchers("/role/**").hasAnyRole("HR")
                                         .anyRequest()
                                         .authenticated())
                 // Login form
@@ -138,7 +131,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         .sessionRegistry(sessionRegistry()))
                 //Cross site disable
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling();
+                .exceptionHandling();*/
     }
 }
 

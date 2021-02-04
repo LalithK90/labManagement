@@ -1,5 +1,6 @@
 package lk.lab_management.asset.employee.service;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.employee.dao.EmployeeDao;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.util.interfaces.AbstractService;
@@ -11,11 +12,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 // spring transactional annotation need to tell spring to this method work through the project
 @CacheConfig( cacheNames = "employee" )
-public class EmployeeService implements AbstractService<Employee, Integer > {
+public class EmployeeService implements AbstractService< Employee, Integer > {
 
     private final EmployeeDao employeeDao;
 
@@ -26,7 +28,9 @@ public class EmployeeService implements AbstractService<Employee, Integer > {
 
     @Cacheable
     public List< Employee > findAll() {
-        return employeeDao.findAll();
+        return employeeDao.findAll().stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList());
     }
 
     @Cacheable
@@ -38,12 +42,15 @@ public class EmployeeService implements AbstractService<Employee, Integer > {
             put = {@CachePut( value = "employee", key = "#employee.id" )} )
     @Transactional
     public Employee persist(Employee employee) {
+        if(employee.getId()==null){
+            employee.setLiveDead(LiveDead.ACTIVE);}
         return employeeDao.save(employee);
     }
 
-    @CacheEvict( allEntries = true )
     public boolean delete(Integer id) {
-        employeeDao.deleteById(id);
+        Employee employee = employeeDao.getOne(id);
+        employee.setLiveDead(LiveDead.STOP);
+        employeeDao.save(employee);
         return false;
     }
 
@@ -61,7 +68,6 @@ public class EmployeeService implements AbstractService<Employee, Integer > {
         return employeeDao.equals(employee);
     }
 
-
     public Employee lastEmployee() {
         return employeeDao.findFirstByOrderByIdDesc();
     }
@@ -70,4 +76,5 @@ public class EmployeeService implements AbstractService<Employee, Integer > {
     public Employee findByNic(String nic) {
         return employeeDao.findByNic(nic);
     }
+
 }

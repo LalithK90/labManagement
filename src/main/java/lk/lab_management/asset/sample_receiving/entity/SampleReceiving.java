@@ -1,6 +1,7 @@
 package lk.lab_management.asset.sample_receiving.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.compound.entity.Compound;
 import lk.lab_management.asset.customer.entity.Customer;
 import lk.lab_management.asset.discount_ratio.entity.DiscountRatio;

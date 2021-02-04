@@ -10,6 +10,7 @@ import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTest;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingService;
+import lk.lab_management.util.service.MakeAutoGenerateNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,13 +30,15 @@ public class SampleReceivingController {
     private final CompoundService compoundService;
     private final CustomerService customerService;
     private final DiscountRatioService discountRatioService;
+    private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
 
     @Autowired
-    public SampleReceivingController(SampleReceivingService sampleReceivingService, CompoundService compoundService, CustomerService customerService, DiscountRatioService discountRatioService) {
+    public SampleReceivingController(SampleReceivingService sampleReceivingService, CompoundService compoundService, CustomerService customerService, DiscountRatioService discountRatioService, MakeAutoGenerateNumberService makeAutoGenerateNumberService) {
         this.sampleReceivingService = sampleReceivingService;
         this.compoundService = compoundService;
         this.customerService = customerService;
         this.discountRatioService = discountRatioService;
+        this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
     }
 
     @GetMapping
@@ -78,6 +81,14 @@ public class SampleReceivingController {
             sampleReceivingLabTest.setLabTestName(labTest);
             sampleReceivingLabTest.setSampleReceiving(sampleReceiving);
             sampleReceivingLabTests.add(sampleReceivingLabTest);
+        }
+        if ( sampleReceiving.getId()==null ){
+            SampleReceiving lastSample = sampleReceivingService.lastSample();
+            if ( lastSample.getSampleCode() ==null ){
+                sampleReceiving.setSampleCode("GRIS"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+            }else{
+                sampleReceiving.setSampleCode("GRIS"+makeAutoGenerateNumberService.numberAutoGen(lastSample.getSampleCode().substring(4)).toString());
+            }
         }
         sampleReceiving.setSampleReceivingLabTests(sampleReceivingLabTests);
         sampleReceivingService.persist(sampleReceiving);

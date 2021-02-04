@@ -1,7 +1,9 @@
 package lk.lab_management.asset.compound.service;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.compound.dao.CompoundDao;
 import lk.lab_management.asset.compound.entity.Compound;
+import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CompoundService implements AbstractService<Compound,Integer> {
@@ -24,7 +27,9 @@ public class CompoundService implements AbstractService<Compound,Integer> {
 
     @Cacheable
     public List<Compound> findAll() {
-        return compoundDao.findAll();
+        return compoundDao.findAll().stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList());
     }
 
 
@@ -34,12 +39,18 @@ public class CompoundService implements AbstractService<Compound,Integer> {
 
 
     public Compound persist(Compound compound) {
+        //set status to LiveDead.ACTIVE while saving
+        if(compound.getId()==null){
+            compound.setLiveDead(LiveDead.ACTIVE);}
         return compoundDao.save(compound);
     }
 
     @CacheEvict( allEntries = true )
     public boolean delete(Integer id) {
-        compoundDao.deleteById(id);
+        //change status to LiveDead.STOP
+        Compound compound = compoundDao.getOne(id);
+        compound.setLiveDead(LiveDead.STOP);
+        compoundDao.save(compound);
         return false;
     }
 

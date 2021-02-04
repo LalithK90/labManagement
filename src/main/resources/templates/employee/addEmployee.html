@@ -41,6 +41,7 @@
         <div class="form-group col-md-6 col-sm-6 text-left flex-column" >
           <!--Id-->
           <div id="idStatus" data-th-if="${addStatus==false}" class="form-row text-right" >
+            <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{liveDead}">
             <div class="col-md-4" >
               <label class="control-label" for="id" >ID :</label >
             </div >

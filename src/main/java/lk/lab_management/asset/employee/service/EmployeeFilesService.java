@@ -65,4 +65,8 @@ public class EmployeeFilesService {
         }
         return null;
     }
+
+    public EmployeeFiles findByEmployee(Employee employee){
+        return employeeFilesDao.findByEmployee(employee);
+    }
 }
