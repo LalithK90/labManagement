@@ -26,16 +26,16 @@
                     System
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                    <a class="dropdown-item" href="	/compound	" data-sec-authorize="hasAnyAuthority('ROLE_SQA', 'ROLE_HR_MANAGER' ,'ROLE_ADMIN')">Compound</a>
-                    <a class="dropdown-item" href="	/customer	"> Customer  </a>
-                    <a class="dropdown-item" href="	/discountRatio	"> Discount details  </a>
-                    <a class="dropdown-item" href="	/employee	"> Employee  </a>
-                    <a class="dropdown-item" href="	/labTestResultEnter/form	"> Lab Test Results  </a>
-                    <a class="dropdown-item" href="	/payment	"> Payment  </a>
-                    <a class="dropdown-item" href="	/role	"> Role  </a>
-                    <a class="dropdown-item" href="	/sample/acceptability	"> Sample acceptance </a>
-                    <a class="dropdown-item" href="	/sampleReceiving	"> Sample Receiving </a>
-                    <a class="dropdown-item" href="	/user	"> User  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')" class="dropdown-item" href="/compound" >Compound</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA')" class="dropdown-item" href="	/customer	"> Customer  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM','ROLE_CA','ROLE_ACC')" class="dropdown-item" href="	/discountRatio	"> Discount details  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR', 'ROLE_SQA', 'ROLE_QA','ROLE_TM', 'ROLE_LA','ROLE_CA')" class="dropdown-item" href="/employee"> Employee  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')" class="dropdown-item" href="	/labTestResultEnter/form	"> Lab Test Results  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')" class="dropdown-item" href="	/payment	"> Payment  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM','ROLE_ADMIN','ROLE_HR')" class="dropdown-item" href="	/role	"> Role  </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')" class="dropdown-item" href="	/sample/acceptability	"> Sample acceptance </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA')" class="dropdown-item" href="	/sampleReceiving	"> Sample Receiving </a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')" class="dropdown-item" href="	/user	"> User  </a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow">
@@ -44,13 +44,13 @@
                     Services
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <a class="dropdown-item" href="	/compound/add	">	New Compound	</a>
-                    <a class="dropdown-item" href="	/customer/add	">	New Customer 	</a>
-                    <a class="dropdown-item" href="	/discountRatio/add	">	New Discount	</a>
-                    <a class="dropdown-item" href="	/employee/add	">	New Employee	</a>
-                    <a class="dropdown-item" href="	/payment/add	">	New Payment 	</a>
-                    <a class="dropdown-item" href="	/role/add	">	New Role	</a>
-                    <a class="dropdown-item" href="	/user/add	">	New User 	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')" class="dropdown-item" href="	/compound/add	" >	New Compound	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA)" class="dropdown-item" href="	/customer/add	">	New Customer 	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')" class="dropdown-item" href="	/discountRatio/add	">	New Discount	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_HR')" class="dropdown-item" href="	/employee/add	">	New Employee	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_CA', 'ROLE_ACC')" class="dropdown-item" href="	/payment/add	">	New Payment 	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_TM', 'ROLE_HR',)" class="dropdown-item" href="	/role/add	">	New Role	</a>
+                    <a data-sec-authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_TM','ROLE_HR')" class="dropdown-item" href="	/user/add	">	New User 	</a>
 
                 </div>
             </li>
