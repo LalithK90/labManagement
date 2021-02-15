@@ -7,7 +7,6 @@
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 <!--Display all the accepted lab test-->
 <div class="container-fluid  form-Border">
-
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -19,11 +18,9 @@
     </div>
 </div>
 
-<!--Enter results-->
-<hr>
+<!--Viewing   List-->
 <div class="container-fluid  text-center" data-th-if="${not showList}">
     <div class="container">
-        <h4>Enter Results</h4>
         <div class="form-row">
             <div class="col-4" data-th-each="labTestName : ${labTestNames}">
                 <a data-th-href="${'/labTestResultEnter/form/'+labTestName}">
@@ -33,21 +30,6 @@
         </div>
     </div>
 </div>
-<!--View Entered results-->
-<hr>
-<div class="container-fluid  text-center" data-th-if="${not showList}">
-    <div class="container">
-        <h4>View Results</h4>
-        <div class="form-row">
-            <div class="col-4" data-th-each="labTestName : ${labTestNames}">
-                <a data-th-href="${'/labTestResultEnter/form/'+labTestName}+'/view'">
-                    <button class="btn btn-primary" type="button" data-th-text="${labTestName.labTestName}"></button>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<hr>
 
 <!--labTest  List-->
 <div class="container-fluid bg-light text-center" data-th-if="${showList}">
@@ -74,10 +56,8 @@
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.compound.code}"></th>
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.customer.name}"></th>
                     <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th> <th>
-                    <a data-th-href="${'/labTestResultEnter/form/edit/' + sampleReceivingLabTest.id}"
+                    <a data-th-href="${'/labTestResultEnter/form/view/' + sampleReceivingLabTest.id}"
                        class="btn btn-outline-secondary btn-sm">View</a>
-                    <a data-th-href="${'/labTestResultEnter/form/add/' + sampleReceivingLabTest.id}"
-                       class="btn btn-primary btn-sm">Result Enter</a>
                 </th>
                 </tr>
                 </tbody>
@@ -92,7 +72,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h3 class="text-center text-danger">
-                    <strong>There is no sampleReceiving upto now please add sampleReceiving to the system
+                    <strong>There is no Results upto now please add Lab Test results to the system
                         using "New" button.
                     </strong>
                 </h3>

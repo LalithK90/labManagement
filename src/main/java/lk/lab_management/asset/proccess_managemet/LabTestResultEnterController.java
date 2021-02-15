@@ -36,10 +36,13 @@ public class LabTestResultEnterController {
     return "processManagement/labTestResultEnter";
   }
 
+  //get all the accepted samples
+  //NOTRESULTENTER samples
   @GetMapping( "/form/{labTestName}" )
   public String sampleAcceptOrNotSelection(@PathVariable LabTestName labTestName, Model model) {
     model.addAttribute("sampleReceivingLabTests",
-                       sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
+                       sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus
+                               (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
     model.addAttribute("showList", true);
     return "processManagement/labTestResultEnter";
   }
@@ -62,6 +65,7 @@ public class LabTestResultEnterController {
     return "processManagement/labTestResultEnterForm";
   }
 
+  //// TODO: 2/14/2021 not working yet
   @GetMapping( "/form/edit/{id}" )
   public String resultEnterEditForm(@PathVariable Integer id, Model model) {
     SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
@@ -95,5 +99,23 @@ public class LabTestResultEnterController {
         sampleReceivingLabTestService.persist(sampleReceivingLabTestBeforeSave);
 
     return "redirect:/labTestResultEnter/form/" + sampleReceivingLabTestDB.getLabTestName();
+  }
+
+  //view results entered
+  @GetMapping( "/form/{labTestName}/view" )
+  public String viewResultEnteredSamples(@PathVariable LabTestName labTestName, Model model) {
+    model.addAttribute("sampleReceivingLabTests",
+            sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus
+                    (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.RESULTENTER));
+    model.addAttribute("showList", true);
+    return "processManagement/labTestResults";
+  }
+
+  @GetMapping( "/form/view/{id}" )
+  public String resultEnterViewForm(@PathVariable Integer id, Model model) {
+    SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
+    commonMethod(model, sampleReceivingLabTest);
+    model.addAttribute("addStatus", false);
+    return "processManagement/labTestResults-detail";
   }
 }
