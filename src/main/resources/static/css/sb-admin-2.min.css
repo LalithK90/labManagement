@@ -1771,7 +1771,7 @@ pre code {
 }
 
 .form-control {
-    display: block;
+    display: inline-block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
@@ -3504,15 +3504,15 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .custom-select {
-    display: inline-block;
-    width: 100%;
+    display: inline;
+    width: 30%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem 1.75rem .375rem .75rem;
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+    font-weight: 00;
+    line-height: 1.0;
     color: #6e707e;
-    vertical-align: middle;
+    vertical-align: inherit;
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%235a5c69' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
     background-color: #fff;
     border: 1px solid #d1d3e2;
