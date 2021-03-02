@@ -65,13 +65,20 @@ public class LabTestResultEnterController {
     return "processManagement/labTestResultEnterForm";
   }
 
-  //// TODO: 2/14/2021 not working yet
+
   @GetMapping( "/form/edit/{id}" )
   public String resultEnterEditForm(@PathVariable Integer id, Model model) {
     SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
     commonMethod(model, sampleReceivingLabTest);
     model.addAttribute("addStatus", false);
     return "processManagement/labTestResultEnterForm";
+  }
+
+  @GetMapping( "/form/print/{id}" )
+  public String resultEnterPrintForm(@PathVariable Integer id, Model model) {
+    SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestService.findById(id);
+    commonMethod(model, sampleReceivingLabTest);
+    return "processManagement/labTestResultPrintForm";
   }
 
   private void commonMethod(Model model, SampleReceivingLabTest sampleReceivingLabTest) {
