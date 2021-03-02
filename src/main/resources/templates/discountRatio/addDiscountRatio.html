@@ -40,6 +40,7 @@
                 <!--Left Side-->
                 <div class="form-group col-md-6 col-sm-6 text-left flex-column">
                     <input data-th-field="*{id}" data-th-if="${addStatus==false}" hidden type="text"/>
+                    <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{liveDead}">
 
                     <!--Name-->
                     <div class="form-row text-right">

@@ -1,6 +1,7 @@
 package lk.lab_management.asset.sample_receiving.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
 import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingLabTestStatus;
@@ -31,6 +32,9 @@ public class SampleReceivingLabTest extends AuditEntity {
 
     @Enumerated(EnumType.STRING)
     private LabTestName labTestName;
+
+    @Enumerated( EnumType.STRING )
+    private LiveDead liveDead;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private SampleReceiving sampleReceiving;

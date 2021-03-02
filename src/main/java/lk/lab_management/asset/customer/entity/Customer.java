@@ -2,6 +2,7 @@ package lk.lab_management.asset.customer.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.customer.entity.enums.CustomerType;
 import lk.lab_management.util.audit.AuditEntity;
@@ -29,6 +30,9 @@ public class Customer extends AuditEntity {
 
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
+
+    @Enumerated( EnumType.STRING )
+    private LiveDead liveDead;
 
     @Size(min = 5, message = "Your name cannot be accepted")
     private String name;

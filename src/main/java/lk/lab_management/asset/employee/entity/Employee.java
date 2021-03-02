@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.lab_management.asset.common_asset.model.FileInfo;
 import lk.lab_management.asset.common_asset.model.enums.CivilStatus;
 import lk.lab_management.asset.common_asset.model.enums.Gender;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.common_asset.model.enums.Title;
 import lk.lab_management.asset.employee.entity.enums.Designation;
 import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
@@ -69,6 +70,9 @@ public class Employee extends AuditEntity {
 
     @Enumerated( EnumType.STRING )
     private EmployeeStatus employeeStatus;
+
+    @Enumerated( EnumType.STRING )
+    private LiveDead liveDead;
 
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfBirth;

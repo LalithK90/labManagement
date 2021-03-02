@@ -52,6 +52,7 @@
                                                       method="post" th:object="${labTestParameter}"
                                                       class="mt-3" >
                                                     <div class="offset-3 col-6">
+                                                        <input type="text" hidden data-th-if="${addStatus==true}" data-th-field="*{liveDead}">
                                                         <!--/* id this comment not visualize */-->
                                                         <!--Id-->
                                                         <div class="form-group row" th:if="${addStatus==true}">
