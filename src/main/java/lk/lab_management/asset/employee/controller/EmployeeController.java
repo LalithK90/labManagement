@@ -1,7 +1,6 @@
 package lk.lab_management.asset.employee.controller;
 
 import lk.lab_management.asset.common_asset.model.enums.*;
-import lk.lab_management.asset.common_asset.service.CommonService;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.employee.entity.EmployeeFiles;
 import lk.lab_management.asset.employee.entity.enums.Designation;
