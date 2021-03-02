@@ -2,12 +2,9 @@ package lk.lab_management.asset.report;
 
 
 import lk.lab_management.asset.common_asset.model.NameCount;
-import lk.lab_management.asset.common_asset.model.ParameterCount;
 import lk.lab_management.asset.common_asset.model.TwoDate;
 import lk.lab_management.asset.employee.entity.Employee;
-import lk.lab_management.asset.invoice.entity.Invoice;
-import lk.lab_management.asset.invoice.entity.enums.PaymentMethod;
-import lk.lab_management.asset.invoice.service.InvoiceService;
+import lk.lab_management.asset.payment.entity.enums.PaymentMethod;
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.service.PaymentService;
 import lk.lab_management.asset.user_management.service.UserService;
@@ -35,28 +32,28 @@ import java.util.stream.Collectors;
 @RequestMapping("/report")
 public class ReportController {
     private final PaymentService paymentService;
-    private final InvoiceService invoiceService;
     private final OperatorService operatorService;
     private final DateTimeAgeService dateTimeAgeService;
     private final UserService userService;
 
-    public ReportController(PaymentService paymentService, InvoiceService invoiceService, OperatorService operatorService,
+    public ReportController(PaymentService paymentService,OperatorService operatorService,
                             DateTimeAgeService dateTimeAgeService, UserService userService) {
         this.paymentService = paymentService;
-        this.invoiceService = invoiceService;
         this.operatorService = operatorService;
         this.dateTimeAgeService = dateTimeAgeService;
         this.userService = userService;
     }
 
-    private String commonAll(List<Payment> payments, List<Invoice> invoices, Model model, String message,
+    private String commonAll(List<Payment> payments,  Model model, String message,
                              LocalDateTime startDateTime, LocalDateTime endDateTime) {
         //according to payment type -> invoice
-        commonInvoices(invoices, model);
+        //todo
+       // commonInvoices(invoices, model);
         //according to payment type -> payment
         commonPayment(payments, model);
         // invoice count by cashier
-        commonPerCashier(invoices, model);
+        //todo
+      //  commonPerCashier(invoices, model);
         // payment count by account department
         commonPerAccountUser(payments, model);
         // item count according to item
@@ -73,9 +70,11 @@ public class ReportController {
         LocalDateTime startDateTime = dateTimeAgeService.dateTimeToLocalDateStartInDay(localDate);
         LocalDateTime endDateTime = dateTimeAgeService.dateTimeToLocalDateEndInDay(localDate);
 
-        return commonAll(paymentService.findByCreatedAtIsBetween(startDateTime, endDateTime),
+/*        return commonAll(paymentService.findByCreatedAtIsBetween(startDateTime, endDateTime),
                 invoiceService.findByCreatedAtIsBetween(startDateTime, endDateTime), model, message,
-                startDateTime, endDateTime);
+                startDateTime, endDateTime);*/
+        return commonAll(paymentService.findByCreatedAtIsBetween(startDateTime, endDateTime), model, message,
+                         startDateTime, endDateTime);
 
     }
 
@@ -85,17 +84,16 @@ public class ReportController {
                 "This report is between from " + twoDate.getStartDate().toString() + " to " + twoDate.getEndDate().toString();
         LocalDateTime startDateTime = dateTimeAgeService.dateTimeToLocalDateStartInDay(twoDate.getStartDate());
         LocalDateTime endDateTime = dateTimeAgeService.dateTimeToLocalDateEndInDay(twoDate.getEndDate());
-        return commonAll(paymentService.findByCreatedAtIsBetween(startDateTime, endDateTime),
-                invoiceService.findByCreatedAtIsBetween(startDateTime, endDateTime), model, message,
+        return commonAll(paymentService.findByCreatedAtIsBetween(startDateTime, endDateTime), model, message,
                 startDateTime, endDateTime);
     }
 
-    private void commonInvoices(List<Invoice> invoices, Model model) {
+ /*   private void commonInvoices(List<Invoice> invoices, Model model) {
         // invoice count
         int invoiceTotalCount = invoices.size();
         model.addAttribute("invoiceTotalCount", invoiceTotalCount);
         //|-> card
-    /*List< Invoice > invoiceCards =
+    *//*List< Invoice > invoiceCards =
         invoices.stream().filter(x -> x.getPaymentMethod().equals(PaymentMethod.CREDIT)).collect(Collectors.toList());
     int invoiceCardCount = invoiceCards.size();
     AtomicReference<BigDecimal> invoiceCardAmount = new AtomicReference<>(BigDecimal.ZERO);
@@ -104,7 +102,7 @@ public class ReportController {
       invoiceCardAmount.set(addAmount);
     });
     model.addAttribute("invoiceCardCount", invoiceCardCount);
-    model.addAttribute("invoiceCardAmount", invoiceCardAmount.get());*/
+    model.addAttribute("invoiceCardAmount", invoiceCardAmount.get());*//*
         //|-> cash
         List<Invoice> invoiceCash =
                 invoices.stream().filter(x -> x.getPaymentMethod().equals(PaymentMethod.CASH)).collect(Collectors.toList());
@@ -117,9 +115,9 @@ public class ReportController {
         model.addAttribute("invoiceCashCount", invoiceCashCount);
         model.addAttribute("invoiceCashAmount", invoiceCashAmount.get());
 
-    }
+    }*/
 
-    @GetMapping("/cashier")
+/*    @GetMapping("/cashier")
     public String getCashierToday(Model model) {
         LocalDate localDate = LocalDate.now();
         String message = "This report is belongs to " + localDate.toString() + " and \n congratulation all are done by " +
@@ -142,7 +140,7 @@ public class ReportController {
                 SecurityContextHolder.getContext().getAuthentication().getName()), model);
         model.addAttribute("message", message);
         return "report/cashierReport";
-    }
+    }*/
 
     private void commonPayment(List<Payment> payments, Model model) {
         // payment count
@@ -198,7 +196,7 @@ public class ReportController {
         return "report/paymentReport";
     }
 
-    private void commonPerCashier(List<Invoice> invoices, Model model) {
+/*    private void commonPerCashier(List<Invoice> invoices, Model model) {
         List<NameCount> invoiceByCashierAndTotalAmount = new ArrayList<>();
 //name, count, total
         HashSet<String> createdByAll = new HashSet<>();
@@ -220,9 +218,9 @@ public class ReportController {
             invoiceByCashierAndTotalAmount.add(nameCount);
         });
         model.addAttribute("invoiceByCashierAndTotalAmount", invoiceByCashierAndTotalAmount);
-    }
+    }*/
 
-    @GetMapping("/perCashier")
+/*    @GetMapping("/perCashier")
     public String perCashierToday(Model model) {
         LocalDate localDate = LocalDate.now();
         String message = "This report is belongs to " + localDate.toString();
@@ -242,7 +240,7 @@ public class ReportController {
         commonPerCashier(invoiceService.findByCreatedAtIsBetween(startDateTime, endDateTime), model);
         model.addAttribute("message", message);
         return "report/perCashierReport";
-    }
+    }*/
 
     private void commonPerAccountUser(List<Payment> payments, Model model) {
         List<NameCount> paymentByUserAndTotalAmount = new ArrayList<>();
