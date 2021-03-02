@@ -102,12 +102,14 @@
           </tr >
           </thead >
           <tbody >
+
           <tr data-th-each="sampleReceivingLabTestResults, index : ${sampleReceivingLabTestResultses}"  >
             <td data-th-text="${sampleReceivingLabTestResults.specification.specificationName.specificationName}" ></td >
             <td data-th-text="${sampleReceivingLabTestResults.result}"></td >
             <td data-th-text="${sampleReceivingLabTestResults.labTestResultStatus.labTestResultStatus}" ></td >
             <td data-th-text="${sampleReceivingLabTestResults.specification.min}"></td >
             <td data-th-text="${sampleReceivingLabTestResults.specification.max}"></td >
+
           </tr >
           </tbody >
         </table >k
