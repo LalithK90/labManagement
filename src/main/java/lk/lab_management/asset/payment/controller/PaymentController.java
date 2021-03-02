@@ -84,7 +84,7 @@ public class PaymentController {
       model.addAttribute("addStatus", true);
       return "payment/addPayment";
     }
-    //sample reciving state to find total amount
+    //sample receiving state to find total amount
     SampleReceiving sampleReceiving = sampleReceivingService.findById(payment.getSampleReceiving().getId());
     //if there is any previous payment
     List< Payment > payments = paymentService.findBySampleReceiving(sampleReceiving);
