@@ -94,6 +94,8 @@
           <div class="col-3" >
             <input class="form-control" type="text" data-th-id="${'max'+index.index}"
                    data-th-value="${sampleReceivingLabTestResults.specification.max}" readonly />
+            <input class="form-control" type="hidden" data-th-id="${'sts'+index.index}"
+                   data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].labTestResultStatus}" readonly />
           </div >
         </div >
       </div >
@@ -121,8 +123,10 @@
 
         if (testResult >= min && testResult <= max) {
             resultEnterFiled.attr("class","bg-success form-control");
+            $(`#sts${selectedFiledId}`).val("PASS")
         } else {
             resultEnterFiled.attr("class","bg-danger form-control");
+          $(`#sts${selectedFiledId}`).val("FAIL")
         }
         if (testResult ===0 || testResult ===''){
             resultEnterFiled.attr("class","bg-warning form-control");

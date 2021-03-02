@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head data-th-replace="~{fragments/header :: headerFragment}" >
+  <meta charset="UTF-8" >
+  <title >sampleReceiving</title >
+</head >
+<body >
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
+<!--Form to enter results-->
+<!--heading Area-->
+<div class="container-fluid  form-Border" >
+  <div class="row text-left formManagement border-info" >
+    <div class="col" >
+      <a href="/home" id="searchShow" class="btn btn-outline-info" tabindex="2" >&nbsp;&nbsp;Back To Home
+      </a >
+    </div >
+  </div >
+
+</div >
+
+<!--data enter form-->
+<div class="container" >
+  <form class="form-horizontal" data-th-object="${sampleReceivingLabTest}" id="ResultPrint">
+    <!--Company details-->
+    <div class="form-group col-md-12 col-sm-12 text-left flex-column" >
+      <div class="form-row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+          <h2 class="text-info text-center">Global Rubber Industries (PVT) LTD.</h2>
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12 col-sm-12 text-left flex-column" >
+      <div class="form-row">
+        <div class="col-md-6">
+          <!--Code-->
+          <div class="form-row text-right">
+            <div class="col-md-4">
+              <label class="control-label" for="departmentIdNumber">Customer Code :</label>
+            </div>
+            <div class="col-md-8">
+              <p id="departmentIdNumber" th:text="${customerDetail.code}" class="display_detail"></p></div>
+          </div>
+          <!--Mobile-->
+          <div class="form-row text-right">
+            <div class="col-md-4">
+              <label class="control-label" for="mobile">Mobile No :</label>
+            </div>
+            <div class="col-md-8">
+              <p id="mobile" th:text="${customerDetail.mobile}" class="display_detail"></p>
+            </div>
+          </div>
+          <!--Email-->
+          <div class="form-row text-right">
+            <div class="col-md-4">
+              <label class="control-label" for="email">Email :</label>
+            </div>
+            <div class="col-md-8">
+              <p id="email" th:text="${customerDetail.email}" class="display_detail"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Name-->
+          <div class="form-row text-right">
+            <div class="col-md-4">
+              <label class="control-label" for="name">Name :</label>
+            </div>
+            <div class="col-md-8">
+              <p id="name" th:text="${customerDetail.title.title} +${' '} +${customerDetail.name}"
+                 class="display_detail"></p>
+            </div>
+          </div>
+          <!--Address-->
+          <div class="form-row text-right">
+            <div class="col-md-4">
+              <label class="control-label" for="address">Address :</label>
+            </div>
+            <div class="col-md-8 text-right">
+              <p id="address" class="display_detail " th:utext="${customerDetail.address}"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="form-group col-md-12 col-sm-12 text-left flex-column" >
+      <div class="container" >
+
+        <h3 class="text-center"> [[${sampleReceivingLabTest.labTestName.labTestName}]] </h3 >
+        <div class="form-row" >
+          <div class="col-3" >
+            Specification Name
+          </div >
+          <div class="col-3" >
+            Result
+          </div >
+          <div class="col-3" >
+            Min
+          </div >
+          <div class="col-3" >
+            Max
+          </div >
+
+        </div >
+        <div class="form-row text-right"
+             data-th-each="sampleReceivingLabTestResults, index : ${sampleReceivingLabTestResultses}" >
+          <div class="col-3" >
+            <input type="text" class="form-control"
+                   data-th-value="${sampleReceivingLabTestResults.specification.specificationName.specificationName}"
+                   readonly >
+          </div >
+          <div class="col-3" >
+            <input type="number" step="0.5" class="form-control" data-th-id="${'rs'+index.index}"
+                   onkeyup="testResultValidation(this)"
+                   data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].result}" readonly >
+          </div >
+          <div class="col-3" >
+            <input class="form-control" type="text" data-th-id="${'min'+index.index}"
+                   data-th-value="${sampleReceivingLabTestResults.specification.min}" readonly />
+          </div >
+          <div class="col-3" >
+            <input class="form-control" type="text" data-th-id="${'max'+index.index}"
+                   data-th-value="${sampleReceivingLabTestResults.specification.max}" readonly />
+          </div >
+        </div >
+      </div >
+    </div >
+
+  </form >
+  <div class="form-group col-md-12 col-sm-12 text-center flex-column" >
+    <button class="btn btn-success" type="button" id="btnPrintResult">
+      <i class="fa fa-save" style="font-size: 20px" ></i > Print
+    </button >
+  </div >
+</div >
+<div th:replace="~{fragments/footer :: footerFragment}" ></div ><!-- footer Section -->
+<div th:replace="~{fragments/script :: scriptFragment}" ></div ><!-- script Fragment -->
+
+<script>
+  $("#btnPrintResult").click(function (){
+    $("#ResultPrint").addClass("mt-3 pt-3")
+    printContent("ResultPrint")
+  })
+</script>
+</body >
+</html >

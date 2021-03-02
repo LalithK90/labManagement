@@ -7,6 +7,7 @@ import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTest;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTestResult;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
+import lk.lab_management.asset.sample_receiving.entity.enums.LabTestResultStatus;
 import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingLabTestStatus;
 import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingStatus;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingLabTestService;
@@ -68,7 +69,7 @@ public class SampleAcceptOrNotController {
       for ( Specification specification : specificationList ) {
         System.out.println(specification.getId());
         SampleReceivingLabTestResult sampleReceivingLabTestResult =
-            new SampleReceivingLabTestResult((float) 0.0, sampleReceivingLabTest, specification);
+            new SampleReceivingLabTestResult((float) 0.0, LabTestResultStatus.FAIL, sampleReceivingLabTest, specification);
         sampleReceivingLabTestResults.add(sampleReceivingLabTestResult);
       }
       sampleReceivingLabTest.setSampleReceivingLabTestResults(sampleReceivingLabTestResults);

@@ -2,6 +2,7 @@ package lk.lab_management.asset.sample_receiving.entity;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import lk.lab_management.asset.compound.entity.Specification;
+import lk.lab_management.asset.sample_receiving.entity.enums.LabTestResultStatus;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,8 @@ import javax.persistence.ManyToOne;
 public class SampleReceivingLabTestResult extends AuditEntity {
 
     private float result;
+
+    private LabTestResultStatus labTestResultStatus;
 
     @ManyToOne
     private SampleReceivingLabTest sampleReceivingLabTest;
