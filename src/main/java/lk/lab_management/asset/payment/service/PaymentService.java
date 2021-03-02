@@ -14,6 +14,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -24,7 +25,7 @@ public class PaymentService implements AbstractService<Payment, Integer> {
     private final EmailService emailService;
 
     @Autowired
-    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService, EmailService emailService){
+    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService, EmailService emailService) {
         this.paymentDao = paymentDao;
         this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
         this.emailService = emailService;
@@ -42,33 +43,33 @@ public class PaymentService implements AbstractService<Payment, Integer> {
 
 
     public Payment persist(Payment payment) {
-        if(payment.getId()==null){
+        if (payment.getId() == null) {
             //if there is not customer in db
             if (paymentDao.findFirstByOrderByIdDesc() == null) {
                 System.out.println("last customer null");
                 //need to generate new onecustomer
-                payment.setNumber("GRIP"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
+                payment.setNumber("GRIP" + makeAutoGenerateNumberService.numberAutoGen(null).toString());
             } else {
                 System.out.println("last customer not null");
                 //if there is customer in db need to get that customer's code and increase its value
                 String previousCode = paymentDao.findFirstByOrderByIdDesc().getNumber().substring(4);
-                payment.setNumber("GRIP"+makeAutoGenerateNumberService.numberAutoGen(previousCode).toString());
+                payment.setNumber("GRIP" + makeAutoGenerateNumberService.numberAutoGen(previousCode).toString());
             }
         }
         Payment payment1 = paymentDao.save(payment);
         Customer customer = payment.getSampleReceiving().getCustomer();
-        if(customer.getEmail() != null){
-            String message = "Dear"+customer.getName()+
-                    "\n Payment Code:"+payment.getNumber()+
-                    "\n Sample Code :"+payment.getSampleReceiving().getSampleCode()+
-                    "\n Amount      :"+payment.getAmount()+
-                    "\n Status      :"+payment.getPaymentStatus();
+        if (customer.getEmail() != null) {
+            String message = "Dear" + customer.getName() +
+                    "\n Payment Code:" + payment.getNumber() +
+                    "\n Sample Code :" + payment.getSampleReceiving().getSampleCode() +
+                    "\n Amount      :" + payment.getAmount() +
+                    "\n Status      :" + payment.getPaymentStatus();
             emailService.sendEmail(customer.getEmail(), "Payment Successful", message);
         }
         return payment1;
     }
 
-    @CacheEvict( allEntries = true )
+    @CacheEvict(allEntries = true)
     public boolean delete(Integer id) {
         paymentDao.deleteById(id);
         return false;
@@ -80,11 +81,20 @@ public class PaymentService implements AbstractService<Payment, Integer> {
                 .matching()
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-        Example<Payment> paymentExample = Example.of(payment,matcher);
+        Example<Payment> paymentExample = Example.of(payment, matcher);
         return paymentDao.findAll(paymentExample);
     }
 
-  public List< Payment> findBySampleReceiving(SampleReceiving sampleReceiving) {
-  return paymentDao.findBySampleReceiving(sampleReceiving);
+    public List<Payment> findBySampleReceiving(SampleReceiving sampleReceiving) {
+        return paymentDao.findBySampleReceiving(sampleReceiving);
+    }
+
+    public List< Payment > findByCreatedAtIsBetween(LocalDateTime from, LocalDateTime to) {
+        return paymentDao.findByCreatedAtIsBetween(from, to);
+
+    }
+
+    public List< Payment > findByCreatedAtIsBetweenAndCreatedBy(LocalDateTime from, LocalDateTime to, String userName) {
+        return paymentDao.findByCreatedAtIsBetweenAndCreatedBy(from, to, userName);
     }
 }
