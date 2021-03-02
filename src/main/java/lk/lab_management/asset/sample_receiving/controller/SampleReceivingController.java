@@ -91,6 +91,7 @@ public class SampleReceivingController {
             }
         }
         sampleReceiving.setSampleReceivingLabTests(sampleReceivingLabTests);
+
         sampleReceivingService.persist(sampleReceiving);
         return "redirect:/sampleReceiving/add";
     }

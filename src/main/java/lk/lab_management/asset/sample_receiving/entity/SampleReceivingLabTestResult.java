@@ -9,27 +9,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonFilter("SampleReceivingLabTestResult")
+@JsonFilter( "SampleReceivingLabTestResult" )
 public class SampleReceivingLabTestResult extends AuditEntity {
 
-    private float result;
+  private float result;
 
-    private LabTestResultStatus labTestResultStatus;
+  @Enumerated( EnumType.STRING )
+  private LabTestResultStatus labTestResultStatus;
 
-    @ManyToOne
-    private SampleReceivingLabTest sampleReceivingLabTest;
+  @ManyToOne
+  private SampleReceivingLabTest sampleReceivingLabTest;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Specification specification;
+  @ManyToOne( fetch = FetchType.EAGER )
+  private Specification specification;
 
 
 }
