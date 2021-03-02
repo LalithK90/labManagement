@@ -67,6 +67,7 @@
                     <th>
                         <a id="employeeView" th:href="${'/employee/' + employee.id}" class="btn btn-outline-secondary btn-sm">&nbsp;View</a>
                         <a id="employeeEdit" th:href="${'/employee/edit/' + employee.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                        <a id="employeeDelete" th:href="${'/employee/remove/' + employee.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>

@@ -1,6 +1,6 @@
 package lk.lab_management.asset.payment.entity;
 
-import lk.lab_management.asset.common_asset.model.enums.LiveDead;
+import lk.lab_management.asset.payment.entity.enums.PaymentMethod;
 import lk.lab_management.asset.payment.entity.enums.PaymentStatus;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.audit.AuditEntity;
@@ -34,4 +34,7 @@ public class Payment extends AuditEntity {
 
   @Enumerated( EnumType.STRING )
   private PaymentStatus paymentStatus;
+
+  @Enumerated(EnumType.STRING)
+  private PaymentMethod paymentMethod;
 }

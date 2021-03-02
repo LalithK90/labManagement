@@ -11,14 +11,13 @@
     <div class="row text-center formManagement border-info">
         <div class="col">
             <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;&nbsp;
+                &nbsp;Back To Home&nbsp;
             </a>
-
         </div>
+
         <div class="col">
             <a class="btn btn-info" href="/compound/add"><i class="fa fa-plus"></i>
-                &nbsp; Add New
-            </a>
+                &nbsp;Add New</a>
         </div>
     </div>
     <div class="row text-center">
@@ -52,9 +51,8 @@
                     <th>
                         <a data-th-href="${'/compound/' + compound.id}" class="btn btn-outline-secondary btn-sm">View</a>
                         <a  data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
-                        <a  data-th-href="${'/compound/remove/' + compound.id}"
-                           data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                            Delete</a>
+                        <!--data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"-->
+                        <a  data-th-href="${'/compound/delete/' + compound.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>
