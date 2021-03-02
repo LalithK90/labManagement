@@ -25,9 +25,21 @@
     </div >
   </div >
 </div >
+
+<!--Customer details-->
 <div class="container">
-  <div data-th-replace="~{customer/customer-detail :: customerDetailsFragment}" ></div >
+  <div class="row">
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample">Customer Details
+    </button>
+  </div>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div data-th-replace="~{customer/customer-detail :: customerDetailsFragment}" ></div >
+    </div>
+  </div>
 </div>
+
 <!--data enter form-->
 <div class="container" >
   <form class="form-horizontal" method="POST" th:action="${'/labTestResultEnter/save'}"

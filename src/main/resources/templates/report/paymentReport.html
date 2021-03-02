@@ -23,10 +23,39 @@
     </div >
   </div >
 </div >
+
+<!--Customer details-->
+<div class="container">
+  <div class="row">
+    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#dataTargetCollapse" aria-expanded="false"
+            aria-controls="collapseExample">Custom Payment Search
+    </button>
+  </div>
+  <div class="collapse" id="dataTargetCollapse">
+    <div class="card card-body">
+      <h4 class="text-info" ><b > Custom Search</b ></h4 >
+      <form class="form-inline" data-th-action="@{/report/manager/search}" data-th-method="POST" >
+        <div class="form-group" >
+          <label for="startDate" >FROM :</label >
+          <input class="form-control" id="startDate" name="startDate" type="date" />
+        </div >
+        <div class="form-group" >
+          <label for="endDate" >TO :</label >
+          <input class="form-control" id="endDate" name="endDate" type="date" />
+        </div >
+        <button class="btn btn-success" id="btnSummaryFind" type="submit" ><span
+                class="glyphicon glyphicon-search" ></span >&nbsp;Submit
+        </button >
+      </form >
+    </div>
+  </div>
+</div>
+
+
 <!--Custom search -->
-<div class="container-fluid" >
+<!--<div class="container-fluid" >
   <div class="row" >
-    <!--Custom Invoice search-->
+    &lt;!&ndash;Custom Invoice search&ndash;&gt;
     <button type="button" class="btn btn-info mb-5 btn-block " data-toggle="collapse"
             data-target="#dataTargetCollapse"
             aria-expanded="false" aria-controls="dataTargetCollapse"
@@ -55,7 +84,7 @@
       </div >
     </div >
   </div >
-</div >
+</div >-->
 <!--Payment-->
 <div class="container-fluid" >
   <div class="container" >
