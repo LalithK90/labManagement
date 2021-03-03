@@ -84,7 +84,7 @@ public class SampleReceivingController {
         }
         if ( sampleReceiving.getId()==null ){
             SampleReceiving lastSample = sampleReceivingService.lastSample();
-            if ( lastSample.getSampleCode() ==null ){
+            if ( lastSample ==null ){
                 sampleReceiving.setSampleCode("GRIS"+makeAutoGenerateNumberService.numberAutoGen(null).toString());
             }else{
                 sampleReceiving.setSampleCode("GRIS"+makeAutoGenerateNumberService.numberAutoGen(lastSample.getSampleCode().substring(4)).toString());
