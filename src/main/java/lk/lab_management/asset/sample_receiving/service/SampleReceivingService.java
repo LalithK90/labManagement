@@ -9,6 +9,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -71,4 +72,7 @@ public class SampleReceivingService implements AbstractService<SampleReceiving, 
         return sampleReceivingDao.findFirstByOrderByIdDesc();
     }
 
+  public List< SampleReceiving> findByCreatedAtIsBetween(LocalDateTime form, LocalDateTime to) {
+ return sampleReceivingDao.findByCreatedAtIsBetween(form, to);
+  }
 }
