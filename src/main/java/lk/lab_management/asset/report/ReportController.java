@@ -2,6 +2,7 @@ package lk.lab_management.asset.report;
 
 
 import lk.lab_management.asset.common_asset.model.*;
+import lk.lab_management.asset.compound.entity.Compound;
 import lk.lab_management.asset.compound.entity.enums.LabTestName;
 import lk.lab_management.asset.customer.entity.Customer;
 import lk.lab_management.asset.employee.entity.Employee;
@@ -196,15 +197,14 @@ public class ReportController {
     return "report/customerNameSampleCounts";
   }
 
-
-  private List< NameCount > customerNameSampleCount(List< SampleReceiving > sampleReceivings) {
+  private List< NameCount > customerNameSampleCount(List< SampleReceiving > sampleReceiving) {
     List< NameCount > nameCounts = new ArrayList<>();
     HashSet< Customer > customers = new HashSet<>();
-    sampleReceivings.forEach(x -> customers.add(x.getCustomer()));
+    sampleReceiving.forEach(x -> customers.add(x.getCustomer()));
     for ( Customer customer : customers ) {
       NameCount nameCount = new NameCount();
       nameCount.setName(customer.getName());
-      nameCount.setCount((int) sampleReceivings
+      nameCount.setCount((int) sampleReceiving
           .stream()
           .filter(x -> x.getCustomer().equals(customer)).count());
       nameCounts.add(nameCount);
@@ -213,6 +213,39 @@ public class ReportController {
   }
 
   //compounded type and account -> today and date range
+  @GetMapping( "/compound" )
+  public String compoundToday(Model model) {
+    LocalDate today = LocalDate.now();
+    return commonCompound(today, today, model);
+  }
 
+  @PostMapping( "/compound" )
+  public String compoundDateRange(@ModelAttribute( "twoDate" ) TwoDate twoDate, Model model) {
+    return commonCompound(twoDate.getStartDate(), twoDate.getEndDate(), model);
+  }
 
+  private String commonCompound(LocalDate startDate, LocalDate endDate, Model model) {
+    model.addAttribute("compoundNameAndCount",
+                       compoundNameAndCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
+                                                                                            dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
+    return "report/customerNameSampleCounts";
+  }
+
+  private List< NameCount > compoundNameAndCount(List< SampleReceiving > sampleReceiving) {
+    List< NameCount > nameCounts = new ArrayList<>();
+    compoundHashSet(sampleReceiving).forEach(x -> {
+      NameCount nameCount = new NameCount();
+      nameCount.setName(x.getName());
+      nameCount.setCount((int) sampleReceiving.stream().filter(y->y.getCompound().equals(x)).count());
+      nameCounts.add(nameCount);
+    });
+
+    return nameCounts;
+  }
+
+  private HashSet< Compound > compoundHashSet(List< SampleReceiving > sampleReceiving) {
+    HashSet< Compound > compounds = new HashSet<>();
+    sampleReceiving.forEach(x -> compounds.add(x.getCompound()));
+    return compounds;
+  }
 }
