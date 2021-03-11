@@ -82,7 +82,9 @@
     </div >
   </div >
 </div >
-
+<div class="offset-2 col-8 col-sm-8 col-md-8" data-th-if="${#lists.isEmpty(customerNameSampleCounts)}" >
+<p>There are no details to display</p>
+</div>
 
 <div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
 <!--script include-->
