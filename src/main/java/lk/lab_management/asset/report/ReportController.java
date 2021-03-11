@@ -196,7 +196,7 @@ public class ReportController {
                                                                                                dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
 
     model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
-    return "report/customerNameSampleCounts";
+    return "report/customerNameSampleCount";
   }
 
   private List< NameCount > customerNameSampleCount(List< SampleReceiving > sampleReceiving) {
