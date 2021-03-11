@@ -227,12 +227,12 @@ public class ReportController {
   }
 
   private String commonCompound(LocalDate startDate, LocalDate endDate, Model model) {
-    model.addAttribute("compoundNameAndCount",
+    model.addAttribute("compoundNameAndCounts",
                        compoundNameAndCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
                                                                                             dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
 
     model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
-    return "report/customerNameSampleCounts";
+    return "report/compound";
   }
 
   private List< NameCount > compoundNameAndCount(List< SampleReceiving > sampleReceiving) {
