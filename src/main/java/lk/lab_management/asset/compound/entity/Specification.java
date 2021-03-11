@@ -27,7 +27,6 @@ public class Specification extends AuditEntity {
 
     private String max;
 
-
     @Enumerated(EnumType.STRING)
     private LabTestName labTestName;
 

@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NameCount {
-    private String name;
-    private Integer count;
+public class NameCountDate {
+    private LocalDate localDate;
+    private List<NameCount> nameCounts;
 }
