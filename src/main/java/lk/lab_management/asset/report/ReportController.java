@@ -38,20 +38,18 @@ import java.util.stream.Collectors;
 @RequestMapping( "/report" )
 public class ReportController {
   private final PaymentService paymentService;
-  private final OperatorService operatorService;
   private final DateTimeAgeService dateTimeAgeService;
   private final UserService userService;
   private final SampleReceivingService sampleReceivingService;
   private final SampleReceivingLabTestService sampleReceivingLabTestService;
   private final EmployeeService employeeService;
 
-  public ReportController(PaymentService paymentService, OperatorService operatorService,
+  public ReportController(PaymentService paymentService,
                           DateTimeAgeService dateTimeAgeService, UserService userService,
                           SampleReceivingService sampleReceivingService,
                           SampleReceivingLabTestService sampleReceivingLabTestService,
                           EmployeeService employeeService) {
     this.paymentService = paymentService;
-    this.operatorService = operatorService;
     this.dateTimeAgeService = dateTimeAgeService;
     this.userService = userService;
     this.sampleReceivingService = sampleReceivingService;
@@ -83,7 +81,7 @@ public class ReportController {
                                                    value).size());
         nameCounts.add(nameCount);
       }
-      model.addAttribute("labTestNameCount", nameCounts);
+      model.addAttribute("labTestNameCounts", nameCounts);
     } else if ( startDate.isBefore(endDate) ) {
       List< NameCountDate > nameCountDates = new ArrayList<>();
       Period difference = Period.between(startDate, endDate);
@@ -104,6 +102,7 @@ public class ReportController {
       }
       model.addAttribute("labTestNameCountDates", nameCountDates);
     }
+    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
     return "report/latTestName";
   }
 
@@ -148,6 +147,7 @@ public class ReportController {
       nameCountUserPaymentTypeAmount.setPaymentTypeAmounts(paymentTypeAmounts);
       nameCountUserPaymentTypeAmounts.add(nameCountUserPaymentTypeAmount);
     });
+    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
     model.addAttribute("nameCountUserPaymentTypeAmounts", nameCountUserPaymentTypeAmounts);
     return "report/income";
   }
@@ -194,6 +194,8 @@ public class ReportController {
     model.addAttribute("customerNameSampleCounts",
                        customerNameSampleCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
                                                                                                dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
+
+    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
     return "report/customerNameSampleCounts";
   }
 
@@ -228,6 +230,8 @@ public class ReportController {
     model.addAttribute("compoundNameAndCount",
                        compoundNameAndCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
                                                                                             dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
+
+    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
     return "report/customerNameSampleCounts";
   }
 
@@ -236,7 +240,7 @@ public class ReportController {
     compoundHashSet(sampleReceiving).forEach(x -> {
       NameCount nameCount = new NameCount();
       nameCount.setName(x.getName());
-      nameCount.setCount((int) sampleReceiving.stream().filter(y->y.getCompound().equals(x)).count());
+      nameCount.setCount((int) sampleReceiving.stream().filter(y -> y.getCompound().equals(x)).count());
       nameCounts.add(nameCount);
     });
 
