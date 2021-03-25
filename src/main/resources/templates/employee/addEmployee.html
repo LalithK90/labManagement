@@ -6,21 +6,21 @@
 <body >
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
 
+<div class="container-fluid  form-Border" >
+  <!--Breadcrumb-->
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active"><a href="/employee">Employee</a></li>
+          <li class="breadcrumb-item active" ><span data-th-text="${addStatus==true?'New Employee':'Update Employee Details'}" ></span ></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!--End of Breadcrumb-->
 
-<div class="container  form-Border" >
-  <div class="row text-center formManagement border-info" >
-    <div class="col" >
-      <a class="btn btn-outline-info" href="/home" >
-        Back To Home
-      </a >
-    </div >
-
-    <div class="col" >
-      <a href="/employee" class="btn btn-info" >
-        View Employees
-      </a >
-    </div >
-  </div >
   <div class="row text-center" >
     <div class="col" >
       <h4 class="text-info text-center" >
@@ -30,6 +30,7 @@
       </h4 >
     </div >
   </div >
+
 </div >
 <!--Form Content - start -->
 <div class="container-fluid bg-light formBorder" >
@@ -38,21 +39,24 @@
           data-th-object="${employee}" method="POST" enctype="multipart/form-data" >
       <div class="row" >
         <!--Left Side-->
-        <div class="form-group col-md-6 col-sm-6 text-left flex-column" >
+        <div class="form-group col-md-6 col-sm-6  flex-column" >
           <!--Id-->
-          <div id="idStatus" data-th-if="${addStatus==false}" class="form-row text-right" >
+          <div id="idStatus" data-th-if="${addStatus==false}" class="form-row " >
             <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{liveDead}">
-            <div class="col-md-4" >
-              <label class="control-label" for="id" >ID :</label >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="id" >ID </label >
             </div >
             <div class="col-md-8" >
               <input id="id" data-th-field="*{id}" class="form-control" type="text" readonly />
             </div >
           </div >
+
           <!--Payrole number-->
-          <div class="form-row text-right" data-th-if="${addStatus==false}">
-            <div class="col-md-4" >
-              <label class="control-label" for="name" >Employee code :</label >
+          <div class="form-row " data-th-if="${addStatus==false}">
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="name" >Employee code </label >
             </div >
             <div class="col-md-8" >
               <input id="code" data-th-field="*{code}" class="form-control" tabindex="4"
@@ -62,10 +66,11 @@
                             </span >
             </div >
           </div >
-          <!--Tittle -->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="title" >Title :</label >
+          <!--Title -->
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="title" >Title </label >
             </div >
             <div class="col-md-8" >
               <select id="title" data-th-field="*{title}" class="form-control" tabindex="3" required >
@@ -78,9 +83,10 @@
             </div >
           </div >
           <!--Name-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="name" >Name :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="name" >Name </label >
             </div >
             <div class="col-md-8" >
               <input id="name" data-th-field="*{name}" class="form-control" tabindex="4" type="text" required />
@@ -89,9 +95,10 @@
             </div >
           </div >
           <!--Calling Name-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="callingName" >Calling Name :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="callingName" >Calling Name </label >
             </div >
             <div class="col-md-8" >
               <input id="callingName" data-th-field="*{callingName}" class="form-control" tabindex="5"
@@ -100,10 +107,12 @@
                     data-th-if="${#fields.hasErrors('callingName')}" id="callingNameError" >Error Calling Name</span >
             </div >
           </div >
+
           <!--Nic-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="nic" >NIC No :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="nic" >NIC No </label >
             </div >
             <div class="col-md-8" >
               <input id="nic" data-th-field="*{nic}" class="form-control" tabindex="6" type="text"
@@ -113,11 +122,13 @@
                     data-th-if="${#fields.hasErrors('nic')}" >Error NIC Number</span >
             </div >
           </div >
+
           <!--Gender-->
           <!--todo: Gender is not getting filled when updating-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="gender" >Gender :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="gender" >Gender </label >
             </div >
             <div class="col-md-8" >
               <div class="custom-control custom-checkbox custom-control-inline "
@@ -134,10 +145,12 @@
               </div>
             </div >
           </div >
+
           <!--Date of birth-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="dateOfBirth" >Birth date :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="dateOfBirth" >Birth date </label >
             </div >
             <div class="col-md-8" >
               <input id="dateOfBirth" data-th-field="*{dateOfBirth}" class="form-control" tabindex="8"
@@ -147,10 +160,12 @@
                     data-th-if="${#fields.hasErrors('dateOfBirth')}" class="error" >Error Birthday</span >
             </div >
           </div >
+
           <!--Designation-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="designation" >Designation :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="designation" >Designation </label >
             </div >
             <div class="col-md-8" >
               <select id="designation" data-th-field="*{designation}" class="form-control" tabindex="10"
@@ -165,11 +180,12 @@
           </div >
         </div >
         <!--Right Side-->
-        <div class="form-group col-md-6 col-sm-6 text-right flex-column" >
+        <div class="form-group col-md-6 col-sm-6  flex-column" >
           <!--Civil status-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="civilStatus" >Civil State :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="civilStatus" >Civil State </label >
             </div >
             <div class="col-md-8" >
               <select data-th-field="*{civilStatus}" id="civilStatus" class="form-control" tabindex="11"
@@ -183,9 +199,10 @@
             </div >
           </div >
           <!--Address-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="address" >Address :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="address" >Address </label >
             </div >
             <div class="col-md-8" >
                             <textarea id="address" data-th-field="*{address}" class="form-control" tabindex="12"
@@ -195,9 +212,10 @@
             </div >
           </div >
           <!--Mobile Number One-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="mobileOne" >Mobile One No :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="mobileOne" >Mobile One No </label >
             </div >
             <div class="col-md-8" >
               <input id="mobileOne" data-th-field="*{mobileOne}" class="form-control mobile" tabindex="13"
@@ -210,9 +228,10 @@
             </div >
           </div >
           <!--Mobile Number Two-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="mobileTwo" >Mobile Two No :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="mobileTwo" >Mobile Two No </label >
             </div >
             <div class="col-md-8" >
               <input id="mobileTwo" data-th-field="*{mobileTwo}" class="form-control mobile" tabindex="14"
@@ -224,9 +243,10 @@
             </div >
           </div >
           <!--Land Number-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="land" >Land No :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="land" >Land No </label >
             </div >
             <div class="col-md-8" >
               <input id="land" data-th-field="*{land}" class="form-control land" type="text" tabindex="15"
@@ -237,9 +257,10 @@
             </div >
           </div >
           <!--Office email-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="officeEmail" >Office Email :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="officeEmail" >Office Email </label >
             </div >
             <div class="col-md-8" >
               <input id="officeEmail" data-th-field="*{officeEmail}" class="form-control" tabindex="17"
@@ -250,9 +271,10 @@
             </div >
           </div >
           <!--Date of assignment-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="dateOfAssignment" >Date Of Assignment :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="dateOfAssignment" >Date Of Assignment </label >
             </div >
             <div class="col-md-8" >
               <input id="dateOfAssignment" data-th-field="*{{dateOfAssignment}}" type="date"
@@ -263,9 +285,10 @@
             </div >
           </div >
           <!--Employee status-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="employeeStatus" >Employee Status :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="employeeStatus" >Employee Status </label >
             </div >
             <div class="col-md-8" >
               <select id="employeeStatus" data-th-field="*{employeeStatus}" class="form-control" tabindex="19"
@@ -279,15 +302,16 @@
             </div >
           </div >
           <!--Image-->
-          <div class="form-row text-right" >
+          <div class="form-row " >
             <div class="form-row " >
-              <div class="col-md-3 mr-5" >
-                <label class="control-label" >Image</label >
-                <input type="file" name="file" id="imgUpload"
-                       accept="image/png, image/jpeg" />
+              <div class="col-md-2 " >
+
               </div >
-              <div class="col-md-3" ></div >
-              <div class="col-md-3 ml-5" >
+              <div class="col-md-2" >
+                <label class="control-label" >Image</label >
+                <input type="file" name="file" id="imgUpload" accept="image/png, image/jpeg" />
+              </div >
+              <div class="col-md-8 ml-5" >
                 <!--photo details-->
                 <img class="img-fluid ml-5" data-th-if="${addStatus==false}" data-th-src="${file.url}"
                      id="image" alt=""
@@ -301,7 +325,7 @@
           <div id="updateStatus" data-th-if="${addStatus==false}" >
             <div class="form-row text-right" >
               <div class="col-md-4" >
-                <label class="control-label" for="createdBy" >Created By :</label >
+                <label class="control-label" for="createdBy" >Created By </label >
               </div >
               <div class="col-md-8" >
                 <input id="createdBy" data-th-field="*{createdBy}" class="form-control" type="text"
@@ -310,7 +334,7 @@
             </div >
             <div class="form-row text-right" >
               <div class="col-md-4" >
-                <label class="control-label" for="createdAt" >Created At :</label >
+                <label class="control-label" for="createdAt" >Created At </label >
               </div >
               <div class="col-md-8" >
                 <input id="createdAt" data-th-text="${{createdAt}}" class="form-control" type="text"
@@ -323,12 +347,15 @@
           <!--Button-->
           <div class="form-group col-md-12 col-sm-12 text-center flex-column " >
             <button class="btn btn-success" type="submit" tabindex="21" >
-              <i class="fa fa-save " style="font-size: 20px" ></i >&nbsp; &nbsp;<span id="submit"
-                                                                                      data-th-text="${addStatus==true?'Save': 'Update'}" ></span >
+              <i class="fa fa-save fa-sm" style="font-size: 20px" ></i >&nbsp;
+              <span id="submit" data-th-text="${addStatus==true?'Save': 'Update'}" ></span >
             </button >
             <button class="btn btn-danger" type="reset" >
-              <i class="fa fa-redo" ></i > <span id="reset" >Reset</span >
+              <i class="fa fa-redo fa-sm" ></i > <span id="reset" >&nbsp;Reset</span >
             </button >
+              <a class="btn btn-secondary" type="button" href="/employee">
+                  <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+              </a >
           </div >
         </div >
         <div class="form-row" >
