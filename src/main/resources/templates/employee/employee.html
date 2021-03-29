@@ -51,8 +51,8 @@
                     <th> Image</th>
                     <th> Employee Id</th>
                     <th> Name</th>
-                    <th> Mobile</th>
                     <th> Designation</th>
+                    <th> Mobile</th>
                     <th> Status</th>
                     <th> Modify</th>
                 </tr>
@@ -70,8 +70,8 @@
                     </th>
                     <th th:text="${employee.code}"></th>
                     <th th:text="${employee.callingName}"></th>
-                    <th th:text="${employee.mobileOne}"></th>
                     <th th:text="${employee.designation.designation}"></th>
+                    <th th:text="${employee.mobileOne}"></th>
                     <th th:text="${employee.employeeStatus.employeeStatus}"></th>
                     <th>
                         <a id="employeeView" th:href="${'/employee/' + employee.id}" class="btn btn-secondary btn-sm"
@@ -82,7 +82,8 @@
                             <i class="fa fa-edit"></i></a>
                         <a id="employeeDelete" th:href="${'/employee/remove/' + employee.id}"
                            class="btn btn-danger btn-sm"
-                           data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
+                           data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')"
+                           onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false">
                             <i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
@@ -96,9 +97,9 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="text-center text-danger">
+                <h6 class="text-center text-danger">
                     No records upto now. Please add record to the system using add button.
-                </h3>
+                </h6>
             </div>
         </div>
         <script>

@@ -1,6 +1,7 @@
 package lk.lab_management.asset.user_management.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.util.audit.AuditEntity;
 import lombok.AllArgsConstructor;
@@ -38,6 +39,9 @@ public class User extends AuditEntity {
     @Column(nullable = false)
     private boolean enabled;
 
+    @Enumerated(EnumType.STRING)
+    private LiveDead liveDead;
+
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<UserSessionLog> userSessionLogs;
 
@@ -48,11 +52,6 @@ public class User extends AuditEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
-    /*@ManyToMany(fetch = FetchType.EAGER)
-    //@Fetch( FetchMode.SUBSELECT)
-    @JoinTable(name = "user_working_place",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "working_place_id"))
-    private Set< WorkingPlace > workingPlaces;*/
+
 
 }

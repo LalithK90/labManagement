@@ -70,8 +70,8 @@
                            data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
                             <i class="fa fa-edit"></i></a>
                         <a class="btn btn-danger btn-sm" id="userRemove" th:href="${'/user/remove/' + user.id}"
-                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-                            <i class="fa fa-trash"></i></a>
+                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" hidden>
+                            <i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>

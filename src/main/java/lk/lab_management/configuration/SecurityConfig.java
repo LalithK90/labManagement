@@ -88,14 +88,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         //this is used the normal admin to give access every url mapping
                                         .antMatchers("/employee").hasRole("ADMIN")
                                         //Need to login for access those are
-                                        .antMatchers("/employee/**").hasAnyRole("HR","ADMIN")
-                                        .antMatchers("/compound/**").hasAnyRole("SQA","TM","LA")
+                                        .antMatchers("/employee/**").hasAnyRole("SQA","QA","HR","ADMIN")
+                                        .antMatchers("/compound/**").hasAnyRole("SQA","QA","TM","LA")
                                         .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
-                                        .antMatchers("/labTestResultEnter/**").hasAnyRole("TM","LA")
+                                        .antMatchers("/labTestResultEnter/**").hasAnyRole("SQA","QA","TM","LA")
                                         .antMatchers("/discountRatio/**").hasAnyRole("TM","LA","CA","ACC")
                                         .antMatchers("/sample/acceptability/**").hasAnyRole("TM","LA")
                                         .antMatchers("/payment/**").hasAnyRole("CA","ACC")
-                                        .antMatchers("/role/**").hasAnyRole("HR")
+                                        .antMatchers("/role/**").hasAnyRole("ADMIN","HR")
                                         .anyRequest()
                                         .authenticated())
                 // Login form

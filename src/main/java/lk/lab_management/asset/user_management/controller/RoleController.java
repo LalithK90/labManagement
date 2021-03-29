@@ -39,7 +39,7 @@ public class RoleController {
     public String roleView(@PathVariable( "id" ) Integer id, Model model) {
         model.addAttribute("role", roleService.findById(id));
         model.addAttribute("addStatus", false);
-        return "role/addRole";
+        return "role/role-detail";
     }
 
     /*
