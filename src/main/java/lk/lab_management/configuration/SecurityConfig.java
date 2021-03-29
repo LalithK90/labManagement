@@ -78,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http.authorizeRequests().antMatchers("/").permitAll();
         // For developing easy to give permission all lin
 
-        /*http
+        http
                 .authorizeRequests(
                         authorizeRequests ->
                                 authorizeRequests
@@ -131,7 +131,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         .sessionRegistry(sessionRegistry()))
                 //Cross site disable
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling();*/
+                .exceptionHandling();
     }
 }
 

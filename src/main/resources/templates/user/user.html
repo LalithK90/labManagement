@@ -8,19 +8,20 @@
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;&nbsp;
-            </a>
 
-        </div>
-        <div class="col">
-            <a class="btn btn-info" href="/user/add"><i class="fa fa-plus"></i>
-                &nbsp; Add New
-            </a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -32,38 +33,49 @@
     </div>
 </div>
 
-<div class="container-fluid bg-light formBorder text-center">
+<div class="container-fluid  formBorder text-center">
     <div class="col">
         <div class="col" id="userListTable" th:if="${not #lists.isEmpty(users)}">
 
-                <table class="table table-hover table-striped" id="myTable">
-                    <thead >
-                    <tr>
-                        <th>Index</th>
-                        <th>User Name</th>
-                        <th>User Status</th>
-                        <th>Created Date</th>
-                        <th>Modify</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="user, rowCount : ${users}" scope="row">
-                        <th th:text="${rowCount.count}"></th>
-                        <th th:text="${user.username}"></th>
-                        <th th:text="${user.enabled==true?'Active':'Blocked'}"></th>
-                        <th th:text="${{user.createdAt}}"></th>
-                        <th><a class="btn btn-outline-secondary btn-sm" id="userView" th:href="${'/user/' + user.id}">View</a>
-                            <a class="btn btn-primary btn-sm" id="userEdit" th:href="${'/user/edit/' + user.id}"><i
-                                    class="fa fa-edit"></i>&nbsp;Edit</a>
-                            <a class="btn btn-danger btn-sm" id="userRemove" th:href="${'/user/remove/' + user.id}"
-                               th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" hidden="true"
-                            ><i
-                                    aria-hidden="true" class="fa fa-trash"></i>
-                                Delete</a>
-                        </th>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/user/add"><i class="fa fa-plus"></i>
+                        &nbsp; Add New User
+                    </a>
+                </div>
+            </div>
+            <br>
+
+            <table class="table table-hover table-striped" id="myTable">
+                <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>User Name</th>
+                    <th>User Status</th>
+                    <th>Created Date</th>
+                    <th>Modify</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user, rowCount : ${users}" scope="row">
+                    <th th:text="${rowCount.count}"></th>
+                    <th th:text="${user.username}"></th>
+                    <th th:text="${user.enabled==true?'Active':'Blocked'}"></th>
+                    <th th:text="${{user.createdAt}}"></th>
+                    <th>
+                        <a id="userView" class="btn btn-secondary btn-sm" th:href="${'/user/' + user.id}"
+                        data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
+                            <i class="fa fa-list-alt"></i></a>
+                        <a class="btn btn-primary btn-sm" id="userEdit" th:href="${'/user/edit/' + user.id}"
+                           data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
+                            <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-danger btn-sm" id="userRemove" th:href="${'/user/remove/' + user.id}"
+                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                            <i class="fa fa-trash"></i></a>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
         <div class="row" id="userNotList" th:if="${ #lists.isEmpty(users)}">
@@ -73,9 +85,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h3 class="text-center text-danger">
-                        <strong>There is no user upto know please add user to the system
-                                using add user button.
-                        </strong>
+                        No records upto now. Please add record to the system using add button.
                     </h3>
                 </div>
             </div>

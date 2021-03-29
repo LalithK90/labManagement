@@ -8,18 +8,21 @@
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
-        </div>
 
-        <div class="col">
-            <a class="btn btn-info" href="/compound/add"><i class="fa fa-plus"></i>
-                &nbsp;Add New</a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Compound</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -33,6 +36,15 @@
 <div class="container-fluid formBorder text-center">
     <div class="col">
         <div class="col" id="compoundListPresent" data-th-if="${not #lists.isEmpty(compounds)}">
+
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/compound/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Compound</a>
+                </div>
+            </div>
+            <br>
+
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
@@ -49,10 +61,10 @@
                     <th data-th-text="${compound.name}"></th>
                     <!--<th data-th-text="${compound.status.status}"></th>-->
                     <th>
-                        <a data-th-href="${'/compound/' + compound.id}" class="btn btn-outline-secondary btn-sm">View</a>
-                        <a  data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                        <a data-th-href="${'/compound/' + compound.id}" class="btn btn-secondary btn-sm"><i class="fa fa-list-alt"></i></a>
+                        <a data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                         <!--data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"-->
-                        <a  data-th-href="${'/compound/delete/' + compound.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
+                        <a data-th-href="${'/compound/delete/' + compound.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>
