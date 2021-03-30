@@ -1,5 +1,6 @@
 package lk.lab_management.asset.common_asset.model;
 
+import lk.lab_management.asset.payment.entity.enums.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NameCount {
+public class NameCountUserPaymentTypeAmount {
     private String name;
     private Integer count;
+    private List<PaymentTypeAmount> paymentTypeAmounts;
 }
+

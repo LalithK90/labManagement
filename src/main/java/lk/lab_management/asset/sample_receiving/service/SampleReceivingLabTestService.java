@@ -15,6 +15,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -79,4 +80,8 @@ public class SampleReceivingLabTestService implements AbstractService<SampleRece
     public List<SampleReceivingLabTest> findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(LabTestName labTestName, Acceptability acceptability, SampleReceivingLabTestStatus sampleReceivingLabTestStatus) {
     return sampleReceivingLabTestDao.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus(labTestName, acceptability, sampleReceivingLabTestStatus);
     }
+
+  public List< SampleReceivingLabTest> findByCreatedAtIsBetween(LocalDateTime form, LocalDateTime to) {
+ return sampleReceivingLabTestDao.findByCreatedAtIsBetween(form,to);
+  }
 }

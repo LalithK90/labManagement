@@ -7,20 +7,21 @@
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home">
-                Back To Home
-            </a>
-        </div>
-
-        <div class="col">
-            <a href="/role" class="btn btn-info">
-                View Roles
-            </a>
+<div class="container-fluid form-Border">
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/role">User</a></li>
+                    <li class="breadcrumb-item active" ><span data-th-text="${addStatus==true?'New Role':'Update Role Details'}" ></span ></li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -61,6 +62,9 @@
                     <i class="fa fa-save" style="font-size: 20px"></i>&nbsp; &nbsp;<span
                         id="submit" th:text="${addStatus==true?'Save': 'Update'}">                        </span>
                 </button>
+                <a class="btn btn-secondary" type="button" href="/role">
+                    <i class="fas fa-times"></i>&nbsp;Cancel
+                </a >
             </div>
             <!--Error-->
             <div class="form-row">

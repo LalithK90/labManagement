@@ -7,20 +7,22 @@
 <body>
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home">
-                Back To Home
-            </a>
-        </div>
+<div class="container-fluid form-Border">
 
-        <div class="col">
-            <a href="/compound" class="btn btn-info">
-                View Compounds
-            </a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/compound">Compound</a></li>
+                    <li class="breadcrumb-item active" ><span data-th-text="${addStatus==true?'New Compound':'Update Compound Details'}"></span></li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -59,7 +61,7 @@
             </div>
 
 
-            <table class="table table-striped table-inverse table-responsive">
+            <table class="table table-striped table-inverse">
                 <thead class="thead-inverse">
                 <tr>
                     <th>Index</th>
@@ -74,11 +76,11 @@
                     <td data-th-text="${index.count}"></td>
                     <td>
                         <select class="form-control" data-th-field="*{specifications[__${index.index}__].labTestName}"
-                                required>
+                                required data-th-id="${'labTest'+index.index}" onload="loadLabTest(this)">
                             <option value="" selected>Please Select</option>
                             <option data-th-each="labTest : ${labTests}"
                                     data-th-text="${labTest.labTestName}"
-                                    data-th-value="${labTest}"></option>
+                                    data-th-value="${labTest}" ></option>
                         </select>
                     </td>
                     <td>
@@ -104,13 +106,16 @@
             </table>
             <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
                 <button class="btn btn-success" type="submit" tabindex="21">
-                    <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;
+                    <i class="fa fa-save fa-sm" style="font-size: 20px"></i>&nbsp; &nbsp;
                     <span id="submit" data-th-text="${addStatus==true?'Save': 'Update'}"></span>
                 </button>
                 <button class="btn btn-danger" type="reset" tabindex="21">
-                    <i class="fa fa-redo " style="font-size: 20px"></i>&nbsp; &nbsp;
+                    <i class="fa fa-redo fa-sm" style="font-size: 20px"></i>&nbsp; &nbsp;
                     <span id="reset" th:text="Reset"></span>
                 </button>
+                <a class="btn btn-secondary" type="button" href="/compound">
+                    <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+                </a >
             </div>
             <div class="form-row">
                 <label id="errorLabel" data-th-if="${#fields.hasErrors('*')}" data-th-text="'Errors: '">Errors: </label>
@@ -130,7 +135,7 @@
 
 <script>
 
-    //test result validation : check whether the entered value is within the given range
+    /*test result validation : check whether the entered value is within the given range*/
     function minMaxValidation(obj) {
         let selectedFiledId = obj.getAttribute('id').slice(3);
         let min = parseInt($(`#min${selectedFiledId}`).val());
@@ -149,9 +154,23 @@
             minId.attr("class", "bg-warning form-control");
             maxId.attr("class", "bg-warning form-control");
         }
-
-
     }
+
+    /*load lab test according to the specification name*/
+    function loadLabTest(obj){
+        let selectedFiledId = obj.getAttribute('id').slice(7);
+        console.log(selectedFiledId)
+        if(selectedFiledId < 8){
+        //    Lab test = PHYSICAL PROPERTIES TEST
+        }
+        if(selectedFiledId >=8 && selectedFiledId < 13 ){
+            //    Lab test = RHEOMETER TEST
+        }
+        if(selectedFiledId == 13){
+            //    Lab test = VISCOSITY TEST
+        }
+    }
+
 
 </script>
 

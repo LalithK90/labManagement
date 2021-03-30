@@ -1,5 +1,6 @@
 package lk.lab_management.asset.user_management.controller;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.employee.entity.enums.Designation;
 import lk.lab_management.asset.employee.entity.enums.EmployeeStatus;
@@ -39,7 +40,11 @@ public class UserController {
 
     @GetMapping
     public String userPage(Model model) {
-        model.addAttribute("users", userService.findAll());
+        model.addAttribute("users", userService.findAll()
+                .stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList()));
+        model.addAttribute("users",userService.findByLiveDead(LiveDead.ACTIVE));
         return "user/user";
     }
 
@@ -53,14 +58,6 @@ public class UserController {
         model.addAttribute("employeeDetailShow", true);
         model.addAttribute("employeeNotFoundShow", false);
         model.addAttribute("roleList", roleService.findAll());
-        /*model.addAttribute("districtUrl", MvcUriComponentsBuilder
-                .fromMethodName(WorkingPlaceRestController.class, "getDistrict", "")
-                .build()
-                .toString());
-        model.addAttribute("stationUrl", MvcUriComponentsBuilder
-                .fromMethodName(WorkingPlaceRestController.class, "getStation", "")
-                .build()
-                .toString());*/
         return "user/addUser";
     }
 

@@ -1,5 +1,6 @@
 package lk.lab_management.asset.user_management.service;
 
+import lk.lab_management.asset.common_asset.model.enums.LiveDead;
 import lk.lab_management.asset.employee.entity.Employee;
 import lk.lab_management.asset.user_management.dao.UserDao;
 import lk.lab_management.asset.user_management.entity.User;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @CacheConfig( cacheNames = {"user"} ) // tells Spring where to store cache for this class
@@ -28,7 +30,9 @@ public class UserService implements AbstractService<User, Integer > {
 
     @Cacheable
     public List< User > findAll() {
-        return userDao.findAll();
+        return userDao.findAll().stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList());
     }
 
     @Cacheable
@@ -47,13 +51,18 @@ public class UserService implements AbstractService<User, Integer > {
         } else {
             user.setPassword(userDao.getOne(user.getId()).getPassword());
         }
+        if ( user.getId() == null ) {
+            user.setLiveDead(LiveDead.ACTIVE);
+        }
         return userDao.save(user);
     }
 
     @CacheEvict( allEntries = true )
     public boolean delete(Integer id) {
         //according to this project can not be deleted user
-        userDao.deleteById(id);
+        User user = userDao.getOne(id);
+        user.setLiveDead(LiveDead.STOP);
+        userDao.save(user);
         return false;
     }
 
@@ -86,5 +95,8 @@ public class UserService implements AbstractService<User, Integer > {
         return userDao.findByEmployee(employee) == null;
     }
 
+    public List< User > findByLiveDead(LiveDead live_dead) {
+        return userDao.findByLiveDead(live_dead);
+    }
 
 }

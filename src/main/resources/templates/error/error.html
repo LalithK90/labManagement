@@ -9,22 +9,23 @@
 <main>
 <div class="col-12 col-sm-12 col-md-12 mt-4">
     <div class="container-fluid" th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
-        <div class="container text-center">
+        <!--<div class="container text-center">
             <h1 class="invalid-feedback" th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">Oops!</h1>
             <h1 class="invalid-feedback" th:if="${accessDenied!=null}" th:text="${accessDenied}">404</h1>
             <p>The Page you're looking for isn't here.</p>
+        </div>-->
+        <!-- 404 Error Text -->
+        <div class="text-center">
+            <div class="error mx-auto" data-text="404">404</div>
+            <p class="lead text-gray-800 mb-5">Page Not Found</p>
+            <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
+            <a href="/home">&larr; Back to Dashboard</a>
         </div>
         <div class="col-12 col-sm-12 col-md-12 mt-4 mb-4 p-4">
 
         </div>
 
-        <div class="container-fluid text-center">
-            <a href="/home">
-                <button class="btn btn-info" type="submit">
-                    <i class="fa fa-home" style="font-size: 20px"></i>&nbsp; Home
-                </button>
-            </a>
-        </div>
+        
     </div>
 </div>
 </main>

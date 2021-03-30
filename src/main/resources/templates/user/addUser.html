@@ -7,20 +7,22 @@
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home">
-                Back To Home
-            </a>
-        </div>
+<div class="container-fluid form-Border">
 
-        <div class="col">
-            <a href="/user" class="btn btn-info">
-                View Users
-            </a>
+        <!--Breadcrumb-->
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="/user">User</a></li>
+                        <li class="breadcrumb-item active" ><span data-th-text="${addStatus==true?'New User':'Update User Details'}" ></span ></li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-    </div>
+        <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -45,9 +47,9 @@
                         <div class="col-8">
                             <select id="selectParameter" class="form-control" tabindex="1" required>
                                 <option value="">Please select</option>
+                                <option value="code">Employee Id</option>
                                 <option value="nic">NIC Number</option>
-                                <option value="payRoleNumber">Pay Role Number</option>
-                                <option value="departmentIdNumber">Department Id Number</option>
+                                <option value="officeEmail">Email</option>
                             </select>
                         </div>
                     </div>
@@ -59,8 +61,7 @@
                         </div>
                         <div class="col-7">
                             <input id="valueEmployee" tabindex="2" class="form-control" type="text" minlength="3"
-                                   required
-                                   autofocus/>
+                                   required autofocus/>
                         </div>
                     </div>
                 </div>
@@ -71,9 +72,12 @@
                                 <label class="control-label"></label>
                             </div>
                             <div class="col-10 text-left" id="btnSearchEmployee">
-                                <button class="btn btn-success" tabindex="3" type="submit">
-                                    <i class="fa fa-search " style="font-size: 20px"></i>&nbsp; &nbsp;Search
+                                <button class="btn btn-secondary" tabindex="3" type="submit">
+                                    <i class="fas fa-search " style="font-size: 20px"></i>&nbsp;Search
                                 </button>
+                                <a class="btn btn-secondary" type="button" href="/user">
+                                    <i class="fas fa-times"></i>&nbsp;Cancel
+                                </a >
                             </div>
                         </div>
                     </div>
@@ -153,13 +157,6 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-row alert alert-danger text-center">
-                        <strong>Attention !</strong>
-                        If Employee is belong to supper senior category.
-                        <strong>Please select one or two work station </strong>.
-                    </div>
-                </div>
             </div>
             <!--Right Side-->
             <div class="form-group col-md-5 col-sm-7 text-left flex-column">
@@ -179,8 +176,11 @@
             <div class="form-group col-md-12 col-sm-12 text-center flex-column">
                 <button class="btn btn-success" type="submit">
                     <i class="fa fa-save" style="font-size: 20px"></i>&nbsp; &nbsp;<span
-                        id="submit" th:text="${addStatus==true?'Save': 'Update'}">                        </span>
+                        id="submit" th:text="${addStatus==true?'Save': 'Update'}"></span>
                 </button>
+                <a class="btn btn-secondary" type="button" href="/user">
+                    <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+                </a >
             </div>
         </div>
         <!--Error-->

@@ -9,18 +9,20 @@
 
 <!--heading Area-->
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
-        </div>
 
-        <div class="col">
-            <a class="btn btn-info" href="/customer/add"><i class="fa fa-plus"></i>
-                &nbsp;Add New</a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Customer</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -37,6 +39,15 @@
     <!--Table view-->
     <div class="col">
         <div class="col" id="customerListPresent" th:if="${not #lists.isEmpty(customers)}">
+
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/customer/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Customer</a>
+                </div>
+            </div>
+            <br>
+
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
@@ -51,20 +62,14 @@
                 <tbody>
                 <tr th:each="customer, rowCount : ${customers}">
                     <th th:text="${rowCount.count}"></th>
-                    <th th:text="${customer.title}+${'. '}+${customer.name}"></th>
+                    <th th:text="${customer.title.title}+${customer.name}"></th>
                     <th th:text="${customer.code}"></th>
                     <th th:text="${customer.mobile}"></th>
                     <th th:text="${customer.address}"></th>
                     <th>
-                        <a id="customerView" th:href="${'/customer/' + customer.id}" class="btn btn-outline-secondary btn-sm">&nbsp;View</a>
-                        <a id="customerEdit" th:href="${'/customer/edit/' + customer.id}"
-                           class="btn btn-primary btn-sm"><i class="fa fa-edit"
-                                                             style="font-size: 15px"></i>&nbsp;Edit</a>
-                        <!--<a id="customerRemove" th:href="${'/customer/delete/' + customer.id}"
-                           class="btn btn-danger btn-sm">
-                            &lt;!&ndash;th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" &ndash;&gt; <i
-                                class="fa fa-trash" style="font-size: 15px"></i>
-                            Delete</a>-->
+                        <a id="customerView" th:href="${'/customer/' + customer.id}" class="btn btn-secondary btn-sm"><i class="fa fa-list-alt"></i></a>
+                        <a id="customerEdit" th:href="${'/customer/edit/' + customer.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit" style="font-size: 15px"></i></a>
+                        <a id="customerRemove" th:href="${'/customer/delete/' + customer.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt" style="font-size: 15px"></i></a>
                     </th>
                 </tr>
                 </tbody>
@@ -78,11 +83,9 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="text-center text-danger">
-                    <strong>There is no customer upto now please add customer to the system
-                        using "New" button.
-                    </strong>
-                </h3>
+                <h6 class="text-center text-danger">
+                    No records upto now. Please add record to the system using add button.
+                </h6>
             </div>
         </div>
         <script>
@@ -94,6 +97,13 @@
     <!--Save customer-->
     <div class="row" th:if="${customerDetail != null}">
         <div class="col-sm-12">
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/customer/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Customer</a>
+                </div>
+            </div>
+            <br>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
