@@ -88,7 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         //this is used the normal admin to give access every url mapping
                                         .antMatchers("/employee").hasRole("ADMIN")
                                         //Need to login for access those are
-                                        .antMatchers("/employee/**").hasAnyRole("SQA","QA","HR","ADMIN")
+                                        .antMatchers("/employee/**").hasAnyRole("HR","ADMIN")
                                         .antMatchers("/compound/**").hasAnyRole("SQA","QA","TM","LA")
                                         .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
                                         .antMatchers("/labTestResultEnter/**").hasAnyRole("SQA","QA","TM","LA")

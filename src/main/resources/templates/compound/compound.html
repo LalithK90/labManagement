@@ -62,9 +62,10 @@
                     <!--<th data-th-text="${compound.status.status}"></th>-->
                     <th>
                         <a data-th-href="${'/compound/' + compound.id}" class="btn btn-secondary btn-sm"><i class="fa fa-list-alt"></i></a>
-                        <a data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                        <!--data-th-if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"-->
-                        <a data-th-href="${'/compound/delete/' + compound.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
+                        <a data-th-href="${'/compound/edit/' + compound.id}" class="btn btn-primary btn-sm"
+                           data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')"><i class="fa fa-edit"></i></a>
+                        <a data-th-href="${'/compound/delete/' + compound.id}" class="btn btn-danger btn-sm"
+                           data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')"><i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>
@@ -73,6 +74,13 @@
     </div>
     <div class="row" data-th-if="${ #lists.isEmpty(compounds)}">
         <div class="col-sm-12">
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/compound/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Compound</a>
+                </div>
+            </div>
+            <br>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

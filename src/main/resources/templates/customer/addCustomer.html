@@ -2,22 +2,26 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>addCustomer</title>
 </head>
 <body>
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<div class="container form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/customer" class="btn btn-outline-secondary"  tabindex="1">
-                <i class="fa fa-chevron-left" ></i>Back
-            </a>
-        </div>
-        <div class="col">
+<div class="container-fluid form-Border">
 
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/customer">Customer</a></li>
+                    <li class="breadcrumb-item active" ><span data-th-text="${addStatus==true?'New Customer':'Update Customer Details'}"></span></li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -37,16 +41,18 @@
                 <!--Left Side-->
                 <div class="form-group col-md-6 col-sm-6 text-left flex-column">
 
-                    <div id="idStatus" th:if="${addStatus==false}" class="form-row text-right">
+                    <div id="idStatus" th:if="${addStatus==false}" class="form-row ">
                         <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{liveDead}">
-                        <div class="col-md-4">
-                            <label class="control-label" for="id">ID :</label>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="id">ID </label>
                         </div>
                         <div class="col-md-8">
                             <input id="id" th:field="*{id}" class="form-control" type="text" readonly/>
                         </div>
-                        <div class="col-md-4">
-                            <label class="control-label" for="code">Customer Code :</label>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="code">Customer Code </label>
                         </div>
                         <div class="col-md-8">
                             <input id="code" th:field="*{code}" class="form-control" type="text" readonly/>
@@ -54,9 +60,10 @@
                     </div>
 
                     <!--Customer Type-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="type">Customer Type :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="type">Customer Type </label>
                         </div>
                         <div class="col-md-8">
                             <select id="type" th:field="*{customerType}" class="form-control" tabindex="3" required>
@@ -69,9 +76,10 @@
                         </div>
                     </div>
                     <!--Company Name-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" id="companyNameLabel" for="name">Company Name :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" id="companyNameLabel" for="name">Company Name </label>
                         </div>
                         <div class="col-md-8">
                             <input id="companyName" th:field="*{companyName}" class="form-control" tabindex="4"
@@ -81,9 +89,10 @@
                         </div>
                     </div>
                     <!--Tittle -->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="title">Title :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="title">Title </label>
                         </div>
                         <div class="col-md-8">
                             <select id="title" th:field="*{title}" class="form-control" tabindex="3" required>
@@ -96,9 +105,10 @@
                         </div>
                     </div>
                     <!--Name-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="name">Technical Manager :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="name">Technical Manager </label>
                         </div>
                         <div class="col-md-8">
                             <input id="name" th:field="*{name}" class="form-control" tabindex="4" type="text" required/>
@@ -107,9 +117,10 @@
                         </div>
                     </div>
                     <!--Nic-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="nic">NIC No :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="nic">NIC</label>
                         </div>
                         <div class="col-md-8">
                             <input id="nic" th:field="*{nic}" class="form-control" tabindex="5" type="text"
@@ -121,11 +132,12 @@
                     </div>
                 </div>
                 <!--Right Side-->
-                <div class="form-group col-md-6 col-sm-6 text-right flex-column">
+                <div class="form-group col-md-6 col-sm-6  flex-column">
                     <!--Mobile Number-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="mobile">Mobile :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="mobile">Mobile </label>
                         </div>
                         <div class="col-md-8">
                             <input id="mobile" th:field="*{mobile}" class="form-control mobile" tabindex="6" type="text"
@@ -135,9 +147,10 @@
                         </div>
                     </div>
                     <!--Email-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="email">Email :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="email">Email </label>
                         </div>
                         <div class="col-md-8">
                             <input id="email" th:field="*{email}" class="form-control" tabindex="6" type="email"/>
@@ -146,9 +159,10 @@
                         </div>
                     </div>
                     <!--Address-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="address">Address :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="address">Address </label>
                         </div>
                         <div class="col-md-8">
                             <textarea id="address" th:field="*{address}" class="form-control" tabindex="7" rows="3"
@@ -184,14 +198,17 @@
                 <!--Button-->
                 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
 
-                    <!--Save Button-->
-                    <button class="btn btn-success ml-5" type="submit" tabindex="8">
-                        <i class="fa fa-save " style="font-size: 20px"></i>&nbsp;&nbsp;<span id="submit" th:text="${addStatus==true?'Save': 'Update'}"></span>
+                    <button class="btn btn-success" type="submit" tabindex="21">
+                        <i class="fa fa-save fa-sm" style="font-size: 20px"></i>&nbsp; &nbsp;
+                        <span id="submit" data-th-text="${addStatus==true?'Save': 'Update'}"></span>
                     </button>
-                    <!--Cancel Button-->
-                    <button class="btn btn-danger ml-5" type="reset" tabindex="9">
-                        <i class="fa fa-redo" style="font-size: 20px"></i>&nbsp;&nbsp;Reset
+                    <button class="btn btn-danger" type="reset" tabindex="21">
+                        <i class="fa fa-redo fa-sm" style="font-size: 20px"></i>&nbsp; &nbsp;
+                        <span id="reset" th:text="Reset"></span>
                     </button>
+                    <a class="btn btn-secondary" type="button" href="/customer">
+                        <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+                    </a >
                 </div>
                 <!--Error-->
                 <div class="form-row">
