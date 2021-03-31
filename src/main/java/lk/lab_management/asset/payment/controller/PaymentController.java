@@ -1,5 +1,6 @@
 package lk.lab_management.asset.payment.controller;
 
+import lk.lab_management.asset.payment.entity.enums.PaymentMethod;
 import lk.lab_management.asset.payment.entity.enums.PaymentStatus;
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.service.PaymentService;
@@ -66,6 +67,7 @@ public class PaymentController {
     model.addAttribute("payments", payments);
     model.addAttribute("sampleReceiving", sampleReceiving);
     model.addAttribute("paymentStatuses", PaymentStatus.values());
+    model.addAttribute("paymentMethods", PaymentMethod.values());
     return "payment/addPayment";
   }
 
@@ -79,7 +81,6 @@ public class PaymentController {
   @PostMapping( value = {"/add", "/update"} )
   public String addComponent(@Valid @ModelAttribute Payment payment, BindingResult result, Model model) {
     if ( result.hasErrors() ) {
-      System.out.println(result.toString());
       model.addAttribute("payment", payment);
       model.addAttribute("addStatus", true);
       return "payment/addPayment";
@@ -88,6 +89,7 @@ public class PaymentController {
     SampleReceiving sampleReceiving = sampleReceivingService.findById(payment.getSampleReceiving().getId());
     //if there is any previous payment
     List< Payment > payments = paymentService.findBySampleReceiving(sampleReceiving);
+
     if ( payments != null ) {
       BigDecimal paidAmount = BigDecimal.ZERO;
       for ( Payment paymentOne : payments ) {
@@ -97,8 +99,15 @@ public class PaymentController {
         sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
       }
     } else {
-      sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PPAID);
+      if ( payment.getAmount().equals(sampleReceiving.getAmount()) ) {
+        sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
+      } else {
+        sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PPAID);
+      }
+
     }
+
+
     payment.setSampleReceiving(sampleReceiving);
     paymentService.persist(payment);
     return "redirect:/payment";
@@ -113,7 +122,7 @@ public class PaymentController {
   @GetMapping( "/{id}" )
   public String view(@PathVariable Integer id, Model model) {
     Payment payment = paymentService.findById(id);
-    model.addAttribute("paymentDetails",payment );
+    model.addAttribute("paymentDetails", payment);
     model.addAttribute("sampleReceivingDetails", payment.getSampleReceiving());
     return "payment/payment-detail";
   }

@@ -59,7 +59,7 @@ public class SampleAcceptOrNotController {
       SampleReceiving sampleReceiving = sampleReceivingLabTest.getSampleReceiving();
       sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.ACTIVE);
       sampleReceivingLabTest.setSampleReceiving(sampleReceiving);
-      // sampleReceivingLabTestService.persist(sampleReceivingLabTest);
+
 //specification list
       List< Specification > specificationList = specificationService
           .findByLabTestNameAndCompound(sampleReceivingLabTest.getLabTestName(),
@@ -67,7 +67,6 @@ public class SampleAcceptOrNotController {
       //create sample receiving lab test result list and create new row to that table with null result
       List< SampleReceivingLabTestResult > sampleReceivingLabTestResults = new ArrayList<>();
       for ( Specification specification : specificationList ) {
-        System.out.println(specification.getId());
         SampleReceivingLabTestResult sampleReceivingLabTestResult =
             new SampleReceivingLabTestResult((float) 0.0, LabTestResultStatus.FAIL, sampleReceivingLabTest, specification);
         sampleReceivingLabTestResults.add(sampleReceivingLabTestResult);
