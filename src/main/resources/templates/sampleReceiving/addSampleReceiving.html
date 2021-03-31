@@ -9,11 +9,7 @@
 <!--Heading Area-->
 <div class="container-fluid  form-Border" >
   <div class="row text-center formManagement border-info" >
-    <div class="col" >
-      <a class="btn btn-outline-info" href="/home" tabindex="2" >
-        &nbsp;&nbsp;Back To Home
-      </a >
-    </div >
+
     <div class="col" >
       <a href="/sampleReceiving" class="btn btn-info" tabindex="1" >
         &nbsp;&nbsp;View Samples
@@ -81,12 +77,6 @@
                         th:text="${compound.name}"
                         th:value="${compound.id}" ></option >
               </select >
-            </div >
-            <div class="col-md-1" >
-              <a data-th-href="${'/compound/add'}" >
-                <button type="button" class="btn btn-outline-success" style="margin-top: 20px" >New
-                </button >
-              </a >
             </div >
           </div >
           <!--Price-->

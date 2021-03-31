@@ -1,11 +1,10 @@
 
 -----Doubts-----
-1. Checkbox in edit employee is not loading
+
 2. In few projects LiveDead is added to the User.java but commented in UserController.java
 3. When unauthorized link is clicked system directs to whitelabel page. It should direct to an custom error page.
 4. Alerts for Add, Update, Delete, Cancel, update
 5. navbar > profile > back > error ( no access to /employee for roles other than ADMIN )
-6. can not load compound price when adding sample. Should give access to cashier only to retrieve compound price
 
 Production Date
 Mixer
