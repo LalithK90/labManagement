@@ -138,6 +138,7 @@ public class ReportController {
       nameCountUserPaymentTypeAmount.setCount(paymentsByUser.size());
 
       List< PaymentTypeAmount > paymentTypeAmounts = new ArrayList<>();
+
       for ( PaymentMethod value : PaymentMethod.values() ) {
         PaymentTypeAmount paymentTypeAmount = new PaymentTypeAmount();
         paymentTypeAmount.setPaymentMethod(value);

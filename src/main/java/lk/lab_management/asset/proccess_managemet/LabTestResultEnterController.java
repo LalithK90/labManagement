@@ -1,18 +1,22 @@
 package lk.lab_management.asset.proccess_managemet;
 
 import lk.lab_management.asset.compound.entity.enums.LabTestName;
+import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTest;
 import lk.lab_management.asset.sample_receiving.entity.SampleReceivingLabTestResult;
 import lk.lab_management.asset.sample_receiving.entity.enums.Acceptability;
 import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingLabTestStatus;
+import lk.lab_management.asset.sample_receiving.entity.enums.SampleReceivingStatus;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingLabTestResultService;
 import lk.lab_management.asset.sample_receiving.service.SampleReceivingLabTestService;
+import lk.lab_management.asset.sample_receiving.service.SampleReceivingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +25,15 @@ import java.util.List;
 public class LabTestResultEnterController {
   private final SampleReceivingLabTestService sampleReceivingLabTestService;
   private final SampleReceivingLabTestResultService sampleReceivingLabTestResultService;
+  private final SampleReceivingService sampleReceivingService;
 
 
   public LabTestResultEnterController(SampleReceivingLabTestService sampleReceivingLabTestService,
-                                      SampleReceivingLabTestResultService sampleReceivingLabTestResultService) {
+                                      SampleReceivingLabTestResultService sampleReceivingLabTestResultService,
+                                      SampleReceivingService sampleReceivingService) {
     this.sampleReceivingLabTestService = sampleReceivingLabTestService;
     this.sampleReceivingLabTestResultService = sampleReceivingLabTestResultService;
+    this.sampleReceivingService = sampleReceivingService;
   }
 
   @GetMapping( "/form" )
@@ -42,7 +49,7 @@ public class LabTestResultEnterController {
   public String sampleAcceptOrNotSelection(@PathVariable LabTestName labTestName, Model model) {
     model.addAttribute("sampleReceivingLabTests",
                        sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus
-                               (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
+                           (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.NOTRESULTENTER));
     model.addAttribute("showList", true);
     return "processManagement/labTestResultEnter";
   }
@@ -105,6 +112,14 @@ public class LabTestResultEnterController {
     SampleReceivingLabTest sampleReceivingLabTestDB =
         sampleReceivingLabTestService.persist(sampleReceivingLabTestBeforeSave);
 
+    SampleReceiving sampleReceiving =
+        sampleReceivingService.findById(sampleReceivingLabTestDB.getSampleReceiving().getId());
+
+    if ( sampleReceivingLabTestDB.getSampleReceiving().getAmount().equals(BigDecimal.ZERO) && !sampleReceivingLabTestDB.getSampleReceiving().getSampleReceivingStatus().equals(SampleReceivingStatus.PAID) ) {
+      sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
+      sampleReceivingService.persist(sampleReceiving);
+    }
+
     return "redirect:/labTestResultEnter/form/" + sampleReceivingLabTestDB.getLabTestName();
   }
 
@@ -112,8 +127,8 @@ public class LabTestResultEnterController {
   @GetMapping( "/form/{labTestName}/view" )
   public String viewResultEnteredSamples(@PathVariable LabTestName labTestName, Model model) {
     model.addAttribute("sampleReceivingLabTests",
-            sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus
-                    (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.RESULTENTER));
+                       sampleReceivingLabTestService.findByLabTestNameAndAcceptabilityAndSampleReceivingLabTestStatus
+                           (labTestName, Acceptability.ACCEPT, SampleReceivingLabTestStatus.RESULTENTER));
     model.addAttribute("showList", true);
     return "processManagement/labTestResults";
   }

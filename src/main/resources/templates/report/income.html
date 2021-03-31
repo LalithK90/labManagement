@@ -48,7 +48,7 @@
         </div>
     </div>
 </div>
-</div >
+
 <!--Lab test report -->
 <div class="container-fluid">
     <div class="container">
@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                 <tr data-th-each="nameCountUserPaymentTypeAmount, rowCount : ${nameCountUserPaymentTypeAmounts}">
-                    <th data-th-text="${nameCountUserPaymentTypeAmount.count}"></th>
+                    <th data-th-text="${rowCount.count}"></th>
                     <th data-th-text="${nameCountUserPaymentTypeAmount.name}"></th>
                     <th data-th-text="${nameCountUserPaymentTypeAmount.count}"></th>
                     <th>
@@ -80,9 +80,9 @@
                             </thead>
                             <tbody>
                             <tr data-th-each="paymentTypeAmount, rowCount : ${nameCountUserPaymentTypeAmount.paymentTypeAmounts}">
-                                <th data-th-text="${paymentTypeAmount.count}"></th>
+                                <th data-th-text="${rowCount.count}"></th>
                                 <th data-th-text="${paymentTypeAmount.paymentMethod.paymentMethod}"></th>
-                                <th data-th-text="${paymentTypeAmount.count}"></th>
+                                <th data-th-text="${paymentTypeAmount.amount}"></th>
                             </tr>
                             </tbody>
                         </table>
