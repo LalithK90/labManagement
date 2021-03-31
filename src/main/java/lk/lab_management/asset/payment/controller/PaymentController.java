@@ -1,5 +1,6 @@
 package lk.lab_management.asset.payment.controller;
 
+import lk.lab_management.asset.payment.entity.enums.PaymentMethod;
 import lk.lab_management.asset.payment.entity.enums.PaymentStatus;
 import lk.lab_management.asset.payment.entity.Payment;
 import lk.lab_management.asset.payment.service.PaymentService;
@@ -66,6 +67,7 @@ public class PaymentController {
     model.addAttribute("payments", payments);
     model.addAttribute("sampleReceiving", sampleReceiving);
     model.addAttribute("paymentStatuses", PaymentStatus.values());
+    model.addAttribute("paymentMethods", PaymentMethod.values());
     return "payment/addPayment";
   }
 

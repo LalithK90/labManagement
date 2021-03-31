@@ -64,6 +64,26 @@
                             <input class="form-control" type="text"  th:value="${paidAmount}" id="paidAmount" readonly>
                         </div>
                     </div>
+                    <!--payment method-->
+                    <div class="form-row " >
+                        <div class="col-md-2" >
+                            <label class="control-label" for="gender" >Payment Method </label >
+                        </div >
+                        <div class="col-md-8" >
+                            <div class="custom-control custom-checkbox custom-control-inline "
+                                 data-th-each="paymentMethod,index : ${paymentMethods}">
+                                <input id="gender" class="custom-control-input" required
+                                       data-th-name="${'paymentMethod'}"
+                                       data-th-value="${genders}"
+                                       data-th-id="${index.index}+${paymentMethod}" type="radio"
+                                       data-th-checked="${genders==payment.paymentMethod}"/>
+                                <label class="custom-control-label"
+                                       data-th-for="${index.index}+${paymentMethod}"
+                                       data-th-text="${paymentMethod.paymentMethod}"> radio
+                                </label>
+                            </div>
+                        </div >
+                    </div >
                     <!--Amount-->
                     <div class="form-row text-right">
                         <div class="col-md-4">
