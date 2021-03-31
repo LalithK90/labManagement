@@ -85,11 +85,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         //Anytime users can access without login
                                         //to see actuator details
                                         .antMatchers(ALL_PERMIT_URL).permitAll()
-                                        //this is used the normal admin to give access every url mapping
-                                        .antMatchers("/employee").hasRole("ADMIN")
+
                                         //Need to login for access those are
-                                        .antMatchers("/employee/**").hasAnyRole("HR","ADMIN")
-                                        .antMatchers("/compound/**").hasAnyRole("SQA","QA","TM","LA")
+                                        .antMatchers("/employee/**").hasAnyRole("TM","LA","HR","ADMIN")
+                                        .antMatchers("/compound/**").hasAnyRole("TM","LA","CA")
                                         .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
                                         .antMatchers("/labTestResultEnter/**").hasAnyRole("SQA","QA","TM","LA")
                                         .antMatchers("/discountRatio/**").hasAnyRole("TM","LA","CA","ACC")

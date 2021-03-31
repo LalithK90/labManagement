@@ -80,10 +80,10 @@
                         <a id="employeeEdit" th:href="${'/employee/edit/' + employee.id}" class="btn btn-primary btn-sm"
                            data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
                             <i class="fa fa-edit"></i></a>
-                        <a id="employeeDelete" th:href="${'/employee/remove/' + employee.id}"
+                        <a th:id="${'/employee/remove/' + employee.id}"
                            class="btn btn-danger btn-sm"
                            data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')"
-                           onclick="if(!(confirm('Are you sure you want to delete this employee?'))) return false">
+                           onclick="confirmDelete(this)">
                             <i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
