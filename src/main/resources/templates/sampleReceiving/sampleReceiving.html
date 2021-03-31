@@ -8,12 +8,21 @@
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
+
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sample</li>
+                </ol>
+            </nav>
         </div>
+    </div>
+    <!--End of Breadcrumb-->
+
+    <div class="row text-center formManagement border-info">
 
         <div class="col">
             <a href="/sample/acceptability" id="btnSampleAccept" class="btn btn-facebook">
@@ -77,11 +86,9 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="text-center text-danger">
-                    <strong>There is no sampleReceiving upto now please add sampleReceiving to the system
-                        using "New" button.
-                    </strong>
-                </h3>
+                <h6 class="text-center text-danger">
+                    No records upto now. Please add record to the system using add button.
+                </h6>
             </div>
         </div>
         <script>

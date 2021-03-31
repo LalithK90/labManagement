@@ -9,25 +9,27 @@
 
 <!--heading Area-->
 <div class="container-fluid form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home" tabindex="2">
-                Back To Home
-            </a>
-        </div>
 
-        <div class="col">
-            <a href="/role" class="btn btn-info" tabindex="1">
-                View Compounds
-            </a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/role">Role</a></li>
+                    <li class="breadcrumb-item active">View Role</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <!--role Name-->
         <div class="col">
             <h2 class="text-info text-center">
                 <strong>
-                    <p th:text="${roleDetails.code} +${' '} +${roleDetails.name}"></p>
+                    <p th:text="${role.roleName}"></p>
                 </strong>
             </h2>
         </div>
@@ -38,63 +40,24 @@
 <div data-th-fragment="employeeDetailsFragment" class="container formBorder">
     <div class=" col-xl-12 col-sm-12 ">
         <div class="row">
-            <div class="col-xl-4 "></div>
+            <div class="col-xl-3 "></div>
             <div class="form-group col-md-6 col-sm-6 text-left flex-column">
-                <div class="form-row text-left">
-                    <div class="col-md-4">
-                        <label class="control-label" for="id">ID :</label>
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <p id="id" data-th-text="${compoundDetails.id}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-left">
-                    <div class="col-md-4">
-                        <label class="control-label" for="code">Role Code :</label>
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <p id="code" data-th-text="${compoundDetails.code}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-left">
-                    <div class="col-md-4">
-                        <label class="control-label" for="name">Role Name :</label>
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <p id="name" data-th-text="${compoundDetails.name}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-left">
-                    <div class="col-md-4">
-                        <label class="control-label" for="name">Role Price :</label>
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <p id="name" data-th-text="${compoundDetails.price}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <table class="table table-striped table-inverse table-responsive">
-                        <thead class="thead-inverse">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                         <tr>
-                            <th>Index</th>
-                            <th>Test Type</th>
-                            <th>Min</th>
-                            <th>Max</th>
+                            <th>Role Id</th>
+                            <td><p id="id" data-th-text="${role.id}" class="display_detail"></p></td>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr data-th-each="specification, index : ${compoundDetails.specifications}">
-                            <td data-th-text="${index.count}"></td>
-                            <td>
-                                <span data-th-text="${specification.specificationName}"></span>
-                            </td>
-                            <td data-th-text="${specification.min}"></td>
-                            <td data-th-text="${specification.max}"></td>
-                        </tbody>
+                        <tr>
+                            <th>Role Name</th>
+                            <td><p id="name" data-th-text="${role.roleName}" class="display_detail"></p></td>
+                        </tr>
                     </table>
                 </div>
+
             </div>
-            <div class="col-xl-2 "></div>
+            <div class="col-xl-3 "></div>
         </div>
     </div>
 </div>
@@ -102,7 +65,7 @@
 <!--Back Button-->
 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
     <a href="/role">
-        <button class="btn btn-outline-secondary" type="button" tabindex="3">
+        <button class="btn btn-secondary" type="button" tabindex="3">
             <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp; &nbsp;Back
         </button>
     </a>

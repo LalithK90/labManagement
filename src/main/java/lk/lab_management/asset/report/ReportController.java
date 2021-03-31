@@ -102,8 +102,8 @@ public class ReportController {
       }
       model.addAttribute("labTestNameCountDates", nameCountDates);
     }
-    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
-    return "report/latTestName";
+    model.addAttribute("message", " Records from " + startDate + " to " + endDate);
+    return "report/labTestName";
   }
 
   private List< SampleReceivingLabTest > countAccordingToLabTest
@@ -147,7 +147,7 @@ public class ReportController {
       nameCountUserPaymentTypeAmount.setPaymentTypeAmounts(paymentTypeAmounts);
       nameCountUserPaymentTypeAmounts.add(nameCountUserPaymentTypeAmount);
     });
-    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
+    model.addAttribute("message", " Records from " + startDate + " to " + endDate);
     model.addAttribute("nameCountUserPaymentTypeAmounts", nameCountUserPaymentTypeAmounts);
     return "report/income";
   }
@@ -195,7 +195,7 @@ public class ReportController {
                        customerNameSampleCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
                                                                                                dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
 
-    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
+    model.addAttribute("message", " Records from " + startDate + " to " + endDate);
     return "report/customerNameSampleCount";
   }
 
@@ -231,7 +231,7 @@ public class ReportController {
                        compoundNameAndCount(sampleReceivingService.findByCreatedAtIsBetween(dateTimeAgeService.dateTimeToLocalDateStartInDay(startDate),
                                                                                             dateTimeAgeService.dateTimeToLocalDateEndInDay(endDate))));
 
-    model.addAttribute("message", " This report is start at " + startDate + " end at " + endDate);
+    model.addAttribute("message", " Records from " + startDate + " to " + endDate);
     return "report/compound";
   }
 

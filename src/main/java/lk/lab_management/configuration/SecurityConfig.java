@@ -78,24 +78,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http.authorizeRequests().antMatchers("/").permitAll();
         // For developing easy to give permission all lin
 
-        /*http
+        http
                 .authorizeRequests(
                         authorizeRequests ->
                                 authorizeRequests
                                         //Anytime users can access without login
                                         //to see actuator details
                                         .antMatchers(ALL_PERMIT_URL).permitAll()
-                                        //this is used the normal admin to give access every url mapping
-                                        .antMatchers("/employee").hasRole("ADMIN")
+
                                         //Need to login for access those are
-                                        .antMatchers("/employee/**").hasAnyRole("HR","ADMIN")
-                                        .antMatchers("/compound/**").hasAnyRole("SQA","TM","LA")
+                                        .antMatchers("/employee/**").hasAnyRole("TM","LA","HR","ADMIN")
+                                        .antMatchers("/compound/**").hasAnyRole("TM","LA","CA")
                                         .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
-                                        .antMatchers("/labTestResultEnter/**").hasAnyRole("TM","LA")
+                                        .antMatchers("/labTestResultEnter/**").hasAnyRole("SQA","QA","TM","LA")
                                         .antMatchers("/discountRatio/**").hasAnyRole("TM","LA","CA","ACC")
                                         .antMatchers("/sample/acceptability/**").hasAnyRole("TM","LA")
                                         .antMatchers("/payment/**").hasAnyRole("CA","ACC")
-                                        .antMatchers("/role/**").hasAnyRole("HR")
+                                        .antMatchers("/role/**").hasAnyRole("ADMIN","HR")
                                         .anyRequest()
                                         .authenticated())
                 // Login form
@@ -131,7 +130,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         .sessionRegistry(sessionRegistry()))
                 //Cross site disable
                 .csrf(AbstractHttpConfigurer::disable)
-                .exceptionHandling();*/
+                .exceptionHandling();
     }
 }
 

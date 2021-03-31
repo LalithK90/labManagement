@@ -10,7 +10,9 @@ public enum Designation {
     QA("Quality Assurance Manager"),
     TA("Technical Manager"),
     LA("Lab Assistance"),
-    CA("Cashier");
+    CA("Cashier"),
+    HRM("HR Manager"),
+    ACC("Accountant");
 
     private final String designation;
 }

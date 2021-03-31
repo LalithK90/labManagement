@@ -8,6 +8,17 @@
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid">
+   <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Home</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--End of Breadcrumb-->
     <div class="main-section">
         <br>
         <div class="col-12">
@@ -20,7 +31,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Employees</div>
-                                            <a href="/employee">
+                                            <a href="/employee" data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')" >
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Employee Details</div>
                                             </a>
                                         </div>
@@ -38,7 +49,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Customers</div>
-                                            <a href="/customer">
+                                            <a href="/customer" data-sec-authorize="hasAnyAuthority('ROLE_CA')" >
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Customer Details</div>
                                             </a>
                                         </div>
@@ -55,7 +66,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Samples</div>
-                                            <a href="/sampleReceiving">
+                                            <a href="/sampleReceiving" data-sec-authorize="hasAnyAuthority('ROLE_CA')">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Sample Details</div>
                                             </a>
                                         </div>
@@ -75,7 +86,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Compounds</div>
-                                            <a href="/compound">
+                                            <a href="/compound" data-sec-authorize="hasAnyAuthority('ROLE_SQA', 'ROLE_QA', 'ROLE_TM', 'ROLE_LA')">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Compound Details</div>
                                             </a>
                                         </div>
@@ -92,7 +103,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Laboratory Test</div>
-                                            <a href="/labTestResultEnter/form">
+                                            <a href="/labTestResultEnter/form" data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA', 'ROLE_SQA', 'ROLE_QA')">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Test Details</div>
                                             </a>
                                         </div>
@@ -109,7 +120,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Payments</div>
-                                            <a href="/payment/needToPay">
+                                            <a href="/payment/needToPay" data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')">
                                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Payment Details</div>
                                             </a>
                                         </div>
@@ -123,12 +134,9 @@
                     </div>
                 </div>
                 <div class="col-5 bg-light formBorder">
-                    <div class="container-fluid text-center" id="petitionListPresent">
                         <canvas id="myChart">
 
                         </canvas>
-                    </div>
-
                 </div>
             </div>
         </div>
