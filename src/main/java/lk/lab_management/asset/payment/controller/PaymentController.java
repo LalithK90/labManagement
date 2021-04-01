@@ -87,7 +87,7 @@ public class PaymentController {
         }
         //sample receiving state to find total amount
         SampleReceiving sampleReceiving = sampleReceivingService.findById(payment.getSampleReceiving().getId());
-        System.out.println(sampleReceiving);
+
         //if there is any previous payment
         List<Payment> payments = paymentService.findBySampleReceiving(sampleReceiving);
 
@@ -100,14 +100,12 @@ public class PaymentController {
                 sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
             }
         }
-            if (new BigDecimal (payment.getAmount().toString()).equals(sampleReceiving.getAmount())) {
-                sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
-                System.out.println("status updated as PAID");
-            } else {
-                sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PPAID);
-            }
-
-
+        if (new BigDecimal(payment.getAmount().toString()).equals(new BigDecimal(sampleReceiving.getAmount().toString()))) {
+            sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
+            System.out.println("status updated as PAID");
+        } else {
+            sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PPAID);
+        }
 
 
         payment.setSampleReceiving(sampleReceiving);
