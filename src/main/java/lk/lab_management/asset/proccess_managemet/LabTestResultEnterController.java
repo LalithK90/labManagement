@@ -115,7 +115,8 @@ public class LabTestResultEnterController {
     SampleReceiving sampleReceiving =
         sampleReceivingService.findById(sampleReceivingLabTestDB.getSampleReceiving().getId());
 
-    if ( sampleReceivingLabTestDB.getSampleReceiving().getAmount().equals(BigDecimal.ZERO) && !sampleReceivingLabTestDB.getSampleReceiving().getSampleReceivingStatus().equals(SampleReceivingStatus.PAID) ) {
+    if ( sampleReceiving.getAmount().equals(new BigDecimal ("0.00")) ) {
+      System.out.println("results entered");
       sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
       sampleReceivingService.persist(sampleReceiving);
     }

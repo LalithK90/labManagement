@@ -33,8 +33,6 @@ public class SampleReceivingLabTest extends AuditEntity {
     @Enumerated(EnumType.STRING)
     private LabTestName labTestName;
 
-    @Enumerated( EnumType.STRING )
-    private LiveDead liveDead;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private SampleReceiving sampleReceiving;

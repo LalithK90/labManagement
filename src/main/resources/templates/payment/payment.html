@@ -38,7 +38,9 @@
                 <thead>
                 <tr>
                     <th> Index</th>
-                    <th> Sample</th>
+                    <th> Sample Code</th>
+                    <th> Batch</th>
+                    <th> Compound</th>
                     <th> Amount</th>
                     <th> Date</th>
                     <th> Payment Status</th>
@@ -50,6 +52,8 @@
                 <tr th:each="payment, rowCount : ${payments}">
                     <th th:text="${rowCount.count}"></th>
                     <th th:text="${payment.sampleReceiving.sampleCode}"></th>
+                    <th th:text="${payment.sampleReceiving.batchNo}"></th>
+                    <th th:text="${payment.sampleReceiving.compound.name}"></th>
                     <th th:text="${payment.amount}"></th>
                     <th th:text="${payment.paymentDate}"></th>
                     <th th:text="${payment.paymentStatus}"></th>
