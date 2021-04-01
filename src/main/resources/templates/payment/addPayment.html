@@ -74,9 +74,9 @@
                                  data-th-each="paymentMethod,index : ${paymentMethods}">
                                 <input id="gender" class="custom-control-input" required
                                        data-th-name="${'paymentMethod'}"
-                                       data-th-value="${genders}"
+                                       data-th-value="${paymentMethod}"
                                        data-th-id="${index.index}+${paymentMethod}" type="radio"
-                                       data-th-checked="${genders==payment.paymentMethod}"/>
+                                       data-th-checked="${paymentMethod==payment.paymentMethod}"/>
                                 <label class="custom-control-label"
                                        data-th-for="${index.index}+${paymentMethod}"
                                        data-th-text="${paymentMethod.paymentMethod}"> radio

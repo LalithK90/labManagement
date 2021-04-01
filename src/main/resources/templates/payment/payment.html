@@ -38,10 +38,11 @@
                 <thead>
                 <tr>
                     <th> Index</th>
-                    <th> Sample</th>
+                    <th> Sample Code</th>
+                    <th> Batch</th>
+                    <th> Compound</th>
                     <th> Amount</th>
                     <th> Date</th>
-                    <th> Payment Status</th>
                     <th> Sample Status</th>
                     <th data-th-if="${status}"> Modify</th>
                 </tr>
@@ -50,9 +51,10 @@
                 <tr th:each="payment, rowCount : ${payments}">
                     <th th:text="${rowCount.count}"></th>
                     <th th:text="${payment.sampleReceiving.sampleCode}"></th>
+                    <th th:text="${payment.sampleReceiving.batchNo}"></th>
+                    <th th:text="${payment.sampleReceiving.compound.name}"></th>
                     <th th:text="${payment.amount}"></th>
                     <th th:text="${payment.paymentDate}"></th>
-                    <th th:text="${payment.paymentStatus}"></th>
                     <th th:text="${payment.sampleReceiving.sampleReceivingStatus}"></th>
                     <th data-th-if="${status}">
                         <a id="employeeView" th:href="${'/payment/' + payment.id}" class="btn btn-outline-secondary btn-sm">&nbsp;View</a>

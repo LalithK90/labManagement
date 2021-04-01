@@ -32,8 +32,6 @@ public class Payment extends AuditEntity {
   @DateTimeFormat( pattern = "yyyy-MM-dd" )
   private LocalDate paymentDate;
 
-  @Enumerated( EnumType.STRING )
-  private PaymentStatus paymentStatus;
 
   @Enumerated(EnumType.STRING)
   private PaymentMethod paymentMethod;
