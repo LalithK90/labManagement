@@ -8,24 +8,26 @@
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 <!--heading Area-->
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
-        </div>
-        <div class="col">
-            <a href="/sampleReceiving" class="btn btn-info" tabindex="1">&nbsp;&nbsp;View Samples
-            </a>
-        </div>
 
-
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/sampleReceiving">Sample</a></li>
+                    <li class="breadcrumb-item active">View Sample</li>
+                </ol>
+            </nav>
+        </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row  ">
         <div class="col">
             <h2 class="text-info text-center">
                 <strong>
-                    <span th:text="${sampleReceivingDetails.id} +${' '} +${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></span>
+                    <span th:text="${sampleReceivingDetails.batchNo} +${' '} +${sampleReceivingDetails.compound.getCode()}"></span>
                 </strong>
             </h2>
         </div>
@@ -36,50 +38,36 @@
 <div data-th-fragment="sampleReceivingDetailsFragment" class="container-fluid  formBorder">
     <div class="col-sm-12 flex-column text-dark">
         <div class="row">
-            <!--Left Side-->
-            <div class="form-group col-md-6 col-sm-6 text-left flex-column">
-                <div class="form-row text-right">
-                    <div class="col-md-4">
-                        <label class="control-label" for="id">ID :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p id="id" data-th-text="${sampleReceivingDetails.id}" class="display_detail"></p>
-                    </div>
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Id</th>
+                            <td><p id="id" data-th-text="${sampleReceivingDetails.id}" class="display_detail"></p></td>
+                        </tr>
+                        <tr>
+                            <th>Sample Code</th>
+                            <td><p id="code" data-th-text="${sampleReceivingDetails.sampleCode}" class="display_detail"></p></td>
+                        </tr>
+                        <tr>
+                            <th>Batch No</th>
+                            <td><p id="number" data-th-text="${sampleReceivingDetails.batchNo}" class="display_detail"></p></td>
+                        </tr>
+                        <tr>
+                            <th>Compound</th>
+                            <td><p id="name" data-th-text="${sampleReceivingDetails.compound.getCode()}" class="display_detail"></p></td>
+                        </tr>
+                        <tr>
+                            <th>Customer</th>
+                            <td><p id="cutomer" data-th-text="${sampleReceivingDetails.customer.getName()}" class="display_detail"></p></td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="form-row text-right">
-                    <div class="col-md-4">
-                        <label class="control-label" for="code">Sample Code :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p id="code" data-th-text="${sampleReceivingDetails.sampleCode}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-right">
-                    <div class="col-md-4">
-                        <label class="control-label" for="number">Batch No :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p id="number" data-th-text="${sampleReceivingDetails.batchNo}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-right">
-                    <div class="col-md-4">
-                        <label class="control-label" for="name">Compound :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p id="name" data-th-text="${sampleReceivingDetails.compound.getCode()}" class="display_detail"></p>
-                    </div>
-                </div>
-                <div class="form-row text-right">
-                    <div class="col-md-4">
-                        <label class="control-label" for="name">Customer :</label>
-                    </div>
-                    <div class="col-md-8">
-                        <p id="cutomer" data-th-text="${sampleReceivingDetails.customer.getName()}" class="display_detail"></p>
-                    </div>
-                </div>
-
             </div>
+            <div class="col-xl-3"></div>
+
+
         </div>
     </div>
 </div>
@@ -87,7 +75,7 @@
 <!--Back Button-->
 <div class="form-group col-md-12 col-sm-12 text-center flex-column ">
     <a href="/sampleReceiving">
-        <button class="btn btn-outline-secondary" type="button" tabindex="3">
+        <button class="btn btn-secondary" type="button" tabindex="3">
             <i class="fas fa-arrow-circle-left" style="font-size: 20px"></i>&nbsp; &nbsp;Back
         </button>
     </a>

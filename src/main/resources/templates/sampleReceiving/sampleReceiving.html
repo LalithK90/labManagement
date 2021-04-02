@@ -22,16 +22,13 @@
     </div>
     <!--End of Breadcrumb-->
 
-    <div class="row text-center formManagement border-info">
-
-
-
+    <div class="row text-center formManagement border-info" data-th-if="${ #lists.isEmpty(sampleReceivings)}">
         <div class="col">
             <a class="btn btn-info" href="/sampleReceiving/add"><i class="fa fa-plus"></i>
                 &nbsp;Add New</a>
         </div>
-
     </div>
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -48,6 +45,15 @@
     <!--Table view-->
     <div class="col">
         <div class="col" id="sampleReceivingListPresent" data-th-if="${not #lists.isEmpty(sampleReceivings)}">
+
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/sampleReceiving/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Sample</a>
+                </div>
+            </div>
+            <br>
+
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>

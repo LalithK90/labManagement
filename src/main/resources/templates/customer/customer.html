@@ -32,6 +32,13 @@
             </h4>
         </div>
     </div>
+    <div class="row " th:if="${ #lists.isEmpty(customers)}">
+        <div class="col">
+            <a class="btn btn-info" href="/customer/add"><i class="fa fa-plus"></i>
+                &nbsp;Add New Customer</a>
+        </div>
+    </div>
+    <br>
 </div>
 
 <!--Customers List-->
@@ -97,13 +104,6 @@
     <!--Save customer-->
     <div class="row" th:if="${customerDetail != null}">
         <div class="col-sm-12">
-            <div class="row text-right">
-                <div class="col">
-                    <a class="btn btn-info" href="/customer/add"><i class="fa fa-plus"></i>
-                        &nbsp;Add New Customer</a>
-                </div>
-            </div>
-            <br>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
