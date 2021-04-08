@@ -8,19 +8,20 @@
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
-        </div>
 
-        <div class="col">
-            <a class="btn btn-info" href="/discountRatio/add"><i class="fa fa-plus"></i>
-                &nbsp;Add New</a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Discount</li>
+                </ol>
+            </nav>
         </div>
-
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -30,11 +31,24 @@
             </h4>
         </div>
     </div>
+    <div class="row text-center formManagement border-info">
+        <div class="col">
+            <a class="btn btn-info" href="/discountRatio/add" th:if="${ #lists.isEmpty(discountRatios)}"><i class="fa fa-plus"></i>
+                &nbsp;Add New</a>
+        </div>
+    </div>
 </div>
 
 <div class="container-fluid formBorder text-center">
     <div class="col">
         <div class="col" id="discountRatioListPresent" th:if="${not #lists.isEmpty(discountRatios)}">
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/discountRatio/add"><i class="fa fa-plus"></i>
+                        &nbsp;Add New Discount</a>
+                </div>
+            </div>
+            <br>
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
@@ -52,11 +66,10 @@
                     <th th:text="${discountRatio.amount}"></th>
                     <th th:text="${discountRatio.discountRatioStatus.discountRatioStatus}"></th>
                     <th>
-                        <a id="discountRatioEdit" th:href="${'/discountRatio/edit/' + discountRatio.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
+                        <a id="discountRatioEdit" th:href="${'/discountRatio/edit/' + discountRatio.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                         <a id="discountRatioRemove" th:href="${'/discountRatio/delete/' + discountRatio.id}"
-                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash"></i>
-                            Delete</a>
+                           class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i>
+                            </a>
                     </th>
                 </tr>
                 </tbody>
@@ -78,6 +91,10 @@
             /*active boostrap alert - start*/
             $(".alert").alert();
             /*active boostrap alert - end*/
+            function confirmthis(obj){
+                console.log(location.protocol + "//" + location.host + obj.getAttribute('id'))
+            }
+
         </script>
     </div>
 </div>

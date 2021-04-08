@@ -9,14 +9,24 @@
 <!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a href="/home" id="btnHome" class="btn btn-outline-info">
-                &nbsp;Back To Home&nbsp;
-            </a>
+
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                </ol>
+            </nav>
         </div>
+    </div>
+    <!--End of Breadcrumb-->
+
+    <div class="row text-center formManagement border-info">
+
         <div class="col">
-            <a class="btn btn-info" href="/payment/needToPay"><i class="fa fa-plus"></i>
+            <a class="btn btn-info" href="/payment/needToPay" th:if="${ #lists.isEmpty(payments)}"><i class="fa fa-plus"></i>
                 &nbsp;Add New</a>
         </div>
     </div>
@@ -34,6 +44,15 @@
 <div class="container-fluid formBorder text-center" data-th-fragment="paymentFragment">
     <div class="col">
         <div class="col" id="paymentList" th:if="${not #lists.isEmpty(payments)}">
+            <div class="row text-right">
+                <div class="col">
+                    <a class="btn btn-info" href="/payment/needToPay" >
+                        <i class="fa fa-plus"></i>
+                        Add New Payment</a>
+                </div>
+            </div>
+            <br>
+
             <table class="table table-hover table-striped" id="myTable">
                 <thead>
                 <tr>
@@ -57,11 +76,11 @@
                     <th th:text="${payment.paymentDate}"></th>
                     <th th:text="${payment.sampleReceiving.sampleReceivingStatus}"></th>
                     <th data-th-if="${status}">
-                        <a id="employeeView" th:href="${'/payment/' + payment.id}" class="btn btn-outline-secondary btn-sm">&nbsp;View</a>
-                        <a id="employeeEdit" th:href="${'/payment/edit/' + payment.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;Edit</a>
-                        <a id="employeeRemove" th:href="${'/payment/remove/' + payment.id}"
-                           th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                            Delete</a>
+                        <a id="paymentView" th:href="${'/payment/' + payment.id}" class="btn btn-secondary btn-sm"><i class="fa fa-list-alt"></i></a>
+                        <a id="paymentEdit" th:href="${'/payment/edit/' + payment.id}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                        <a id="paymentRemove" th:href="${'/payment/delete/' + payment.id}"
+                           data-sec-authorize="hasAnyAuthority('ROLE_CA')"
+                           class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></a>
                     </th>
                 </tr>
                 </tbody>

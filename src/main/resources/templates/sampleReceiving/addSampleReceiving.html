@@ -44,9 +44,10 @@
         <!--Left Side-->
         <div class="container ml-5 mr-5 pl-5 pr-5" >
           <!--Customer -->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" id="customerLabel" >Customer :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" id="customerLabel" >Customer </label >
             </div >
             <div class="col-md-7" >
               <select id="customer" th:field="*{customer}" class="form-control" tabindex="1" required >
@@ -63,19 +64,20 @@
               </a >
             </div >
           </div >
-          <div id="idStatus" class="form-row text-right" >
-
-            <div class="col-md-4" >
-              <label class="control-label" for="code" >Batch Number :</label >
+          <div id="idStatus" class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="code" >Batch Number </label >
             </div >
             <div class="col-md-7" >
               <input id="code" th:field="*{batchNo}" class="form-control" type="text" tabindex="2"/>
             </div >
           </div >
           <!--compound -->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="compound" >Compound :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="compound" >Compound </label >
             </div >
             <div class="col-md-7" >
               <select id="compound" th:field="*{compound}" class="form-control" tabindex="3" required >
@@ -87,18 +89,20 @@
             </div >
           </div >
           <!--Price-->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="price" >Price :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="price" >Price </label >
             </div >
             <div class="col-md-7" >
               <input id="price" class="form-control" type="text" readonly />
             </div >
           </div >
           <!--DiscountRatio -->
-          <div class="form-row text-right" >
-            <div class="col-md-4" >
-              <label class="control-label" for="discount" >Discount (%) :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="discount" >Discount (%) </label >
             </div >
             <div class="col-md-7" >
               <select id="discount" th:field="*{discountRatio}" class="form-control" tabindex="4" required >
@@ -110,10 +114,10 @@
             </div >
           </div >
           <!--Amount-->
-          <div class="form-row text-right" >
-
-            <div class="col-md-4" >
-              <label class="control-label" for="price" >Amount :</label >
+          <div class="form-row " >
+            <div class="col-md-2"></div>
+            <div class="col-md-2" >
+              <label class="control-label" for="price" >Amount </label >
             </div >
             <div class="col-md-7" >
               <input id="amount" class="form-control" type="text" th:field="*{amount}" readonly />
@@ -122,9 +126,10 @@
           <!--Created by and created at-->
           <div id="updateStatus" th:if="${addStatus==false}" >
             <!--Created By-->
-            <div class="form-row text-right" >
-              <div class="col-md-4" >
-                <label class="control-label" for="createdBy" >Created By :</label >
+            <div class="form-row " >
+              <div class="col-md-2"></div>
+              <div class="col-md-2" >
+                <label class="control-label" for="createdBy" >Created By </label >
               </div >
               <div class="col-md-8" >
                 <input id="createdBy" th:field="*{createdBy}" class="form-control" type="text"
@@ -132,9 +137,10 @@
               </div >
             </div >
             <!--Created At-->
-            <div class="form-row text-right" >
-              <div class="col-md-4" >
-                <label class="control-label" for="createdAt" >Created At :</label >
+            <div class="form-row " >
+              <div class="col-md-2"></div>
+              <div class="col-md-2" >
+                <label class="control-label" for="createdAt" >Created At </label >
               </div >
               <div class="col-md-8" >
                 <input id="createdAt" th:field="*{createdAt}" class="form-control" type="text"

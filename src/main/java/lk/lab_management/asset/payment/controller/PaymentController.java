@@ -73,8 +73,11 @@ public class PaymentController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-        model.addAttribute("payment", paymentService.findById(id));
+        Payment payment = paymentService.findById(id);
+        model.addAttribute("payment", payment);
         model.addAttribute("addStatus", false);
+        model.addAttribute("sampleReceiving", payment.getSampleReceiving());
+        model.addAttribute("paymentMethod", payment.getPaymentMethod());
         return "payment/addPayment";
     }
 
