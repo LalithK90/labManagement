@@ -38,7 +38,8 @@
         <div class="col" id="employeeListPresent" th:if="${not #lists.isEmpty(employees)}">
             <div class="row text-right">
                 <div class="col">
-                    <a class="btn btn-info" href="/employee/add"><i class="fa fa-plus"></i>
+                    <a class="btn btn-info" href="/employee/add" data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR')">
+                        <i class="fa fa-plus"></i>
                         Add New Employee</a>
                 </div>
             </div>

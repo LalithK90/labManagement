@@ -9,6 +9,7 @@ import lk.lab_management.util.interfaces.AbstractService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DiscountRatioService implements AbstractService< DiscountRatio, Integer > {
@@ -19,7 +20,10 @@ private final DiscountRatioDao discountRatioDao;
     }
 
     public List< DiscountRatio > findAll() {
-        return discountRatioDao.findAll();
+
+        return discountRatioDao.findAll().stream()
+                .filter(x -> LiveDead.ACTIVE.equals(x.getLiveDead()))
+                .collect(Collectors.toList());
     }
 
     public DiscountRatio findById(Integer id) {

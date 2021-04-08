@@ -62,8 +62,7 @@ public class PaymentService implements AbstractService<Payment, Integer> {
             String message = "Dear" + customer.getName() +
                     "\n Payment Code:" + payment.getNumber() +
                     "\n Sample Code :" + payment.getSampleReceiving().getSampleCode() +
-                    "\n Amount      :" + payment.getAmount() +
-                    "\n Status      :" + payment.getPaymentStatus();
+                    "\n Amount      :" + payment.getAmount();
             emailService.sendEmail(customer.getEmail(), "Payment Successful", message);
         }
         return payment1;

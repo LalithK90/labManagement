@@ -9,20 +9,22 @@
 <!--<nav th:replace="~{fragments/sideBar :: sideBarFragment}"></nav>-->
 
 
-<div class="container  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col" >
-            <a class="btn btn-outline-info" href="/home" >
-                Back To Home
-            </a >
-        </div >
-        <div class="col">
-            <a href="/payment" class="btn btn-info">
-                 View Payments
-            </a>
-        </div>
+<div class="container-fluid  form-Border">
 
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/payment">Payment</a></li>
+                    <li class="breadcrumb-item active" ><span th:text="${addStatus==true?'New Payment ':'Update Payment Details'}"></span></li>
+                </ol>
+            </nav>
+        </div>
     </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -45,9 +47,10 @@
                 <div class="form-group col-md-6 col-sm-6 text-left flex-column">
                     <!--Sample Code-->
                     <!--Option to select which sample's payment is to be done-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="sampleReceiving">Sample :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="sampleReceiving">Sample </label>
                         </div>
                         <div class="col-md-8">
                             <span class="form-control" th:text="${sampleReceiving.number+' Amount:'+sampleReceiving.amount}"></span>
@@ -56,9 +59,10 @@
                         <input type="hidden" th:name="${'sampleReceiving.id'}" th:value="${sampleReceiving.id}" id="sampleReceiving" required>
                         <input type="hidden"  th:value="${sampleReceiving.amount}" id="actualAmount" required>
                     </div>
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="paidAmount">Paid amount :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="paidAmount">Paid amount </label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" type="text"  th:value="${paidAmount}" id="paidAmount" readonly>
@@ -66,17 +70,18 @@
                     </div>
                     <!--payment method-->
                     <div class="form-row " >
+                        <div class="col-md-2"></div>
                         <div class="col-md-2" >
-                            <label class="control-label" for="gender" >Payment Method </label >
+                            <label class="control-label" for="paymentMethod" >Payment Method  </label >
                         </div >
-                        <div class="col-md-8" >
+                        <div class="col-md-8 text-left" >
                             <div class="custom-control custom-checkbox custom-control-inline "
                                  data-th-each="paymentMethod,index : ${paymentMethods}">
-                                <input id="gender" class="custom-control-input" required
+                                <input id="paymentMethod" class="custom-control-input" required
                                        data-th-name="${'paymentMethod'}"
-                                       data-th-value="${genders}"
+                                       data-th-value="${paymentMethod}"
                                        data-th-id="${index.index}+${paymentMethod}" type="radio"
-                                       data-th-checked="${genders==payment.paymentMethod}"/>
+                                       data-th-checked="${paymentMethod==payment.paymentMethod}"/>
                                 <label class="custom-control-label"
                                        data-th-for="${index.index}+${paymentMethod}"
                                        data-th-text="${paymentMethod.paymentMethod}"> radio
@@ -85,9 +90,10 @@
                         </div >
                     </div >
                     <!--Amount-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="amount">Amount :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="amount">Amount </label>
                         </div>
                         <div class="col-md-8">
                             <input id="amount" data-th-field="*{amount}" class="form-control" tabindex="4"
@@ -97,18 +103,20 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="balance">Balance :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="balance">Balance </label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" type="text" id="balance" readonly>
                         </div>
                     </div>
                     <!--Payment Date-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="paymentDate">Payment Date :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="paymentDate">Payment Date </label>
                         </div>
                         <div class="col-md-8">
                             <input id="paymentDate" data-th-field="*{paymentDate}" class="form-control" tabindex="4"
@@ -128,9 +136,12 @@
                 <button class="btn btn-success" type="submit" tabindex="21">
                     <i class="fa fa-save " style="font-size: 20px"></i>&nbsp; &nbsp;<span id="submit" th:text="${addStatus==true?'Save': 'Update'}"></span>
                 </button>
-                <button class="btn btn-warning ml-5" type="reset" tabindex="9">
-                    <i class="far fa-times-circle" style="font-size: 20px"></i>&nbsp;&nbsp;Cancel
-                </button>
+                <button class="btn btn-danger" type="reset" >
+                    <i class="fa fa-redo fa-sm" ></i > <span id="reset" >&nbsp;Reset</span >
+                </button >
+                <a class="btn btn-secondary" type="button" href="/payment">
+                    <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+                </a >
             </div>
 
         </form>

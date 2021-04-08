@@ -50,15 +50,13 @@ public class SampleReceivingLabTestService implements AbstractService<SampleRece
                     "\n Results have been entered for the test"+sampleReceivingLabTest1.getLabTestName().toString();
             emailService.sendEmail(customer.getEmail(), "Test Results", message);
         }
-        if(sampleReceivingLabTest.getId()==null){
-            sampleReceivingLabTest.setLiveDead(LiveDead.ACTIVE);}
+
         return sampleReceivingLabTest1;
     }
 
     @Override
     public boolean delete(Integer id) {
         SampleReceivingLabTest sampleReceivingLabTest = sampleReceivingLabTestDao.getOne(id);
-        sampleReceivingLabTest.setLiveDead(LiveDead.STOP);
         sampleReceivingLabTestDao.save(sampleReceivingLabTest);
         return false;
     }
