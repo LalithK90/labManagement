@@ -77,7 +77,7 @@ public class PaymentController {
         model.addAttribute("payment", payment);
         model.addAttribute("addStatus", false);
         model.addAttribute("sampleReceiving", payment.getSampleReceiving());
-        model.addAttribute("paymentMethod", payment.getPaymentMethod());
+        model.addAttribute("paymentMethods", PaymentMethod.values());
         return "payment/addPayment";
     }
 
