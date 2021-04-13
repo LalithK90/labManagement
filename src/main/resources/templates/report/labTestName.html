@@ -118,12 +118,65 @@
     <div class="offset-2 col-8 col-sm-8 col-md-8" data-th-if="${#lists.isEmpty(labTestNameCountDates)}">
         <p>There are no details to display</p>
     </div>
+
+    <div class="offset-2 col-8 col-sm-8 col-md-8" data-th-if="${not #lists.isEmpty(labTestNameCounts)}">
+        <div class="col-5 bg-light formBorder">
+            <canvas id="myChart">
+
+            </canvas>
+        </div>
+
+    </div>
 </div>
 
 
 <div data-th-replace="~{fragments/footer :: footerFragment}"></div>
 <!--script include-->
 <div data-th-replace="~{fragments/script :: scriptFragment}"></div>
+
+<script>
+    var ctx = document.getElementById('myChart');
+    const dataList = new Array();
+    /*<![CDATA[*/
+    var nameCountsList = /*[[${labTestNameCounts}]]*/'';
+    /*]]>*/
+    nameCountsList.forEach(chartData);
+    function chartData(item){
+        dataList.push(item.count);
+    }
+
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Physical Properties', 'Rheometer', 'Viscosity'],
+            datasets: [{
+                label: 'Lab Tests',
+                data: dataList,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
