@@ -8,23 +8,25 @@
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid  form-Border">
-    <div class="row text-center formManagement border-info">
-        <div class="col">
-            <a class="btn btn-outline-info" href="/home"> Back To Home
-            </a>
-        </div>
 
-        <div class="col">
-            <a class="btn btn-info" href="/discountRatio">&nbsp; Discounts List
-            </a>
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/discountRatio">Discount</a></li>
+                    <li class="breadcrumb-item active" > <span data-th-text="${addStatus==true?'New Discount ':'Update Discount Details'}"></span></li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <!--End of Breadcrumb-->
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
                 <strong>
-                    <span
-                            data-th-text="${addStatus==true?'New Discount Ratio Add':'Update Discount Ratio Details'}"></span>
+                    <span data-th-text="${addStatus==true?'New Discount':'Update Discount Details'}"></span>
                 </strong>
             </h4>
         </div>
@@ -43,9 +45,10 @@
                     <input type="text" hidden data-th-if="${addStatus==false}" data-th-field="*{liveDead}">
 
                     <!--Name-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="name">Name :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="name">Name </label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" data-th-field="*{name}" id="name" required tabindex="4"
@@ -56,9 +59,10 @@
                     </div>
 
                     <!--amount-->
-                    <div class="form-row text-right">
-                        <div class="col-md-4">
-                            <label class="control-label" for="name">Amount :</label>
+                    <div class="form-row ">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="name">Amount </label>
                         </div>
                         <div class="col-md-8">
                             <input class="form-control" data-th-field="*{amount}" id="amount" required tabindex="4"
@@ -69,8 +73,9 @@
                     </div>
                     <!--Discount Ratio status-->
                     <div class="form-row text-right" data-th-if="${addStatus==false}">
-                        <div class="col-md-4">
-                            <label class="control-label" for="discountRatioStatus">Discount Ratio Status :</label>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2" >
+                            <label class="control-label" for="discountRatioStatus">Discount Ratio Status </label>
                         </div>
                         <div class="col-md-8">
                             <select id="discountRatioStatus" data-th-field="*{discountRatioStatus}" class="form-control" tabindex="7" required>
@@ -91,6 +96,12 @@
                             data-th-text="${addStatus==true?'Save': 'Update'}"
                             id="submit"></span>
                     </button>
+                    <button class="btn btn-danger" type="reset" >
+                        <i class="fa fa-redo fa-sm" ></i > <span id="reset" >&nbsp;Reset</span >
+                    </button >
+                    <a class="btn btn-secondary" type="button" href="/discountRatio">
+                        <i class="fas fa-times"></i> &nbsp;<span id="cancel" >Cancel</span >
+                    </a >
                 </div>
                 <div class="form-row">
                     <label data-th-if="${#fields.hasErrors('*')}" data-th-text="'Errors: '"

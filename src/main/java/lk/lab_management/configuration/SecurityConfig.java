@@ -87,7 +87,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                         .antMatchers(ALL_PERMIT_URL).permitAll()
 
                                         //Need to login for access those are
-                                        .antMatchers("/employee/**").hasAnyRole("TM","LA","HR","ADMIN")
+                                        .antMatchers("/employee/**").hasAnyRole("TM","LA","HR","ADMIN", "CA")
                                         .antMatchers("/compound/**").hasAnyRole("TM","LA","CA")
                                         .antMatchers("/customer/**").hasAnyRole("CA","ADMIN")
                                         .antMatchers("/labTestResultEnter/**").hasAnyRole("SQA","QA","TM","LA")

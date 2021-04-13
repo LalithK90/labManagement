@@ -80,7 +80,6 @@ public class EmployeeController {
             employee.setFileInfo(employeeFilesService.employeeFileDownloadLinks(employee));
             employees.add(employee);
         }
-        System.out.println("dfsdfs " + employees.size());
         model.addAttribute("employees", employees);
         model.addAttribute("contendHeader", "Employee");
         return "employee/employee";

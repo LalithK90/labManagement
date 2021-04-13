@@ -11,7 +11,7 @@
 <div class="container-fluid  form-Border" >
   <div class="row text-left formManagement border-info" >
     <div class="col" >
-      <a href="/home" id="searchShow" class="btn btn-outline-info" tabindex="2" >&nbsp;&nbsp;Back To Home
+      <a href="/home" id="searchShow" class="btn btn-outline-info" >&nbsp;&nbsp;Back To Home
       </a >
     </div >
   </div >
@@ -83,7 +83,7 @@
                    hidden >
           </div >
           <div class="col-3" >
-            <input type="number" step="0.5" class="form-control" data-th-id="${'rs'+index.index}"
+            <input type="number" step="0.5" class="form-control" data-th-id="${'rs'+index.index}" tabindex="1"
                    onkeyup="testResultValidation(this)"
                    data-th-field="*{sampleReceivingLabTestResults[__${index.index}__].result}" required >
           </div >

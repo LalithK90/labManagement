@@ -5,3 +5,8 @@
 .bg-danger {
     background-color: #f5c6c2 !important
 }
+
+/*navbar*/
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #000000;
+}
