@@ -142,7 +142,14 @@ public class ReportController {
       for ( PaymentMethod value : PaymentMethod.values() ) {
         PaymentTypeAmount paymentTypeAmount = new PaymentTypeAmount();
         paymentTypeAmount.setPaymentMethod(value);
-        paymentTypeAmount.setAmount(priceList(paymentsByPaymentMethode(paymentsByUser, value)).stream().reduce(BigDecimal.ZERO, BigDecimal::add));
+        List< BigDecimal > paymentTypeAmountDb = new ArrayList<>();
+        paymentsByUser
+            .stream()
+            .filter(payment -> payment.getPaymentMethod().equals(value))
+            .collect(Collectors.toList())
+            .forEach(payment -> paymentTypeAmountDb.add(payment.getAmount()));
+
+        paymentTypeAmount.setAmount(paymentTypeAmountDb.stream().reduce(BigDecimal.ZERO, BigDecimal::add));
         paymentTypeAmounts.add(paymentTypeAmount);
       }
       nameCountUserPaymentTypeAmount.setPaymentTypeAmounts(paymentTypeAmounts);

@@ -64,7 +64,7 @@ public class LabTestResultEnterController {
           sampleReceivingLabTestResultService.findById(sampleReceivingLabTestResult.getId());
       sampleReceivingLabTestResults.add(sampleReceivingLabTestResultDB);
     }
-    //todo:
+
     model.addAttribute("customerDetail", sampleReceivingLabTest.getSampleReceiving().getCustomer());
     model.addAttribute("sampleReceivingLabTest", sampleReceivingLabTest);
     model.addAttribute("sampleReceivingLabTestResultses", sampleReceivingLabTestResults);
@@ -116,7 +116,6 @@ public class LabTestResultEnterController {
         sampleReceivingService.findById(sampleReceivingLabTestDB.getSampleReceiving().getId());
 
     if ( sampleReceiving.getAmount().equals(new BigDecimal ("0.00")) ) {
-      System.out.println("results entered");
       sampleReceiving.setSampleReceivingStatus(SampleReceivingStatus.PAID);
       sampleReceivingService.persist(sampleReceiving);
     }
