@@ -61,12 +61,12 @@
         <tr >
           <th > Index</th >
           <th > Compound Name</th >
-          <th > Count</th >
+          <th > Sample Count</th >
         </tr >
         </thead >
         <tbody >
         <tr data-th-each="compoundNameAndCount, rowCount : ${compoundNameAndCounts}" >
-          <th data-th-text="${compoundNameAndCount.count}" ></th >
+          <th data-th-text="${rowCount.count}" ></th >
           <th data-th-text="${compoundNameAndCount.name}" ></th >
           <th data-th-text="${compoundNameAndCount.count}" ></th >
         </tr >

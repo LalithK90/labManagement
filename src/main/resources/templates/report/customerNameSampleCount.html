@@ -60,12 +60,12 @@
         <tr >
           <th > Index</th >
           <th > Customer Name</th >
-          <th > Count</th >
+          <th > Sample Count</th >
         </tr >
         </thead >
         <tbody >
         <tr data-th-each="customerNameSampleCount, rowCount : ${customerNameSampleCounts}" >
-          <th data-th-text="${customerNameSampleCount.count}" ></th >
+          <th data-th-text="${rowCount.count}" ></th >
           <th data-th-text="${customerNameSampleCount.name}" ></th >
           <th data-th-text="${customerNameSampleCount.count}" ></th >
         </tr >
