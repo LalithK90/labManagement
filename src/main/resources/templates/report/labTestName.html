@@ -56,7 +56,7 @@
     </div>
     <div class="offset-2 col-8 col-sm-8 col-md-8" data-th-if="${not #lists.isEmpty(labTestNameCounts)}">
         <div class="table-responsive">
-            <table class="table table-striped table-condensed">
+            <table class="table table-striped table-condensed" id="reportTable">
                 <thead>
                 <tr>
                     <th> Index</th>
@@ -119,7 +119,7 @@
         <p>There are no details to display</p>
     </div>
 
-    <div class="offset-2 col-8 col-sm-8 col-md-8" data-th-if="${not #lists.isEmpty(labTestNameCounts)}">
+    <div class="offset-2 col-xl-12 col-md-12 col-sm-8" data-th-if="${not #lists.isEmpty(labTestNameCounts)}">
         <div class="col-5 bg-light formBorder">
             <canvas id="myChart">
 
@@ -135,24 +135,48 @@
 <div data-th-replace="~{fragments/script :: scriptFragment}"></div>
 
 <script>
-    var ctx = document.getElementById('myChart');
-    const dataList = new Array();
-    /*<![CDATA[*/
-    var nameCountsList = /*[[${labTestNameCounts}]]*/'';
-    /*]]>*/
-    nameCountsList.forEach(chartData);
-    function chartData(item){
-        dataList.push(item.count);
+    var table = document.getElementById('reportTable');
+    var json = []; // First row needs to be headers
+    var headers =[];
+    for (var i = 0; i < table.rows[0].cells.length; i++) {
+        headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
     }
+
+    // Go through cells
+    for (var i = 1; i < table.rows.length; i++) {
+        var tableRow = table.rows[i];
+        var rowData = {};
+        for (var j = 0; j < tableRow.cells.length; j++) {
+            rowData[headers[j]] = tableRow.cells[j].innerHTML;
+        }
+
+        json.push(rowData);
+    }
+
+    console.log(json);
+
+    var labels = json.map(function (e) {
+        return e.labtestname;
+    });
+    console.log(labels); // ["2016", "2017", "2018", "2019"]
+
+    // Map JSON values back to values array
+    var values = json.map(function (e) {
+        return e.count;
+    });
+    console.log(values);
+
+    var ctx = document.getElementById('myChart');
+
 
 
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Physical Properties', 'Rheometer', 'Viscosity'],
+            labels: ["Physical", "Rheometer", "Viscosity"],
             datasets: [{
                 label: 'Lab Tests',
-                data: dataList,
+                data: values,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
