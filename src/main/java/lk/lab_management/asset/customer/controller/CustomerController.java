@@ -77,7 +77,7 @@ public class CustomerController implements AbstractController<Customer, Integer>
             }
             //send welcome message and email
 
-            if (customer.getMobile() != null) {
+           /* if (customer.getMobile() != null) {
                 try {
                     String mobileNumber = customer.getMobile().substring(1, 10);
                     twilioMessageService.sendSMS("+94" + mobileNumber, "Successfully registered in " +
@@ -85,7 +85,7 @@ public class CustomerController implements AbstractController<Customer, Integer>
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
         }
 
         redirectAttributes.addFlashAttribute("customerDetail", customerService.persist(customer));
