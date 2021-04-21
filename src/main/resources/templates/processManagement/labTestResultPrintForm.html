@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head data-th-replace="~{fragments/header :: headerFragment}" >
-  <meta charset="UTF-8" >
+  <meta charset="UTF-8" ><div class="container-fluid  form-Border" >
+
+
+</div >
   <title >sampleReceiving</title >
 </head >
 <body >
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
-<!--Form to enter results-->
-<!--heading Area-->
-<div class="container-fluid  form-Border" >
-  <div class="row text-left formManagement border-info" >
-    <div class="col" >
-      <a href="/home" id="searchShow" class="btn btn-outline-info" tabindex="2" >&nbsp;&nbsp;Back To Home
-      </a >
-    </div >
-  </div >
 
-</div >
+<!--Breadcrumb-->
+<div class="row">
+  <div class="col-12">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Lab Test Results</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!--End of Breadcrumb-->
 
 <!--data enter form-->
 <div class="container" >
@@ -28,8 +33,10 @@
 
         </div>
         <div class="col-md-6">
-          <h2 class="text-info text-center">Global Rubber Industries (PVT) LTD.</h2>
-          <h3></h3>
+          <h2 class="text-info text-right">Global Rubber Industries (PVT) LTD.</h2>
+          <h4 class="text-info text-right">No.28, Joseph's Lane, Colombo 04</h4>
+          <h6 class="text-info text-right">info@gritires.com</h6>
+          <h6 class="text-info text-right"> + 94 112598831</h6>
         </div>
       </div>
     </div>
@@ -38,26 +45,26 @@
       <div class="form-row">
         <div class="col-md-6">
           <!--Code-->
-          <div class="form-row text-right">
-            <div class="col-md-4">
-              <label class="control-label" for="departmentIdNumber">Customer Code :</label>
+          <div class="form-row ">
+            <div class="col-md-4 ">
+              <label class="control-label" for="departmentIdNumber" style="font-weight: bold">Customer Code </label>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 ">
               <p id="departmentIdNumber" th:text="${customerDetail.code}" class="display_detail"></p></div>
           </div>
           <!--Mobile-->
-          <div class="form-row text-right">
+          <div class="form-row ">
             <div class="col-md-4">
-              <label class="control-label" for="mobile">Mobile No :</label>
+              <label class="control-label" for="mobile" style="font-weight: bold">Mobile No </label>
             </div>
             <div class="col-md-8">
               <p id="mobile" th:text="${customerDetail.mobile}" class="display_detail"></p>
             </div>
           </div>
           <!--Email-->
-          <div class="form-row text-right">
+          <div class="form-row ">
             <div class="col-md-4">
-              <label class="control-label" for="email">Email :</label>
+              <label class="control-label" for="email" style="font-weight: bold">Email </label>
             </div>
             <div class="col-md-8">
               <p id="email" th:text="${customerDetail.email}" class="display_detail"></p>
@@ -66,9 +73,9 @@
         </div>
         <div class="col-md-6">
           <!--Name-->
-          <div class="form-row text-right">
+          <div class="form-row ">
             <div class="col-md-4">
-              <label class="control-label" for="name">Name :</label>
+              <label class="control-label" for="name" style="font-weight: bold">Name </label>
             </div>
             <div class="col-md-8">
               <p id="name" th:text="${customerDetail.title.title} +${' '} +${customerDetail.name}"
@@ -76,11 +83,11 @@
             </div>
           </div>
           <!--Address-->
-          <div class="form-row text-right">
+          <div class="form-row ">
             <div class="col-md-4">
-              <label class="control-label" for="address">Address :</label>
+              <label class="control-label" for="address" style="font-weight: bold">Address </label>
             </div>
-            <div class="col-md-8 text-right">
+            <div class="col-md-8 ">
               <p id="address" class="display_detail " th:utext="${customerDetail.address}"></p>
             </div>
           </div>
@@ -112,14 +119,14 @@
 
           </tr >
           </tbody >
-        </table >k
+        </table >
       </div >
     </div >
 
   </form >
   <div class="form-group col-md-12 col-sm-12 text-center flex-column" >
-    <button class="btn btn-success" type="button" id="btnPrintResult">
-      <i class="fa fa-save" style="font-size: 20px" ></i > Print
+    <button class="btn btn-primary" type="button" id="btnPrintResult">
+      <i class="fa fa-print" style="font-size: 20px" ></i > Print
     </button >
   </div >
 </div >

@@ -57,7 +57,9 @@
                     <th data-th-text="${sampleReceivingLabTest.sampleReceiving.customer.name}"></th>
                     <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th> <th>
                     <a data-th-href="${'/labTestResultEnter/form/view/' + sampleReceivingLabTest.id}"
-                       class="btn btn-outline-secondary btn-sm">View</a>
+                       class="btn btn-secondary btn-sm"><i class="fa fa-list-alt"></i></a>
+                    <a data-th-href="${'/labTestResultEnter/form/print/' + sampleReceivingLabTest.id}"
+                       class="btn btn-primary btn-sm"><i class="fa fa-print"></i></a>
                 </th>
                 </tr>
                 </tbody>
