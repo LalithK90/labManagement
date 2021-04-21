@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Apr 13, 2021 at 08:03 PM
+-- Generation Time: Apr 21, 2021 at 02:13 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   UNIQUE KEY `UK_dwk6cx0afu8bs9o4t536v1j5v` (`email`),
   UNIQUE KEY `UK_4h6a5iro7ibjn1v8g2n7pktiw` (`mobile`),
   UNIQUE KEY `UK_9st6x9trhf0s27g0vgpcaeu3m` (`nic`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `customer`
@@ -95,7 +95,8 @@ CREATE TABLE IF NOT EXISTS `customer` (
 
 INSERT INTO `customer` (`id`, `created_at`, `created_by`, `updated_at`, `updated_by`, `address`, `code`, `company_name`, `customer_type`, `email`, `live_dead`, `mobile`, `name`, `nic`, `title`) VALUES
 (1, '2021-03-30 22:56:57.103061', 'sarithag', '2021-03-30 22:56:57.103061', 'sarithag', 'No.45, Badalgama', 'GRIS210000', 'Global Rubber Industries', 'INTERNAL', 'saminak@gri.com', NULL, '0756353453', 'Saminda Kularathna', '923445632V', 'MR'),
-(2, '2021-03-30 22:58:03.224779', 'sarithag', '2021-03-30 22:58:03.224779', 'sarithag', 'No.98, Colombo07', 'GRIS210001', 'DSI', 'EXTERNAL', 'gihan@dsi.com', NULL, '0772342534', 'Gihan Samaranayake', '912332434V', 'MR');
+(2, '2021-03-30 22:58:03.224779', 'sarithag', '2021-03-30 22:58:03.224779', 'sarithag', 'No.98, Colombo07', 'GRIS210001', 'DSI', 'EXTERNAL', 'gihan@dsi.com', NULL, '0772342534', 'Gihan Samaranayake', '912332434V', 'MR'),
+(3, '2021-04-21 18:42:12.837929', 'sarithag', '2021-04-21 18:42:12.837929', 'sarithag', 'No.650/3, Nadungamuwa', 'GRIS210002', 'Global Rubber Industries', 'INTERNAL', 'ywickramaarachchi.96@gmail.com', NULL, '0756458621', 'Yashika Wickramaarachchi', '345345345V', 'MISS');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   UNIQUE KEY `UK_nbyivu8qgmx0r7wtbplf01gf8` (`code`),
   UNIQUE KEY `UK_dihajhqd7lkqn3lhsawly3t9r` (`nic`),
   UNIQUE KEY `UK_ldqrk7j96ef2tqxsonr4dqf0r` (`office_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `employee`
@@ -169,7 +170,8 @@ INSERT INTO `employee` (`id`, `created_at`, `created_by`, `updated_at`, `updated
 (3, '2021-03-28 19:13:59.701539', 'admin', '2021-03-28 19:13:59.701539', 'admin', 'No.78, Nugegoda', 'Chamod', 'UNMARRIED', 'GRIE210001', '2020-02-11', '1991-08-19', 'QA', 'WORKING', 'MALE', '0332243534', 'ACTIVE', '0773334534', '0753423423', 'Chamod Pieris', '912323534V', 'chamod@gri.com', 'MR'),
 (4, '2021-03-28 19:16:56.791531', 'admin', '2021-03-28 19:16:56.791531', 'admin', 'No.78, Gampaha', 'SamindaK', 'UNMARRIED', 'GRIE210002', '2020-01-01', '1992-12-09', 'TA', 'WORKING', 'MALE', '0332275384', 'ACTIVE', '0756345763', '0773453459', 'Saminda Kularathna', '923445632V', 'saminda@gri.com', 'MRS'),
 (5, '2021-03-28 19:18:33.016048', 'admin', '2021-03-28 19:18:33.016048', 'admin', 'No.8, Ganemulla', 'TharushaW', 'UNMARRIED', 'GRIE210003', '2020-02-01', '1994-12-08', 'LA', 'WORKING', 'FEMALE', '0332234534', 'ACTIVE', '0753643746', '0774534534', 'Tharusha Warusapperuma', '943434534V', 'tharusha@gri.com', 'MISS'),
-(6, '2021-03-28 19:20:28.990556', 'admin', '2021-03-28 19:20:28.990556', 'admin', 'No. 55, Imbulgoda', 'SarithaG', 'UNMARRIED', 'GRIE210004', '2020-02-01', '1996-12-10', 'CA', 'WORKING', 'FEMALE', '0332234534', 'ACTIVE', '0753284234', '0772323454', 'Saritha Gunasekara', '963453453V', 'saritha@gritires.com', 'MRS');
+(6, '2021-03-28 19:20:28.990556', 'admin', '2021-03-28 19:20:28.990556', 'admin', 'No. 55, Imbulgoda', 'SarithaG', 'UNMARRIED', 'GRIE210004', '2020-02-01', '1996-12-10', 'CA', 'WORKING', 'FEMALE', '0332234534', 'ACTIVE', '0753284234', '0772323454', 'Saritha Gunasekara', '963453453V', 'saritha@gritires.com', 'MRS'),
+(8, '2021-04-21 04:14:25.145574', 'admin', '2021-04-21 04:14:37.373987', 'admin', 'No.650/3, Nadungamuwa', 'GanganathW', 'MARRIED', 'GRIE210005', '2021-04-13', '2021-04-20', 'LA', 'WORKING', 'MALE', '0335566998', 'STOP', '0778767367', '0776723678', 'Ganganath Wijesekara', '934878933V', 'charith@gri.com', 'MR');
 
 -- --------------------------------------------------------
 
@@ -229,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `sample_receiving_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKjrgj4j0fxoolb4qsx9jjkr5y5` (`sample_receiving_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `payment`
@@ -247,7 +249,9 @@ INSERT INTO `payment` (`id`, `created_at`, `created_by`, `updated_at`, `updated_
 (13, '2021-04-01 18:01:31.525346', 'sarithag', '2021-04-01 18:01:31.525346', 'sarithag', '0.00', 'GRIP210012', '2021-04-01', 'CASH', NULL, 13),
 (19, '2021-04-13 22:57:03.460902', 'sarithag', '2021-04-13 22:57:03.460902', 'sarithag', '450000.00', 'GRIP210013', '2021-04-13', 'CASH', NULL, 18),
 (20, '2021-04-13 23:00:46.718709', 'sarithag', '2021-04-13 23:00:46.718709', 'sarithag', '75000.00', 'GRIP210014', '2021-04-13', 'CREDIT', NULL, 17),
-(21, '2021-04-13 23:03:51.339427', 'sarithag', '2021-04-13 23:03:51.339427', 'sarithag', '12500.00', 'GRIP210015', '2021-04-08', 'CREDIT', NULL, 9);
+(21, '2021-04-13 23:03:51.339427', 'sarithag', '2021-04-13 23:03:51.339427', 'sarithag', '12500.00', 'GRIP210015', '2021-04-08', 'CREDIT', NULL, 9),
+(22, '2021-04-21 18:37:39.682925', 'sarithag', '2021-04-21 18:37:39.682925', 'sarithag', '0.00', 'GRIP210016', '2021-04-01', 'CASH', NULL, 4),
+(23, '2021-04-21 18:40:10.214510', 'sarithag', '2021-04-21 18:40:10.214510', 'sarithag', '675000.00', 'GRIP210017', '2021-04-21', 'CASH', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -306,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `sample_receiving` (
   KEY `FKnx9yk0isw7j2qrdrlmnqfkvw7` (`compound_id`),
   KEY `FKabotpy92dim50i8xar6dxct27` (`customer_id`),
   KEY `FK8x0822y3hdlctbsvffntygivh` (`discount_ratio_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `sample_receiving`
@@ -316,11 +320,11 @@ INSERT INTO `sample_receiving` (`id`, `created_at`, `created_by`, `updated_at`, 
 (1, '2021-03-30 23:05:55.644398', 'sarithag', '2021-03-31 16:13:23.157482', 'sarithag', '0.00', 'B0001', 'GRIR210000', 'GRIS210000', 'PAID', 1, 1, 1),
 (2, '2021-03-30 23:06:31.463523', 'sarithag', '2021-03-31 18:07:03.131890', 'sarithag', '0.00', 'B0002', 'GRIR210001', 'GRIS210001', 'PAID', 2, 1, 1),
 (3, '2021-03-30 23:06:42.850933', 'sarithag', '2021-04-01 17:42:20.650658', 'sarithag', '0.00', 'B0003', 'GRIR210002', 'GRIS210002', 'PAID', 4, 1, 1),
-(4, '2021-03-30 23:06:58.140864', 'sarithag', '2021-03-30 23:06:58.140864', 'sarithag', '0.00', 'B0004', 'GRIR210003', 'GRIS210003', 'ACTIVE', 4, 1, 2),
+(4, '2021-03-30 23:06:58.140864', 'sarithag', '2021-04-21 18:37:39.734577', 'sarithag', '0.00', 'B0004', 'GRIR210003', 'GRIS210003', 'PPAID', 4, 1, 2),
 (5, '2021-03-31 09:55:38.658196', 'sarithag', '2021-03-31 09:55:38.658196', 'sarithag', '0.00', 'B0001', 'GRIR210004', 'GRIS210004', 'ACTIVE', 1, 1, 1),
 (6, '2021-03-31 09:57:01.978659', 'sarithag', '2021-04-12 16:08:25.671393', 'admin', '150000.00', 'B0002', 'GRIR210005', 'GRIS210005', 'PPAID', 2, 2, 2),
 (7, '2021-03-31 09:58:08.441716', 'sarithag', '2021-03-31 09:58:08.441716', 'sarithag', '450000.00', 'B0004', 'GRIR210006', 'GRIS210006', 'ACTIVE', 3, 2, 2),
-(8, '2021-03-31 09:58:41.234084', 'sarithag', '2021-03-31 09:58:41.234084', 'sarithag', '675000.00', 'B0008', 'GRIR210007', 'GRIS210007', 'ACTIVE', 6, 2, 3),
+(8, '2021-03-31 09:58:41.234084', 'sarithag', '2021-04-21 18:40:10.216505', 'sarithag', '675000.00', 'B0008', 'GRIR210007', 'GRIS210007', 'PAID', 6, 2, 3),
 (9, '2021-03-31 09:58:57.918150', 'sarithag', '2021-04-13 23:03:51.341459', 'sarithag', '12500.00', 'B0009', 'GRIR210008', 'GRIS210008', 'PAID', 10, 2, 4),
 (10, '2021-03-31 09:59:14.224254', 'sarithag', '2021-04-12 16:21:58.523659', 'admin', '450000.00', 'B0010', 'GRIR210009', 'GRIS210009', 'PAID', 6, 2, 2),
 (11, '2021-03-31 10:00:38.366799', 'sarithag', '2021-03-31 10:39:43.622675', 'samindak', '390000.00', 'B0011', 'GRIR210010', 'GRIS210010', 'DISABLED', 7, 2, 2),
@@ -330,7 +334,12 @@ INSERT INTO `sample_receiving` (`id`, `created_at`, `created_by`, `updated_at`, 
 (15, '2021-04-02 00:28:14.958756', 'sarithag', '2021-04-02 00:28:14.958756', 'sarithag', '0.00', 'B00012', 'GRIR210014', 'GRIS210014', 'ACTIVE', 1, 1, 1),
 (16, '2021-04-02 21:11:53.143966', 'sarithag', '2021-04-02 21:11:53.143966', 'sarithag', '75000.00', 'B00006', 'GRIR210015', 'GRIS210015', 'ACTIVE', 1, 2, 2),
 (17, '2021-04-13 02:21:36.414452', 'sarithag', '2021-04-13 23:00:46.757604', 'sarithag', '75000.00', 'B0021', 'GRIR210016', 'GRIS210016', 'PAID', 1, 1, 2),
-(18, '2021-04-13 22:19:27.457506', 'sarithag', '2021-04-13 22:57:03.535701', 'sarithag', '450000.00', 'B0413', 'GRIR210017', 'GRIS210017', 'PAID', 3, 2, 2);
+(18, '2021-04-13 22:19:27.457506', 'sarithag', '2021-04-13 22:57:03.535701', 'sarithag', '450000.00', 'B0413', 'GRIR210017', 'GRIS210017', 'PAID', 3, 2, 2),
+(19, '2021-04-21 03:21:46.601336', 'sarithag', '2021-04-21 03:21:46.601336', 'sarithag', '25000.00', 'B45384573', 'GRIR210018', 'GRIS210018', 'ACTIVE', 11, 2, 2),
+(20, '2021-04-21 03:25:30.470124', 'sarithag', '2021-04-21 03:25:30.470124', 'sarithag', '150000.00', 'B8993', 'GRIR210019', 'GRIS210019', 'ACTIVE', 2, 2, 2),
+(21, '2021-04-21 03:25:41.199908', 'sarithag', '2021-04-21 03:25:41.199908', 'sarithag', '225000.00', 'B0003', 'GRIR210020', 'GRIS210020', 'ACTIVE', 2, 2, 3),
+(22, '2021-04-21 03:25:53.456258', 'sarithag', '2021-04-21 03:25:53.456258', 'sarithag', '0.00', 'B0001', 'GRIR210021', 'GRIS210021', 'ACTIVE', 3, 1, 1),
+(23, '2021-04-21 18:42:45.853828', 'sarithag', '2021-04-21 18:42:45.853828', 'sarithag', '150000.00', 'B0003', 'GRIR210022', 'GRIS210022', 'ACTIVE', 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -353,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `sample_receiving_lab_test` (
   `sample_receiving_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK8j57592pe714f474p7uyl6o61` (`sample_receiving_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `sample_receiving_lab_test`
@@ -391,10 +400,10 @@ INSERT INTO `sample_receiving_lab_test` (`id`, `created_at`, `created_by`, `upda
 (29, '2021-03-31 09:59:14.244188', 'sarithag', '2021-03-31 10:37:39.161459', 'samindak', 'REJECT', 'RHEO', NULL, NULL, NULL, 10),
 (30, '2021-03-31 09:59:14.253221', 'sarithag', '2021-03-31 10:39:56.216887', 'samindak', 'ACCEPT', 'VIS', NULL, NULL, 'NOTRESULTENTER', 10),
 (31, '2021-03-31 10:00:38.368791', 'sarithag', '2021-03-31 10:15:17.742921', 'samindak', 'ACCEPT', 'PYSIC', NULL, NULL, 'NOTRESULTENTER', 11),
-(32, '2021-03-31 10:00:38.368791', 'sarithag', '2021-03-31 10:37:48.560185', 'samindak', 'ACCEPT', 'RHEO', NULL, NULL, 'NOTRESULTENTER', 11),
+(32, '2021-03-31 10:00:38.368791', 'sarithag', '2021-04-21 02:21:41.561896', 'samindak', 'ACCEPT', 'RHEO', NULL, NULL, 'RESULTENTER', 11),
 (33, '2021-03-31 10:00:38.375054', 'sarithag', '2021-03-31 10:39:43.621674', 'samindak', 'REJECT', 'VIS', NULL, NULL, NULL, 11),
 (34, '2021-03-31 10:00:51.887691', 'sarithag', '2021-03-31 10:00:51.887691', 'sarithag', 'PENDING', 'PYSIC', NULL, NULL, NULL, 12),
-(35, '2021-03-31 10:00:51.902401', 'sarithag', '2021-03-31 10:00:51.902401', 'sarithag', 'PENDING', 'RHEO', NULL, NULL, NULL, 12),
+(35, '2021-03-31 10:00:51.902401', 'sarithag', '2021-04-21 02:23:20.236720', 'samindak', 'ACCEPT', 'RHEO', NULL, NULL, 'NOTRESULTENTER', 12),
 (36, '2021-03-31 10:00:51.912982', 'sarithag', '2021-04-01 17:57:17.554943', 'samindak', 'ACCEPT', 'VIS', NULL, NULL, 'NOTRESULTENTER', 12),
 (37, '2021-04-01 17:48:37.877457', 'sarithag', '2021-04-01 17:59:17.864267', 'samindak', 'ACCEPT', 'PYSIC', NULL, NULL, 'RESULTENTER', 13),
 (38, '2021-04-01 17:48:38.003554', 'sarithag', '2021-04-01 17:59:51.398309', 'samindak', 'ACCEPT', 'RHEO', NULL, NULL, 'RESULTENTER', 13),
@@ -413,7 +422,22 @@ INSERT INTO `sample_receiving_lab_test` (`id`, `created_at`, `created_by`, `upda
 (51, '2021-04-13 02:21:37.303045', 'sarithag', '2021-04-13 23:02:47.010914', 'tharushaw', 'ACCEPT', 'VIS', NULL, NULL, 'RESULTENTER', 17),
 (52, '2021-04-13 22:19:27.596605', 'sarithag', '2021-04-13 22:34:56.774874', 'tharushaw', 'ACCEPT', 'PYSIC', NULL, NULL, 'RESULTENTER', 18),
 (53, '2021-04-13 22:19:27.667414', 'sarithag', '2021-04-13 22:54:37.056926', 'tharushaw', 'ACCEPT', 'RHEO', NULL, NULL, 'RESULTENTER', 18),
-(54, '2021-04-13 22:19:27.727773', 'sarithag', '2021-04-13 22:55:03.978674', 'tharushaw', 'ACCEPT', 'VIS', NULL, NULL, 'RESULTENTER', 18);
+(54, '2021-04-13 22:19:27.727773', 'sarithag', '2021-04-13 22:55:03.978674', 'tharushaw', 'ACCEPT', 'VIS', NULL, NULL, 'RESULTENTER', 18),
+(55, '2021-04-21 03:21:46.666209', 'sarithag', '2021-04-21 03:21:46.666209', 'sarithag', 'PENDING', 'PYSIC', NULL, NULL, NULL, 19),
+(56, '2021-04-21 03:21:46.723158', 'sarithag', '2021-04-21 03:21:46.723158', 'sarithag', 'PENDING', 'RHEO', NULL, NULL, NULL, 19),
+(57, '2021-04-21 03:21:46.730145', 'sarithag', '2021-04-21 03:21:46.730145', 'sarithag', 'PENDING', 'VIS', NULL, NULL, NULL, 19),
+(58, '2021-04-21 03:25:30.472151', 'sarithag', '2021-04-21 03:25:30.472151', 'sarithag', 'PENDING', 'PYSIC', NULL, NULL, NULL, 20),
+(59, '2021-04-21 03:25:30.474117', 'sarithag', '2021-04-21 03:25:30.474117', 'sarithag', 'PENDING', 'RHEO', NULL, NULL, NULL, 20),
+(60, '2021-04-21 03:25:30.476106', 'sarithag', '2021-04-21 03:25:30.476106', 'sarithag', 'PENDING', 'VIS', NULL, NULL, NULL, 20),
+(61, '2021-04-21 03:25:41.202899', 'sarithag', '2021-04-21 03:25:41.202899', 'sarithag', 'PENDING', 'PYSIC', NULL, NULL, NULL, 21),
+(62, '2021-04-21 03:25:41.203896', 'sarithag', '2021-04-21 03:25:41.203896', 'sarithag', 'PENDING', 'RHEO', NULL, NULL, NULL, 21),
+(63, '2021-04-21 03:25:41.205897', 'sarithag', '2021-04-21 03:25:41.205897', 'sarithag', 'PENDING', 'VIS', NULL, NULL, NULL, 21),
+(64, '2021-04-21 03:25:53.457255', 'sarithag', '2021-04-21 03:25:53.457255', 'sarithag', 'PENDING', 'PYSIC', NULL, NULL, NULL, 22),
+(65, '2021-04-21 03:25:53.459292', 'sarithag', '2021-04-21 03:25:53.459292', 'sarithag', 'PENDING', 'RHEO', NULL, NULL, NULL, 22),
+(66, '2021-04-21 03:25:53.461244', 'sarithag', '2021-04-21 03:25:53.461244', 'sarithag', 'PENDING', 'VIS', NULL, NULL, NULL, 22),
+(67, '2021-04-21 18:42:45.875769', 'sarithag', '2021-04-21 18:43:24.125985', 'samindak', 'ACCEPT', 'PYSIC', NULL, NULL, 'NOTRESULTENTER', 23),
+(68, '2021-04-21 18:42:45.901698', 'sarithag', '2021-04-21 18:43:43.068108', 'samindak', 'ACCEPT', 'RHEO', NULL, NULL, 'NOTRESULTENTER', 23),
+(69, '2021-04-21 18:42:45.903694', 'sarithag', '2021-04-21 18:43:57.810449', 'samindak', 'ACCEPT', 'VIS', NULL, NULL, 'NOTRESULTENTER', 23);
 
 -- --------------------------------------------------------
 
@@ -435,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `sample_receiving_lab_test_result` (
   PRIMARY KEY (`id`),
   KEY `FKtirgedd4r2hfnw8rgjd6qfepo` (`sample_receiving_lab_test_id`),
   KEY `FK69g6rqxksfvbqkdasu077vw2p` (`specification_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `sample_receiving_lab_test_result`
@@ -541,10 +565,10 @@ INSERT INTO `sample_receiving_lab_test_result` (`id`, `created_at`, `created_by`
 (97, '2021-03-31 10:37:42.698765', 'samindak', '2021-03-31 10:55:08.956725', 'samindak', 'FAIL', 6, 26, 144),
 (98, '2021-03-31 10:37:42.700215', 'samindak', '2021-03-31 10:55:08.956725', 'samindak', 'PASS', 345, 26, 147),
 (99, '2021-03-31 10:37:42.701176', 'samindak', '2021-03-31 10:55:08.956725', 'samindak', 'PASS', 4566, 26, 148),
-(100, '2021-03-31 10:37:48.550207', 'samindak', '2021-03-31 10:37:48.550207', 'samindak', 'FAIL', 0, 32, 94),
-(101, '2021-03-31 10:37:48.552205', 'samindak', '2021-03-31 10:37:48.552205', 'samindak', 'FAIL', 0, 32, 95),
-(102, '2021-03-31 10:37:48.554200', 'samindak', '2021-03-31 10:37:48.554200', 'samindak', 'FAIL', 0, 32, 96),
-(103, '2021-03-31 10:37:48.558189', 'samindak', '2021-03-31 10:37:48.558189', 'samindak', 'FAIL', 0, 32, 97),
+(100, '2021-03-31 10:37:48.550207', 'samindak', '2021-04-21 02:21:41.635412', 'samindak', 'PASS', 3, 32, 94),
+(101, '2021-03-31 10:37:48.552205', 'samindak', '2021-04-21 02:21:41.636447', 'samindak', 'PASS', 35, 32, 95),
+(102, '2021-03-31 10:37:48.554200', 'samindak', '2021-04-21 02:21:41.637441', 'samindak', 'PASS', 5, 32, 96),
+(103, '2021-03-31 10:37:48.558189', 'samindak', '2021-04-21 02:21:41.638439', 'samindak', 'PASS', 46, 32, 97),
 (104, '2021-03-31 10:38:56.258701', 'samindak', '2021-03-31 10:43:32.859457', 'samindak', 'FAIL', 45, 3, 14),
 (105, '2021-03-31 10:39:01.527984', 'samindak', '2021-03-31 10:43:41.670673', 'samindak', 'PASS', 89, 6, 28),
 (106, '2021-03-31 10:39:05.382992', 'samindak', '2021-03-31 10:44:34.619672', 'tharushaw', 'PASS', 90, 9, 56),
@@ -597,7 +621,25 @@ INSERT INTO `sample_receiving_lab_test_result` (`id`, `created_at`, `created_by`
 (153, '2021-04-13 22:20:43.097049', 'tharushaw', '2021-04-13 22:54:37.058920', 'tharushaw', 'PASS', 34, 53, 39),
 (154, '2021-04-13 22:20:43.100053', 'tharushaw', '2021-04-13 22:54:37.059918', 'tharushaw', 'PASS', 12, 53, 40),
 (155, '2021-04-13 22:20:43.116828', 'tharushaw', '2021-04-13 22:54:37.060915', 'tharushaw', 'FAIL', 11, 53, 41),
-(156, '2021-04-13 22:20:54.182155', 'tharushaw', '2021-04-13 22:55:03.979713', 'tharushaw', 'PASS', 235, 54, 42);
+(156, '2021-04-13 22:20:54.182155', 'tharushaw', '2021-04-13 22:55:03.979713', 'tharushaw', 'PASS', 235, 54, 42),
+(157, '2021-04-21 02:23:20.181138', 'samindak', '2021-04-21 02:23:20.181138', 'samindak', 'FAIL', 0, 35, 52),
+(158, '2021-04-21 02:23:20.230703', 'samindak', '2021-04-21 02:23:20.230703', 'samindak', 'FAIL', 0, 35, 53),
+(159, '2021-04-21 02:23:20.232733', 'samindak', '2021-04-21 02:23:20.232733', 'samindak', 'FAIL', 0, 35, 54),
+(160, '2021-04-21 02:23:20.234725', 'samindak', '2021-04-21 02:23:20.234725', 'samindak', 'FAIL', 0, 35, 55),
+(161, '2021-04-21 18:43:23.855260', 'samindak', '2021-04-21 18:43:23.855260', 'samindak', 'FAIL', 0, 67, 15),
+(162, '2021-04-21 18:43:23.883861', 'samindak', '2021-04-21 18:43:23.883861', 'samindak', 'FAIL', 0, 67, 16),
+(163, '2021-04-21 18:43:24.047397', 'samindak', '2021-04-21 18:43:24.047397', 'samindak', 'FAIL', 0, 67, 17),
+(164, '2021-04-21 18:43:24.097105', 'samindak', '2021-04-21 18:43:24.097105', 'samindak', 'FAIL', 0, 67, 18),
+(165, '2021-04-21 18:43:24.105042', 'samindak', '2021-04-21 18:43:24.105042', 'samindak', 'FAIL', 0, 67, 19),
+(166, '2021-04-21 18:43:24.112059', 'samindak', '2021-04-21 18:43:24.112059', 'samindak', 'FAIL', 0, 67, 20),
+(167, '2021-04-21 18:43:24.116048', 'samindak', '2021-04-21 18:43:24.116048', 'samindak', 'FAIL', 0, 67, 21),
+(168, '2021-04-21 18:43:24.120041', 'samindak', '2021-04-21 18:43:24.120041', 'samindak', 'FAIL', 0, 67, 22),
+(169, '2021-04-21 18:43:24.123026', 'samindak', '2021-04-21 18:43:24.123026', 'samindak', 'FAIL', 0, 67, 23),
+(170, '2021-04-21 18:43:43.062124', 'samindak', '2021-04-21 18:43:43.062124', 'samindak', 'FAIL', 0, 68, 24),
+(171, '2021-04-21 18:43:43.063122', 'samindak', '2021-04-21 18:43:43.063122', 'samindak', 'FAIL', 0, 68, 25),
+(172, '2021-04-21 18:43:43.065159', 'samindak', '2021-04-21 18:43:43.065159', 'samindak', 'FAIL', 0, 68, 26),
+(173, '2021-04-21 18:43:43.066113', 'samindak', '2021-04-21 18:43:43.066113', 'samindak', 'FAIL', 0, 68, 27),
+(174, '2021-04-21 18:43:57.808455', 'samindak', '2021-04-21 18:43:57.808455', 'samindak', 'FAIL', 0, 69, 28);
 
 -- --------------------------------------------------------
 
@@ -864,7 +906,7 @@ CREATE TABLE IF NOT EXISTS `user_session_log` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKrhb4wune1hnnhdsbiah2ojo5l` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user_session_log`
@@ -1041,7 +1083,42 @@ INSERT INTO `user_session_log` (`id`, `created_at`, `failure_attempts`, `user_se
 (168, '2021-04-13 23:01:25.715303', 0, 'LOGGED', 5),
 (169, '2021-04-13 23:02:51.901094', 0, 'LOGOUT', 5),
 (170, '2021-04-13 23:02:58.478174', 0, 'LOGGED', 6),
-(171, '2021-04-13 23:28:56.644325', 0, 'LOGGED', 6);
+(171, '2021-04-13 23:28:56.644325', 0, 'LOGGED', 6),
+(172, '2021-04-14 01:48:38.316787', 0, 'LOGGED', 6),
+(173, '2021-04-16 00:42:46.154838', 0, 'LOGGED', 1),
+(174, '2021-04-16 00:50:14.691296', 0, 'LOGGED', 1),
+(175, '2021-04-17 04:14:37.614728', 0, 'LOGGED', 1),
+(176, '2021-04-17 05:24:39.234247', 0, 'LOGGED', 1),
+(177, '2021-04-20 23:02:29.512827', 0, 'LOGGED', 1),
+(178, '2021-04-20 23:03:19.982280', 0, 'LOGOUT', 1),
+(179, '2021-04-20 23:03:28.838195', 0, 'LOGGED', 6),
+(180, '2021-04-20 23:19:45.713720', 0, 'LOGOUT', 6),
+(181, '2021-04-20 23:19:53.811372', 0, 'LOGGED', 4),
+(182, '2021-04-20 23:22:09.441331', 0, 'LOGOUT', 4),
+(183, '2021-04-20 23:22:14.448188', 0, 'LOGGED', 1),
+(184, '2021-04-21 00:43:07.447615', 0, 'LOGGED', 1),
+(185, '2021-04-21 01:50:16.876121', 0, 'LOGGED', 1),
+(186, '2021-04-21 02:13:00.983687', 0, 'LOGOUT', 1),
+(187, '2021-04-21 02:13:10.569775', 0, 'LOGGED', 6),
+(188, '2021-04-21 02:13:23.554453', 0, 'LOGOUT', 6),
+(189, '2021-04-21 02:13:31.569538', 0, 'LOGGED', 1),
+(190, '2021-04-21 02:17:04.931299', 0, 'LOGOUT', 1),
+(191, '2021-04-21 02:17:13.389775', 0, 'LOGGED', 6),
+(192, '2021-04-21 02:17:27.218869', 0, 'LOGOUT', 6),
+(193, '2021-04-21 02:20:10.553941', 0, 'LOGGED', 4),
+(194, '2021-04-21 03:21:24.907412', 0, 'LOGGED', 6),
+(195, '2021-04-21 03:21:51.111537', 0, 'LOGOUT', 6),
+(196, '2021-04-21 03:21:57.217065', 0, 'LOGGED', 1),
+(197, '2021-04-21 03:24:59.431108', 0, 'LOGOUT', 1),
+(198, '2021-04-21 03:25:08.591837', 0, 'LOGGED', 6),
+(199, '2021-04-21 03:28:04.635267', 0, 'LOGOUT', 6),
+(200, '2021-04-21 03:28:09.899762', 0, 'LOGGED', 1),
+(201, '2021-04-21 03:58:34.713862', 0, 'LOGGED', 1),
+(202, '2021-04-21 04:03:45.820809', 0, 'LOGGED', 1),
+(203, '2021-04-21 16:47:36.984005', 0, 'LOGGED', 1),
+(204, '2021-04-21 18:37:23.194229', 0, 'LOGGED', 6),
+(205, '2021-04-21 18:43:00.463977', 0, 'LOGOUT', 6),
+(206, '2021-04-21 18:43:11.171727', 0, 'LOGGED', 4);
 
 --
 -- Constraints for dumped tables
