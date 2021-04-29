@@ -76,12 +76,16 @@ public class CustomerController implements AbstractController<Customer, Integer>
                 customer.setCode("GRIS"+makeAutoGenerateNumberService.numberAutoGen(previousCode).toString());
             }
             //send welcome message and email
-            if (customer.getEmail() != null) {
-                emailService.sendEmail(customer.getEmail(), "Welcome Message", "Welcome to GRI...");
-            }
-            if (customer.getMobile() != null) {
-                //    twilioMessageService.sendSMS(customer.getMobile(), "Welcome to Kmart Super");
-            }
+
+           /* if (customer.getMobile() != null) {
+                try {
+                    String mobileNumber = customer.getMobile().substring(1, 10);
+                    twilioMessageService.sendSMS("+94" + mobileNumber, "Successfully registered in " +
+                            "GRI Lab \nPlease Check Your Email Form Further Details");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }*/
         }
 
         redirectAttributes.addFlashAttribute("customerDetail", customerService.persist(customer));

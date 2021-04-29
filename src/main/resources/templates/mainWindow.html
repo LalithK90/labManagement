@@ -8,7 +8,7 @@
 <nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 
 <div class="container-fluid">
-   <!--Breadcrumb-->
+    <!--Breadcrumb-->
     <div class="row">
         <div class="col-12">
             <nav aria-label="breadcrumb">
@@ -23,120 +23,162 @@
         <br>
         <div class="col-12">
             <div class="row">
-                <div class="col-7">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Employees</div>
-                                            <a href="/employee" data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR', 'ROLE_SQA', 'ROLE_QA','ROLE_TM', 'ROLE_LA','ROLE_CA')" >
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Employee Details</div>
-                                            </a>
+                <div class="col-4" style="padding-bottom: .75rem"
+                     data-sec-authorize="hasAnyAuthority('ROLE_ADMIN','ROLE_HR', 'ROLE_SQA', 'ROLE_QA','ROLE_TM', 'ROLE_LA','ROLE_CA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Employees</div>
+                                    <a href="/employee">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Employee Details
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Customers</div>
-                                            <a href="/customer" data-sec-authorize="hasAnyAuthority('ROLE_CA')" >
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Customer Details</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-user-tie fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Samples</div>
-                                            <a href="/sampleReceiving" data-sec-authorize="hasAnyAuthority('ROLE_CA')">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Sample Details</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-file-alt fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Compounds</div>
-                                            <a href="/compound" data-sec-authorize="hasAnyAuthority('ROLE_SQA', 'ROLE_QA', 'ROLE_TM', 'ROLE_LA')">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Compound Details</div>
-                                            </a>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem" data-sec-authorize="hasAnyAuthority('ROLE_CA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Customers</div>
+                                    <a href="/customer">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Customer Details
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-vial fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body ">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Laboratory Test</div>
-                                            <a href="/labTestResultEnter/form" data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA', 'ROLE_SQA', 'ROLE_QA')">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Test Details</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-vials fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card border-left-primary shadow">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Payments</div>
-                                            <a href="/payment/needToPay" data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Manage Payment Details</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-tie fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-5 bg-light formBorder">
-                        <canvas id="myChart">
-
-                        </canvas>
+                <div class="col-4" style="padding-bottom: .75rem" data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Discount details</div>
+                                    <a href="/discountRatio">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Discount Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-percent fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem" data-sec-authorize="hasAnyAuthority('ROLE_CA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Samples Receiving</div>
+                                    <a href="/sampleReceiving">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Sample Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem"
+                     data-sec-authorize="hasAnyAuthority('ROLE_SQA', 'ROLE_QA', 'ROLE_TM', 'ROLE_LA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Compounds</div>
+                                    <a href="/compound">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Compound Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-vial fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem"
+                     data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA', 'ROLE_SQA', 'ROLE_QA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body ">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Laboratory Test</div>
+                                    <a href="/labTestResultEnter/form">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Test Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-vials fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem" data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Samples Acceptance</div>
+                                    <a href="/sample/acceptability">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Sample Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" style="padding-bottom: .75rem"
+                     data-sec-authorize="hasAnyAuthority('ROLE_CA','ROLE_ACC')">
+                    <div class="card border-left-primary shadow">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Payments</div>
+                                    <a href="/payment/needToPay">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Manage Payment Details
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

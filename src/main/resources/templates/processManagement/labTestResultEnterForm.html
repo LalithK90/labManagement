@@ -9,17 +9,25 @@
 <!--Form to enter results-->
 <!--heading Area-->
 <div class="container-fluid  form-Border" >
-  <div class="row text-left formManagement border-info" >
-    <div class="col" >
-      <a href="/home" id="searchShow" class="btn btn-outline-info" >&nbsp;&nbsp;Back To Home
-      </a >
-    </div >
-  </div >
+
+  <!--Breadcrumb-->
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">[[${sampleReceivingLabTest.labTestName.labTestName}]]</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!--End of Breadcrumb-->
+
   <div class="row" >
     <div class="col" >
       <h2 class="text-info text-center text-capitalize" >
         <strong >
-          Laboratory Test  [[${sampleReceivingLabTest.labTestName.labTestName}]]
+          [[${sampleReceivingLabTest.labTestName.labTestName}]]
         </strong >
       </h2 >
     </div >

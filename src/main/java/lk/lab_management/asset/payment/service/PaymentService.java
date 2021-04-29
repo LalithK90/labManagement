@@ -7,6 +7,7 @@ import lk.lab_management.asset.sample_receiving.entity.SampleReceiving;
 import lk.lab_management.util.interfaces.AbstractService;
 import lk.lab_management.util.service.EmailService;
 import lk.lab_management.util.service.MakeAutoGenerateNumberService;
+import lk.lab_management.util.service.TwilioMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,12 +24,14 @@ public class PaymentService implements AbstractService<Payment, Integer> {
     private final PaymentDao paymentDao;
     private final MakeAutoGenerateNumberService makeAutoGenerateNumberService;
     private final EmailService emailService;
+    private final TwilioMessageService twilioMessageService;
 
     @Autowired
-    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService, EmailService emailService) {
+    public PaymentService(PaymentDao paymentDao, MakeAutoGenerateNumberService makeAutoGenerateNumberService, EmailService emailService, TwilioMessageService twilioMessageService) {
         this.paymentDao = paymentDao;
         this.makeAutoGenerateNumberService = makeAutoGenerateNumberService;
         this.emailService = emailService;
+        this.twilioMessageService = twilioMessageService;
     }
 
     @Cacheable
@@ -65,6 +68,16 @@ public class PaymentService implements AbstractService<Payment, Integer> {
                     "\n Amount      :" + payment.getAmount();
             emailService.sendEmail(customer.getEmail(), "Payment Successful", message);
         }
+
+        if (customer.getMobile() != null) {
+            try {
+                String mobileNumber = customer.getMobile().substring(1, 10);
+                twilioMessageService.sendSMS("+94" + mobileNumber, "Successfully registered in " +
+                        "GRI Lab \nPlease Check Your Email Form Further Details");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return payment1;
     }
 
@@ -88,12 +101,12 @@ public class PaymentService implements AbstractService<Payment, Integer> {
         return paymentDao.findBySampleReceiving(sampleReceiving);
     }
 
-    public List< Payment > findByCreatedAtIsBetween(LocalDateTime from, LocalDateTime to) {
+    public List<Payment> findByCreatedAtIsBetween(LocalDateTime from, LocalDateTime to) {
         return paymentDao.findByCreatedAtIsBetween(from, to);
 
     }
 
-    public List< Payment > findByCreatedAtIsBetweenAndCreatedBy(LocalDateTime from, LocalDateTime to, String userName) {
+    public List<Payment> findByCreatedAtIsBetweenAndCreatedBy(LocalDateTime from, LocalDateTime to, String userName) {
         return paymentDao.findByCreatedAtIsBetweenAndCreatedBy(from, to, userName);
     }
 }

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 public class TwilioMessageService {
     //Find your Account Sid and Token at twilio.com/user/account
     public static final String ACCOUNT_SID = "ACde1608671631262faf2b36af33322771";
-    public static final String AUTH_TOKEN = "7bbaaf3427952c07ec74ed8c9b235cec";
+    public static final String AUTH_TOKEN = "193559957f8200b66bafe0f6a057af71";
 
 
     public void sendSMS(String number, String messageBody) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message
-                .creator(new PhoneNumber(number), new PhoneNumber("+19386666123"),
+                .creator(new PhoneNumber(number), new PhoneNumber("+19522605074"),
                          messageBody)
                 .create();
 

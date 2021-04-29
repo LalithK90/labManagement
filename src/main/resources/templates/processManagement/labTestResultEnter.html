@@ -8,6 +8,19 @@
 <!--Display all the accepted lab test-->
 <div class="container-fluid  form-Border">
 
+    <!--Breadcrumb-->
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Laboratory Test</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--End of Breadcrumb-->
+
     <div class="row text-center">
         <div class="col">
             <h4 class="text-info text-center">
@@ -25,9 +38,10 @@
     <div class="container">
         <h4>Enter Results</h4>
         <div class="form-row">
-            <div class="col-4" data-th-each="labTestName : ${labTestNames}">
+            <div class="col-4" data-th-each="labTestName : ${labTestNames}" >
                 <a data-th-href="${'/labTestResultEnter/form/'+labTestName}">
-                    <button class="btn btn-primary" type="button" data-th-text="${labTestName.labTestName}"></button>
+                    <button class="btn btn-primary" type="button" data-th-text="${labTestName.labTestName}"
+                            data-sec-authorize="hasAnyAuthority('ROLE_TM', 'ROLE_LA')"></button>
                 </a>
             </div>
         </div>
@@ -37,7 +51,7 @@
 <br>
 <div class="container-fluid  text-center" data-th-if="${not showList}">
     <div class="container">
-        <h4>View Results</h4>
+        <h4>View/Print Results</h4>
         <div class="form-row">
             <div class="col-4" data-th-each="labTestName : ${labTestNames}">
                 <a data-th-href="${'/labTestResultEnter/form/'+labTestName}+'/view'">
@@ -76,11 +90,9 @@
                     <th data-th-text="${{sampleReceivingLabTest.sampleReceiving.createdAt}}"></th> <th>
                     <!--todo: security config-->
                     <a data-th-href="${'/labTestResultEnter/form/edit/' + sampleReceivingLabTest.id}"
-                       class="btn btn-outline-secondary btn-sm">Edit</a>
+                       class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></i></a>
                     <a data-th-href="${'/labTestResultEnter/form/add/' + sampleReceivingLabTest.id}"
                        class="btn btn-primary btn-sm">Result Enter</a>
-                    <a data-th-href="${'/labTestResultEnter/form/print/' + sampleReceivingLabTest.id}"
-                       class="btn btn-outline-secondary btn-sm">Print/View</a>
                 </th>
                 </tr>
                 </tbody>
@@ -94,11 +106,9 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h3 class="text-center text-danger">
-                    <strong>There is no sampleReceiving upto now please add sampleReceiving to the system
-                        using "New" button.
-                    </strong>
-                </h3>
+                <h6 class="text-center text-danger">
+                    No records upto now. Please add record to the system using add button.
+                </h6>
             </div>
         </div>
         <script>
